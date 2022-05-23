@@ -28,7 +28,7 @@ namespace ElementoGrafico {
 	void AnimacaoMovimento::atualizar(Matematica::CoordenadaF pos, bool Esquerda, float tempo, Ids::Ids id, Matematica::CoordenadaF escala) {
 		if (ID != id) {
 			ID = id;
-			mapAnimacaoMovimento[ID]->resetar();
+			//mapAnimacaoMovimento[ID]->resetar();
 		}
 		mapAnimacaoMovimento[ID]->atualizar(Esquerda, tempo);
 		corpo.setScale(sf::Vector2f(escala.x, escala.y));

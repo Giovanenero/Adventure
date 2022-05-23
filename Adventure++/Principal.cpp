@@ -22,8 +22,8 @@ void Principal::Executar() {
 		pEvento->pollEvents();
 		pGrafico->limpar();
 
-		//dog->atualizar(tempo);
-		//dog->renderizar();
+		dog->atualizar(tempo);
+		dog->renderizar();
 		jogador1->atualizar(tempo);
 		jogador1->renderizar();
 
