@@ -5,12 +5,8 @@ namespace Gerenciador {
 		ListaEntidadeEstatica(LEstatica), ListaEntidadeMovimento(LMovimento) { }
 
 	GerenciadorColisao::~GerenciadorColisao() {
-		if (ListaEntidadeEstatica) {
-			ListaEntidadeEstatica = nullptr;
-		}
-		if (ListaEntidadeMovimento) {
-			ListaEntidadeMovimento = nullptr;
-		}
+		ListaEntidadeEstatica = nullptr;
+		ListaEntidadeMovimento = nullptr;
 	}
 	void GerenciadorColisao::Colisao() {
 		Entidade::Entidade* Entidade1 = nullptr;

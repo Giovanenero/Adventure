@@ -31,7 +31,8 @@ namespace Gerenciador {
 	}
 
 	void GerenciadorGrafico::renderizacao(sf::RectangleShape* corpo) { 
-		window->draw(*corpo);}
+		window->draw(*corpo);
+	}
 	
 	void GerenciadorGrafico::mostrar() {
 		if (window->isOpen()) {

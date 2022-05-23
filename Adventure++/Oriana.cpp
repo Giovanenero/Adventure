@@ -2,45 +2,24 @@
 
 namespace Entidade {
 	namespace Personagem {
-		Oriana::Oriana(Matematica::CoordenadaF pos): 
-			Personagem(pos, Matematica::CoordenadaF(TAMX, TAMY), Ids::Ids::jogador1), 
+		Oriana::Oriana(Matematica::CoordenadaF pos) :
+			Jogador(pos, Matematica::CoordenadaF(TAMX, TAMY), Ids::Ids::jogador1),
 			EhJogador1(true)
 		{
 			velocidade = Matematica::CoordenadaF(0.05f, 0.1f);
 			inicializacao();
 		}
-		
-		Oriana::~Oriana() {
 
-		}	
+		Oriana::~Oriana() { }
 
-		void Oriana::atualizar(float tempo) {
-			this->tempo += tempo;
-			if (this->tempo < 5) {
-				//parametro(pos, EhEsquerda, tempo, id)
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::atacar);
-			}
-			else {
-				tempo = 0;
-			}
-		}
+		//inicializa as animacoes
 		void Oriana::inicializacao() {
-			//parametro(caminhoTexto, contaImagem, id)
-			pAnimacaoMovimento->novaAnimacao("atacando.png", 22, Ids::Ids::atacar);
-		}
-		void Oriana::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-			switch (pEntidade->getID())
-			{
-			case Ids::Ids::plataforma:
-			{
-				colisaoPlataforma(intersecao, pEntidade);
-				break;
-			}
-			//colisao com todas as entidades...
-			//terminar...
-			default:
-				break;
-			}
+			//parametro(caminhoTexto, contaImagem, id, escala)
+			pAnimacaoMovimento->novaAnimacao("textura/orianaParada.png", 15, Ids::Ids::parar);
+			pAnimacaoMovimento->novaAnimacao("textura/orianaMorrendo.png", 15, Ids::Ids::morrer);
+			pAnimacaoMovimento->novaAnimacao("textura/orianaPulando.png", 15, Ids::Ids::pular);
+			pAnimacaoMovimento->novaAnimacao("textura/orianaAtacando.png", 22, Ids::Ids::atacar);
+			pAnimacaoMovimento->novaAnimacao("textura/orianaAndando.png", 8, Ids::Ids::andar);
 		}
 	}
 }

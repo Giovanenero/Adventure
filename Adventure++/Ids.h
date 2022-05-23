@@ -10,6 +10,9 @@ namespace Ids {
 		parar = 5,
 		pular = 6,
 		atacar = 7,
-		morrer = 8
+		morrer = 8,
+		dog = 9,
+		ataquedog = 10,
+		corredog = 11
 	};
 }
