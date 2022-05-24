@@ -11,14 +11,13 @@ namespace Entidade {
 			private:
 				Oriana* pOriana;
 			public:
-				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Oriana* pOriana, const int vida, Matematica::CoordenadaF vel);
 				~Inimigo();
 				void setOriana(Oriana* pOriana);
+				Oriana* getOriana();
 				Matematica::CoordenadaF getDistanciaJogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 				void atualizar(float tempo);
-				void inicializacao();
-				//terminar...
 			};
 
 	}

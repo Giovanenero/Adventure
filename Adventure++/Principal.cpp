@@ -5,8 +5,8 @@ using namespace Gerenciador;
 Principal::Principal(): 
 	pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
 	pEvento(GerenciadorEvento::getGerenciadorEvento()),
-	jogador1(new Entidade::Personagem::Oriana(Matematica::CoordenadaF(200.0f, 500.0f))),
-	dog(new Entidade::Personagem::Inimigo(Matematica::CoordenadaF(600.0f, 500.0f), Matematica::CoordenadaF(50.0f, 80.0f), Ids::Ids::dog))
+	pOriana(new Entidade::Personagem::Oriana(Matematica::CoordenadaF(200.0f, 500.0f))),
+	pPascal(new Entidade::Personagem::Pascal(Matematica::CoordenadaF(600.0f, 500.0f), pOriana))
 {
 	Executar();
 }
@@ -17,15 +17,15 @@ Principal::~Principal() {
 
 void Principal::Executar() {
 	float tempo = 0.f;
+	pEvento->setOriana(pOriana);
 	while (pGrafico->isWindowOpen()) {
 		tempo = pGrafico->atualizartempo();
 		pEvento->pollEvents();
 		pGrafico->limpar();
 
-		dog->atualizar(tempo);
-		dog->renderizar();
-		jogador1->atualizar(tempo);
-		jogador1->renderizar();
+		pEvento->eventojogador(tempo);
+		pPascal->atualizar(tempo);
+		pPascal->renderizar();
 
 		pGrafico->mostrar();
 	}

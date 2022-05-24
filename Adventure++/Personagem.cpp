@@ -2,9 +2,9 @@
 
 namespace Entidade {
 	namespace Personagem {
-		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id) :
-			EntidadeMovimento(pos, tam, id), vida(VIDA), morrer(false),
-			olharEsquerda(false), velocidade(Matematica::CoordenadaF(0.f, 0.f)),
+		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const int vida, Matematica::CoordenadaF vel) :
+			EntidadeMovimento(pos, tam, id), vida(vida), morrer(false),
+			olharEsquerda(false), velocidade(vel),
 			tempoAtaque(TEMPOATAQUE), atacando(false), tempoAtacando(0.f),
 			carregarAtaque(0.f) { }
 

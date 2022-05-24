@@ -21,8 +21,8 @@ namespace Entidade {
 		void setTamanho(Matematica::CoordenadaF tam);
 		Matematica::CoordenadaF getTamanho() const;
 		Ids::Ids getID() const;
-		//virtual void renderizar() = 0;
-		 //virtual void inicializacao() = 0;
+		virtual void renderizar() = 0;
+		virtual void inicializacao() = 0;
 		virtual void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) = 0;
 	};
 }

@@ -6,15 +6,13 @@ namespace Entidade {
 	namespace Personagem {
 			class Jogador : public Personagem
 			{
-			protected:
-				//terminar...
-			private:
-				//terminar...
 			public:
-				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const int vida, Matematica::CoordenadaF vel);
 				~Jogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
-				void atualizar(float tempo);
+				void andar(const bool paraEsquerda, const float tempo);
+				void atacar(const float tempo);
+				void parar(const float tempo);
 			};
 	}
 }

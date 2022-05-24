@@ -1,14 +1,16 @@
 #include "GerenciadorEvento.h"
 
+//arrumar...teste
+#include "AnimacaoMovimento.h"
+
 namespace Gerenciador {
 
 	GerenciadorEvento* GerenciadorEvento::pEvento = nullptr;
 
 	GerenciadorEvento::GerenciadorEvento():
 		pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
-		window(nullptr)
+		window(nullptr), pOriana(nullptr)
 	{
-		//terminar...
 		if (pGrafico != nullptr) {
 			window = pGrafico->getWindow();
 		}
@@ -26,6 +28,10 @@ namespace Gerenciador {
 		return pEvento;
 	}
 
+	void GerenciadorEvento::setOriana(Entidade::Personagem::Oriana* pOriana) {
+		this->pOriana = pOriana;
+	}
+
 	void GerenciadorEvento::pollEvents() {
 		sf::Event evento;
 		while (window->pollEvent(evento)) {
@@ -33,5 +39,26 @@ namespace Gerenciador {
 				pGrafico->fecharJanela();
 			}
 		}
+	}
+	void GerenciadorEvento::eventojogador(const float tempo) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+			pOriana->andar(true, tempo);
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+				pOriana->atacar(tempo);
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+			pOriana->andar(false, tempo);
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+				pOriana->atacar(tempo);
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			pOriana->atacar(tempo);
+		}
+		else {
+			pOriana->parar(tempo);
+		}
+		pOriana->renderizar();
 	}
 }

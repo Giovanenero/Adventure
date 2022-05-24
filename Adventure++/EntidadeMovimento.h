@@ -14,7 +14,6 @@ namespace Entidade {
 		EntidadeMovimento(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 		~EntidadeMovimento();
 		void renderizar();
-		//virtual void atualizar(float tempo) = 0;
 	};
 }
 

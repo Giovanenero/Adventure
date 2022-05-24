@@ -1,18 +1,20 @@
 #pragma once
 
 namespace Ids {
-	enum Ids {
+	enum class Ids {
 		vazio = 0,
-		plataforma = 1,
-		jogador1 = 2,
-		inimigo = 3,
-		andar = 4,
-		parar = 5,
-		pular = 6,
-		atacar = 7,
-		morrer = 8,
-		dog = 9,
-		ataquedog = 10,
-		corredog = 11
+		plataforma,
+		oriana,
+		oriana_anda,
+		oriana_para,
+		oriana_pula,
+		oriana_ataca,
+		oriana_morre,
+		pascal,
+		pascal_anda,
+		pascal_ataca,
+		pascal_morre,
+		pascal_tomaDano,
+		pascal_para
 	};
 }

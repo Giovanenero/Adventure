@@ -3,8 +3,11 @@
 #include "Coordenada.h"
 #include "Jogador.h"
 
-#define TAMX 50
-#define TAMY 80
+#define VIDA_ORIANA 100
+#define TAM_X_ORIANA 50
+#define TAM_Y_ORIANA 80
+#define VELOCIDADE_X_ORIANA 0.05f
+#define VELOCIDADE_Y_ORIANA 0.0f
 
 namespace Entidade {
 	namespace Personagem {
@@ -13,7 +16,7 @@ namespace Entidade {
 		private:
 			const bool EhJogador1;
 		public:
-			Oriana(Matematica::CoordenadaF pos);
+			Oriana(Matematica::CoordenadaF posInicio);
 			~Oriana();
 			void inicializacao();
 		};

@@ -6,8 +6,6 @@
 namespace ElementoGrafico {
 	class LinhaAnimacaoEstatica: public LinhaAnimacao
 	{
-	private:
-		
 	public:
 		LinhaAnimacaoEstatica(const char* caminhoTextura);
 		~LinhaAnimacaoEstatica();

@@ -2,11 +2,14 @@
 
 namespace Entidade {
 	namespace Personagem {
-		Oriana::Oriana(Matematica::CoordenadaF pos) :
-			Jogador(pos, Matematica::CoordenadaF(TAMX, TAMY), Ids::Ids::jogador1),
+		Oriana::Oriana(Matematica::CoordenadaF posInicio) :
+			Jogador(posInicio, 
+			Matematica::CoordenadaF(TAM_X_ORIANA, TAM_Y_ORIANA), 
+			Ids::Ids::oriana, 
+			VIDA_ORIANA, 
+			Matematica::CoordenadaF(VELOCIDADE_X_ORIANA, VELOCIDADE_Y_ORIANA)),
 			EhJogador1(true)
 		{
-			velocidade = Matematica::CoordenadaF(0.05f, 0.1f);
 			inicializacao();
 		}
 
@@ -15,11 +18,11 @@ namespace Entidade {
 		//inicializa as animacoes
 		void Oriana::inicializacao() {
 			//parametro(caminhoTexto, contaImagem, id, escala)
-			pAnimacaoMovimento->novaAnimacao("textura/orianaParada.png", 15, Ids::Ids::parar);
-			pAnimacaoMovimento->novaAnimacao("textura/orianaMorrendo.png", 15, Ids::Ids::morrer);
-			pAnimacaoMovimento->novaAnimacao("textura/orianaPulando.png", 15, Ids::Ids::pular);
-			pAnimacaoMovimento->novaAnimacao("textura/orianaAtacando.png", 22, Ids::Ids::atacar);
-			pAnimacaoMovimento->novaAnimacao("textura/orianaAndando.png", 8, Ids::Ids::andar);
+			pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaParada.png", 15, Ids::Ids::oriana_para);
+			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaMorrendo.png", 15, Ids::Ids::oriana_morre);
+			pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaPulando.png", 15, Ids::Ids::oriana_pula);
+			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAtacando.png", 22, Ids::Ids::oriana_ataca);
+			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAndando.png", 8, Ids::Ids::oriana_anda);
 		}
 	}
 }

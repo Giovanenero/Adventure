@@ -1,7 +1,6 @@
 #pragma once
 
 //arrumar TEMPOATAQUE, pois deve ser inicializado nas filhas
-#define VIDA 100
 #define TEMPOATAQUE 0.1f
 
 #include "EntidadeMovimento.h"
@@ -11,17 +10,17 @@ namespace Entidade {
 		class Personagem: public EntidadeMovimento
 		{
 		protected:
-			Matematica::CoordenadaF velocidade;
-			int vida;
 			bool morrer;
 			bool olharEsquerda;
 			const float tempoAtaque;
 			float tempoAtacando;
 			float carregarAtaque;
 			bool atacando;
-
+		private:
+			Matematica::CoordenadaF velocidade;
+			int vida;
 		public:
-			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const int vida, Matematica::CoordenadaF vel);
 			~Personagem();
 			void setVida(int vida);
 			int getVida() const;
