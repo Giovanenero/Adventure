@@ -5,11 +5,11 @@ namespace Entidade {
 		Oriana::Oriana(Matematica::CoordenadaF posInicio) :
 			Jogador(posInicio, 
 			Matematica::CoordenadaF(TAM_X_ORIANA, TAM_Y_ORIANA), 
-			Ids::Ids::oriana, 
-			VIDA_ORIANA, 
-			Matematica::CoordenadaF(VELOCIDADE_X_ORIANA, VELOCIDADE_Y_ORIANA)),
+			Ids::Ids::oriana),
 			EhJogador1(true)
 		{
+			vida = VIDA_ORIANA;
+			velocidade = Matematica::CoordenadaF(VELOCIDADE_X_ORIANA, VELOCIDADE_Y_ORIANA);
 			inicializacao();
 		}
 
@@ -24,26 +24,42 @@ namespace Entidade {
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAtacando.png", 22, Ids::Ids::oriana_ataca);
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAndando.png", 8, Ids::Ids::oriana_anda);
 		}
-		void Oriana::mover(const float tempo) {
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-				andar(true, tempo);
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-					atacar(tempo);
+		void Oriana::atualizar(const float tempo) {
+			atualizarTempoAtaque(tempo);
+
+			if (andando) {
+				velocidade.x = VELOCIDADE_X_ORIANA;
+				if (olharEsquerda) {
+					velocidade.x = -velocidade.x;
 				}
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-				andar(false, tempo);
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-					atacar(tempo);
-				}
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-				atacar(tempo);
 			}
 			else {
-				parar(tempo);
+				velocidade.x *= 0.5;
 			}
+			posicao.x += velocidade.x;
+			//posicao.x += velocidade.x;
+			//posicao.y += velocidade.y * tempo;
+
+			//arrumar...(gravidade)
+			atualizarImagem(tempo);
+			//carregandoDano += tempo;
 			renderizar();
+		}
+		
+		void Oriana::atualizarImagem(const float tempo) {
+			if (atacando) {
+				desligarAndar();
+				Matematica::CoordenadaF escala(6.2f, 3.1f);
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_ataca, escala);
+			}
+			else if (andando) {
+				Matematica::CoordenadaF escala(5.2f, 3.0f);
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_anda, escala);
+			}
+			else {
+				Matematica::CoordenadaF escala(3.0f, 3.0f);
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para, escala);
+			}
 		}
 	}
 }

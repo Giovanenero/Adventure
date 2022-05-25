@@ -1,8 +1,5 @@
 #pragma once
 
-//arrumar TEMPOATAQUE, pois deve ser inicializado nas filhas
-#define TEMPOATAQUE 0.1f
-
 #include "EntidadeMovimento.h"
 
 namespace Entidade {
@@ -12,28 +9,45 @@ namespace Entidade {
 		protected:
 			bool morrer;
 			bool olharEsquerda;
-			const float tempoAtaque;
-			float tempoAtacando;
-			float carregarAtaque;
 			bool atacando;
-		private:
 			Matematica::CoordenadaF velocidade;
 			int vida;
+			bool andando;
+
+			// teste...
+			float carregandoAtaque = 0.f;
+			float tempoAtacando = 0.f;
+			const float carregarAtaque = 1.0f;
+			const float tempoAtaque = 1.0f;
+			//teste
+			//float carregandoDano = 0.f;
+			//float tempoTomandoDano = 0.f;
+			//const float carregarDano = 1.0f;
+			//const float tempoDano = 1.0f;
+
+
 		public:
-			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const int vida, Matematica::CoordenadaF vel);
+			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 			~Personagem();
+
 			void setVida(int vida);
 			int getVida() const;
+
 			void setMorrer(bool morrer);
 			bool getMorrer() const;
+
 			void setVelocidade(Matematica::CoordenadaF velocidade);
 			Matematica::CoordenadaF getVelocidade();
-			void tomarDano(const int dano);
+
 			void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
-			const bool podeAtacar() const;
-			void ativarAtacando();
-			const bool getAtacando() const;
-			void atualizaTempoAtacando(const float tempo);
+
+			//teste...
+			void atualizar(const float tempo) = 0;
+			void atualizarTempoAtaque(const float tempo);
+
+			void ativarAndar(bool paraEsquerda);
+			void ativarAtacar();
+			void desligarAndar();
 		};
 	}
 }

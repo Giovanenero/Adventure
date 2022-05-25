@@ -19,7 +19,9 @@ namespace Entidade {
 			Oriana(Matematica::CoordenadaF posInicio);
 			~Oriana();
 			void inicializacao();
-			void mover(const float tempo);
+
+			void atualizar(const float tempo);
+			void atualizarImagem(const float tempo);
 		};
 	}
 }

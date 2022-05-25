@@ -38,6 +38,18 @@ namespace Gerenciador {
 			if (evento.type == sf::Event::Closed) {
 				pGrafico->fecharJanela();
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+				pOriana->ativarAndar(true);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+				pOriana->ativarAndar(false);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+				pOriana->ativarAtacar();
+			}
+			else {
+				pOriana->desligarAndar();
+			}
 		}
 	}
 }
