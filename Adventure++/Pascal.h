@@ -22,6 +22,7 @@ namespace Entidade {
             void parar(const float tempo);
             void atacar(const float tempo);
             void inicializacao();
+            void mover(const float tempo);
         };
     }
 }

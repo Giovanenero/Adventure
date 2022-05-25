@@ -17,15 +17,23 @@ Principal::~Principal() {
 
 void Principal::Executar() {
 	float tempo = 0.f;
+
+	//teste...
 	pEvento->setOriana(pOriana);
+	Lista::ListaEntidade objLista;
+	objLista.adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
+	objLista.adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
+
+
 	while (pGrafico->isWindowOpen()) {
 		tempo = pGrafico->atualizartempo();
 		pEvento->pollEvents();
 		pGrafico->limpar();
-
-		pEvento->eventojogador(tempo);
-		pPascal->atualizar(tempo);
-		pPascal->renderizar();
+		
+		//teste...
+		for (unsigned int i = 0; i < objLista.getTamanho(); i++) {
+			objLista.operator[]((int)i)->mover(tempo);
+		}
 
 		pGrafico->mostrar();
 	}

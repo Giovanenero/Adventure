@@ -24,5 +24,26 @@ namespace Entidade {
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAtacando.png", 22, Ids::Ids::oriana_ataca);
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAndando.png", 8, Ids::Ids::oriana_anda);
 		}
+		void Oriana::mover(const float tempo) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+				andar(true, tempo);
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+					atacar(tempo);
+				}
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+				andar(false, tempo);
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+					atacar(tempo);
+				}
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+				atacar(tempo);
+			}
+			else {
+				parar(tempo);
+			}
+			renderizar();
+		}
 	}
 }

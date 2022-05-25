@@ -3,6 +3,9 @@
 #include "GerenciadorGrafico.h"
 #include "Oriana.h"
 
+//teste...
+#include "ListaEntidade.h"
+
 namespace Gerenciador {
 	class GerenciadorEvento
 	{

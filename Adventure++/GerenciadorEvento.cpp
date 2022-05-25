@@ -41,24 +41,6 @@ namespace Gerenciador {
 		}
 	}
 	void GerenciadorEvento::eventojogador(const float tempo) {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-			pOriana->andar(true, tempo);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-				pOriana->atacar(tempo);
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			pOriana->andar(false, tempo);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-				pOriana->atacar(tempo);
-			}
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-			pOriana->atacar(tempo);
-		}
-		else {
-			pOriana->parar(tempo);
-		}
-		pOriana->renderizar();
+		//arrumar...
 	}
 }

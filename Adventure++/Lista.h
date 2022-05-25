@@ -96,7 +96,7 @@ namespace Lista {
 
 	template<class TIPO>
 	TIPO* Lista<TIPO>::remover(int posicao) {
-		if (posicao < (int)tamanhoLista && posicao > 0) {
+		if (posicao < (int)tamanhoLista && posicao >= 0) {
 			Elemento<TIPO>* pAux1 = pInicio;
 			Elemento<TIPO>* pAux2 = nullptr;
 			TIPO* pAux3 = nullptr;
@@ -128,7 +128,7 @@ namespace Lista {
 
 	template<class TIPO>
 	TIPO* Lista<TIPO>::operator[](int posicao) {
-		if (posicao < (int)tamanhoLista && posicao > 0) {
+		if (posicao < (int)tamanhoLista && posicao >= 0) {
 			Elemento<TIPO>* pAux1 = pInicio;
 			TIPO* pAux2 = nullptr;
 			for (int i = 0; i < posicao; i++) {

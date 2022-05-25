@@ -8,7 +8,6 @@ namespace Entidade {
 			{
 			protected:
 				float distanciaJogador;
-			private:
 				Oriana* pOriana;
 			public:
 				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Oriana* pOriana, const int vida, Matematica::CoordenadaF vel);
@@ -17,7 +16,6 @@ namespace Entidade {
 				Oriana* getOriana();
 				Matematica::CoordenadaF getDistanciaJogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
-				void atualizar(float tempo);
 			};
 
 	}

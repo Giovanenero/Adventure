@@ -28,28 +28,5 @@ namespace Entidade {
 					break;
 				}
 			}
-
-			void Inimigo::atualizar(float tempo) {
-				this->tempo += tempo;
-				if (this->tempo < 2.0f) {
-					Matematica::CoordenadaF escala(1.0f, 1.0f);
-					pAnimacaoMovimento->atualizar(posicao, true, tempo, Ids::Ids::pascal_ataca, escala);
-				}
-				else if(this->tempo < 4.0f) {
-					Matematica::CoordenadaF escala(1.0f, 1.0f);
-					pAnimacaoMovimento->atualizar(posicao, true, tempo, Ids::Ids::pascal_anda, escala);
-				}
-				else if (this->tempo < 6.0f) {
-					Matematica::CoordenadaF escala(1.0f, 1.0f);
-					pAnimacaoMovimento->atualizar(posicao, true, tempo, Ids::Ids::pascal_morre, escala);
-				}
-				else if (this->tempo < 8.0f) {
-					Matematica::CoordenadaF escala(1.0f, 1.0f);
-					pAnimacaoMovimento->atualizar(posicao, true, tempo, Ids::Ids::pascal_tomaDano, escala);
-				}
-				else {
-					this->tempo = 0.f;
-				}
-			}
 	}
 }

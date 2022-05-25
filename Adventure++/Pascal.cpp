@@ -20,7 +20,7 @@ namespace Entidade {
             this->tempo += tempo;
             Matematica::CoordenadaF escala(1.0f, 1.0f);
             pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_anda, escala);
-            posicao += ((olharEsquerda) ? -getPosicao().x : getPosicao().x);
+            posicao += ((olharEsquerda) ? -getVelocidade().x : getVelocidade().x);
         }
         void Pascal::parar(const float tempo) {
             this->tempo += tempo;
@@ -38,6 +38,30 @@ namespace Entidade {
             pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalAtacando.png", 4, Ids::Ids::pascal_ataca);
             pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalDano.png", 2, Ids::Ids::pascal_tomaDano);
             pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalParado.png", 4, Ids::Ids::pascal_para);
+        }
+        void Pascal::mover(const float tempo) {
+            if (pOriana == nullptr) {
+                std::cout << "ponteiro pOriana vazio - classe Pascal.cpp" << std::endl;
+                exit(1);
+            }
+            //teste...
+            Matematica::CoordenadaF posJogador = pOriana->getPosicao();
+            if (posJogador.x > posicao.x) {
+                andar(false, tempo);
+                if (posJogador.x < posicao.x) {
+                    posicao.x = posJogador.x;
+                }
+            }
+            else if (posJogador.x < posicao.x) {
+                andar(true, tempo);
+                if (posJogador.x > posicao.x) {
+                    posicao.x = posJogador.x;
+                }
+            }
+            else {
+                atacar(tempo);
+            }
+            renderizar();
         }
 	}
 }
