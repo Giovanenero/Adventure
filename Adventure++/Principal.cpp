@@ -20,9 +20,11 @@ void Principal::Executar() {
 
 	//teste...
 	pEvento->setOriana(pOriana);
-	Lista::ListaEntidade objLista;
-	objLista.adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
-	objLista.adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
+	Lista::ListaEntidade* objLista = new Lista::ListaEntidade();
+	Lista::ListaEntidade* objListaAux = new Lista::ListaEntidade();
+	objLista->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
+	objLista->adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
+	Gerenciador::GerenciadorColisao* pColisao = new Gerenciador::GerenciadorColisao(objListaAux, objLista);
 
 
 	while (pGrafico->isWindowOpen()) {
@@ -31,9 +33,10 @@ void Principal::Executar() {
 		pGrafico->limpar();
 		
 		//teste...
-		for (unsigned int i = 0; i < objLista.getTamanho(); i++) {
-			objLista.operator[]((int)i)->mover(tempo);
+		for (unsigned int i = 0; i < objLista->getTamanho(); i++) {
+			objLista->operator[]((int)i)->mover(tempo);
 		}
+		pColisao->Colisao();
 
 		pGrafico->mostrar();
 	}

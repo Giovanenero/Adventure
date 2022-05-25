@@ -17,13 +17,17 @@ namespace Entidade {
 				switch (pEntidade->getID())
 				{
 				case Ids::Ids::plataforma:
+				{
 					colisaoPlataforma(intersecao, pEntidade);
 					break;
+				}
 				case Ids::Ids::oriana:
-					//apenas para texte;
-					std::cout << "colisao com jogador!" << std::endl;
-					exit(1);
+				{
+					if (atacando) {
+						std::cout << "atacando Oriana ";
+					}
 					break;
+				}
 				default:
 					break;
 				}

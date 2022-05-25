@@ -21,6 +21,5 @@ namespace Gerenciador {
 		static GerenciadorEvento* getGerenciadorEvento();
 		void setOriana(Entidade::Personagem::Oriana* pOriana);
 		void pollEvents();
-		void eventojogador(const float tempo);
 	};
 }

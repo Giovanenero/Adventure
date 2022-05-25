@@ -40,7 +40,4 @@ namespace Gerenciador {
 			}
 		}
 	}
-	void GerenciadorEvento::eventojogador(const float tempo) {
-		//arrumar...
-	}
 }

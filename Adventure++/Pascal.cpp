@@ -16,6 +16,7 @@ namespace Entidade {
 
         }
         void Pascal::andar(const bool paraEsquerda, const float tempo) {
+            atacando = false;
             olharEsquerda = paraEsquerda;
             this->tempo += tempo;
             Matematica::CoordenadaF escala(1.0f, 1.0f);
@@ -23,11 +24,13 @@ namespace Entidade {
             posicao += ((olharEsquerda) ? -getVelocidade().x : getVelocidade().x);
         }
         void Pascal::parar(const float tempo) {
+            atacando = false;
             this->tempo += tempo;
             Matematica::CoordenadaF escala(1.0f, 1.0f);
             pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_para, escala);
         }
         void Pascal::atacar(const float tempo) {
+            atacando = true;
             this->tempo += tempo;
             Matematica::CoordenadaF escala(1.0f, 1.0f);
             pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_ataca, escala);

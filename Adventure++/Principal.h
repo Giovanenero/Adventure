@@ -2,6 +2,7 @@
 
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEvento.h"
+#include "GerenciadorColisao.h"
 #include "Oriana.h"
 #include "Pascal.h"
 
