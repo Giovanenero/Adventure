@@ -2,6 +2,8 @@
 
 #include "EntidadeMovimento.h"
 
+#define GRAVIDADE 100.0f
+
 namespace Entidade {
 	namespace Personagem {
 		class Personagem: public EntidadeMovimento

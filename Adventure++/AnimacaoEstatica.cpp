@@ -23,14 +23,19 @@ namespace ElementoGrafico {
 		}
 		mapAnimacaoEstatica.insert(std::pair<Ids::Ids, LinhaAnimacaoEstatica*>(id, temp));
 		sf::IntRect tamanho = temp->getTamanho();
+
 		corpo.setSize(sf::Vector2f(tamanho.width, tamanho.height));
 		corpo.setOrigin(sf::Vector2f(tamanho.width, tamanho.height) / 2.0f);
 	}
 
-	void AnimacaoEstatica::atualizar(Ids::Ids id) {
+	void AnimacaoEstatica::atualizar(Ids::Ids id, Matematica::CoordenadaF pos, Matematica::CoordenadaF tam) {
 		if (ID != id) { 
 			ID = id; 
 		}
+		//teste... arrumar
+		sf::RectangleShape shape(sf::Vector2f(tam.x, tam.y));
+		corpo = shape;
+		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setTextureRect(mapAnimacaoEstatica[ID]->getTamanho());
 		corpo.setTexture(mapAnimacaoEstatica[ID]->getTextura());
 	}

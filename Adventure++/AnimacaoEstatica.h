@@ -16,7 +16,9 @@ namespace ElementoGrafico {
 		~AnimacaoEstatica();
 
 		void novaAnimacao(const char* caminhoTextura, Ids::Ids id);
-		void atualizar(Ids::Ids id);
+
+		//teste...
+		void atualizar(Ids::Ids id, Matematica::CoordenadaF pos, Matematica::CoordenadaF tam);
 	};
 }
 

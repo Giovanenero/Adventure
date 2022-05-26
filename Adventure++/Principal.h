@@ -6,6 +6,9 @@
 #include "Oriana.h"
 #include "Pascal.h"
 
+//teste...
+#include "EntidadeEstatica.h"
+
 
 class Principal
 {

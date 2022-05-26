@@ -34,7 +34,7 @@ namespace Entidade {
 				else {
 					posicao.x -= intersecao.x;
 				}
-				velocidade.x *= 0.f;
+				velocidade.x = 0.f;
 			} 
 			// colisao na direcao de y
 			else {

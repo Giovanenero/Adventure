@@ -7,9 +7,10 @@ namespace Entidade {
 			class Jogador : public Personagem
 			{
 			protected:
-				bool pular;
+				bool pulando;
+				const float tamPulo;
 			public:
-				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo);
 				~Jogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
@@ -18,10 +19,16 @@ namespace Entidade {
 
 				//teste...
 				const bool getPular() const {
-					return pular;
+					return pulando;
 				}
 				void mudarPular() {
-					pular  = ((pular) ? false : true);
+					pulando  = ((pulando) ? false : true);
+				}
+				void pular() {
+					if (pulando) {
+						velocidade.y = -sqrt(2.0f * GRAVIDADE * tamPulo);
+						pulando = false;
+					}
 				}
 
 			};

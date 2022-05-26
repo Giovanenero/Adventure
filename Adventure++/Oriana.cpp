@@ -5,7 +5,8 @@ namespace Entidade {
 		Oriana::Oriana(Matematica::CoordenadaF posInicio) :
 			Jogador(posInicio, 
 			Matematica::CoordenadaF(TAM_X_ORIANA, TAM_Y_ORIANA), 
-			Ids::Ids::oriana),
+			Ids::Ids::oriana, 
+			TAMANHO_PULO_ORIANA),
 			EhJogador1(true)
 		{
 			vida = VIDA_ORIANA;
@@ -36,11 +37,11 @@ namespace Entidade {
 			else {
 				velocidade.x *= 0.5;
 			}
+			velocidade.y += GRAVIDADE * tempo;
+
 			posicao.x += velocidade.x;
-			//posicao.x += velocidade.x;
 			//posicao.y += velocidade.y * tempo;
 
-			//arrumar...(gravidade)
 			atualizarImagem(tempo);
 			//carregandoDano += tempo;
 			renderizar();

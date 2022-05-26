@@ -12,7 +12,20 @@ namespace Entidade {
 		EntidadeEstatica(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 		~EntidadeEstatica();
 		void renderizar();
-		void inicializacao(){ /* terminar... */ }
+
+		void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
+			//terminar...
+		}
+		void atualizar(const float tempo) {
+			//...????
+		}
+		void inicializacao(){
+			pAnimacaoEstatica->novaAnimacao("textura/Fundo/gramaFloresta.png", Ids::Ids::plataforma);
+		}
+		void atualizar(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam) {
+			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma, pos, tam);
+			pAnimacaoEstatica->renderizar();
+		}
 	};
 }
 
