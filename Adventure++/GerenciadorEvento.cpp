@@ -38,6 +38,9 @@ namespace Gerenciador {
 			if (evento.type == sf::Event::Closed) {
 				pGrafico->fecharJanela();
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+				pOriana->pular();
+			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 				pOriana->ativarAndar(true);
 			}

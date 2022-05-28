@@ -23,15 +23,14 @@ namespace Entidade {
             pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalParado.png", 4, Ids::Ids::pascal_para);
         }
         void Pascal::atualizarImagem(const float tempo) {
-            Matematica::CoordenadaF escala(2.0f, 2.0f);
             if (atacando) {
-                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_ataca, escala);
+                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_ataca, tamanho, Matematica::CoordenadaF(1.0f, 1.0f));
             }
             else if (andando) {
-                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_anda, escala);
+                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_anda, tamanho, Matematica::CoordenadaF(1.f, 1.0f));
             }
             else {
-                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_para, escala);
+                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_para, tamanho, Matematica::CoordenadaF(1.f, 1.0f));
             }
         }
 	}

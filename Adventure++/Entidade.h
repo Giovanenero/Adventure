@@ -29,8 +29,6 @@ namespace Entidade {
 		virtual void inicializacao() = 0;
 		virtual void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) = 0;
 
-		//arrumar... e teste...
-		//virtual void mover(const float tempo) = 0;
 		virtual void atualizar(const float tempo) = 0;
 	};
 }

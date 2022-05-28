@@ -39,27 +39,30 @@ namespace Entidade {
 			}
 			velocidade.y += GRAVIDADE * tempo;
 
-			posicao.x += velocidade.x;
-			//posicao.y += velocidade.y * tempo;
+			posicao.x += velocidade.x * tempo;
+			posicao.y += velocidade.y * tempo;
 
 			atualizarImagem(tempo);
 			//carregandoDano += tempo;
+
+			/*if (posicao.y >= 600.0f) {
+				morrer = true;
+				exit(1);
+			}
+			*/
 			renderizar();
 		}
 		
 		void Oriana::atualizarImagem(const float tempo) {
 			if (atacando) {
 				desligarAndar();
-				Matematica::CoordenadaF escala(6.2f, 3.1f);
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_ataca, escala);
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_ataca, tamanho, Matematica::CoordenadaF(3.0f, 2.0f));
 			}
 			else if (andando) {
-				Matematica::CoordenadaF escala(5.2f, 3.0f);
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_anda, escala);
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_anda, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
 			}
 			else {
-				Matematica::CoordenadaF escala(3.0f, 3.0f);
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para, escala);
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
 			}
 		}
 	}

@@ -2,19 +2,22 @@
 
 #include "EntidadeMovimento.h"
 
-#define GRAVIDADE 100.0f
+#define GRAVIDADE 300.0f
 
 namespace Entidade {
 	namespace Personagem {
 		class Personagem: public EntidadeMovimento
 		{
 		protected:
+			Matematica::CoordenadaF velocidade;
+			int vida;
 			bool morrer;
 			bool olharEsquerda;
 			bool atacando;
-			Matematica::CoordenadaF velocidade;
-			int vida;
 			bool andando;
+
+			//teste...
+			bool noChao = false;
 
 			// teste...
 			float carregandoAtaque = 0.f;

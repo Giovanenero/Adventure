@@ -9,6 +9,9 @@ namespace Entidade {
 			protected:
 				bool pulando;
 				const float tamPulo;
+				
+				//teste...
+				float pulo = 0.f;
 			public:
 				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo);
 				~Jogador();
@@ -17,19 +20,9 @@ namespace Entidade {
 				//teste...
 				void atualizar(const float tempo) = 0;
 
-				//teste...
-				const bool getPular() const {
-					return pulando;
-				}
-				void mudarPular() {
-					pulando  = ((pulando) ? false : true);
-				}
-				void pular() {
-					if (pulando) {
-						velocidade.y = -sqrt(2.0f * GRAVIDADE * tamPulo);
-						pulando = false;
-					}
-				}
+				void pular();
+
+				void verificaPulo(const float tempo);
 
 			};
 	}

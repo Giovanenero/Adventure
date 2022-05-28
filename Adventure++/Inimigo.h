@@ -2,6 +2,7 @@
 #include "Personagem.h"
 #include "Oriana.h"
 
+
 #include <time.h>
 
 namespace Entidade {

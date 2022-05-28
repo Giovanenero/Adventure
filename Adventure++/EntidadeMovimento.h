@@ -13,9 +13,8 @@ namespace Entidade {
 	public:
 		EntidadeMovimento(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 		~EntidadeMovimento();
-		void renderizar();
 
-		//teste...
+		void renderizar();
 		void atualizar(const float tempo) = 0;
 	};
 }

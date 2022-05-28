@@ -27,25 +27,13 @@ namespace Entidade {
 			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				switch (pEntidade->getID())
-				{
-				case Ids::Ids::plataforma:
-				{
+				//n to entendendo isso...acho q to tempo demais aqui!!
+				if (pEntidade->getID() == Ids::Ids::plataforma) {
+					noChao = true;
 					colisaoPlataforma(intersecao, pEntidade);
-					break;
 				}
-				case Ids::Ids::oriana:
-				{
-					if (pOriana != nullptr) {
-						Matematica::CoordenadaF centro;
-						centro.x = pEntidade->getPosicao().x - getPosicao().x;
-						//terminar...
-					}
-					
-					break;
-				}
-				default:
-					break;
+				else {
+					noChao = false;
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
@@ -55,7 +43,7 @@ namespace Entidade {
 				if (fabs(distancia) < distanciaJogador) {
 					//p/ direito
 					if (distancia > 0) {
-						posicao.x += velocidade.x;
+						posicao.x += velocidade.x * tempo;
 						olharEsquerda = false;
 						distancia = getOriana()->getPosicao().x - posicao.x;
 						if (distancia < 0) {
@@ -64,7 +52,7 @@ namespace Entidade {
 					}
 					//p/ esquerda
 					else {
-						posicao.x -= velocidade.x;
+						posicao.x -= velocidade.x * tempo;
 						olharEsquerda = true;
 						distancia = getOriana()->getPosicao().x - posicao.x;
 						if (distancia > 0) {
@@ -82,13 +70,13 @@ namespace Entidade {
 				else if (fabs(distancia) > distanciaJogador) {
 					//p/ direita
 					if (aleatorio == 0) {
-						posicao.x += velocidade.x;
+						posicao.x += velocidade.x * tempo;
 						olharEsquerda = false;
 						ativarAndar(olharEsquerda);
 					}
 					//p/ esquerda
 					else if (aleatorio == 1) {
-						posicao.x -= velocidade.x;
+						posicao.x -= velocidade.x * tempo;
 						olharEsquerda = true;
 						ativarAndar(true);
 					}
@@ -105,6 +93,9 @@ namespace Entidade {
 				else {
 					//atarcar aqui -> terminar...
 				}
+				velocidade.y += GRAVIDADE * tempo;
+
+				posicao.y += velocidade.y * tempo;
 				atualizarImagem(tempo);
 				renderizar();
 			}

@@ -5,8 +5,8 @@ using namespace Gerenciador;
 Principal::Principal(): 
 	pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
 	pEvento(GerenciadorEvento::getGerenciadorEvento()),
-	pOriana(new Entidade::Personagem::Oriana(Matematica::CoordenadaF(200.0f, 500.0f))),
-	pPascal(new Entidade::Personagem::Pascal(Matematica::CoordenadaF(600.0f, 500.0f), pOriana))
+	pOriana(new Entidade::Personagem::Oriana(Matematica::CoordenadaF(200.0f, 200.0f))),
+	pPascal(new Entidade::Personagem::Pascal(Matematica::CoordenadaF(600.0f, 200.0f), pOriana))
 {
 	Executar();
 }
@@ -24,20 +24,29 @@ void Principal::Executar() {
 	//Lista::ListaEntidade* objListaAux = new Lista::ListaEntidade();
 	objLista->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
 	objLista->adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
-	//Gerenciador::GerenciadorColisao* pColisao = new Gerenciador::GerenciadorColisao(objListaAux, objLista);
 	
 
 	//arrumar ineficiente...
 	Lista::ListaEntidade* objLista2 = new Lista::ListaEntidade();
-	Matematica::CoordenadaF tam(50.f, 50.f);
-	for (int i = 0; i < 28; i++) {
-		Matematica::CoordenadaF pos(i * 50.f, 550.f);
-		Entidade::EntidadeEstatica* plataforma = new Entidade::EntidadeEstatica(pos, tam, Ids::Ids::plataforma);
-		plataforma->inicializacao();
-		objLista2->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
+	Matematica::CoordenadaF tam(100.0f, 40.0f);
+	for (int i = 0; i < 12; i++) {
+		if (i != 8 && i != 7) {
+			Matematica::CoordenadaF pos(i * 100.f, 350.f);
+			Entidade::EntidadeEstatica* plataforma = new Entidade::EntidadeEstatica(pos, tam, Ids::Ids::plataforma);
+			plataforma->inicializacao();
+			objLista2->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
+		}
 	}
+	Entidade::EntidadeEstatica* plataforma1 = new Entidade::EntidadeEstatica(Matematica::CoordenadaF(200.0f, 300.0f), tam, Ids::Ids::plataforma);
+	plataforma1->inicializacao();
+	objLista2->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma1));
 
+	/*Entidade::EntidadeEstatica* plataforma2 = new Entidade::EntidadeEstatica(Matematica::CoordenadaF(400.0f, 250.0f), tam, Ids::Ids::plataforma);
+	plataforma2->inicializacao();
+	objLista2->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma2));*/
 
+	Gerenciador::GerenciadorColisao* pColisao = new Gerenciador::GerenciadorColisao(objLista2, objLista);
+	
 	while (pGrafico->isWindowOpen()) {
 		tempo = pGrafico->atualizartempo();
 		pEvento->pollEvents();
@@ -45,15 +54,14 @@ void Principal::Executar() {
 
 		//arrumar... ineficiente
 		for (int i = 0; i < (int)objLista2->getTamanho(); i++) {
-			Matematica::CoordenadaF pos(i * 50.f, 550.f);
 			Entidade::EntidadeEstatica* aux = static_cast<Entidade::EntidadeEstatica*>(objLista2->operator[](i));
-			aux->atualizar(pos, tam);
+			aux->atualizar();
 		}
 
 		for (int i = 0; i < (int)objLista->getTamanho(); i++) {
 			objLista->operator[](i)->atualizar(tempo);
 		}
-		//pColisao->Colisao();
+		pColisao->Colisao();
 
 		pGrafico->mostrar();
 	}

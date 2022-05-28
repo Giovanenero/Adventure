@@ -11,8 +11,9 @@ namespace Entidade {
 	public:
 		EntidadeEstatica(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 		~EntidadeEstatica();
-		void renderizar();
 
+
+		void renderizar();
 		void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 			//terminar...
 		}
@@ -20,10 +21,11 @@ namespace Entidade {
 			//...????
 		}
 		void inicializacao(){
-			pAnimacaoEstatica->novaAnimacao("textura/Fundo/gramaFloresta.png", Ids::Ids::plataforma);
+			//teste...
+			pAnimacaoEstatica->novaAnimacao("textura/Fundo/gramaFloresta.png", Ids::Ids::plataforma, Matematica::CoordenadaF(1.0f, 1.0f));
 		}
-		void atualizar(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam) {
-			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma, pos, tam);
+		void atualizar() {
+			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma, posicao, tamanho);
 			pAnimacaoEstatica->renderizar();
 		}
 	};
