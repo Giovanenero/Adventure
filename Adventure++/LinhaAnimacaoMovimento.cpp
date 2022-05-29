@@ -2,7 +2,7 @@
 
 namespace ElementoGrafico {
 
-	const float LinhaAnimacaoMovimento::trocaImagem = 0.12f;
+	const float LinhaAnimacaoMovimento::trocaImagem = 0.08f;
 
 	LinhaAnimacaoMovimento::LinhaAnimacaoMovimento(const char* caminhoTextura, const unsigned int contaImagem) :
 		LinhaAnimacao(), contaImagem(contaImagem), imagemAtual(0), tempoTotal(0.f)

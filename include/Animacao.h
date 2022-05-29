@@ -12,6 +12,7 @@ namespace ElementoGrafico {
 	{
 	protected:
 		sf::RectangleShape corpo;
+		sf::Vector2f escala;
 		Ids::Ids ID;
 
 		static Gerenciador::GerenciadorGrafico* pGrafico;

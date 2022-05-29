@@ -3,11 +3,12 @@
 namespace Entidade {
 	namespace Personagem {
 		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id) :
-			EntidadeMovimento(pos, tam, id), vida(VIDA), morrer(false),
+			EntidadeMovimento(pos, tam, id), morrer(false),
 			olharEsquerda(false), velocidade(Matematica::CoordenadaF(0.f, 0.f)),
-			tempoAtaque(TEMPOATAQUE), atacando(false), tempoAtacando(0.f),
-			carregarAtaque(0.f) { }
-
+			atacando(false), vida(0), andando(false)
+		{
+			//terminar...
+		}
 		Personagem::~Personagem() { }
 
 		void Personagem::setVida(int vida) { this->vida = vida; }
@@ -22,14 +23,6 @@ namespace Entidade {
 		
 		Matematica::CoordenadaF Personagem::getVelocidade() { return velocidade; }
 
-
-		void Personagem::tomarDano(const int dano) {
-			vida -= dano;
-			if (vida <= 0) {
-				morrer = true;
-			}
-		}
-
 		void Personagem::colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 			Matematica::CoordenadaF posEntidade = pEntidade->getPosicao();
 			Matematica::CoordenadaF tamEntidade = pEntidade->getTamanho();
@@ -41,7 +34,7 @@ namespace Entidade {
 				else {
 					posicao.x -= intersecao.x;
 				}
-				velocidade.x *= 0.f;
+				velocidade.x = 0.f;
 			} 
 			// colisao na direcao de y
 			else {
@@ -54,26 +47,28 @@ namespace Entidade {
 				velocidade.y = 0.f;
 			}
 		}
-		const bool Personagem::podeAtacar() const {
-			return ((carregarAtaque > tempoAtaque) ? true : false);
-		}
-		
-		void Personagem::ativarAtacando() { atacando = true; }
-
-		const bool Personagem::getAtacando() const { return atacando; }
-
-		void Personagem::atualizaTempoAtacando(const float tempo) {
+		void Personagem::atualizarTempoAtaque(const float tempo) {
 			if (atacando) {
-				carregarAtaque = 0.f;
+				carregandoAtaque = 0.f;
 				tempoAtacando += tempo;
 				if (tempoAtacando > tempoAtaque) {
 					atacando = false;
 				}
 			}
 			else {
-				carregarAtaque += tempo;
+				carregandoAtaque += tempo;
 				tempoAtacando = 0.f;
 			}
+		}
+		void Personagem::ativarAndar(bool paraEsquerda) {
+			andando = true;
+			olharEsquerda = paraEsquerda;
+		}
+		void Personagem::ativarAtacar() {
+			atacando = true;
+		}
+		void Personagem::desligarAndar() {
+			andando = false;
 		}
 	}
 }

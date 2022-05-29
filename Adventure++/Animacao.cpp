@@ -6,7 +6,7 @@ namespace ElementoGrafico {
 	Gerenciador::GerenciadorGrafico* Animacao::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
 
 	Animacao::Animacao():
-		corpo(), ID(Ids::Ids::vazio) { }
+		corpo(), ID(Ids::Ids::vazio), escala() { }
 
 	Animacao::~Animacao() { }
 

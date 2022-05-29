@@ -26,8 +26,8 @@ namespace Gerenciador {
 				distanciaCentro.x = Entidade2->getPosicao().x - Entidade1->getPosicao().x;
 				distanciaCentro.y = Entidade2->getPosicao().y - Entidade1->getPosicao().y;
 
-				intersecao.x = fabs(distanciaCentro.x) - (Entidade1->getTamanho().x / 2 + Entidade2->getTamanho().x / 2);
-				intersecao.y = fabs(distanciaCentro.y) - (Entidade1->getTamanho().y / 2 + Entidade2->getTamanho().y / 2);
+				intersecao.x = fabs(distanciaCentro.x) - (Entidade1->getTamanho().x / 2.f + Entidade2->getTamanho().x / 2.f);
+				intersecao.y = fabs(distanciaCentro.y) - (Entidade1->getTamanho().y / 2.f + Entidade2->getTamanho().y / 2.f);
 
 				//verifica a colisao
 				if (intersecao.x < 0.f && intersecao.y < 0.f) {
@@ -52,6 +52,7 @@ namespace Gerenciador {
 				//verifica a colisao
 				if (intersecao.x < 0.f && intersecao.y < 0.f) {
 					Entidade2->colisao(intersecao, Entidade1);
+					Entidade1->colisao(intersecao, Entidade2);
 				}
 				Entidade1 = nullptr;
 				Entidade2 = nullptr;
