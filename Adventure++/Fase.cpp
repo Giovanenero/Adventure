@@ -1,5 +1,4 @@
 #include "Fase.h"
-#include "EntidadeEstatica.h"
 
 Fase::FaseGenerica::FaseGenerica() : pEvento(), pGrafico(), ListaEntidadeEstatica(), ListaEntidadeMovimento(),
 pOriana(new Entidade::Personagem::Oriana(Matematica::CoordenadaF(200.0f, 200.0f))),
@@ -22,7 +21,7 @@ void Fase::FaseGenerica::executar() {
 
         //arrumar... ineficiente
         for (int i = 0; i < (int) ListaEntidadeEstatica->getTamanho(); i++) {
-            Entidade::EntidadeEstatica *aux = static_cast<Entidade::EntidadeEstatica *>(ListaEntidadeEstatica->operator[](i));
+            Entidade::EntidadeEstatica* aux = static_cast<Entidade::EntidadeEstatica*>(ListaEntidadeEstatica->operator[](i));
             aux->atualizar();
         }
 

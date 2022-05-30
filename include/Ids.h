@@ -4,6 +4,7 @@ namespace Ids {
 	enum class Ids {
 		vazio = 0,
 		plataforma,
+		fundo_floresta,
 		oriana,
 		oriana_anda,
 		oriana_para,

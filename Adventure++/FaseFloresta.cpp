@@ -29,27 +29,30 @@ void Fase::FaseFloresta::init() {
     ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
     ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
 
+    Entidade::Fundo* fundo = new Entidade::Fundo(Matematica::CoordenadaF(600.f, 300.f), Matematica::CoordenadaF(1200.0f, 600.0f), Ids::Ids::fundo_floresta);
+    ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(fundo));
 
     //arrumar ineficiente...
     Matematica::CoordenadaF tam(100.0f, 30.0f);
     for (int i = 0; i < 12; i++) {
         if (i != 8 && i != 7) {
             Matematica::CoordenadaF pos(i * 100.f, 350.f);
-            Entidade::EntidadeEstatica* plataforma = new Entidade::EntidadeEstatica(pos, tam, Ids::Ids::plataforma);
-            plataforma->inicializacao();
+            Entidade::Plataforma* plataforma = new Entidade::Plataforma(pos, tam, Ids::Ids::plataforma);
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
+        }
+        else {
+            Matematica::CoordenadaF pos(i * 100.f, 450.f);
+            Entidade::Plataforma* plataforma = new Entidade::Plataforma(pos, tam, Ids::Ids::plataforma);
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
         }
     }
-    Entidade::EntidadeEstatica* plataforma1 = new Entidade::EntidadeEstatica(Matematica::CoordenadaF(200.0f, 300.0f), tam, Ids::Ids::plataforma);
-    plataforma1->inicializacao();
+    Entidade::Plataforma* plataforma1 = new Entidade::Plataforma(Matematica::CoordenadaF(200.0f, 300.0f), tam, Ids::Ids::plataforma);
     ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma1));
 
-    Entidade::EntidadeEstatica* plataforma2 = new Entidade::EntidadeEstatica(Matematica::CoordenadaF(500.0f, 240.0f), tam, Ids::Ids::plataforma);
-    plataforma2->inicializacao();
+    Entidade::Plataforma* plataforma2 = new Entidade::Plataforma(Matematica::CoordenadaF(500.0f, 240.0f), tam, Ids::Ids::plataforma);
     ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma2));
 
-    Entidade::EntidadeEstatica* plataforma3 = new Entidade::EntidadeEstatica(Matematica::CoordenadaF(750.0f, 240.0f), tam, Ids::Ids::plataforma);
-    plataforma3->inicializacao();
+    Entidade::Plataforma* plataforma3 = new Entidade::Plataforma(Matematica::CoordenadaF(750.0f, 240.0f), tam, Ids::Ids::plataforma);
     ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma3));
 }
 

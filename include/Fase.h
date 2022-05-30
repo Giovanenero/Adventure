@@ -6,6 +6,11 @@
 #include "Oriana.h"
 #include "Pascal.h"
 
+
+//teste
+#include "Plataforma.h"
+#include "Fundo.h"
+
 namespace Fase {
     class FaseGenerica
     {

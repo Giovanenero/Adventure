@@ -22,6 +22,11 @@ namespace Entidade {
             void inicializacao();
 
             void atualizarImagem(const float tempo);
+
+            //arrumar...
+            const float getVelocidadeEspecifica() const {
+                return VELOCIDADE_X_PASCAL;
+            }
         };
     }
 }

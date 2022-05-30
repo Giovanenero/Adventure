@@ -28,17 +28,21 @@ namespace Entidade {
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 				//n to entendendo isso...acho q to tempo demais aqui!!
+				//colisaoPlataforma(intersecao, pEntidade);
 				if (pEntidade->getID() == Ids::Ids::plataforma) {
 					noChao = true;
 					colisaoPlataforma(intersecao, pEntidade);
 				}
 				else {
-					noChao = false;
+					//noChao = false;
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
 				atualizarTempoAtaque(tempo);
 				float distancia = getOriana()->getPosicao().x - posicao.x;
+
+				//arrumar velocidade.x ...
+				velocidade.x = getVelocidadeEspecifica();
 				//persegue o jogador...
 				if (fabs(distancia) < distanciaJogador) {
 					//p/ direito
