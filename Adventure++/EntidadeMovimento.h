@@ -8,14 +8,14 @@ namespace Entidade {
 	class EntidadeMovimento: public Entidade
 	{
 	protected:
-		float tempo;
 		static ElementoGrafico::AnimacaoMovimento* pAnimacaoMovimento;
 	public:
 		EntidadeMovimento(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 		~EntidadeMovimento();
 
 		void renderizar();
-		void atualizar(const float tempo) = 0;
+		virtual void atualizar(const float tempo) = 0;
+		virtual void atualizarImagem(const float tempo) = 0;
 	};
 }
 

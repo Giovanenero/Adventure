@@ -9,8 +9,9 @@ pColisao() {
 }
 
 Fase::FaseGenerica::~FaseGenerica() {
-    delete pOriana;
-    delete pPascal;
+    //arrumar...
+    //delete pOriana;
+    //delete pPascal;
 }
 
 void Fase::FaseGenerica::executar() {
@@ -21,16 +22,15 @@ void Fase::FaseGenerica::executar() {
 
         //arrumar... ineficiente
         for (int i = 0; i < (int) ListaEntidadeEstatica->getTamanho(); i++) {
-            Entidade::EntidadeEstatica *aux = static_cast<Entidade::EntidadeEstatica *>(ListaEntidadeEstatica->operator[](
-                    i));
+            Entidade::EntidadeEstatica *aux = static_cast<Entidade::EntidadeEstatica *>(ListaEntidadeEstatica->operator[](i));
             aux->atualizar();
         }
 
         for (int i = 0; i < (int) ListaEntidadeMovimento->getTamanho(); i++) {
             ListaEntidadeMovimento->operator[](i)->atualizar(tempo);
         }
-        pColisao->Colisao();
 
+        pColisao->Colisao();
         pGrafico->mostrar();
     }
 }

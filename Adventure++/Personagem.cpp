@@ -5,7 +5,7 @@ namespace Entidade {
 		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id) :
 			EntidadeMovimento(pos, tam, id), morrer(false),
 			olharEsquerda(false), velocidade(Matematica::CoordenadaF(0.f, 0.f)),
-			atacando(false), vida(0), andando(false)
+			atacando(false), vida(0), andando(false), noChao(false)
 		{
 			//terminar...
 		}

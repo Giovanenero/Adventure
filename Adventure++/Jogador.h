@@ -7,23 +7,19 @@ namespace Entidade {
 			class Jogador : public Personagem
 			{
 			protected:
-				bool pulando;
+				bool pular;
 				const float tamPulo;
-				
-				//teste...
-				float pulo = 0.f;
+				bool caindo;
+
 			public:
 				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo);
 				~Jogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
-				//teste...
-				void atualizar(const float tempo) = 0;
+				virtual void atualizar(const float tempo) = 0;
+				virtual void atualizarImagem(const float tempo) = 0;
 
-				void pular();
-
-				void verificaPulo(const float tempo);
-
+				void podePular();
 			};
 	}
 }

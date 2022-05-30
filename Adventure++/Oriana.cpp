@@ -16,12 +16,12 @@ namespace Entidade {
 
 		Oriana::~Oriana() { }
 
-		//inicializa as animacoes
+		//inicializa animacoes
 		void Oriana::inicializacao() {
-			//parametro(caminhoTexto, contaImagem, id, escala)
 			pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaParada.png", 15, Ids::Ids::oriana_para);
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaMorrendo.png", 15, Ids::Ids::oriana_morre);
-			pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaPulando.png", 15, Ids::Ids::oriana_pula);
+			pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaPulando.png", 1, Ids::Ids::oriana_pula);
+			pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaCaindo.png", 1, Ids::Ids::oriana_cai);
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAtacando.png", 22, Ids::Ids::oriana_ataca);
 			pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAndando.png", 8, Ids::Ids::oriana_anda);
 		}
@@ -42,6 +42,10 @@ namespace Entidade {
 			posicao.x += velocidade.x * tempo;
 			posicao.y += velocidade.y * tempo;
 
+			if (velocidade.y > 0) {
+				caindo = true;
+			}
+
 			atualizarImagem(tempo);
 			//carregandoDano += tempo;
 
@@ -54,15 +58,23 @@ namespace Entidade {
 		}
 		
 		void Oriana::atualizarImagem(const float tempo) {
-			if (atacando) {
+			if (!noChao) {
+				if (!caindo) {
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_pula, tamanho, Matematica::CoordenadaF(2.0f, 1.3f));
+				}
+				else {
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_cai, tamanho, Matematica::CoordenadaF(2.0f, 1.7f));
+				}
+			}
+			else if (atacando) {
 				desligarAndar();
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_ataca, tamanho, Matematica::CoordenadaF(3.0f, 2.0f));
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_ataca, tamanho, Matematica::CoordenadaF(5.0f, 2.5f));
 			}
 			else if (andando) {
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_anda, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_anda, tamanho, Matematica::CoordenadaF(3.5f, 2.5f));
 			}
 			else {
-				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
+				pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para, tamanho, Matematica::CoordenadaF(2.5f, 2.5f));
 			}
 		}
 	}
