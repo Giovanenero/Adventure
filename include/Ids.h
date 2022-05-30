@@ -8,6 +8,7 @@ namespace Ids {
 		oriana_anda,
 		oriana_para,
 		oriana_pula,
+		oriana_cai,
 		oriana_ataca,
 		oriana_morre,
 		pascal,

@@ -2,7 +2,7 @@
 
 #include "EntidadeMovimento.h"
 
-#define GRAVIDADE 300.0f
+#define GRAVIDADE 998.0f
 
 namespace Entidade {
 	namespace Personagem {
@@ -15,15 +15,14 @@ namespace Entidade {
 			bool olharEsquerda;
 			bool atacando;
 			bool andando;
+			bool noChao;
 
-			//teste...
-			bool noChao = false;
-
-			// teste...
+			//ainda em teste...
 			float carregandoAtaque = 0.f;
 			float tempoAtacando = 0.f;
 			const float carregarAtaque = 1.0f;
 			const float tempoAtaque = 1.0f;
+
 			//teste
 			//float carregandoDano = 0.f;
 			//float tempoTomandoDano = 0.f;
@@ -46,13 +45,13 @@ namespace Entidade {
 
 			void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
-			//teste...
 			void atualizar(const float tempo) = 0;
 			void atualizarTempoAtaque(const float tempo);
 
 			void ativarAndar(bool paraEsquerda);
 			void ativarAtacar();
 			void desligarAndar();
+			virtual void atualizarImagem(const float tempo) = 0;
 		};
 	}
 }

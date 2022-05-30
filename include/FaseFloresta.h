@@ -11,7 +11,5 @@ namespace Fase {
         ~FaseFloresta() override;
 
         void init();
-
     };
-
 } // Fase

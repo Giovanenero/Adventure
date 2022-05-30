@@ -24,13 +24,13 @@ namespace Entidade {
         }
         void Pascal::atualizarImagem(const float tempo) {
             if (atacando) {
-                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_ataca, tamanho, Matematica::CoordenadaF(1.0f, 1.0f));
+                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_ataca, tamanho, Matematica::CoordenadaF(1.8f, 1.0f));
             }
             else if (andando) {
-                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_anda, tamanho, Matematica::CoordenadaF(1.f, 1.0f));
+                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_anda, tamanho, Matematica::CoordenadaF(1.8f, 1.0f));
             }
             else {
-                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_para, tamanho, Matematica::CoordenadaF(1.f, 1.0f));
+                pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::pascal_para, tamanho, Matematica::CoordenadaF(1.8f, 1.0f));
             }
         }
 	}

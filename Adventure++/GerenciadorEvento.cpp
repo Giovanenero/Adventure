@@ -39,7 +39,7 @@ namespace Gerenciador {
 				pGrafico->fecharJanela();
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-				pOriana->pular();
+				pOriana->podePular();
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 				pOriana->ativarAndar(true);

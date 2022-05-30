@@ -152,6 +152,8 @@
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadeEstatica.cpp" />
     <ClCompile Include="EntidadeMovimento.cpp" />
+    <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="FaseFloresta.cpp" />
     <ClCompile Include="GerenciadorColisao.cpp" />
     <ClCompile Include="GerenciadorEvento.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
@@ -175,6 +177,8 @@
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="EntidadeEstatica.h" />
     <ClInclude Include="EntidadeMovimento.h" />
+    <ClInclude Include="Fase.h" />
+    <ClInclude Include="FaseFloresta.h" />
     <ClInclude Include="GerenciadorColisao.h" />
     <ClInclude Include="GerenciadorEvento.h" />
     <ClInclude Include="GerenciadorGrafico.h" />

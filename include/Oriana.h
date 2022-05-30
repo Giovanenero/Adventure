@@ -8,7 +8,7 @@
 #define TAM_Y_ORIANA 80.f
 #define VELOCIDADE_X_ORIANA 160.0f
 #define VELOCIDADE_Y_ORIANA 0.0f
-#define TAMANHO_PULO_ORIANA 100.0f
+#define TAMANHO_PULO_ORIANA 140.0f
 
 namespace Entidade {
 	namespace Personagem {
