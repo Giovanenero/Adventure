@@ -8,15 +8,14 @@
 
 //teste...
 #include "EntidadeEstatica.h"
-
+#include "Fase.h"
 
 class Principal
 {
 private:
 	Gerenciador::GerenciadorGrafico* pGrafico;
 	Gerenciador::GerenciadorEvento* pEvento;
-	Entidade::Personagem::Oriana *pOriana;
-	Entidade::Personagem::Pascal* pPascal;
+    Fase::FaseGenerica *fase;
 public:
 	Principal();
 	~Principal();
