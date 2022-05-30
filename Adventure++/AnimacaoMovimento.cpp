@@ -26,8 +26,7 @@ namespace ElementoGrafico {
 		//teste
 		corpo.setSize(sf::Vector2f(tamanho.width, tamanho.height));
 		corpo.setOrigin(sf::Vector2f(tamanho.width, tamanho.height) / 2.0f);
-		corpo.setScale(this->escala);
-		std::cout << corpo.getScale().x << " ";
+		//corpo.setScale(this->escala);
 	}
 	void AnimacaoMovimento::atualizar(Matematica::CoordenadaF pos, bool Esquerda, float tempo, Ids::Ids id, Matematica::CoordenadaF tam, Matematica::CoordenadaF escala) {
 		if (ID != id) {

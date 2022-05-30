@@ -26,6 +26,8 @@ namespace Entidade {
 
 				void atualizar(const float tempo);
 				virtual void atualizarImagem(const float tempo) = 0;
+
+				virtual const float getVelocidadeEspecifica() const = 0;
 			};
 
 	}
