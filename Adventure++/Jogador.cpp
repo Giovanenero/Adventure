@@ -3,8 +3,8 @@
 namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {
-			Jogador::Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo) :
-				Personagem(pos, tam, id), 
+			Jogador::Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo, const int vida, const int dano) :
+				Personagem(pos, tam, id, vida, dano), 
 				pular(true), 
 				tamPulo(tamPulo), 
 				caindo(true) { }

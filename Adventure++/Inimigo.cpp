@@ -3,8 +3,8 @@
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
-			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador) :
-				Personagem(pos, tam, id), 
+			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador, const int vida, const int dano) :
+				Personagem(pos, tam, id, vida, dano), 
 				pOriana(pOriana),
 				aleatorio(rand() % 3), 
 				distanciaJogador(distanciaJogador),
@@ -42,7 +42,7 @@ namespace Entidade {
 				}
 				else if (pEntidade->getID() == Ids::Ids::oriana) {
 					if (pOriana->podeAtacar()) {
-						tomarDano(10);
+						podeTomarDano(pOriana->valorDano());
 					}
 				}
 			}
@@ -54,8 +54,7 @@ namespace Entidade {
 				//arrumar velocidade.x ...
 				velocidade.x = getVelocidadeEspecifica();
 				//persegue o jogador...
-				//OBS: tem q arrumar...
-				if (!morrer && !dano) {
+				if (!morrer && !tomarDano) {
 					if (fabs(distancia_x) < distanciaJogador.x && fabs(distancia_y) < distanciaJogador.y) {
 						//p/ direito
 						if (distancia_x > 0) {

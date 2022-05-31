@@ -16,7 +16,7 @@ namespace Entidade {
 				unsigned int contAleatorio;
 				short aleatorio;
 			public:
-				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador);
+				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador, const int vida, const int dano);
 				~Inimigo();
 
 				void setOriana(Jogador::Oriana* pOriana);

@@ -7,7 +7,9 @@ namespace Entidade {
 				Jogador(posInicio,
 					Matematica::CoordenadaF(TAM_X_ORIANA, TAM_Y_ORIANA),
 					Ids::Ids::oriana,
-					TAMANHO_PULO_ORIANA),
+					TAMANHO_PULO_ORIANA,
+					VIDA_ORIANA,
+					DANO_ORIANA),
 				EhJogador1(true)
 			{
 				vida = VIDA_ORIANA;

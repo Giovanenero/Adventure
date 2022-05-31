@@ -2,7 +2,7 @@
 
 namespace Entidade {
 	namespace Personagem {
-		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id) :
+		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const int vida, const int dano) :
 			Entidade(pos, tam, id), 
 			morrer(false),
 			olharEsquerda(false), 
@@ -10,7 +10,10 @@ namespace Entidade {
 			atacando(false),  
 			andando(false), 
 			noChao(false),
-			pAnimacaoMovimento(nullptr)
+			pAnimacaoMovimento(nullptr),
+			vida(vida),
+			tomarDano(false),
+			dano(dano)
 		{
 			pAnimacaoMovimento = new ElementoGrafico::AnimacaoMovimento();
 			//arrumar velocidade...
@@ -84,6 +87,24 @@ namespace Entidade {
 		}
 		void Personagem::desligarAndar() {
 			andando = false;
+		}
+		void Personagem::podeTomarDano(int dano) {
+			vida = vida - dano;
+			if (vida <= 0) {
+				morrer = true;
+			}
+			else {
+				tomarDano = true;
+			}
+		}
+		const int Personagem::valorDano() const {
+			return dano;
+		}
+		const bool Personagem::podeMorrer() const {
+			return (carregandoMorrendo > carregarMorrer) ? true : false;
+		}
+		const bool Personagem::podeAtacar() const {
+			return (tempoAtacando > carregarAtaque) ? true : false;
 		}
 	}
 }
