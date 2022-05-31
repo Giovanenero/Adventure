@@ -4,6 +4,7 @@
 #include "Jogador.h"
 
 #define VIDA_ORIANA 100
+#define DANO_ORIANA 50
 #define TAM_X_ORIANA 50.f
 #define TAM_Y_ORIANA 80.f
 #define VELOCIDADE_X_ORIANA 160.0f

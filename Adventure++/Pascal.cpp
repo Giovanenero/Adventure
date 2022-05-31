@@ -8,7 +8,9 @@ namespace Entidade {
                     Matematica::CoordenadaF(TAM_X_PASCAL, TAM_Y_PASCAL),
                     Ids::Ids::pascal,
                     pOriana, 
-                    Matematica::CoordenadaF(DISTANCIA_PASCAL_RECONHECER_EIXO_X, DISTANCIA_PASCAL_RECONHECER_EIXO_Y))
+                    Matematica::CoordenadaF(DISTANCIA_PASCAL_RECONHECER_EIXO_X, DISTANCIA_PASCAL_RECONHECER_EIXO_Y),
+                    VIDA_PASCAL,
+                    DANO_PASCAL)
             {
                 velocidade = Matematica::CoordenadaF(VELOCIDADE_X_PASCAL, VELOCIDADE_Y_PASCAL);
                 inicializacao();
@@ -29,12 +31,12 @@ namespace Entidade {
                     pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::pascal_morre);
                     carregandoMorrendo += tempo;
                 }
-                else if (dano) {
+                else if (tomarDano) {
                     //ainda em teste...
                     pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8, Ids::Ids::pascal_tomaDano);
                     carregandoTomarDano += tempo;
                     if (carregandoTomarDano > carregarTomarDano) {
-                        dano = false;
+                        tomarDano = false;
                         carregandoTomarDano = 0.0f;
                     }
                 }

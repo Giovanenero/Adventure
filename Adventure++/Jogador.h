@@ -13,7 +13,7 @@ namespace Entidade {
 				bool caindo;
 
 			public:
-				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo);
+				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo, const int vida, const int dano);
 				~Jogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 

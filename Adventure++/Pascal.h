@@ -2,7 +2,8 @@
 #include "Inimigo.h"
 #include "Oriana.h"
 
-#define VIDA_PASCAL 20
+#define VIDA_PASCAL 100
+#define DANO_PASCAL 10
 #define TAM_X_PASCAL 60.0f
 #define TAM_Y_PASCAL 60.0f
 #define DANO_ATAQUE_PASCAL 20.0f;

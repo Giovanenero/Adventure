@@ -11,36 +11,28 @@ namespace Entidade {
 		{
 		protected:
 			Matematica::CoordenadaF velocidade;
-			bool morrer;
 			bool olharEsquerda;
-			bool atacando;
 			bool andando;
 			bool noChao;
 
-			//ainda em teste...
+			//combate:
+			bool atacando;
 			float carregandoAtaque = 0.f;
 			float tempoAtacando = 0.f;
-			const float carregarAtaque = 1.0f;
-			const float tempoAtaque = 1.0f;
-
-			//ainda em teste...
+			const float carregarAtaque = 0.4f;
+			const float tempoAtaque = 0.4f;
 			const float carregarMorrer = 0.6f;
 			float carregandoMorrendo = 0.0f;
-			int vida = 30;
 			const float carregarTomarDano = 0.6f;
 			float carregandoTomarDano = 0.0f;
-			bool dano = false;
-
-
-			//teste
-			//float carregandoDano = 0.f;
-			//float tempoTomandoDano = 0.f;
-			//const float carregarDano = 1.0f;
-			//const float tempoDano = 1.0f;
+			bool tomarDano;
+			int vida;
+			int dano;
+			bool morrer;
 
 			ElementoGrafico::AnimacaoMovimento* pAnimacaoMovimento;
 		public:
-			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const int vida, const int dano);
 			~Personagem();
 
 			void setVida(int vida);
@@ -56,33 +48,16 @@ namespace Entidade {
 
 			virtual void atualizar(const float tempo) = 0;
 			void atualizarTempoAtaque(const float tempo);
-
 			void ativarAndar(bool paraEsquerda);
 			void ativarAtacar();
 			void desligarAndar();
 			virtual void atualizarImagem(const float tempo) = 0;
 			void renderizar();
 			virtual void executar() = 0;
-
-			//teste...
-			const bool podeAtacar() {
-				return (tempoAtacando > carregarAtaque) ? true : false;
-			}
-			const bool podeMorrer() const {
-				return (carregandoMorrendo > carregarMorrer) ? true : false;
-			}
-			const bool podeTomarDano() const {
-				return (carregandoTomarDano > carregarTomarDano) ? true : false;
-			}
-			void tomarDano(int dano) {
-				vida = vida - dano;
-				if (vida <= 0) {
-					morrer = true;
-				}
-				else {
-					this->dano = true;
-				}
-			}
+			const bool podeAtacar() const;
+			const bool podeMorrer() const;
+			void podeTomarDano(int dano);
+			const int valorDano() const;
 
 		};
 	}
