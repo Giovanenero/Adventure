@@ -1,18 +1,18 @@
 #pragma once
 
-#include "Obstaculo.h"
+#include "AnimacaoEstatica.h"
+#include "Entidade.h"
 
-namespace Entidade {
-    namespace Obstaculo {
-        class Fundo : public Obstaculo
-        {
-        public:
-            Fundo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
-            ~Fundo();
-            void inicializacao();
-            void atualizar();
-            void executar();
-        };
-    } //namespace Obstaculo
-} //namespace Entidade
-
+class Fundo : public Ente
+{
+private:
+    Entidade::Entidade* pJogador;
+    ElementoGrafico::AnimacaoEstatica* pAnimacaoEstatica;
+    static Gerenciador::GerenciadorGrafico* pGrafico;
+public:
+    Fundo(Ids::Ids id, Entidade::Entidade* pJogador1);
+    ~Fundo();
+    void inicializacao();
+    void atualizar();
+    void executar();
+};

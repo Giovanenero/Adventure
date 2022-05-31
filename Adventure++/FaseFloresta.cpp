@@ -12,31 +12,10 @@ namespace Fase {
         pOriana = new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 200.0f));
         pPascal = new Entidade::Personagem::Inimigo::Pascal(Matematica::CoordenadaF(600.0f, 200.0f), pOriana);
         pColisao = new Gerenciador::GerenciadorColisao(ListaEntidadeEstatica, ListaEntidadeMovimento);
-
+        fundo = new Fundo(Ids::Ids::fase_floresta, static_cast<Entidade::Entidade*>(pOriana));
     }
 
-    FaseFloresta::~FaseFloresta() {
-        if (ListaEntidadeEstatica) {
-            delete(ListaEntidadeEstatica);
-            ListaEntidadeEstatica = nullptr;
-        }
-        if (ListaEntidadeMovimento) {
-            delete(ListaEntidadeMovimento);
-            ListaEntidadeMovimento = nullptr;
-        }
-        if (pColisao) {
-            delete(pColisao);
-            pColisao = nullptr;
-        }
-        if (pOriana) {
-            delete(pOriana);
-            pOriana = nullptr;
-        }
-        if (pPascal) {
-            delete(pPascal);
-            pPascal = nullptr;
-        }
-    }
+    FaseFloresta::~FaseFloresta() { }
 
     void FaseFloresta::init() {
         //teste...
@@ -44,9 +23,6 @@ namespace Fase {
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
-
-        Entidade::Obstaculo::Fundo* fundo = new Entidade::Obstaculo::Fundo(Matematica::CoordenadaF(600.f, 300.f), Matematica::CoordenadaF(1200.0f, 600.0f), Ids::Ids::fundo_floresta);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(fundo));
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
@@ -81,6 +57,7 @@ namespace Fase {
             pGrafico->limpar();
 
             //arrumar... ineficiente
+            fundo->atualizar();
             for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
                 Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
                 aux->atualizar();
@@ -91,17 +68,12 @@ namespace Fase {
                 pMov->atualizar(tempo);
                 if (pMov->podeMorrer()) {
                     pMov = static_cast<Entidade::Personagem::Personagem*>(ListaEntidadeMovimento->removerEntidade((unsigned int)i));
-                    Entidade::Personagem::Inimigo::Pascal* novoInimigo = new Entidade::Personagem::Inimigo::Pascal(Matematica::CoordenadaF((float)(rand() % 1050), (float)(300 + rand() % 300)), pOriana);
+                    //ainda em teste
+                    Entidade::Personagem::Inimigo::Pascal* novoInimigo = new Entidade::Personagem::Inimigo::Pascal(Matematica::CoordenadaF((float)(rand() % 1050), 200.0f), pOriana);
                     ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(novoInimigo));
                 }
-
-                //arrumar...
-                /*
-                if (pMov->podeMorrer()) {
-                    ListaEntidadeMovimento->removerEntidade((unsigned int)i);
-                }
-                */
             }
+            pGrafico->centralizarCamera(pOriana->getPosicao());
 
             pColisao->Colisao();
             pGrafico->mostrar();

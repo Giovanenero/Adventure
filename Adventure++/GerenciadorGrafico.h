@@ -7,6 +7,9 @@
 #include <string>
 #include <map>
 
+#define TELAX 1200
+#define TELAY 600	
+
 namespace Gerenciador {
 	class GerenciadorGrafico
 	{

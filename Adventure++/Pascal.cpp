@@ -8,7 +8,7 @@ namespace Entidade {
                     Matematica::CoordenadaF(TAM_X_PASCAL, TAM_Y_PASCAL),
                     Ids::Ids::pascal,
                     pOriana, 
-                    DISTANCIA_PASCAL_RECONHECER)
+                    Matematica::CoordenadaF(DISTANCIA_PASCAL_RECONHECER_EIXO_X, DISTANCIA_PASCAL_RECONHECER_EIXO_Y))
             {
                 velocidade = Matematica::CoordenadaF(VELOCIDADE_X_PASCAL, VELOCIDADE_Y_PASCAL);
                 inicializacao();
