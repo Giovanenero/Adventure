@@ -9,18 +9,27 @@ namespace Gerenciador {
 
 	GerenciadorEvento::GerenciadorEvento():
 		pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
-		window(nullptr), pOriana(nullptr)
+		window(nullptr), 
+		pOriana(nullptr)
 	{
 		if (pGrafico != nullptr) {
 			window = pGrafico->getWindow();
 		}
 	}
 	GerenciadorEvento::~GerenciadorEvento() {
-		pEvento = nullptr;
-		pGrafico = nullptr;
-		window = nullptr;
+		if (pEvento) {
+			delete(pEvento);
+			pEvento = nullptr;
+		}
+		if (window) {
+			delete(window);
+			window = nullptr;
+		}
+		if (pGrafico) {
+			delete(pGrafico);
+			pGrafico = nullptr;
+		}
 	}
-	
 	GerenciadorEvento* GerenciadorEvento::getGerenciadorEvento() {
 		if (pEvento == nullptr) {
 			pEvento = new GerenciadorEvento();
@@ -28,7 +37,7 @@ namespace Gerenciador {
 		return pEvento;
 	}
 
-	void GerenciadorEvento::setOriana(Entidade::Personagem::Oriana* pOriana) {
+	void GerenciadorEvento::setOriana(Entidade::Personagem::Jogador::Oriana* pOriana) {
 		this->pOriana = pOriana;
 	}
 

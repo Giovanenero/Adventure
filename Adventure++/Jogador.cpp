@@ -2,9 +2,13 @@
 
 namespace Entidade {
 	namespace Personagem {
+		namespace Jogador {
 			Jogador::Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo) :
-				Personagem(pos, tam, id), pular(true), tamPulo(tamPulo), caindo(true)
-			{ }
+				Personagem(pos, tam, id), 
+				pular(true), 
+				tamPulo(tamPulo), 
+				caindo(true) { }
+
 			Jogador::~Jogador() { }
 
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
@@ -31,5 +35,6 @@ namespace Entidade {
 					noChao = false;
 				}
 			}
+		}
 	}
 }

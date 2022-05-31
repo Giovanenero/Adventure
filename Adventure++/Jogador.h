@@ -4,6 +4,7 @@
 
 namespace Entidade {
 	namespace Personagem {
+		namespace Jogador {
 			class Jogador : public Personagem
 			{
 			protected:
@@ -18,9 +19,11 @@ namespace Entidade {
 
 				virtual void atualizar(const float tempo) = 0;
 				virtual void atualizarImagem(const float tempo) = 0;
+				virtual void executar() = 0;
 
 				void podePular();
 			};
-	}
-}
+		} //namespace Jogador
+	} // namespace Personagem
+} //namespace Entidade
 

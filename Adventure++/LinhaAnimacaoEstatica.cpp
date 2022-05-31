@@ -2,8 +2,8 @@
 
 namespace ElementoGrafico {
 
-	LinhaAnimacaoEstatica::LinhaAnimacaoEstatica(const char* caminhoTextura):
-		LinhaAnimacao()
+	LinhaAnimacaoEstatica::LinhaAnimacaoEstatica(const char* caminhoTextura, Matematica::CoordenadaF escala):
+		LinhaAnimacao(escala)
 	{
 		textura = Animacao::getGerenciadorGrafico()->loadTexture(caminhoTextura);
 		if (!textura) {

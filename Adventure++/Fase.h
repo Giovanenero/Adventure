@@ -1,24 +1,23 @@
 #pragma once
 
+#include "Ente.h"
+
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEvento.h"
 #include "GerenciadorColisao.h"
 #include "Oriana.h"
 #include "Pascal.h"
-
-
-//teste
 #include "Plataforma.h"
 #include "Fundo.h"
 
 namespace Fase {
-    class FaseGenerica
+    class FaseGenerica: public Ente
     {
     protected:
         Gerenciador::GerenciadorGrafico* pGrafico;
         Gerenciador::GerenciadorEvento* pEvento;
-        Entidade::Personagem::Oriana *pOriana;
-        Entidade::Personagem::Pascal *pPascal;
+        Entidade::Personagem::Jogador::Oriana *pOriana;
+        Entidade::Personagem::Inimigo::Pascal *pPascal;
         Lista::ListaEntidade *ListaEntidadeEstatica;
         Lista::ListaEntidade *ListaEntidadeMovimento;
         Gerenciador::GerenciadorColisao* pColisao;
@@ -26,6 +25,7 @@ namespace Fase {
         FaseGenerica();
         virtual ~FaseGenerica();
         virtual void init() = 0;
-        virtual void executar();
+        virtual void executar() = 0;
+        virtual void atualizar(const float tempo) = 0;
     };
 }

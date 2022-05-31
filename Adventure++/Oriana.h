@@ -12,18 +12,21 @@
 
 namespace Entidade {
 	namespace Personagem {
-		class Oriana : public Jogador
-		{
-		private:
-			const bool EhJogador1;
-		public:
-			Oriana(Matematica::CoordenadaF posInicio);
-			~Oriana();
-			void inicializacao();
+		namespace Jogador {
+			class Oriana : public Jogador
+			{
+			private:
+				const bool EhJogador1;
+			public:
+				Oriana(Matematica::CoordenadaF posInicio);
+				~Oriana();
+				void inicializacao();
 
-			void atualizar(const float tempo);
-			void atualizarImagem(const float tempo);
-		};
+				void atualizar(const float tempo);
+				void atualizarImagem(const float tempo);
+				void executar();
+			};
+		}
 	}
 }
 

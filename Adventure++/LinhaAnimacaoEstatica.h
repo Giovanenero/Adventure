@@ -7,7 +7,7 @@ namespace ElementoGrafico {
 	class LinhaAnimacaoEstatica: public LinhaAnimacao
 	{
 	public:
-		LinhaAnimacaoEstatica(const char* caminhoTextura);
+		LinhaAnimacaoEstatica(const char* caminhoTextura, Matematica::CoordenadaF escala);
 		~LinhaAnimacaoEstatica();
 	};
 }

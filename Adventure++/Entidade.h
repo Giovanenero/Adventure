@@ -1,18 +1,15 @@
 #pragma once
 
+#include "Ente.h"
 #include "Coordenada.h"
-#include "Ids.h"
 #include "Animacao.h"
 
-// classe abstrata
-
 namespace Entidade {
-	class Entidade
+	class Entidade: public Ente
 	{
 	protected:
 		Matematica::CoordenadaF posicao;
 		Matematica::CoordenadaF tamanho;
-		Ids::Ids ID;
 	public:
 		Entidade(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 		virtual ~Entidade();
@@ -30,6 +27,7 @@ namespace Entidade {
 		virtual void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) = 0;
 
 		virtual void atualizar(const float tempo) = 0;
+		virtual void executar() = 0;
 	};
 }
 
