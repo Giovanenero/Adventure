@@ -41,12 +41,10 @@ namespace Entidade {
 					colisaoPlataforma(intersecao, pEntidade);
 				}
 				else if (pEntidade->getID() == Ids::Ids::oriana) {
-					//terminar...
-					/*
 					if (pOriana->podeAtacar()) {
-						morrer = true;
+						tomarDano(50);
+						std::cout << "a ";
 					}
-					*/
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
@@ -56,58 +54,61 @@ namespace Entidade {
 				//arrumar velocidade.x ...
 				velocidade.x = getVelocidadeEspecifica();
 				//persegue o jogador...
-				if (fabs(distancia) < distanciaJogador) {
-					//p/ direito
-					if (distancia > 0) {
-						posicao.x += velocidade.x * tempo;
-						olharEsquerda = false;
-						distancia = getOriana()->getPosicao().x - posicao.x;
-						if (distancia < 0) {
-							posicao.x = pOriana->getPosicao().x;
-						}
-					}
-					//p/ esquerda
-					else {
-						posicao.x -= velocidade.x * tempo;
-						olharEsquerda = true;
-						distancia = getOriana()->getPosicao().x - posicao.x;
+				//OBS: tem q arrumar...
+				if (!morrer && !dano) {
+					if (fabs(distancia) < distanciaJogador) {
+						//p/ direito
 						if (distancia > 0) {
-							posicao.x = pOriana->getPosicao().x;
+							posicao.x += velocidade.x * tempo;
+							olharEsquerda = false;
+							distancia = getOriana()->getPosicao().x - posicao.x;
+							if (distancia < 0) {
+								posicao.x = pOriana->getPosicao().x;
+							}
+						}
+						//p/ esquerda
+						else {
+							posicao.x -= velocidade.x * tempo;
+							olharEsquerda = true;
+							distancia = getOriana()->getPosicao().x - posicao.x;
+							if (distancia > 0) {
+								posicao.x = pOriana->getPosicao().x;
+							}
+						}
+						if (posicao.x != pOriana->getPosicao().x) {
+							ativarAndar(olharEsquerda);
+						}
+						else {
+							desligarAndar();
 						}
 					}
-					if (posicao.x != pOriana->getPosicao().x) {
-						ativarAndar(olharEsquerda);
+					//movimento aleatorio
+					else if (fabs(distancia) > distanciaJogador) {
+						//p/ direita
+						if (aleatorio == 0) {
+							posicao.x += velocidade.x * tempo;
+							olharEsquerda = false;
+							ativarAndar(olharEsquerda);
+						}
+						//p/ esquerda
+						else if (aleatorio == 1) {
+							posicao.x -= velocidade.x * tempo;
+							olharEsquerda = true;
+							ativarAndar(true);
+						}
+						//fica parado
+						else {
+							desligarAndar();
+						}
+						contAleatorio++;
+						if (contAleatorio == 1000) {
+							contAleatorio = 0;
+							aleatorio = rand() % 3;
+						}
 					}
 					else {
-						desligarAndar();
+						//atarcar aqui -> terminar...
 					}
-				}
-				//movimento aleatorio
-				else if (fabs(distancia) > distanciaJogador) {
-					//p/ direita
-					if (aleatorio == 0) {
-						posicao.x += velocidade.x * tempo;
-						olharEsquerda = false;
-						ativarAndar(olharEsquerda);
-					}
-					//p/ esquerda
-					else if (aleatorio == 1) {
-						posicao.x -= velocidade.x * tempo;
-						olharEsquerda = true;
-						ativarAndar(true);
-					}
-					//fica parado
-					else {
-						desligarAndar();
-					}
-					contAleatorio++;
-					if (contAleatorio == 1000) {
-						contAleatorio = 0;
-						aleatorio = rand() % 3;
-					}
-				}
-				else {
-					//atarcar aqui -> terminar...
 				}
 				velocidade.y += GRAVIDADE * tempo;
 
