@@ -7,8 +7,7 @@ namespace Entidade {
 			morrer(false),
 			olharEsquerda(false), 
 			velocidade(Matematica::CoordenadaF(0.f, 0.f)),
-			atacando(false), 
-			vida(0), 
+			atacando(false),  
 			andando(false), 
 			noChao(false),
 			pAnimacaoMovimento(nullptr)

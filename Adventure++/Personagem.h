@@ -11,7 +11,6 @@ namespace Entidade {
 		{
 		protected:
 			Matematica::CoordenadaF velocidade;
-			int vida;
 			bool morrer;
 			bool olharEsquerda;
 			bool atacando;
@@ -23,6 +22,17 @@ namespace Entidade {
 			float tempoAtacando = 0.f;
 			const float carregarAtaque = 1.0f;
 			const float tempoAtaque = 1.0f;
+
+			//ainda em teste...
+			const float carregarMorrer = 0.6f;
+			float carregandoMorrendo = 0.0f;
+			int vida = 200;
+			//int dano = 35;
+
+			const float carregarTomarDano = 0.6f;
+			float carregandoTomarDano = 0.0f;
+			bool dano = false;
+
 
 			//teste
 			//float carregandoDano = 0.f;
@@ -61,7 +71,19 @@ namespace Entidade {
 				return (tempoAtacando > carregarAtaque) ? true : false;
 			}
 			const bool podeMorrer() const {
-				return morrer;
+				return (carregandoMorrendo > carregarMorrer) ? true : false;
+			}
+			const bool podeTomarDano() const {
+				return (carregandoTomarDano > carregarTomarDano) ? true : false;
+			}
+			void tomarDano(int dano) {
+				vida = vida - dano;
+				if (vida <= 0) {
+					morrer = true;
+				}
+				else {
+					this->dano = true;
+				}
 			}
 
 		};

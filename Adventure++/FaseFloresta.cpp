@@ -89,6 +89,11 @@ namespace Fase {
             for (int i = 0; i < (int)ListaEntidadeMovimento->getTamanho(); i++) {
                 Entidade::Personagem::Personagem* pMov = static_cast<Entidade::Personagem::Personagem*>(ListaEntidadeMovimento->operator[](i));
                 pMov->atualizar(tempo);
+                if (pMov->podeMorrer()) {
+                    pMov = static_cast<Entidade::Personagem::Personagem*>(ListaEntidadeMovimento->removerEntidade((unsigned int)i));
+                    Entidade::Personagem::Inimigo::Pascal* novoInimigo = new Entidade::Personagem::Inimigo::Pascal(Matematica::CoordenadaF((float)(rand() % 1050), (float)(300 + rand() % 300)), pOriana);
+                    ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(novoInimigo));
+                }
 
                 //arrumar...
                 /*
