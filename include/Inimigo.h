@@ -12,11 +12,11 @@ namespace Entidade {
 			{
 			protected:
 				Jogador::Oriana* pOriana;
-				const float distanciaJogador;
+				const Matematica::CoordenadaF distanciaJogador;
 				unsigned int contAleatorio;
 				short aleatorio;
 			public:
-				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, const float distanciaJogador);
+				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador);
 				~Inimigo();
 
 				void setOriana(Jogador::Oriana* pOriana);

@@ -16,9 +16,6 @@ namespace Entidade {
 			void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 				//terminar...
 			}
-			void atualizar(const float tempo) {
-				//...????
-			}
 
 			void renderizar();
 			virtual void inicializacao() = 0;

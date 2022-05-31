@@ -3,7 +3,7 @@
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
-			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, const float distanciaJogador) :
+			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador) :
 				Personagem(pos, tam, id), 
 				pOriana(pOriana),
 				aleatorio(rand() % 3), 
@@ -42,27 +42,27 @@ namespace Entidade {
 				}
 				else if (pEntidade->getID() == Ids::Ids::oriana) {
 					if (pOriana->podeAtacar()) {
-						tomarDano(50);
-						std::cout << "a ";
+						tomarDano(10);
 					}
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
 				atualizarTempoAtaque(tempo);
-				float distancia = getOriana()->getPosicao().x - posicao.x;
+				float distancia_x = getOriana()->getPosicao().x - posicao.x;
+				float distancia_y = getOriana()->getPosicao().y - posicao.y;
 
 				//arrumar velocidade.x ...
 				velocidade.x = getVelocidadeEspecifica();
 				//persegue o jogador...
 				//OBS: tem q arrumar...
 				if (!morrer && !dano) {
-					if (fabs(distancia) < distanciaJogador) {
+					if (fabs(distancia_x) < distanciaJogador.x && fabs(distancia_y) < distanciaJogador.y) {
 						//p/ direito
-						if (distancia > 0) {
+						if (distancia_x > 0) {
 							posicao.x += velocidade.x * tempo;
 							olharEsquerda = false;
-							distancia = getOriana()->getPosicao().x - posicao.x;
-							if (distancia < 0) {
+							distancia_x = getOriana()->getPosicao().x - posicao.x;
+							if (distancia_x < 0) {
 								posicao.x = pOriana->getPosicao().x;
 							}
 						}
@@ -70,8 +70,8 @@ namespace Entidade {
 						else {
 							posicao.x -= velocidade.x * tempo;
 							olharEsquerda = true;
-							distancia = getOriana()->getPosicao().x - posicao.x;
-							if (distancia > 0) {
+							distancia_x = getOriana()->getPosicao().x - posicao.x;
+							if (distancia_x > 0) {
 								posicao.x = pOriana->getPosicao().x;
 							}
 						}
@@ -83,7 +83,7 @@ namespace Entidade {
 						}
 					}
 					//movimento aleatorio
-					else if (fabs(distancia) > distanciaJogador) {
+					else {
 						//p/ direita
 						if (aleatorio == 0) {
 							posicao.x += velocidade.x * tempo;
@@ -106,13 +106,14 @@ namespace Entidade {
 							aleatorio = rand() % 3;
 						}
 					}
-					else {
-						//atarcar aqui -> terminar...
-					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
-
 				posicao.y += velocidade.y * tempo;
+
+				if (posicao.y > 600.0f) {
+					morrer = true;
+				}
+
 				atualizarImagem(tempo);
 				renderizar();
 			}

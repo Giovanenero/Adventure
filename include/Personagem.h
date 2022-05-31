@@ -26,9 +26,7 @@ namespace Entidade {
 			//ainda em teste...
 			const float carregarMorrer = 0.6f;
 			float carregandoMorrendo = 0.0f;
-			int vida = 200;
-			//int dano = 35;
-
+			int vida = 30;
 			const float carregarTomarDano = 0.6f;
 			float carregandoTomarDano = 0.0f;
 			bool dano = false;
@@ -56,7 +54,7 @@ namespace Entidade {
 
 			void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
-			void atualizar(const float tempo) = 0;
+			virtual void atualizar(const float tempo) = 0;
 			void atualizarTempoAtaque(const float tempo);
 
 			void ativarAndar(bool paraEsquerda);

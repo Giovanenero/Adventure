@@ -22,6 +22,11 @@ namespace ElementoGrafico {
 		virtual void novaAnimacao() = 0;
 		virtual void atualizar() = 0;
 		void renderizar();
+
+		//ainda em teste...
+		void setPosicao(Matematica::CoordenadaF pos) {
+			corpo.setPosition(sf::Vector2f(pos.x, pos.y));
+		}
 	};
 }
 

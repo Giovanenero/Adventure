@@ -21,6 +21,7 @@ namespace Fase {
         Lista::ListaEntidade *ListaEntidadeEstatica;
         Lista::ListaEntidade *ListaEntidadeMovimento;
         Gerenciador::GerenciadorColisao* pColisao;
+        Fundo* fundo;
     public:
         FaseGenerica();
         virtual ~FaseGenerica();

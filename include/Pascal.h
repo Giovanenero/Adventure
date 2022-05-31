@@ -8,7 +8,8 @@
 #define DANO_ATAQUE_PASCAL 20.0f;
 #define VELOCIDADE_X_PASCAL 80.f
 #define VELOCIDADE_Y_PASCAL 80.0f
-#define DISTANCIA_PASCAL_RECONHECER 200.0f
+#define DISTANCIA_PASCAL_RECONHECER_EIXO_X 200.0f
+#define DISTANCIA_PASCAL_RECONHECER_EIXO_Y 150.0f
 
 //Pascal eh um inimigo de pequeno porte e que esta presente em todas as fases
 
