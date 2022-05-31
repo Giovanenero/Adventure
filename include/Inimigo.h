@@ -7,19 +7,20 @@
 
 namespace Entidade {
 	namespace Personagem {
+		namespace Inimigo {
 			class Inimigo : public Personagem
 			{
 			protected:
-				Oriana* pOriana;
+				Jogador::Oriana* pOriana;
 				const float distanciaJogador;
 				unsigned int contAleatorio;
 				short aleatorio;
 			public:
-				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Oriana* pOriana, const float distanciaJogador);
+				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, const float distanciaJogador);
 				~Inimigo();
 
-				void setOriana(Oriana* pOriana);
-				Oriana* getOriana();
+				void setOriana(Jogador::Oriana* pOriana);
+				Jogador::Oriana* getOriana();
 
 				Matematica::CoordenadaF getDistanciaJogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
@@ -28,8 +29,9 @@ namespace Entidade {
 				virtual void atualizarImagem(const float tempo) = 0;
 
 				virtual const float getVelocidadeEspecifica() const = 0;
+				virtual void executar() = 0;
 			};
-
-	}
-}
+		} //namespace Inimigo
+	} //namespace Personagem
+} //namespace Entidade
 

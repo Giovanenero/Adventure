@@ -3,6 +3,7 @@
 namespace Ids {
 	enum class Ids {
 		vazio = 0,
+		fase_floresta,
 		plataforma,
 		fundo_floresta,
 		oriana,

@@ -15,30 +15,31 @@ namespace ElementoGrafico {
 		mapAnimacaoEstatica.clear();
 	}
 
-	void AnimacaoEstatica::novaAnimacao(const char* caminhoTextura, Ids::Ids id, Matematica::CoordenadaF escala) {
-		LinhaAnimacaoEstatica* temp = new LinhaAnimacaoEstatica(caminhoTextura);
+	void AnimacaoEstatica::novaAnimacao(const char* caminhoTextura, Ids::Ids id, Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Matematica::CoordenadaF escala) {
+		LinhaAnimacaoEstatica* temp = new LinhaAnimacaoEstatica(caminhoTextura, escala);
 		if (temp == nullptr) {
 			std::cout << "Nao foi possivel criar LinhaAnimacaoEstatica" << std::endl;
 			exit(1);
 		}
 		mapAnimacaoEstatica.insert(std::pair<Ids::Ids, LinhaAnimacaoEstatica*>(id, temp));
+		//this->escala = sf::Vector2f(escala.x, escala.y);
 		sf::IntRect tamanhoRect = temp->getTamanho();
 
-		this->escala = sf::Vector2f(escala.x, escala.y);
-		corpo.setScale(this->escala);
+		//corpo.setScale(this->escala);
 		corpo.setSize(sf::Vector2f(tamanhoRect.width, tamanhoRect.height));
+		//corpo.setSize(sf::Vector2f(tam.x, tam.y));
+		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setOrigin(sf::Vector2f(tamanhoRect.width, tamanhoRect.height) / 2.0f);
 	}
 
-	void AnimacaoEstatica::atualizar(Ids::Ids id, Matematica::CoordenadaF pos, Matematica::CoordenadaF tam) {
+	void AnimacaoEstatica::atualizar(Ids::Ids id) {
 		if (ID != id) { 
 			ID = id; 
 		}
 
 		//teste...
-		corpo.setSize(sf::Vector2f(tam.x, tam.y));
-		corpo.setOrigin(sf::Vector2f(tam.x, tam.y) / 2.f);
-		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
+		//corpo.setOrigin(sf::Vector2f(mapAnimacaoEstatica[ID]->getTamanho().width, mapAnimacaoEstatica[ID]->getTamanho().height) / 2.0f);
+		corpo.setScale(mapAnimacaoEstatica[ID]->getEscala());
 		corpo.setTextureRect(mapAnimacaoEstatica[ID]->getTamanho());
 		corpo.setTexture(mapAnimacaoEstatica[ID]->getTextura());
 	}

@@ -2,39 +2,51 @@
 
 namespace Entidade {
 	namespace Personagem {
-			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Oriana* pOriana, const float distanciaJogador) :
-				Personagem(pos, tam, id), pOriana(pOriana),
-				aleatorio(rand()%3), distanciaJogador(distanciaJogador),
+		namespace Inimigo {
+			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, const float distanciaJogador) :
+				Personagem(pos, tam, id), 
+				pOriana(pOriana),
+				aleatorio(rand() % 3), 
+				distanciaJogador(distanciaJogador),
 				contAleatorio(0)
 			{ }
 
-			Inimigo::~Inimigo() { pOriana = nullptr; }
+			Inimigo::~Inimigo() {
+				if (pOriana) {
+					delete(pOriana);
+					pOriana = nullptr;
+				}
+			}
 
-			void Inimigo::setOriana(Oriana* pOriana) { 
+			void Inimigo::setOriana(Jogador::Oriana* pOriana) {
 				if (pOriana == nullptr) {
 					std::cout << "ponteiro pOriana vazio! - class Inimigo: setOriana" << std::endl;
 					exit(1);
 				}
 				this->pOriana = pOriana;
 			}
-			Oriana* Inimigo::getOriana() { 
+			Jogador::Oriana* Inimigo::getOriana() {
 				if (pOriana == nullptr) {
 					std::cout << "ponteiro pOriana vazio! - classe Inimigo: getOriana()" << std::endl;
 					exit(1);
 				}
-				return pOriana; 
+				return pOriana;
 			}
 			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				//n to entendendo isso...acho q to tempo demais aqui!!
 				//colisaoPlataforma(intersecao, pEntidade);
 				if (pEntidade->getID() == Ids::Ids::plataforma) {
 					noChao = true;
 					colisaoPlataforma(intersecao, pEntidade);
 				}
-				else {
-					//noChao = false;
+				else if (pEntidade->getID() == Ids::Ids::oriana) {
+					//terminar...
+					/*
+					if (pOriana->podeAtacar()) {
+						morrer = true;
+					}
+					*/
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
@@ -103,5 +115,6 @@ namespace Entidade {
 				atualizarImagem(tempo);
 				renderizar();
 			}
-	}
-}
+		} //namespace Inimigo
+	} //namespace Personagem
+} //namespace Entidade

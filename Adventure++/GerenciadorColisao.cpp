@@ -2,11 +2,18 @@
 
 namespace Gerenciador {
 	GerenciadorColisao::GerenciadorColisao(Lista::ListaEntidade* LEstatica, Lista::ListaEntidade* LMovimento):
-		ListaEntidadeEstatica(LEstatica), ListaEntidadeMovimento(LMovimento) { }
+		ListaEntidadeEstatica(LEstatica), 
+		ListaEntidadeMovimento(LMovimento) { }
 
 	GerenciadorColisao::~GerenciadorColisao() {
-		ListaEntidadeEstatica = nullptr;
-		ListaEntidadeMovimento = nullptr;
+		if (ListaEntidadeEstatica) {
+			delete(ListaEntidadeEstatica);
+			ListaEntidadeEstatica = nullptr;
+		}
+		if (ListaEntidadeMovimento) {
+			delete(ListaEntidadeMovimento);
+			ListaEntidadeMovimento = nullptr;
+		}
 	}
 	void GerenciadorColisao::Colisao() {
 		Entidade::Entidade* Entidade1 = nullptr;
@@ -16,7 +23,7 @@ namespace Gerenciador {
 		int tamLEstatica = (int)ListaEntidadeEstatica->getTamanho();
 		int tamLMovimento = (int)ListaEntidadeMovimento->getTamanho();
 
-		//colisao entre EntidadeEstatica e EntidadeMovimento
+		//colisao entre Obstaculo e EntidadeMovimento
 		for (int i = 0; i < tamLEstatica; i++) {
 			for (int j = 0; j < tamLMovimento; j++) {
 

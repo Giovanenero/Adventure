@@ -11,7 +11,7 @@ namespace Gerenciador {
 	{
 	private:
 		GerenciadorGrafico* pGrafico;
-		Entidade::Personagem::Oriana* pOriana;
+		Entidade::Personagem::Jogador::Oriana* pOriana;
 		sf::RenderWindow* window;
 
 		static GerenciadorEvento* pEvento;
@@ -19,7 +19,7 @@ namespace Gerenciador {
 	public:
 		~GerenciadorEvento();
 		static GerenciadorEvento* getGerenciadorEvento();
-		void setOriana(Entidade::Personagem::Oriana* pOriana);
+		void setOriana(Entidade::Personagem::Jogador::Oriana* pOriana);
 		void pollEvents();
 	};
 }

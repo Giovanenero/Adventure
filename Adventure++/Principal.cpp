@@ -9,8 +9,13 @@ Principal::Principal():
 	Executar();
 }
 Principal::~Principal() {
-    delete fase;
-    fase = nullptr;
+    //ver o motivo do erro...
+    /*
+    if (fase != nullptr) {
+        delete(fase);
+        fase = nullptr;
+    }
+    */
 }
 
 void Principal::Executar() {

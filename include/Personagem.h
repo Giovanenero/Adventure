@@ -1,12 +1,13 @@
 #pragma once
 
-#include "EntidadeMovimento.h"
+#include "Entidade.h"
+#include "AnimacaoMovimento.h"
 
 #define GRAVIDADE 998.0f
 
 namespace Entidade {
 	namespace Personagem {
-		class Personagem: public EntidadeMovimento
+		class Personagem: public Entidade
 		{
 		protected:
 			Matematica::CoordenadaF velocidade;
@@ -29,7 +30,7 @@ namespace Entidade {
 			//const float carregarDano = 1.0f;
 			//const float tempoDano = 1.0f;
 
-
+			ElementoGrafico::AnimacaoMovimento* pAnimacaoMovimento;
 		public:
 			Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 			~Personagem();
@@ -52,6 +53,17 @@ namespace Entidade {
 			void ativarAtacar();
 			void desligarAndar();
 			virtual void atualizarImagem(const float tempo) = 0;
+			void renderizar();
+			virtual void executar() = 0;
+
+			//teste...
+			const bool podeAtacar() {
+				return (tempoAtacando > carregarAtaque) ? true : false;
+			}
+			const bool podeMorrer() const {
+				return morrer;
+			}
+
 		};
 	}
 }

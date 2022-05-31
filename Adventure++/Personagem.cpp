@@ -3,13 +3,25 @@
 namespace Entidade {
 	namespace Personagem {
 		Personagem::Personagem(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id) :
-			EntidadeMovimento(pos, tam, id), morrer(false),
-			olharEsquerda(false), velocidade(Matematica::CoordenadaF(0.f, 0.f)),
-			atacando(false), vida(0), andando(false), noChao(false)
+			Entidade(pos, tam, id), 
+			morrer(false),
+			olharEsquerda(false), 
+			velocidade(Matematica::CoordenadaF(0.f, 0.f)),
+			atacando(false), 
+			vida(0), 
+			andando(false), 
+			noChao(false),
+			pAnimacaoMovimento(nullptr)
 		{
-			//terminar...
+			pAnimacaoMovimento = new ElementoGrafico::AnimacaoMovimento();
+			//arrumar velocidade...
 		}
-		Personagem::~Personagem() { }
+		Personagem::~Personagem() { 
+			if (pAnimacaoMovimento) {
+				delete(pAnimacaoMovimento);
+				pAnimacaoMovimento = nullptr;
+			}
+		}
 
 		void Personagem::setVida(int vida) { this->vida = vida; }
 
@@ -22,6 +34,10 @@ namespace Entidade {
 		void Personagem::setVelocidade(Matematica::CoordenadaF velocidade) { this->velocidade = velocidade; }
 		
 		Matematica::CoordenadaF Personagem::getVelocidade() { return velocidade; }
+
+		void Personagem::renderizar() {
+			pAnimacaoMovimento->renderizar();
+		}
 
 		void Personagem::colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 			Matematica::CoordenadaF posEntidade = pEntidade->getPosicao();

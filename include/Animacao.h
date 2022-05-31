@@ -12,7 +12,6 @@ namespace ElementoGrafico {
 	{
 	protected:
 		sf::RectangleShape corpo;
-		sf::Vector2f escala;
 		Ids::Ids ID;
 
 		static Gerenciador::GerenciadorGrafico* pGrafico;
@@ -20,8 +19,8 @@ namespace ElementoGrafico {
 		Animacao();
 		~Animacao();
 		static Gerenciador::GerenciadorGrafico* getGerenciadorGrafico();
-		virtual void novaAnimacao();
-		virtual void atualizar();
+		virtual void novaAnimacao() = 0;
+		virtual void atualizar() = 0;
 		void renderizar();
 	};
 }

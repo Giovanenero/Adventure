@@ -16,7 +16,8 @@ namespace Gerenciador {
 	}
 	GerenciadorGrafico::GerenciadorGrafico():
 		window(new sf::RenderWindow(sf::VideoMode(TELAX, TELAY), "Adventure++")),
-		camera(sf::Vector2f(TELAX / 2, TELAY / 2), sf::Vector2f(TELAX, TELAY)),
+		camera(sf::Vector2f(TELAX / 2, TELAY / 2), 
+		sf::Vector2f(TELAX, TELAY)),
 		Maptexturas(),
 		relogio() {}
 

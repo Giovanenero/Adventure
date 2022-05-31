@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Fase.h"
+#include "FaseFloresta.h"
 
 class Principal
 {
 private:
-    Fase::FaseGenerica *fase;
+    Fase::FaseFloresta *fase;
 public:
 	Principal();
 	~Principal();

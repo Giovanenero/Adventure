@@ -2,7 +2,7 @@
 
 namespace Entidade {
 	Entidade::Entidade(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id):
-		ID(id), posicao(pos), tamanho(tam) { }
+		Ente(id), posicao(pos), tamanho(tam) { }
 
 	Entidade::~Entidade() { }
 	void Entidade::setPosicao(Matematica::CoordenadaF pos) { posicao = pos; }

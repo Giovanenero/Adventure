@@ -14,20 +14,23 @@
 
 namespace Entidade {
     namespace Personagem {
-        class Pascal: public Inimigo
-        {
-        public:
-            Pascal(Matematica::CoordenadaF posInicio, Oriana* pOriana);
-            ~Pascal();
-            void inicializacao();
+        namespace Inimigo {
+            class Pascal : public Inimigo
+            {
+            public:
+                Pascal(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana);
+                ~Pascal();
+                void inicializacao();
 
-            void atualizarImagem(const float tempo);
+                void atualizarImagem(const float tempo);
+                void executar();
 
-            //arrumar...
-            const float getVelocidadeEspecifica() const {
-                return VELOCIDADE_X_PASCAL;
-            }
-        };
+                //arrumar...
+                const float getVelocidadeEspecifica() const {
+                    return VELOCIDADE_X_PASCAL;
+                }
+            };
+        }
     }
 }
 

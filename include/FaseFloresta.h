@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Fase.h"
+#include "Obstaculo.h"
 
 namespace Fase {
 
@@ -11,5 +12,9 @@ namespace Fase {
         ~FaseFloresta() override;
 
         void init();
+        void executar();
+        void atualizar(const float tempo) {
+            //???
+        }
     };
-} // Fase
+} // namespace Fase

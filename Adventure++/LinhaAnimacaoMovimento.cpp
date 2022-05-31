@@ -4,8 +4,11 @@ namespace ElementoGrafico {
 
 	const float LinhaAnimacaoMovimento::trocaImagem = 0.08f;
 
-	LinhaAnimacaoMovimento::LinhaAnimacaoMovimento(const char* caminhoTextura, const unsigned int contaImagem) :
-		LinhaAnimacao(), contaImagem(contaImagem), imagemAtual(0), tempoTotal(0.f)
+	LinhaAnimacaoMovimento::LinhaAnimacaoMovimento(const char* caminhoTextura, const unsigned int contaImagem, Matematica::CoordenadaF escala) :
+		LinhaAnimacao(escala), 
+		contaImagem(contaImagem), 
+		imagemAtual(0), 
+		tempoTotal(0.f)
 	{
 		textura = AnimacaoMovimento::getGerenciadorGrafico()->loadTexture(caminhoTextura);
 		if (!textura) {

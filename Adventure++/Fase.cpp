@@ -1,35 +1,24 @@
 #include "Fase.h"
 
-Fase::FaseGenerica::FaseGenerica() : pEvento(), pGrafico(), ListaEntidadeEstatica(), ListaEntidadeMovimento(),
-pOriana(new Entidade::Personagem::Oriana(Matematica::CoordenadaF(200.0f, 200.0f))),
-pPascal(new Entidade::Personagem::Pascal(Matematica::CoordenadaF(600.0f, 200.0f), pOriana)),
-pColisao() {
+namespace Fase {
+    FaseGenerica::FaseGenerica() : 
+        Ente(Ids::Ids::fase_floresta),
+        pEvento(), 
+        pGrafico(), 
+        ListaEntidadeEstatica(), 
+        ListaEntidadeMovimento(),
+        pOriana(new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 0.0f))),
+        pPascal(new Entidade::Personagem::Inimigo::Pascal(Matematica::CoordenadaF(600.0f, 0.0f), pOriana)),
+        pColisao() { }
 
-}
-
-Fase::FaseGenerica::~FaseGenerica() {
-    //arrumar...
-    //delete pOriana;
-    //delete pPascal;
-}
-
-void Fase::FaseGenerica::executar() {
-    while (pGrafico->isWindowOpen()) {
-        float tempo = pGrafico->atualizartempo();
-        pEvento->pollEvents();
-        pGrafico->limpar();
-
-        //arrumar... ineficiente
-        for (int i = 0; i < (int) ListaEntidadeEstatica->getTamanho(); i++) {
-            Entidade::EntidadeEstatica* aux = static_cast<Entidade::EntidadeEstatica*>(ListaEntidadeEstatica->operator[](i));
-            aux->atualizar();
+    FaseGenerica::~FaseGenerica() {
+        if (pOriana) {
+            delete(pOriana);
+            pOriana = nullptr;
         }
-
-        for (int i = 0; i < (int) ListaEntidadeMovimento->getTamanho(); i++) {
-            ListaEntidadeMovimento->operator[](i)->atualizar(tempo);
+        if (pPascal) {
+            delete(pPascal);
+            pPascal = nullptr;
         }
-
-        pColisao->Colisao();
-        pGrafico->mostrar();
     }
-}
+} //namespace Fase

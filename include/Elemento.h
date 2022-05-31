@@ -20,11 +20,10 @@ namespace Lista {
 		TIPO* getTipo();
 	};
 	template <class TIPO>
-	Elemento<TIPO>::Elemento() {
-		proximo = nullptr;
-		anterior = nullptr;
-		tipo = nullptr;
-	}
+	Elemento<TIPO>::Elemento():
+		proximo(nullptr),
+		anterior(nullptr),
+		tipo(nullptr) { }
 
 	template <class TIPO>
 	Elemento<TIPO>::~Elemento() {
