@@ -19,7 +19,6 @@ namespace Entidade {
 
 				virtual void atualizar(const float tempo) = 0;
 				virtual void atualizarImagem(const float tempo) = 0;
-				virtual void executar() = 0;
 
 				void podePular();
 			};

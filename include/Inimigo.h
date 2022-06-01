@@ -23,13 +23,12 @@ namespace Entidade {
 				Jogador::Oriana* getOriana();
 
 				Matematica::CoordenadaF getDistanciaJogador();
-				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
+				virtual void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
-				void atualizar(const float tempo);
+				virtual void atualizar(const float tempo);
 				virtual void atualizarImagem(const float tempo) = 0;
 
 				virtual const float getVelocidadeEspecifica() const = 0;
-				virtual void executar() = 0;
 			};
 		} //namespace Inimigo
 	} //namespace Personagem
