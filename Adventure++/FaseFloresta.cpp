@@ -48,15 +48,16 @@ namespace Fase {
         Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(350.0f, 210.0f), tam, Ids::Ids::plataforma);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
         
+        for (int i = 0; i < 5; i++) {
+            Entidade::Personagem::Inimigo::BateGoblin* pBateGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF((float)(rand()%1200), 200.0f), pOriana);
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateGoblin));
+        }
 
-        Entidade::Personagem::Inimigo::BateGoblin* pGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF(200.0f, 200.0f), pOriana);
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pGoblin));
-
-        Entidade::Personagem::Inimigo::BateGoblin* pGoblin2 = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF(400.0f, 200.0f), pOriana);
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pGoblin2));
+        for (int i = 0; i < 5; i++) {
+            Entidade::Personagem::Inimigo::AtiraGoblin* pAtiraGoblin = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand()%1200), 200.f), pOriana, ListaEntidadeMovimento);
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraGoblin));
+        }
         
-        Entidade::Personagem::Inimigo::AtiraGoblin* pGoblin3 = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF(400.0f, 200.0f), pOriana, ListaEntidadeMovimento);
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pGoblin3));
     }
     void FaseFloresta::executar() {
         while (pGrafico->isWindowOpen()) {
@@ -77,9 +78,6 @@ namespace Fase {
                 if (pMov->podeRemover()) {
                     pMov = ListaEntidadeMovimento->removerEntidade((unsigned int)i);
                     pMov = nullptr;
-                    //ainda em teste
-                    Entidade::Personagem::Inimigo::AtiraGoblin* novoInimigo = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand() % 1050), 200.0f), pOriana, ListaEntidadeMovimento);
-                    ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(novoInimigo));
                 }
             }
             pGrafico->centralizarCamera(pOriana->getPosicao());

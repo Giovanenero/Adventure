@@ -18,8 +18,6 @@ namespace Entidade {
         namespace Inimigo {
             class Goblin: public Inimigo
             {
-            protected:
-                short mudarAtaque = rand() % 2;
             public:
                 Goblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id);
                 ~Goblin();

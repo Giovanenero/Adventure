@@ -5,8 +5,7 @@ namespace Entidade {
         namespace Inimigo {
 			AtiraGoblin::AtiraGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento) :
 				Goblin(posInicio, pOriana, Ids::Ids::goblin_atira),
-				pProjetil(nullptr),
-				ListaEntidadeMovimento(ListaEntidadeMovimento)
+				Atirador(ListaEntidadeMovimento)
             {
                 inicializacao();
 				carregarAtaque = 0.5f;
@@ -18,10 +17,6 @@ namespace Entidade {
             void AtiraGoblin::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando3.png", 12, Ids::Ids::goblin_ataca3, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
             }
-
-			void AtiraGoblin::verificaProjetil() {
-				//...
-			}
 
 			void AtiraGoblin::atualizar(const float tempo) {
 				if (posicao.y > 600.f) {
@@ -96,7 +91,6 @@ namespace Entidade {
 				else if (atacando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca3);
 					if (podeAtacar()) {
-						//atacando = false;
 						jaAtirou = true;
 						tempoAtacando = 0.f;
 						pProjetil = new Projetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
@@ -110,18 +104,6 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_para);
 				}
             }
-			void AtiraGoblin::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				//colisaoPlataforma(intersecao, pEntidade);
-				if (pEntidade->getID() == Ids::Ids::plataforma) {
-					noChao = true;
-					colisaoPlataforma(intersecao, pEntidade);
-				}
-				else if (pEntidade->getID() == Ids::Ids::oriana) {
-					if (pOriana->podeAtacar()) {
-						podeTomarDano(pOriana->valorDano());
-					}
-				}
-			}
         }
     }
 }
