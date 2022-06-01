@@ -7,6 +7,7 @@
 #include "GerenciadorColisao.h"
 #include "Oriana.h"
 #include "Pascal.h"
+#include "Goblin.h"
 #include "Plataforma.h"
 #include "Fundo.h"
 

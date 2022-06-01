@@ -16,15 +16,16 @@ namespace Entidade {
 			bool noChao;
 
 			//combate:
+			float carregarAtaque;//const
+			float tempoAtaque;//const
+			float carregarMorrer;//const
+			float carregarTomarDano;//const
+
 			bool atacando;
-			float carregandoAtaque = 0.f;
-			float tempoAtacando = 0.f;
-			const float carregarAtaque = 0.4f;
-			const float tempoAtaque = 0.4f;
-			const float carregarMorrer = 0.6f;
-			float carregandoMorrendo = 0.0f;
-			const float carregarTomarDano = 0.6f;
-			float carregandoTomarDano = 0.0f;
+			float carregandoAtaque;
+			float tempoAtacando;
+			float carregandoMorrendo;
+			float carregandoTomarDano;
 			bool tomarDano;
 			int vida;
 			int dano;
@@ -50,6 +51,7 @@ namespace Entidade {
 			void atualizarTempoAtaque(const float tempo);
 			void ativarAndar(bool paraEsquerda);
 			void ativarAtacar();
+			void desligarAtacar();
 			void desligarAndar();
 			virtual void atualizarImagem(const float tempo) = 0;
 			void renderizar();
@@ -58,7 +60,6 @@ namespace Entidade {
 			const bool podeMorrer() const;
 			void podeTomarDano(int dano);
 			const int valorDano() const;
-
 		};
 	}
 }

@@ -14,6 +14,10 @@ namespace Entidade {
             {
                 velocidade = Matematica::CoordenadaF(VELOCIDADE_X_PASCAL, VELOCIDADE_Y_PASCAL);
                 inicializacao();
+                carregarAtaque = 1.5f;
+                tempoAtaque = 0.5f;
+                carregarMorrer = 0.6f; 
+                carregarTomarDano = 0.6f;
             }
             Pascal::~Pascal() {
 
@@ -21,18 +25,16 @@ namespace Entidade {
             void Pascal::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalAndando.png", 6, Ids::Ids::pascal_anda, tamanho, Matematica::CoordenadaF(2.5f, 1.15f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalMorrendo.png", 4, Ids::Ids::pascal_morre, tamanho, Matematica::CoordenadaF(2.5f, 1.15f));
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalAtacando.png", 4, Ids::Ids::pascal_ataca, tamanho, Matematica::CoordenadaF(2.5f, 2.15f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalAtacando.png", 4, Ids::Ids::pascal_ataca, tamanho, Matematica::CoordenadaF(2.5f, 1.15f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalDano.png", 2, Ids::Ids::pascal_tomaDano, tamanho, Matematica::CoordenadaF(2.5f, 1.15f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Pascal/pascalParado.png", 4, Ids::Ids::pascal_para, tamanho, Matematica::CoordenadaF(2.5f, 1.15f));
             }
             void Pascal::atualizarImagem(const float tempo) {
                 if (morrer) {
-                    //ainda em teste...
                     pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::pascal_morre);
                     carregandoMorrendo += tempo;
                 }
                 else if (tomarDano) {
-                    //ainda em teste...
                     pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8, Ids::Ids::pascal_tomaDano);
                     carregandoTomarDano += tempo;
                     if (carregandoTomarDano > carregarTomarDano) {

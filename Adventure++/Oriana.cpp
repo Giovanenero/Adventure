@@ -10,11 +10,14 @@ namespace Entidade {
 					TAMANHO_PULO_ORIANA,
 					VIDA_ORIANA,
 					DANO_ORIANA),
-				EhJogador1(true)
+					EhJogador1(true)
 			{
-				vida = VIDA_ORIANA;
 				velocidade = Matematica::CoordenadaF(VELOCIDADE_X_ORIANA, VELOCIDADE_Y_ORIANA);
 				inicializacao();
+				carregarAtaque = 0.4f;
+				tempoAtaque = 0.4f;
+				carregarMorrer = 1.5f;
+				carregarTomarDano = 0.6f;
 			}
 
 			Oriana::~Oriana() { }
@@ -22,7 +25,7 @@ namespace Entidade {
 			//inicializa animacoes
 			void Oriana::inicializacao() {
 				pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaParada.png", 15, Ids::Ids::oriana_para, tamanho, Matematica::CoordenadaF(1.5f, 3.0f));
-				pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaMorrendo.png", 15, Ids::Ids::oriana_morre, tamanho, Matematica::CoordenadaF(1.5f, 3.0f));
+				pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaMorrendo.png", 15, Ids::Ids::oriana_morre, tamanho, Matematica::CoordenadaF(2.5f, 3.0f));
 				pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaPulando.png", 1, Ids::Ids::oriana_pula, tamanho, Matematica::CoordenadaF(1.2f, 1.8f));
 				pAnimacaoMovimento->novaAnimacao("textura/Jogador/orianaCaindo.png", 1, Ids::Ids::oriana_cai, tamanho, Matematica::CoordenadaF(1.2f, 2.0f));
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/orianaAtacando.png", 22, Ids::Ids::oriana_ataca, tamanho, Matematica::CoordenadaF(3.0f, 3.2f));
@@ -61,7 +64,16 @@ namespace Entidade {
 			}
 
 			void Oriana::atualizarImagem(const float tempo) {
-				if (!noChao) {
+				if (morrer) {
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::oriana_morre);
+					carregandoMorrendo += tempo;
+					//teste...
+					if (carregandoMorrendo > carregarMorrer) {
+						std::cout << "FIM DE JOGO!" << std::endl;
+						exit(1);
+					}
+				}
+				else if (!noChao) {
 					if (!caindo) {
 						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_pula);
 					}
