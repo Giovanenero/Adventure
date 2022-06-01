@@ -18,6 +18,14 @@ namespace Ids {
 		pascal_ataca,
 		pascal_morre,
 		pascal_tomaDano,
-		pascal_para
+		pascal_para,
+		goblin,
+		goblin_anda,
+		goblin_para,
+		goblin_ataca1,
+		goblin_ataca2,
+		goblin_ataca3,
+		goblin_morre,
+		goblin_tomaDano
 	};
 }

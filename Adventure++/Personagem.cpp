@@ -13,7 +13,15 @@ namespace Entidade {
 			pAnimacaoMovimento(nullptr),
 			vida(vida),
 			tomarDano(false),
-			dano(dano)
+			dano(dano),
+			carregandoAtaque(0.0f),
+			tempoAtacando(0.0f),
+			carregandoMorrendo(0.0f),
+			carregandoTomarDano(0.0f),
+			carregarAtaque(0.0f),
+			tempoAtaque(0.0f),
+			carregarMorrer(0.0f),
+			carregarTomarDano(0.0f)
 		{
 			pAnimacaoMovimento = new ElementoGrafico::AnimacaoMovimento();
 			//arrumar velocidade...
@@ -84,6 +92,9 @@ namespace Entidade {
 		}
 		void Personagem::ativarAtacar() {
 			atacando = true;
+		}
+		void Personagem::desligarAtacar() {
+			atacando = false;
 		}
 		void Personagem::desligarAndar() {
 			andando = false;

@@ -47,6 +47,9 @@ namespace Entidade {
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
+				if (posicao.y > 600.0f) {
+					morrer = true;
+				}
 				atualizarTempoAtaque(tempo);
 				float distancia_x = getOriana()->getPosicao().x - posicao.x;
 				float distancia_y = getOriana()->getPosicao().y - posicao.y;
@@ -54,7 +57,7 @@ namespace Entidade {
 				//arrumar velocidade.x ...
 				velocidade.x = getVelocidadeEspecifica();
 				//persegue o jogador...
-				if (!morrer && !tomarDano) {
+				if (!morrer && !tomarDano && !atacando) {
 					if (fabs(distancia_x) < distanciaJogador.x && fabs(distancia_y) < distanciaJogador.y) {
 						//p/ direito
 						if (distancia_x > 0) {
@@ -107,11 +110,7 @@ namespace Entidade {
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
-				posicao.y += velocidade.y * tempo;
-
-				if (posicao.y > 600.0f) {
-					morrer = true;
-				}
+				posicao.y += velocidade.y * tempo;  
 
 				atualizarImagem(tempo);
 				renderizar();

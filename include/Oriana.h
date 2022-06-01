@@ -10,6 +10,11 @@
 #define VELOCIDADE_X_ORIANA 160.0f
 #define VELOCIDADE_Y_ORIANA 0.0f
 #define TAMANHO_PULO_ORIANA 140.0f
+//teste...
+#define TEMPO_ATAQUE_ORIANA 0.4f
+#define TEMPO_DANO_ORIANA 0.6f
+#define TEMPO_MORRE_ORIANA 0.6f
+
 
 namespace Entidade {
 	namespace Personagem {
