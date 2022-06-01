@@ -93,9 +93,6 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para);
 				}
 			}
-			void Oriana::executar() {
-				//???
-			}
 		} //namespace Jogador
 	} //namespace Personagem
 } //namespace Entidade

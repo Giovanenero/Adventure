@@ -55,11 +55,14 @@ namespace Entidade {
 			void desligarAndar();
 			virtual void atualizarImagem(const float tempo) = 0;
 			void renderizar();
-			virtual void executar() = 0;
 			const bool podeAtacar() const;
 			const bool podeMorrer() const;
 			void podeTomarDano(int dano);
 			const int valorDano() const;
+			//teste...
+			const bool podeRemover() const {
+				return podeMorrer() ? true : false;
+			}
 		};
 	}
 }

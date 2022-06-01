@@ -10,7 +10,6 @@ namespace Fase {
         ListaEntidadeEstatica = new Lista::ListaEntidade();
         ListaEntidadeMovimento = new Lista::ListaEntidade();
         pOriana = new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 200.0f));
-        pPascal = new Entidade::Personagem::Inimigo::Pascal(Matematica::CoordenadaF(600.0f, 200.0f), pOriana);
         pColisao = new Gerenciador::GerenciadorColisao(ListaEntidadeEstatica, ListaEntidadeMovimento);
         fundo = new Fundo(Ids::Ids::fase_floresta, static_cast<Entidade::Entidade*>(pOriana));
     }
@@ -22,7 +21,6 @@ namespace Fase {
         pEvento->setOriana(pOriana);
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pPascal));
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
@@ -50,12 +48,15 @@ namespace Fase {
         Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(350.0f, 210.0f), tam, Ids::Ids::plataforma);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
         
-        Entidade::Personagem::Inimigo::Goblin* pGoblin = new Entidade::Personagem::Inimigo::Goblin(Matematica::CoordenadaF(200.0f, 200.0f), pOriana);
+
+        Entidade::Personagem::Inimigo::BateGoblin* pGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF(200.0f, 200.0f), pOriana);
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pGoblin));
 
-        Entidade::Personagem::Inimigo::Goblin* pGoblin2 = new Entidade::Personagem::Inimigo::Goblin(Matematica::CoordenadaF(400.0f, 200.0f), pOriana);
+        Entidade::Personagem::Inimigo::BateGoblin* pGoblin2 = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF(400.0f, 200.0f), pOriana);
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pGoblin2));
-    
+        
+        Entidade::Personagem::Inimigo::AtiraGoblin* pGoblin3 = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF(400.0f, 200.0f), pOriana, ListaEntidadeMovimento);
+        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pGoblin3));
     }
     void FaseFloresta::executar() {
         while (pGrafico->isWindowOpen()) {
@@ -71,12 +72,13 @@ namespace Fase {
             }
 
             for (int i = 0; i < (int)ListaEntidadeMovimento->getTamanho(); i++) {
-                Entidade::Personagem::Personagem* pMov = static_cast<Entidade::Personagem::Personagem*>(ListaEntidadeMovimento->operator[](i));
+                Entidade::Entidade* pMov = ListaEntidadeMovimento->operator[](i);
                 pMov->atualizar(tempo);
-                if (pMov->podeMorrer()) {
-                    pMov = static_cast<Entidade::Personagem::Personagem*>(ListaEntidadeMovimento->removerEntidade((unsigned int)i));
+                if (pMov->podeRemover()) {
+                    pMov = ListaEntidadeMovimento->removerEntidade((unsigned int)i);
+                    pMov = nullptr;
                     //ainda em teste
-                    Entidade::Personagem::Inimigo::Goblin* novoInimigo = new Entidade::Personagem::Inimigo::Goblin(Matematica::CoordenadaF((float)(rand() % 1050), 200.0f), pOriana);
+                    Entidade::Personagem::Inimigo::AtiraGoblin* novoInimigo = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand() % 1050), 200.0f), pOriana, ListaEntidadeMovimento);
                     ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(novoInimigo));
                 }
             }

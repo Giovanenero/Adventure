@@ -149,6 +149,8 @@
     <ClCompile Include="Animacao.cpp" />
     <ClCompile Include="AnimacaoEstatica.cpp" />
     <ClCompile Include="AnimacaoMovimento.cpp" />
+    <ClCompile Include="AtiraGoblin.cpp" />
+    <ClCompile Include="BateGoblin.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Goblin.cpp" />
@@ -166,15 +168,17 @@
     <ClCompile Include="LinhaAnimacaoMovimento.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Oriana.cpp" />
-    <ClCompile Include="Pascal.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="Projetil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacao.h" />
     <ClInclude Include="AnimacaoEstatica.h" />
     <ClInclude Include="AnimacaoMovimento.h" />
+    <ClInclude Include="AtiraGoblin.h" />
+    <ClInclude Include="BateGoblin.h" />
     <ClInclude Include="Coordenada.h" />
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Ente.h" />
@@ -196,10 +200,10 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Oriana.h" />
-    <ClInclude Include="Pascal.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Principal.h" />
+    <ClInclude Include="Projetil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

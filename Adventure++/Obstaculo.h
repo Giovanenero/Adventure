@@ -21,6 +21,17 @@ namespace Entidade {
 			virtual void inicializacao() = 0;
 			virtual void atualizar() = 0;
 			virtual void executar() = 0;
+
+			const bool podeRemover() const {
+				//arrumar...
+				return false;
+			}
+			void atualizar(const float tempo) {
+				//arrumar
+			}
+			void atualizarImagem(const float tempo) {
+				//arrumar..
+			}
 		};
 	} //namespace Obstaculo
 } //namespace Entidade

@@ -30,7 +30,6 @@ namespace Entidade {
 
 				void atualizar(const float tempo);
 				void atualizarImagem(const float tempo);
-				void executar();
 			};
 		}
 	}

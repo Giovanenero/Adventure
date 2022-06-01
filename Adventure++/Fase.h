@@ -6,8 +6,8 @@
 #include "GerenciadorEvento.h"
 #include "GerenciadorColisao.h"
 #include "Oriana.h"
-#include "Pascal.h"
-#include "Goblin.h"
+#include "BateGoblin.h"
+#include "AtiraGoblin.h"
 #include "Plataforma.h"
 #include "Fundo.h"
 
@@ -18,7 +18,6 @@ namespace Fase {
         Gerenciador::GerenciadorGrafico* pGrafico;
         Gerenciador::GerenciadorEvento* pEvento;
         Entidade::Personagem::Jogador::Oriana *pOriana;
-        Entidade::Personagem::Inimigo::Pascal *pPascal;
         Lista::ListaEntidade *ListaEntidadeEstatica;
         Lista::ListaEntidade *ListaEntidadeMovimento;
         Gerenciador::GerenciadorColisao* pColisao;
@@ -29,5 +28,10 @@ namespace Fase {
         virtual void init() = 0;
         virtual void executar() = 0;
         virtual void atualizar(const float tempo) = 0;
+
+        //em teste...
+        Lista::ListaEntidade* getListaEntidadeMovimento() {
+            return ListaEntidadeMovimento;
+        }
     };
 }

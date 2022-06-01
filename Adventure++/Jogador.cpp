@@ -22,18 +22,7 @@ namespace Entidade {
 						caindo = false;
 						break;
 					}
-					case Ids::Ids::pascal:
-					{
-						//esta em teste...
-						Personagem* pPascal = static_cast<Personagem*>(pEntidade);
-						pPascal->ativarAtacar();
-						if (pPascal->podeAtacar()) {
-							pPascal->desligarAtacar();
-							podeTomarDano(pPascal->valorDano());
-						}
-						break;
-					}
-					case Ids::Ids::goblin:
+					case Ids::Ids::goblin_bate:
 					{
 						Personagem* pGoblin = static_cast<Personagem*>(pEntidade);
 						pGoblin->ativarAtacar();
