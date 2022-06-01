@@ -7,6 +7,7 @@ namespace Entidade {
             class BateGoblin: public Goblin
             {
             private:
+                short mudarAtaque;
             public:
                 BateGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana);
                 ~BateGoblin();

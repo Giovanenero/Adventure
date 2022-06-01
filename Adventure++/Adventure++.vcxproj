@@ -149,6 +149,7 @@
     <ClCompile Include="Animacao.cpp" />
     <ClCompile Include="AnimacaoEstatica.cpp" />
     <ClCompile Include="AnimacaoMovimento.cpp" />
+    <ClCompile Include="Atirador.cpp" />
     <ClCompile Include="AtiraGoblin.cpp" />
     <ClCompile Include="BateGoblin.cpp" />
     <ClCompile Include="Ente.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Animacao.h" />
     <ClInclude Include="AnimacaoEstatica.h" />
     <ClInclude Include="AnimacaoMovimento.h" />
+    <ClInclude Include="Atirador.h" />
     <ClInclude Include="AtiraGoblin.h" />
     <ClInclude Include="BateGoblin.h" />
     <ClInclude Include="Coordenada.h" />

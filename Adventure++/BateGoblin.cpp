@@ -4,7 +4,8 @@ namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
             BateGoblin::BateGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana):
-                Goblin(posInicio, pOriana, Ids::Ids::goblin_bate)
+                Goblin(posInicio, pOriana, Ids::Ids::goblin_bate),
+				mudarAtaque(rand() % 2)
             {
                 inicializacao();
 				carregarAtaque = 2.0f;
