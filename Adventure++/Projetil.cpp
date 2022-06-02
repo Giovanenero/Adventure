@@ -14,6 +14,7 @@ namespace Entidade {
 	}
 	void Projetil::inicializacao() {
 		pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinBomba.png", 19, Ids::Ids::goblin_bomba, tamanho, Matematica::CoordenadaF(2.5f, 2.5f));
+		pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoBomba.png", 8, Ids::Ids::esqueleto_bomba, tamanho, Matematica::CoordenadaF(1.5f, 1.5f));
 	}
 	void Projetil::renderizar() {
 		pAnimacaoMovimento->renderizar();
@@ -42,7 +43,7 @@ namespace Entidade {
 	}
 	void Projetil::atualizarImagem(const float tempo) {
 		if (!explodir) {
-			pAnimacaoMovimento->atualizar(posicao, paraEsquerda, tempo * 0.6f, Ids::Ids::goblin_bomba);
+			pAnimacaoMovimento->atualizar(posicao, paraEsquerda, tempo * 0.6f, Ids::Ids::esqueleto_bomba);
 		}
 	}
 	const bool Projetil::podeRemover() const {

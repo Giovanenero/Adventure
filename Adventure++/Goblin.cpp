@@ -13,7 +13,7 @@ namespace Entidade {
 				DANO_GOBLIN)
 			{
 				velocidade = Matematica::CoordenadaF(VELOCIDADE_GOBLIN_X, VELOCIDADE_GOBLIN_Y);
-				inicializacao();
+				this->inicializacao();
 				carregarMorrer = 0.35f;
 				carregarTomarDano = 0.6f;
 			}
