@@ -10,6 +10,7 @@
 #include "AtiraGoblin.h"
 #include "BateEsqueleto.h"
 #include "AtiraEsqueleto.h"
+#include "Animagus.h"
 #include "Plataforma.h"
 #include "Fundo.h"
 

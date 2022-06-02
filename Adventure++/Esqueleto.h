@@ -11,7 +11,6 @@
 #define DISTANCIA_ESQUELETO_RECONHECER_X 400.0f
 #define DISTANCIA_ESQUELETO_RECONHECER_Y 100.0f
 
-
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
