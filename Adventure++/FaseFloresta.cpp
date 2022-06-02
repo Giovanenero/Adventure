@@ -48,14 +48,32 @@ namespace Fase {
         Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(350.0f, 210.0f), tam, Ids::Ids::plataforma);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
         
+        
+        /*
         for (int i = 0; i < 5; i++) {
             Entidade::Personagem::Inimigo::BateGoblin* pBateGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF((float)(rand()%1200), 200.0f), pOriana);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateGoblin));
         }
+        */
+        
 
+        /*
         for (int i = 0; i < 5; i++) {
             Entidade::Personagem::Inimigo::AtiraGoblin* pAtiraGoblin = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand()%1200), 200.f), pOriana, ListaEntidadeMovimento);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraGoblin));
+        }
+        */
+        
+        /*
+        for (int i = 0; i < 5; i++) {
+            Entidade::Personagem::Inimigo::BateEsqueleto* pBateEsqueleto = new Entidade::Personagem::Inimigo::BateEsqueleto(Matematica::CoordenadaF((float)(rand()%1200), 200.f), pOriana);
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateEsqueleto));
+        }
+        */
+
+        for (int i = 0; i < 5; i++) {
+            Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(rand() % 1200), 200.f), pOriana, ListaEntidadeMovimento);
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
         }
         
     }
@@ -77,7 +95,7 @@ namespace Fase {
                 pMov->atualizar(tempo);
                 if (pMov->podeRemover()) {
                     pMov = ListaEntidadeMovimento->removerEntidade((unsigned int)i);
-                    pMov = nullptr;
+                    //pMov = nullptr;
                 }
             }
             pGrafico->centralizarCamera(pOriana->getPosicao());

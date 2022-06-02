@@ -1,24 +1,25 @@
-#include "AtiraGoblin.h"
+#include "AtiraEsqueleto.h"
 
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
-			AtiraGoblin::AtiraGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento) :
-				Goblin(posInicio, pOriana, Ids::Ids::goblin_atira),
-				Atirador(ListaEntidadeMovimento)
+            AtiraEsqueleto::AtiraEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento) :
+                Esqueleto(posInicio, pOriana, Ids::Ids::esqueleto_atira),
+                Atirador(ListaEntidadeMovimento)
             {
                 this->inicializacao();
-				carregarAtaque = 0.5f;
-				tempoAtaque = 0.5f;
+				carregarTomarDano = 0.5f;
+				carregarMorrer = 0.35f;
+				carregarAtaque = 1.5f;
+				tempoAtaque = 1.0f;
             }
-            AtiraGoblin::~AtiraGoblin() {
+            AtiraEsqueleto::~AtiraEsqueleto() {
 
             }
-            void AtiraGoblin::inicializacao() {
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando3.png", 12, Ids::Ids::goblin_ataca3, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
+            void AtiraEsqueleto::inicializacao() {
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoAtacando3.png", 6, Ids::Ids::esqueleto_ataca3, tamanho, Matematica::CoordenadaF(2.5f, 1.2f));
             }
-
-			void AtiraGoblin::atualizar(const float tempo) {
+            void AtiraEsqueleto::atualizar(const float tempo) {
 				if (posicao.y > 600.f) {
 					//teste...
 					morrer = true;
@@ -26,8 +27,8 @@ namespace Entidade {
 				atualizarTempoAtaque(tempo);
 				Matematica::CoordenadaF distancia = pOriana->getPosicao() - getPosicao();
 				if (!morrer && !tomarDano && !atacando) {
-					velocidade.x = VELOCIDADE_GOBLIN_X;
-					if (fabs(distancia.x) > DISTANCIA_GOBLIN_RECONHECER_X || fabs(distancia.y) > DISTANCIA_GOBLIN_RECONHECER_Y) {
+					velocidade.x = VELOCIDADE_ESQUELETO_X;
+					if (fabs(distancia.x) > DISTANCIA_ESQUELETO_RECONHECER_X || fabs(distancia.y) > DISTANCIA_ESQUELETO_RECONHECER_Y) {
 						if (aleatorio == 0) {
 							posicao.x += velocidade.x * tempo;
 							ativarAndar(false);
@@ -53,7 +54,7 @@ namespace Entidade {
 						else {
 							desligarAtacar();
 							const float posProjetil = pProjetil->getPosicao().x;
-							if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_GOBLIN) {
+							if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_ESQUELETO) {
 								pProjetil->setExplodir(true);
 								jaAtirou = false;
 							}
@@ -75,13 +76,13 @@ namespace Entidade {
 				atualizarImagem(tempo);
 				renderizar();
             }
-            void AtiraGoblin::atualizarImagem(const float tempo) {
+            void AtiraEsqueleto::atualizarImagem(const float tempo) {
 				if (morrer) {
-					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_morre);
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_morre);
 					carregandoMorrendo += tempo;
 				}
 				else if (tomarDano) {
-					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::goblin_tomaDano);
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::esqueleto_tomaDano);
 					carregandoTomarDano += tempo;
 					if (carregandoTomarDano > carregarTomarDano) {
 						tomarDano = false;
@@ -89,19 +90,19 @@ namespace Entidade {
 					}
 				}
 				else if (atacando) {
-					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca3);
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.3f, Ids::Ids::esqueleto_ataca3);
 					if (podeAtacar()) {
 						jaAtirou = true;
 						tempoAtacando = 0.f;
-						pProjetil = new Projetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
+						pProjetil = new Projetil(posicao, olharEsquerda, DANO_ESQUELETO_PROJETIL);
 						ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade*>(pProjetil));
 					}
 				}
 				else if (andando) {
-					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_anda);
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_anda);
 				}
 				else {
-					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_para);
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_para);
 				}
             }
         }

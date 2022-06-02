@@ -31,6 +31,15 @@ namespace Entidade {
 							podeTomarDano(pGoblin->valorDano());
 						}
 					}
+					case Ids::Ids::esqueleto_bate: {
+						Personagem* pEsqueleto = static_cast<Personagem*>(pEntidade);
+						pEsqueleto->ativarAtacar();
+						if (pEsqueleto->podeAtacar()) {
+							pEsqueleto->desligarAndar();
+							podeTomarDano(pEsqueleto->valorDano());
+						}
+						break;
+					}
 					default:
 					{
 						break;

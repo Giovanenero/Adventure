@@ -7,7 +7,7 @@ namespace Entidade {
                 Goblin(posInicio, pOriana, Ids::Ids::goblin_bate),
 				mudarAtaque(rand() % 2)
             {
-                inicializacao();
+                this->inicializacao();
 				carregarAtaque = 2.0f;
 				tempoAtaque = 0.6f;
             }

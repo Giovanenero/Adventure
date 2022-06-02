@@ -8,6 +8,8 @@
 #include "Oriana.h"
 #include "BateGoblin.h"
 #include "AtiraGoblin.h"
+#include "BateEsqueleto.h"
+#include "AtiraEsqueleto.h"
 #include "Plataforma.h"
 #include "Fundo.h"
 
