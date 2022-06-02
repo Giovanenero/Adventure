@@ -31,6 +31,13 @@ namespace Ids {
 		esqueleto_anda,
 		esqueleto_morre,
 		esqueleto_tomaDano,
+		animagus,
+		animagus_ataca1,
+		animagus_ataca2,
+		animagus_anda,
+		animagus_para,
+		animagus_morre,
+		animagus_tomaDano,
 		projetil,
 		goblin_bomba,
 		esqueleto_bomba
