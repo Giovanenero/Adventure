@@ -23,14 +23,17 @@ namespace Entidade {
 			carregarMorrer(0.0f),
 			carregarTomarDano(0.0f)
 		{
+			//srand(time(NULL));
 			pAnimacaoMovimento = new ElementoGrafico::AnimacaoMovimento();
 			//arrumar velocidade...
 		}
 		Personagem::~Personagem() { 
+			/*
 			if (pAnimacaoMovimento) {
 				delete(pAnimacaoMovimento);
 				pAnimacaoMovimento = nullptr;
 			}
+			*/
 		}
 
 		void Personagem::setVida(int vida) { this->vida = vida; }
@@ -116,6 +119,13 @@ namespace Entidade {
 		}
 		const bool Personagem::podeAtacar() const {
 			return (tempoAtacando > carregarAtaque) ? true : false;
+		}
+		void Personagem::carregaTomarDano(const float tempo) {
+			carregandoTomarDano += tempo;
+			if (carregandoTomarDano > carregarTomarDano) {
+				tomarDano = false;
+				carregandoTomarDano = 0.0f;
+			}
 		}
 	}
 }

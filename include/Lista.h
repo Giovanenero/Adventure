@@ -32,6 +32,7 @@ namespace Lista {
 
 	template<class TIPO>
 	Lista<TIPO>::~Lista() {
+		/*
 		if (pInicio) {
 			delete(pInicio);
 			pInicio = nullptr;
@@ -40,6 +41,7 @@ namespace Lista {
 			delete(pUltimo);
 			pUltimo = nullptr;
 		}
+		*/
 	}
 
 	template<class TIPO>

@@ -27,11 +27,7 @@ namespace Entidade {
 				}
 				else if (tomarDano) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::esqueleto_tomaDano);
-					carregandoTomarDano += tempo;
-					if (carregandoTomarDano > carregarTomarDano) {
-						tomarDano = false;
-						carregandoTomarDano = 0.0f;
-					}
+					carregaTomarDano(tempo);
 				}
 				else if (atacando) {
 					if (mudarAtaque == 0) {
@@ -40,6 +36,7 @@ namespace Entidade {
 					else {
 						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_ataca2);
 					}
+					desligarAtacar();
 				}
 				else if (andando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_anda);

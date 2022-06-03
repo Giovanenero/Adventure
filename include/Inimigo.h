@@ -29,6 +29,8 @@ namespace Entidade {
 				virtual void atualizarImagem(const float tempo) = 0;
 
 				virtual const float getVelocidadeEspecifica() const = 0;
+
+				void movimentoAleatorio(const float tempo);
 			};
 		} //namespace Inimigo
 	} //namespace Personagem

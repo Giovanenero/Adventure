@@ -12,10 +12,13 @@ namespace Entidade {
 			{ }
 
 			Inimigo::~Inimigo() {
+				/*
 				if (pOriana) {
-					delete(pOriana);
+					//delete(pOriana);
+					std::cout << "a ";
 					pOriana = nullptr;
 				}
+				*/
 			}
 
 			void Inimigo::setOriana(Jogador::Oriana* pOriana) {
@@ -47,7 +50,7 @@ namespace Entidade {
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
-				if (posicao.y > 600.0f) {
+				if (posicao.y > 2000.0f) {
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
@@ -84,29 +87,8 @@ namespace Entidade {
 							desligarAndar();
 						}
 					}
-					//movimento aleatorio
 					else {
-						//p/ direita
-						if (aleatorio == 0) {
-							posicao.x += velocidade.x * tempo;
-							olharEsquerda = false;
-							ativarAndar(olharEsquerda);
-						}
-						//p/ esquerda
-						else if (aleatorio == 1) {
-							posicao.x -= velocidade.x * tempo;
-							olharEsquerda = true;
-							ativarAndar(true);
-						}
-						//fica parado
-						else {
-							desligarAndar();
-						}
-						contAleatorio++;
-						if (contAleatorio == 1000) {
-							contAleatorio = 0;
-							aleatorio = rand() % 3;
-						}
+						movimentoAleatorio(tempo);
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
@@ -114,6 +96,26 @@ namespace Entidade {
 
 				atualizarImagem(tempo);
 				renderizar();
+			}
+			void Inimigo::movimentoAleatorio(const float tempo) {
+				velocidade.x = getVelocidadeEspecifica();
+				if (aleatorio == 0) {
+					posicao.x += velocidade.x * tempo;
+					ativarAndar(false);
+				}
+				else if (aleatorio == 1) {
+					posicao.x -= velocidade.x * tempo;
+					ativarAndar(true);
+				}
+				else {
+					desligarAndar();
+				}
+				contAleatorio++;
+				if (contAleatorio == 1000) {
+					contAleatorio = 0;
+					aleatorio = rand() % 3;
+					std::cout << aleatorio << " ";
+				}
 			}
 		} //namespace Inimigo
 	} //namespace Personagem
