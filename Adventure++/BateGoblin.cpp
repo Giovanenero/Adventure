@@ -25,11 +25,7 @@ namespace Entidade {
 				}
 				else if (tomarDano) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::goblin_tomaDano);
-					carregandoTomarDano += tempo;
-					if (carregandoTomarDano > carregarTomarDano) {
-						tomarDano = false;
-						carregandoTomarDano = 0.0f;
-					}
+					carregaTomarDano(tempo);
 				}
 				else if (atacando) {
 					if (mudarAtaque == 0) {
@@ -38,6 +34,7 @@ namespace Entidade {
 					else {
 						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_ataca2);
 					}
+					desligarAtacar();
 				}
 				else if (andando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_anda);

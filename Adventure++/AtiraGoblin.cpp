@@ -19,31 +19,15 @@ namespace Entidade {
             }
 
 			void AtiraGoblin::atualizar(const float tempo) {
-				if (posicao.y > 600.f) {
+				if (posicao.y > 2000.f) {
 					//teste...
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
 				Matematica::CoordenadaF distancia = pOriana->getPosicao() - getPosicao();
 				if (!morrer && !tomarDano && !atacando) {
-					velocidade.x = VELOCIDADE_GOBLIN_X;
-					if (fabs(distancia.x) > DISTANCIA_GOBLIN_RECONHECER_X || fabs(distancia.y) > DISTANCIA_GOBLIN_RECONHECER_Y) {
-						if (aleatorio == 0) {
-							posicao.x += velocidade.x * tempo;
-							ativarAndar(false);
-						}
-						else if (aleatorio == 1) {
-							posicao.x -= velocidade.x * tempo;
-							ativarAndar(true);
-						}
-						else {
-							desligarAndar();
-						}
-						contAleatorio++;
-						if (contAleatorio == 1000) {
-							contAleatorio = 0;
-							aleatorio = rand() % 3;
-						}
+					if (fabs(distancia.x) > DISTANCIA_GOBLIN_RECONHECER_X && fabs(distancia.y) > DISTANCIA_GOBLIN_RECONHECER_Y) {
+						movimentoAleatorio(tempo);
 					}
 					else {
 						desligarAndar();
@@ -82,19 +66,14 @@ namespace Entidade {
 				}
 				else if (tomarDano) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::goblin_tomaDano);
-					carregandoTomarDano += tempo;
-					if (carregandoTomarDano > carregarTomarDano) {
-						tomarDano = false;
-						carregandoTomarDano = 0.0f;
-					}
+					carregaTomarDano(tempo);
 				}
 				else if (atacando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca3);
-					if (podeAtacar()) {
-						jaAtirou = true;
+					if (podeAtacar() && pProjetil->getExplodir()) {
 						tempoAtacando = 0.f;
-						pProjetil = new Projetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
-						ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade*>(pProjetil));
+						criarProjetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
+						desligarAtacar();
 					}
 				}
 				else if (andando) {

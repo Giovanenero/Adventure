@@ -15,6 +15,7 @@ namespace Entidade {
 			public:
 				Atirador(Lista::ListaEntidade* ListaEntidadeMovimento);
 				~Atirador();
+				void criarProjetil(Matematica::CoordenadaF posicao, const bool esquerda, const int dano);
 			};
 		}
 	}

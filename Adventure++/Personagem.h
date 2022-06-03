@@ -63,6 +63,7 @@ namespace Entidade {
 			const bool podeRemover() const {
 				return podeMorrer() ? true : false;
 			}
+			void carregaTomarDano(const float tempo);
 		};
 	}
 }

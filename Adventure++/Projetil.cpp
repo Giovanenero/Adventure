@@ -43,7 +43,7 @@ namespace Entidade {
 	}
 	void Projetil::atualizarImagem(const float tempo) {
 		if (!explodir) {
-			pAnimacaoMovimento->atualizar(posicao, paraEsquerda, tempo * 0.6f, Ids::Ids::esqueleto_bomba);
+			pAnimacaoMovimento->atualizar(posicao, paraEsquerda, tempo * 0.4f, Ids::Ids::goblin_bomba);
 		}
 	}
 	const bool Projetil::podeRemover() const {

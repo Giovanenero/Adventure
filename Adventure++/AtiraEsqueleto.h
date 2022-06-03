@@ -2,7 +2,7 @@
 #include "Esqueleto.h"
 #include "Atirador.h"
 
-#define DISTANCIA_PROJETIL_ESQUELETO 30
+#define DISTANCIA_PROJETIL_ESQUELETO 300
 
 namespace Entidade {
     namespace Personagem {

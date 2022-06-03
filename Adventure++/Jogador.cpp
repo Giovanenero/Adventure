@@ -12,37 +12,21 @@ namespace Entidade {
 			Jogador::~Jogador() { }
 
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				switch (pEntidade->getID())
-				{
-					case Ids::Ids::plataforma:
-					{
-						colisaoPlataforma(intersecao, pEntidade);
-						pular = true;
-						noChao = true;
-						caindo = false;
-						break;
-					}
-					case Ids::Ids::goblin_bate:
-					{
-						Personagem* pGoblin = static_cast<Personagem*>(pEntidade);
-						pGoblin->ativarAtacar();
-						if (pGoblin->podeAtacar()) {
-							pGoblin->desligarAtacar();
-							podeTomarDano(pGoblin->valorDano());
-						}
-					}
-					case Ids::Ids::esqueleto_bate: {
-						Personagem* pEsqueleto = static_cast<Personagem*>(pEntidade);
-						pEsqueleto->ativarAtacar();
-						if (pEsqueleto->podeAtacar()) {
-							pEsqueleto->desligarAndar();
-							podeTomarDano(pEsqueleto->valorDano());
-						}
-						break;
-					}
-					default:
-					{
-						break;
+				if (pEntidade->getID() == Ids::Ids::plataforma) {
+					colisaoPlataforma(intersecao, pEntidade);
+					pular = true;
+					noChao = true;
+					caindo = false;
+				}
+				else if (pEntidade->getID() == Ids::Ids::goblin_bate ||
+					pEntidade->getID() == Ids::Ids::esqueleto_bate ||
+					pEntidade->getID() == Ids::Ids::animagus) {
+					Personagem* pPerson = static_cast<Personagem*>(pEntidade);
+					pPerson->ativarAtacar();
+					if (pPerson->podeAtacar()) {
+						pPerson->desligarAtacar();
+						podeTomarDano(pPerson->valorDano());
+						std::cout << "a ";
 					}
 				}
 			}

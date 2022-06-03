@@ -18,6 +18,10 @@ namespace Entidade {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusDano.png", 3, Ids::Ids::animagus_tomaDano, tamanho, Matematica::CoordenadaF(1.8f, 1.25f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusMorrendo.png", 7, Ids::Ids::animagus_morre, tamanho, Matematica::CoordenadaF(1.8f, 1.25f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusParado.png", 8, Ids::Ids::animagus_para, tamanho, Matematica::CoordenadaF(1.8f, 1.25f));
+				carregarTomarDano = 0.5f;
+				carregarMorrer = 0.35f;
+				carregarAtaque = 2.5f;
+				tempoAtaque = 0.5f;
             }
             void Animagus::atualizarImagem(const float tempo) {
 				if (morrer) {
@@ -26,11 +30,7 @@ namespace Entidade {
 				}
 				else if (tomarDano) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.5f, Ids::Ids::animagus_tomaDano);
-					carregandoTomarDano += tempo;
-					if (carregandoTomarDano > carregarTomarDano) {
-						tomarDano = false;
-						carregandoTomarDano = 0.0f;
-					}
+					carregaTomarDano(tempo);
 				}
 				else if (atacando) {
 					if (mudarAtaque == 0) {
@@ -39,6 +39,7 @@ namespace Entidade {
 					else {
 						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::animagus_ataca2);
 					}
+					desligarAtacar();
 				}
 				else if (andando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::animagus_anda);

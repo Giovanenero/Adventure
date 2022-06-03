@@ -5,7 +5,7 @@
 
 #define TAMANHO_PROJETIL_X 10.0f
 #define TAMANHO_PROJETIL_Y 10.0f
-#define VELOCIDADE_PROJETIL_X 0.3f
+#define VELOCIDADE_PROJETIL_X 0.5f
 #define TEMPO_EXPLODIR 1.0f
 
 namespace Entidade {
