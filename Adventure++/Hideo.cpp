@@ -22,8 +22,8 @@ namespace Entidade {
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoAtacando2.png", 7, Ids::Ids::hideo_ataca2, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/Jogador/Hideo/hideoAtacando3.png", 8, Ids::Ids::hideo_ataca3, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/Jogador/Hideo/hideoCaindo.png", 3, Ids::Ids::hideo_cai, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
-                pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoDano.png", 3, Ids::Ids::hideo_tomaDano, tamanho, Matematica::CoordenadaF(1.0f, 1.0f));
-                pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoMorrendo.png", 7, Ids::Ids::hideo_morre, tamanho, Matematica::CoordenadaF(1.0f, 1.0f));
+                pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoDano.png", 3, Ids::Ids::hideo_tomaDano, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
+                pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoMorrendo.png", 7, Ids::Ids::hideo_morre, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoParado.png", 10, Ids::Ids::hideo_para, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoPulando.png", 3, Ids::Ids::hideo_pula, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
             }

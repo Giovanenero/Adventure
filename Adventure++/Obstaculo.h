@@ -20,10 +20,9 @@ namespace Entidade {
 			void renderizar();
 			virtual void inicializacao() = 0;
 			virtual void atualizar() = 0;
-			virtual void executar() = 0;
 
 			const bool podeRemover() const {
-				//arrumar...
+				//arrumar
 				return false;
 			}
 			void atualizar(const float tempo) {

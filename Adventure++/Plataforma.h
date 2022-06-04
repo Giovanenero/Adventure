@@ -6,11 +6,10 @@ namespace Entidade {
 		class Plataforma : public Obstaculo
 		{
 		public:
-			Plataforma(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+			Plataforma(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam);
 			~Plataforma();
 			void atualizar();
 			void inicializacao();
-			void executar();
 		};
 	} //namespace Obstaculo
 } //namespace Entidade

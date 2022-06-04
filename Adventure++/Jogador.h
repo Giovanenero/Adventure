@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Personagem.h"
+#include "Espinhos.h"
 
 namespace Entidade {
 	namespace Personagem {

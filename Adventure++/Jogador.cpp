@@ -41,12 +41,18 @@ namespace Entidade {
 				else if (pEntidade->getID() == Ids::Ids::goblin_bate ||
 					pEntidade->getID() == Ids::Ids::esqueleto_bate ||
 					pEntidade->getID() == Ids::Ids::animagus) {
-					Personagem* pPerson = static_cast<Personagem*>(pEntidade);
+					Personagem* pPerson = dynamic_cast<Personagem*>(pEntidade);
 					pPerson->ativarAtacar();
 					if (pPerson->podeAtacar()) {
 						pPerson->desligarAtacar();
 						podeTomarDano(pPerson->valorDano());
 						std::cout << "a ";
+					}
+				}
+				else if (pEntidade->getID() == Ids::Ids::espinhos) {
+					Obstaculo::Espinhos* pEsp = dynamic_cast<Obstaculo::Espinhos*>(pEntidade);
+					if (pEsp->podeTomarDano()) {
+						podeTomarDano(pEsp->getDano());
 					}
 				}
 			}

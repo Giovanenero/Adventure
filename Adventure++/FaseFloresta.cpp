@@ -26,33 +26,6 @@ namespace Fase {
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
-        /*
-        for (int i = 0; i < 12; i++) {
-            if (i != 8 && i != 7) {
-                Matematica::CoordenadaF pos(i * 100.f, 450.f);
-                Entidade::Obstaculo::Plataforma* plataforma = new Entidade::Obstaculo::Plataforma(pos, tam, Ids::Ids::plataforma);
-                ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
-            }
-            else {
-                Matematica::CoordenadaF pos(i * 100.f, 550.f);
-                Entidade::Obstaculo::Plataforma* plataforma = new Entidade::Obstaculo::Plataforma(pos, tam, Ids::Ids::plataforma);
-                ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
-            }
-        }
-        Entidade::Obstaculo::Plataforma* plataforma1 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(200.0f, 340.0f), tam, Ids::Ids::plataforma);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma1));
-
-        Entidade::Obstaculo::Plataforma* plataforma2 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(500.0f, 340.0f), tam, Ids::Ids::plataforma);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma2));
-
-        Entidade::Obstaculo::Plataforma* plataforma3 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(750.0f, 340.0f), tam, Ids::Ids::plataforma);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma3));
-
-        Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(350.0f, 210.0f), tam, Ids::Ids::plataforma);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
-       
-        */
-
         short aleatorio = rand() % 3;
         short contAleatorio = 0;
         short mudaPosicao = 0;
@@ -60,7 +33,7 @@ namespace Fase {
         srand(time(NULL));
         for (int i = 0; i < 100; i++) {
             Matematica::CoordenadaF pos(i * 100.f, 500.f + mudaPosicao * 80.f );
-            Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(pos, tam, Ids::Ids::plataforma);
+            Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(pos, tam);
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
             if (aleatorio == 0 && flag) {
                 mudaPosicao++;
@@ -79,9 +52,11 @@ namespace Fase {
         }
 
         Matematica::CoordenadaF pos2(200.f, 350.f);
-        Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos2, tam, Ids::Ids::plataforma);
+        Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos2, tam);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma5));
 
+        Entidade::Obstaculo::Espinhos* pAux = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(500.0f, 450.f), Matematica::CoordenadaF(30.0f, 10.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pAux));
         /*
         Matematica::CoordenadaF pos3(1100.f, 250.f);
         Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos3, tam, Ids::Ids::plataforma);
