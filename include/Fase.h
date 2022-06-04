@@ -12,7 +12,10 @@
 #include "AtiraEsqueleto.h"
 #include "Animagus.h"
 #include "Plataforma.h"
+#include "Espinhos.h"
 #include "Fundo.h"
+
+#include <time.h>
 
 namespace Fase {
     class FaseGenerica: public Ente

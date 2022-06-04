@@ -2,8 +2,8 @@
 
 namespace Entidade {
 	namespace Obstaculo {
-		Plataforma::Plataforma(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id) :
-			Obstaculo(pos, tam, id)
+		Plataforma::Plataforma(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam) :
+			Obstaculo(pos, tam, Ids::Ids::plataforma)
 		{
 			inicializacao();
 		}
@@ -16,9 +16,6 @@ namespace Entidade {
 		void Plataforma::atualizar() {
 			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma);
 			pAnimacaoEstatica->renderizar();
-		}
-		void Plataforma::executar() {
-			//????
 		}
 	} //namespace Obstaculo
 } //namespace Entidade
