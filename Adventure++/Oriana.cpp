@@ -65,6 +65,7 @@ namespace Entidade {
 
 			void Oriana::atualizarImagem(const float tempo) {
 				if (morrer) {
+					desligarAndar();
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::oriana_morre);
 					carregandoMorrendo += tempo;
 					//teste...

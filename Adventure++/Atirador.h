@@ -10,8 +10,10 @@ namespace Entidade {
 			{
 			protected:
 				bool jaAtirou;
-				Projetil* pProjetil;
 				Lista::ListaEntidade* ListaEntidadeMovimento;
+				//teste
+				const float tempoExplosao = 10.f;
+				float carregarTempoExplosao = 0.f;
 			public:
 				Atirador(Lista::ListaEntidade* ListaEntidadeMovimento);
 				~Atirador();
