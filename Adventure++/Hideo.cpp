@@ -4,7 +4,8 @@ namespace Entidade {
     namespace Personagem {
         namespace Jogador {
             Hideo::Hideo(Matematica::CoordenadaF posInicio):
-                Jogador(posInicio, Ids::Ids::hideo)
+                Jogador(posInicio, Ids::Ids::hideo),
+				mudarAtaque(rand()%3)
             {
                 this->inicializacao();
 				carregarAtaque = 0.4f;

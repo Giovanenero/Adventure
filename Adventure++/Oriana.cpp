@@ -4,8 +4,7 @@ namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {
 			Oriana::Oriana(Matematica::CoordenadaF posInicio) :
-				Jogador(posInicio, Ids::Ids::oriana),
-					EhJogador1(true)
+				Jogador(posInicio, Ids::Ids::oriana)
 			{
 				inicializacao();
 				carregarAtaque = 0.4f;

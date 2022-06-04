@@ -7,8 +7,7 @@ namespace Entidade {
             class Hideo: public Jogador
             {
             private:
-                //teste...
-                short mudarAtaque = rand() % 3;
+                short mudarAtaque;
             public:
                 Hideo(Matematica::CoordenadaF posInicio);
                 ~Hideo();
