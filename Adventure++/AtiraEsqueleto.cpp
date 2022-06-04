@@ -5,7 +5,7 @@ namespace Entidade {
         namespace Inimigo {
             AtiraEsqueleto::AtiraEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento) :
                 Esqueleto(posInicio, pOriana, Ids::Ids::esqueleto_atira),
-                Atirador(ListaEntidadeMovimento)
+				Atirador(ListaEntidadeMovimento)
             {
                 this->inicializacao();
 				carregarTomarDano = 0.5f;
@@ -36,14 +36,17 @@ namespace Entidade {
 							ativarAtacar();
 						}
 						else {
-							desligarAtacar();
-							const float posProjetil = pProjetil->getPosicao().x;
-							if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_ESQUELETO) {
-								pProjetil->setExplodir(true);
-								jaAtirou = false;
-							}
-							else if (pProjetil->getExplodir()) {
-								jaAtirou = false;
+							if (pProjetil != nullptr) {
+								const float posProjetil = pProjetil->getPosicao().x;
+								if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_ESQUELETO) {
+									pProjetil->setExplodir(true);
+									//pProjetil = nullptr;
+									jaAtirou = false;
+								}
+								else if (pProjetil->getExplodir()) {
+									jaAtirou = false;
+									//pProjetil = nullptr;
+								}
 							}
 						}
 						if (distancia.x >= 0.f) {

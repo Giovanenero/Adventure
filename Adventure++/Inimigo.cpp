@@ -114,7 +114,6 @@ namespace Entidade {
 				if (contAleatorio == 1000) {
 					contAleatorio = 0;
 					aleatorio = rand() % 3;
-					std::cout << aleatorio << " ";
 				}
 			}
 		} //namespace Inimigo

@@ -70,51 +70,55 @@ namespace Fase {
             }
             contAleatorio++;
             if (contAleatorio == 5) {
+                Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(i * 100.f), 100.f), pOriana, ListaEntidadeMovimento);
+                if (pAtiraEsqueleto == nullptr) {
+                    exit(1);
+                }
+                ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
+                
                 aleatorio = rand()%3;
                 contAleatorio = 0;
                 flag = true;
             }
         }
 
-        /*
-        Matematica::CoordenadaF pos2(1000.f, 350.f);
-        Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(pos2, tam, Ids::Ids::plataforma);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
+        Matematica::CoordenadaF pos2(200.f, 350.f);
+        Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos2, tam, Ids::Ids::plataforma);
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma5));
 
+        /*
         Matematica::CoordenadaF pos3(1100.f, 250.f);
         Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos3, tam, Ids::Ids::plataforma);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma5));
 
         */
+
+
         /*
         for (int i = 0; i < 5; i++) {
-            Entidade::Personagem::Inimigo::BateGoblin* pBateGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.0f), pOriana);
-            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateGoblin));
-        }
-        */
-        /*
-        for (int i = 0; i < 10; i++) {
             Entidade::Personagem::Inimigo::AtiraGoblin* pAtiraGoblin = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.f), pOriana, ListaEntidadeMovimento);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraGoblin));
+        }
+        for (int i = 0; i < 5; i++) {
+            Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(rand() % 1000), 100.f), pOriana, ListaEntidadeMovimento);
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
         }
         */
 
         /*
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 2; i++) {
+            Entidade::Personagem::Inimigo::BateGoblin* pBateGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.0f), pOriana);
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateGoblin));
+        }
+        for (int i = 0; i < 2; i++) {
             Entidade::Personagem::Inimigo::BateEsqueleto* pBateEsqueleto = new Entidade::Personagem::Inimigo::BateEsqueleto(Matematica::CoordenadaF((float)(rand()%1000), 100.f), pOriana);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateEsqueleto));
         }
-        */
-        
-        for (int i = 0; i < 1; i++) {
-            Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(rand() % 1000), 100.f), pOriana, ListaEntidadeMovimento);
-            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
-        }
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             Entidade::Personagem::Inimigo::Animagus* pAnimagus = new Entidade::Personagem::Inimigo::Animagus(Matematica::CoordenadaF((float)(rand() % 1000), 100.f), pOriana);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAnimagus));
         }
-        
+        */
     }
     void FaseFloresta::executar() {
         while (pGrafico->isWindowOpen()) {
@@ -129,17 +133,20 @@ namespace Fase {
                 aux->atualizar();
             }
 
-            for (int i = 0; i < (int)ListaEntidadeMovimento->getTamanho(); i++) {
-                Entidade::Entidade* pMov = ListaEntidadeMovimento->operator[](i);
-                pMov->atualizar(tempo);
-            }
-            for (int i = 0; i < (int)ListaEntidadeMovimento->getTamanho(); i++) {
-                Entidade::Entidade* pMov = ListaEntidadeMovimento->operator[](i);
-                if (pMov->podeRemover()) {
-                    pMov = ListaEntidadeMovimento->removerEntidade((unsigned int)i);
-                    //delete(pMov);
-                    pMov = nullptr;
+            int i = 0;
+            int tam = (int)ListaEntidadeMovimento->getTamanho();
+            while (i < tam) {
+                Entidade::Entidade* pEnt = ListaEntidadeMovimento->operator[](i);
+                if (pEnt != nullptr) {
+                    pEnt->atualizar(tempo);
+                    if (pEnt->podeRemover()) {
+                        pEnt = ListaEntidadeMovimento->removerEntidade(pEnt);
+                        //delete(pEnt);
+                        //pEnt = nullptr;
+                        tam = (int)ListaEntidadeMovimento->getTamanho();
+                    }
                 }
+                i++;
             }
             
             pGrafico->centralizarCamera(pOriana->getPosicao());

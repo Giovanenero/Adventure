@@ -11,7 +11,7 @@ namespace Entidade {
 		Matematica::CoordenadaF posicao;
 		Matematica::CoordenadaF tamanho;
 	public:
-		Entidade(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
+		Entidade(Matematica::CoordenadaF pos = Matematica::CoordenadaF(0.f, 0.f), Matematica::CoordenadaF tam = Matematica::CoordenadaF(0.f, 0.f), Ids::Ids id = Ids::Ids::vazio);
 		virtual ~Entidade();
 
 		void setPosicao(Matematica::CoordenadaF pos);
