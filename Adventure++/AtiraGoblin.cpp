@@ -32,31 +32,22 @@ namespace Entidade {
 						desligarAndar();
 						if (!jaAtirou) {
 							ativarAtacar();
+							carregarTempoExplosao = 0.0f;
 						}
 						else {
-							desligarAtacar();
-							if (pProjetil != nullptr) {
-								const float posProjetil = pProjetil->getPosicao().x;
-								if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_GOBLIN) {
-									pProjetil->setExplodir(true);
-									jaAtirou = false;
-								}
-								else if (pProjetil->getExplodir()) {
-									jaAtirou = false;
-								}
+							if (carregarTempoExplosao > tempoExplosao) {
+								jaAtirou = false;
 							}
+							desligarAtacar();
+
 						}
-						if (distancia.x >= 0.f) {
-							olharEsquerda = false;
-						}
-						else {
-							olharEsquerda = true;
-						}
+						olharEsquerda = distancia.x >= 0.0f ? false : true;
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
 				posicao.y += velocidade.y * tempo;
 
+				carregarTempoExplosao += tempo;
 				atualizarImagem(tempo);
 				renderizar();
             }

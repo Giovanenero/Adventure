@@ -3,12 +3,6 @@
 #include "Entidade.h"
 #include "Goblin.h"
 
-#define TAMANHO_PROJETIL_X 10.0f
-#define TAMANHO_PROJETIL_Y 10.0f
-#define VELOCIDADE_PROJETIL_X 0.5f
-#define TEMPO_EXPLODIR 1.0f
-#define DISTANCIA_EXPLOSAO 400.f
-
 namespace Entidade {
 	class Projetil: public Entidade
 	{
@@ -18,8 +12,7 @@ namespace Entidade {
 		bool explodir;
 		const bool paraEsquerda;
 		//teste...
-		const float tempoExplosao = 20.f;
-		float carregarTempoExplosao = 0.f;
+		float carregarTempoExplosao;
 	public:
 		Projetil(Matematica::CoordenadaF posInicio, const bool paraEsquerda, const int dano);
 		~Projetil();

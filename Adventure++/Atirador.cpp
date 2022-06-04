@@ -5,7 +5,6 @@ namespace Entidade {
 		namespace Inimigo {
 			Atirador::Atirador(Lista::ListaEntidade* ListaEntidadeMovimento):
 				jaAtirou(false),
-				pProjetil(nullptr),
 				ListaEntidadeMovimento(ListaEntidadeMovimento)
 			{ }
 
@@ -14,9 +13,9 @@ namespace Entidade {
 			}
 			void Atirador::criarProjetil(Matematica::CoordenadaF posicao, const bool esquerda, const int dano) {
 				jaAtirou = true;
-				pProjetil = new Projetil(posicao, esquerda, dano);
+				Projetil* pProjetil = new Projetil(posicao, esquerda, dano);
 				if (pProjetil == nullptr) {
-					std::cout << "pProjetil == nullptr" << std::endl;
+					std::cout << "pProjetil == nullptr - class Atirador" << std::endl;
 					exit(1);
 				}
 				ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade*>(pProjetil));
