@@ -12,7 +12,6 @@ namespace Entidade {
 				tempoAtaque = 0.5f;
             }
             AtiraGoblin::~AtiraGoblin() {
-
             }
             void AtiraGoblin::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando3.png", 12, Ids::Ids::goblin_ataca3, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
@@ -26,7 +25,7 @@ namespace Entidade {
 				atualizarTempoAtaque(tempo);
 				Matematica::CoordenadaF distancia = pOriana->getPosicao() - getPosicao();
 				if (!morrer && !tomarDano && !atacando) {
-					if (fabs(distancia.x) > DISTANCIA_GOBLIN_RECONHECER_X && fabs(distancia.y) > DISTANCIA_GOBLIN_RECONHECER_Y) {
+					if (fabs(distancia.y) < DISTANCIA_GOBLIN_RECONHECER_X && fabs(distancia.x) > DISTANCIA_GOBLIN_RECONHECER_Y) {
 						movimentoAleatorio(tempo);
 					}
 					else {
@@ -36,13 +35,15 @@ namespace Entidade {
 						}
 						else {
 							desligarAtacar();
-							const float posProjetil = pProjetil->getPosicao().x;
-							if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_GOBLIN) {
-								pProjetil->setExplodir(true);
-								jaAtirou = false;
-							}
-							else if (pProjetil->getExplodir()) {
-								jaAtirou = false;
+							if (pProjetil != nullptr) {
+								const float posProjetil = pProjetil->getPosicao().x;
+								if (fabs(posProjetil - getPosicao().x) > DISTANCIA_PROJETIL_GOBLIN) {
+									pProjetil->setExplodir(true);
+									jaAtirou = false;
+								}
+								else if (pProjetil->getExplodir()) {
+									jaAtirou = false;
+								}
 							}
 						}
 						if (distancia.x >= 0.f) {
@@ -70,7 +71,7 @@ namespace Entidade {
 				}
 				else if (atacando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca3);
-					if (podeAtacar() && pProjetil->getExplodir()) {
+					if (podeAtacar()) {
 						tempoAtacando = 0.f;
 						criarProjetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
 						desligarAtacar();

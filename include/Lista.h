@@ -32,16 +32,8 @@ namespace Lista {
 
 	template<class TIPO>
 	Lista<TIPO>::~Lista() {
-		/*
-		if (pInicio) {
-			delete(pInicio);
-			pInicio = nullptr;
-		}
-		if (pUltimo) {
-			delete(pUltimo);
-			pUltimo = nullptr;
-		}
-		*/
+		pInicio = nullptr;
+		pUltimo = nullptr;
 	}
 
 	template<class TIPO>
@@ -49,7 +41,7 @@ namespace Lista {
 
 	template<class TIPO>
 	void Lista<TIPO>::adicionar(TIPO* tipo) {
-		if (tipo) {
+		if (tipo != nullptr) {
 			Elemento<TIPO>* novoElemento = new Elemento<TIPO>();
 			novoElemento->setTipo(tipo);
 			if (pInicio == nullptr) {
@@ -98,13 +90,13 @@ namespace Lista {
 		}
 		else {
 			std::cout << "Ponteiro vazio!" << std::endl;
-			return nullptr;
 		}
+		return nullptr;
 	}
 
 	template<class TIPO>
 	TIPO* Lista<TIPO>::remover(int posicao) {
-		if (posicao < (int)tamanhoLista && posicao >= 0) {
+		if (posicao < (int)tamanhoLista && posicao >= 0 && pInicio != nullptr) {
 			Elemento<TIPO>* pAux1 = pInicio;
 			Elemento<TIPO>* pAux2 = nullptr;
 			TIPO* pAux3 = nullptr;
@@ -130,13 +122,13 @@ namespace Lista {
 		}
 		else {
 			std::cout << "Ponteiro vazio!" << std::endl;
-			return nullptr;
 		}
+		return nullptr;
 	}
 
 	template<class TIPO>
 	TIPO* Lista<TIPO>::operator[](int posicao) {
-		if (posicao < (int)tamanhoLista && posicao >= 0) {
+		if (posicao < (int)tamanhoLista && posicao >= 0 && pInicio != nullptr) {
 			Elemento<TIPO>* pAux1 = pInicio;
 			TIPO* pAux2 = nullptr;
 			for (int i = 0; i < posicao; i++) {
@@ -147,6 +139,8 @@ namespace Lista {
 		}
 		else {
 			std::cout << "Posicao da lista invalido!" << std::endl;
+			std::cout << "tam: " << (int)getTamanho() << std::endl;
+			std::cout << "pos: " << posicao << std::endl;
 			return nullptr;
 		}
 	}

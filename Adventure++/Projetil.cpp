@@ -4,13 +4,14 @@ namespace Entidade {
 	Projetil::Projetil(Matematica::CoordenadaF posInicio, const bool paraEsquerda, const int dano):
 		Entidade(posInicio, Matematica::CoordenadaF(TAMANHO_PROJETIL_X, TAMANHO_PROJETIL_Y), Ids::Ids::projetil),
 		pAnimacaoMovimento(new ElementoGrafico::AnimacaoMovimento()),
-		dano(dano), explodir(false), 
+		dano(dano), 
+		explodir(false), 
 		paraEsquerda(paraEsquerda)
 	{
-		inicializacao();
+		this->inicializacao();
 	}
 	Projetil::~Projetil() {
-		
+		//pAnimacaoMovimento = nullptr;
 	}
 	void Projetil::inicializacao() {
 		pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinBomba.png", 19, Ids::Ids::goblin_bomba, tamanho, Matematica::CoordenadaF(2.5f, 2.5f));
@@ -20,15 +21,17 @@ namespace Entidade {
 		pAnimacaoMovimento->renderizar();
 	}
 	void Projetil::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-		if (pEntidade->getID() == Ids::Ids::oriana) {
-			if (!explodir) {
-				Personagem::Personagem* pOriana = static_cast<Personagem::Personagem*>(pEntidade);
-				pOriana->podeTomarDano(dano);
+		if (pEntidade != nullptr) {
+			if (pEntidade->getID() == Ids::Ids::oriana) {
+				if (!explodir) {
+					Personagem::Personagem* pOriana = static_cast<Personagem::Personagem*>(pEntidade);
+					pOriana->podeTomarDano(dano);
+					explodir = true;
+				}
+			}
+			else if (pEntidade->getID() == Ids::Ids::plataforma) {
 				explodir = true;
 			}
-		}
-		else if (pEntidade->getID() == Ids::Ids::plataforma) {
-			explodir = true;
 		}
 	}
 	void Projetil::atualizar(const float tempo) {
@@ -36,7 +39,12 @@ namespace Entidade {
 			posicao.x += -VELOCIDADE_PROJETIL_X;
 		}
 		else {
-			posicao.x += VELOCIDADE_PROJETIL_X; 
+			posicao.x += VELOCIDADE_PROJETIL_X;
+		}
+		carregarTempoExplosao += tempo;
+		if (carregarTempoExplosao > tempoExplosao) {
+			explodir = true;
+			std::cout << "a ";
 		}
 		atualizarImagem(tempo);
 		renderizar();
