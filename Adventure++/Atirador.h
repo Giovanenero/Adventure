@@ -3,6 +3,8 @@
 #include "Projetil.h"
 #include "ListaEntidade.h"
 
+#define TEMPO_PROJETIL_EXPLOSAO 10.0f
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
@@ -11,8 +13,6 @@ namespace Entidade {
 			protected:
 				bool jaAtirou;
 				Lista::ListaEntidade* ListaEntidadeMovimento;
-				//teste
-				const float tempoExplosao = 10.f;
 				float carregarTempoExplosao = 0.f;
 			public:
 				Atirador(Lista::ListaEntidade* ListaEntidadeMovimento);

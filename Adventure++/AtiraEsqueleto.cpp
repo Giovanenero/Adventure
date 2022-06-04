@@ -37,7 +37,7 @@ namespace Entidade {
 							carregarTempoExplosao = 0.0f;
 						}
 						else {
-							if (carregarTempoExplosao > tempoExplosao) {
+							if (carregarTempoExplosao > TEMPO_PROJETIL_EXPLOSAO) {
 								jaAtirou = false;
 							}
 						}

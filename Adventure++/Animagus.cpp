@@ -1,5 +1,7 @@
 #include "Animagus.h"
 
+#define VELOCIDADE_ANIMAGUS_X 80.0f
+
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
@@ -49,6 +51,9 @@ namespace Entidade {
 					mudarAtaque = rand() % 2;
 				}
             }
+			const float Animagus::getVelocidadeEspecifica() const {
+				return VELOCIDADE_ANIMAGUS_X;
+			}
         }
     }
 }
