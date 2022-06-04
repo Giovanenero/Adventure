@@ -9,15 +9,14 @@ namespace Entidade {
 			{
 			protected:
 				bool pular;
-				const float tamPulo;
 				bool caindo;
 
 			public:
-				Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo, const int vida, const int dano);
+				Jogador(Matematica::CoordenadaF pos, Ids::Ids id);
 				~Jogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
-				virtual void atualizar(const float tempo) = 0;
+				void atualizar(const float tempo);
 				virtual void atualizarImagem(const float tempo) = 0;
 
 				void podePular();

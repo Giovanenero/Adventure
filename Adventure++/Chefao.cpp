@@ -10,11 +10,12 @@
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
-            Chefao::Chefao(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id) :
+            Chefao::Chefao(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Ids::Ids id) :
                 Inimigo(posInicio,
                 Matematica::CoordenadaF(TAMANHO_CHEFAO_X, TAMANHO_CHEFAO_Y),
                 id, 
                 pOriana, 
+                pHideo,
                 Matematica::CoordenadaF(DISTANCIA_CHEFAO_RECONHECER_X, DISTANCIA_CHEFAO_RECONHECER_Y),
                 VIDA_CHEFAO,
                 DANO_CHEFAO),

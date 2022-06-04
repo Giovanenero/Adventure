@@ -9,7 +9,7 @@ namespace Entidade {
             private:
                 short mudarAtaque;
             public:
-                BateGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana);
+                BateGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo);
                 ~BateGoblin();
                 void inicializacao();
                 void atualizarImagem(const float tempo);

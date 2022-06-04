@@ -3,11 +3,12 @@
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
-			Goblin::Goblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id):
+			Goblin::Goblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Ids::Ids id):
 				Inimigo(posInicio,
 				Matematica::CoordenadaF(TAMANHO_GOBLIN_X, TAMANHO_GOBLIN_Y),
 				id,
 				pOriana,
+				pHideo,
 				Matematica::CoordenadaF(DISTANCIA_GOBLIN_RECONHECER_X, DISTANCIA_GOBLIN_RECONHECER_Y),
 				VIDA_GOBLIN,
 				DANO_GOBLIN)

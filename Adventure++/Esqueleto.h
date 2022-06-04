@@ -17,7 +17,7 @@ namespace Entidade {
             class Esqueleto: public Inimigo
             {
             public:
-                Esqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id);
+                Esqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Ids::Ids id);
                 ~Esqueleto();
                 void inicializacao();
                 virtual void atualizarImagem(const float tempo) = 0;

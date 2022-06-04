@@ -3,8 +3,8 @@
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
-            BateGoblin::BateGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana):
-                Goblin(posInicio, pOriana, Ids::Ids::goblin_bate),
+            BateGoblin::BateGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo):
+                Goblin(posInicio, pOriana, pHideo, Ids::Ids::goblin_bate),
 				mudarAtaque(rand() % 2)
             {
                 this->inicializacao();

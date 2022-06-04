@@ -10,7 +10,8 @@ namespace Gerenciador {
 	GerenciadorEvento::GerenciadorEvento():
 		pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
 		window(nullptr), 
-		pOriana(nullptr)
+		pOriana(nullptr),
+		pHideo(nullptr)
 	{
 		if (pGrafico != nullptr) {
 			window = pGrafico->getWindow();
@@ -37,9 +38,19 @@ namespace Gerenciador {
 		return pEvento;
 	}
 
-	void GerenciadorEvento::setOriana(Entidade::Personagem::Jogador::Oriana* pOriana) {
+	void GerenciadorEvento::setJogadores(Entidade::Personagem::Jogador::Oriana* pOriana, Entidade::Personagem::Jogador::Hideo* pHideo) {
 		this->pOriana = pOriana;
+		this->pHideo = pHideo;
 	}
+	void GerenciadorEvento::moverJogadores() {
+		if (pOriana != nullptr) {
+			moverOriana();
+		}
+		if (pHideo != nullptr) {
+			moverHideo();
+		}
+	}
+
 
 	void GerenciadorEvento::pollEvents() {
 		sf::Event evento;
@@ -47,21 +58,41 @@ namespace Gerenciador {
 			if (evento.type == sf::Event::Closed) {
 				pGrafico->fecharJanela();
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-				pOriana->podePular();
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-				pOriana->ativarAndar(true);
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-				pOriana->ativarAndar(false);
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-				pOriana->ativarAtacar();
-			}
-			else {
-				pOriana->desligarAndar();
-			}
+			moverJogadores();
+		}
+	}
+	void GerenciadorEvento::moverOriana() {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+			pOriana->podePular();
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+			pOriana->ativarAndar(true);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+			pOriana->ativarAndar(false);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			pOriana->ativarAtacar();
+		}
+		else {
+			pOriana->desligarAndar();
+		}
+	}
+	void GerenciadorEvento::moverHideo() {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			pHideo->podePular();
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+			pHideo->ativarAndar(true);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+			pHideo->ativarAndar(false);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			pHideo->ativarAtacar();
+		}
+		else {
+			pHideo->desligarAndar();
 		}
 	}
 }

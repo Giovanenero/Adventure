@@ -1,13 +1,33 @@
 #include "Jogador.h"
 
+#define VIDA_JOGADOR 100
+#define DANO_JOGADOR 50
+#define TAM_X_JOGADOR 50.f
+#define TAM_Y_JOGADOR 80.f
+#define VELOCIDADE_X_JOGADOR 160.0f
+#define VELOCIDADE_Y_JOGADOR 0.0f
+#define TAMANHO_PULO_JOGADOR 140.0f
+//teste...
+/*
+#define TEMPO_ATAQUE_JOGADOR 0.4f
+#define TEMPO_DANO_JOGADOR 0.6f
+#define TEMPO_MORRE_JOGADOR 0.6f
+*/
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {
-			Jogador::Jogador(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, const float tamPulo, const int vida, const int dano) :
-				Personagem(pos, tam, id, vida, dano), 
+			Jogador::Jogador(Matematica::CoordenadaF pos, Ids::Ids id) :
+				Personagem(pos, 
+				Matematica::CoordenadaF(TAM_X_JOGADOR, TAM_Y_JOGADOR),
+				id,
+				VIDA_JOGADOR,
+				DANO_JOGADOR), 
 				pular(true), 
-				tamPulo(tamPulo), 
-				caindo(true) { }
+				caindo(true) 
+			{ 
+				velocidade = Matematica::CoordenadaF(VELOCIDADE_X_JOGADOR, VELOCIDADE_Y_JOGADOR);
+			}
 
 			Jogador::~Jogador() { }
 
@@ -32,10 +52,39 @@ namespace Entidade {
 			}
 			void Jogador::podePular() {
 				if (pular) {
-					velocidade.y = -sqrt(2.0f * GRAVIDADE * tamPulo);
+					velocidade.y = -sqrt(2.0f * GRAVIDADE * TAMANHO_PULO_JOGADOR);
 					pular = false;
 					noChao = false;
 				}
+			}
+			void Jogador::atualizar(const float tempo) {
+				atualizarTempoAtaque(tempo);
+				if (andando) {
+					velocidade.x = VELOCIDADE_X_JOGADOR;
+					if (olharEsquerda) {
+						velocidade.x = -velocidade.x;
+					}
+				}
+				else {
+					velocidade.x *= 0.5;
+				}
+				velocidade.y += GRAVIDADE * tempo;
+
+				posicao.x += velocidade.x * tempo;
+				posicao.y += velocidade.y * tempo;
+
+				if (velocidade.y > 0) {
+					caindo = true;
+				}
+				atualizarImagem(tempo);
+				//carregandoDano += tempo;
+
+				/*if (posicao.y >= 600.0f) {
+					morrer = true;
+					exit(1);
+				}
+				*/
+				renderizar();
 			}
 		}
 	}

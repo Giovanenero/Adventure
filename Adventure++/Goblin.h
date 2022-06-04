@@ -19,7 +19,7 @@ namespace Entidade {
             class Goblin: public Inimigo
             {
             public:
-                Goblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id);
+                Goblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Ids::Ids id);
                 ~Goblin();
                 void inicializacao();
                 virtual void atualizarImagem(const float tempo) = 0;

@@ -10,7 +10,7 @@ namespace Entidade {
             class AtiraEsqueleto: public Esqueleto, public Atirador
             {
             public:
-                AtiraEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento);
+                AtiraEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Lista::ListaEntidade* ListaEntidadeMovimento);
                 ~AtiraEsqueleto();
                 void inicializacao();
                 void atualizar(const float tempo);
