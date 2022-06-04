@@ -71,7 +71,7 @@ namespace Gerenciador {
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 			pOriana->ativarAndar(false);
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 			pOriana->ativarAtacar();
 		}
 		else {

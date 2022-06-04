@@ -33,6 +33,8 @@ namespace Entidade {
 				virtual const float getVelocidadeEspecifica() const = 0;
 
 				void movimentoAleatorio(const float tempo);
+				const bool perseguirJogadores(const float tempo);
+				const bool perseguirJogador(Jogador::Jogador* pJogador, const float tempo);
 			};
 		} //namespace Inimigo
 	} //namespace Personagem

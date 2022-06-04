@@ -21,13 +21,12 @@ namespace Entidade {
             }
             void AtiraEsqueleto::atualizar(const float tempo) {
 				if (posicao.y > 600.f) {
-					//teste...
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
-				Matematica::CoordenadaF distancia = pOriana->getPosicao() - getPosicao();
+				Matematica::CoordenadaF distancia = jogadorMaisProximo(pOriana, pHideo, posicao)->getPosicao();
 				if (!morrer && !tomarDano && !atacando) {
-					if (fabs(distancia.y) < DISTANCIA_ESQUELETO_RECONHECER_Y && fabs(distancia.x) > DISTANCIA_ESQUELETO_RECONHECER_X) {
+					if (fabs(distancia.y - posicao.y) > DISTANCIA_ESQUELETO_RECONHECER_Y || fabs(distancia.x - posicao.x) > DISTANCIA_ESQUELETO_RECONHECER_X) {
 						movimentoAleatorio(tempo);
 					}
 					else {
@@ -41,12 +40,7 @@ namespace Entidade {
 								jaAtirou = false;
 							}
 						}
-						if (distancia.x >= 0.f) {
-							olharEsquerda = false;
-						}
-						else {
-							olharEsquerda = true;
-						}
+						olharEsquerda = ((distancia.x - posicao.x) > 0) ? false : true;
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
