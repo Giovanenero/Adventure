@@ -11,7 +11,6 @@ namespace Entidade {
             public:
                 Chefao(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id);
                 ~Chefao();
-                const float getVelocidadeEspecifica() const;
             };
         }
     }

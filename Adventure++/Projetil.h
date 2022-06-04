@@ -11,7 +11,6 @@ namespace Entidade {
 		const int dano;
 		bool explodir;
 		const bool paraEsquerda;
-		//teste...
 		float carregarTempoExplosao;
 	public:
 		Projetil(Matematica::CoordenadaF posInicio, const bool paraEsquerda, const int dano);
@@ -22,12 +21,6 @@ namespace Entidade {
 		void atualizar(const float tempo);
 		void atualizarImagem(const float tempo);
 		const bool podeRemover() const;
-		void setExplodir(const bool explodir) {
-			this->explodir = explodir;
-		}
-		const bool getExplodir() const {
-			return explodir;
-		}
 	};
 }
 

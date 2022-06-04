@@ -6,12 +6,12 @@ namespace Entidade {
         namespace Inimigo {
             class Animagus: public Chefao
             {
-            private:
             public:
                 Animagus(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana);
                 ~Animagus();
                 void inicializacao();
                 void atualizarImagem(const float tempo);
+                const float getVelocidadeEspecifica() const;
             };
         }
     }
