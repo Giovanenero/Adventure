@@ -23,9 +23,9 @@ namespace Entidade {
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
-				Matematica::CoordenadaF distancia = pOriana->getPosicao() - getPosicao();
+				Matematica::CoordenadaF distancia = jogadorMaisProximo(pOriana, pHideo, posicao)->getPosicao();
 				if (!morrer && !tomarDano && !atacando) {
-					if (fabs(distancia.y) < DISTANCIA_GOBLIN_RECONHECER_X && fabs(distancia.x) > DISTANCIA_GOBLIN_RECONHECER_Y) {
+					if (fabs(distancia.y - posicao.y) > DISTANCIA_GOBLIN_RECONHECER_X || fabs(distancia.x - posicao.x) > DISTANCIA_GOBLIN_RECONHECER_Y) {
 						movimentoAleatorio(tempo);
 					}
 					else {
@@ -41,7 +41,7 @@ namespace Entidade {
 							desligarAtacar();
 
 						}
-						olharEsquerda = distancia.x >= 0.0f ? false : true;
+						olharEsquerda = (fabs(distancia.x - posicao.x) >= 0.0f) ? false : true;
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;

@@ -18,6 +18,7 @@ namespace Entidade {
 				Atirador(Lista::ListaEntidade* ListaEntidadeMovimento);
 				~Atirador();
 				void criarProjetil(Matematica::CoordenadaF posicao, const bool esquerda, const int dano);
+				Jogador::Jogador* jogadorMaisProximo(Jogador::Oriana* pOriana = nullptr, Jogador::Hideo* pHideo = nullptr, Matematica::CoordenadaF posInimigo = Matematica::CoordenadaF(0.0f, 0.0f));
 			};
 		}
 	}

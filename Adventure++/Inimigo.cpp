@@ -60,40 +60,10 @@ namespace Entidade {
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
-				float distancia_x = getOriana()->getPosicao().x - posicao.x;
-				float distancia_y = getOriana()->getPosicao().y - posicao.y;
-
-				//arrumar velocidade.x ...
 				velocidade.x = getVelocidadeEspecifica();
-				//persegue o jogador...
 				if (!morrer && !tomarDano && !atacando) {
-					if (fabs(distancia_x) < distanciaJogador.x && fabs(distancia_y) < distanciaJogador.y) {
-						//p/ direito
-						if (distancia_x > 0) {
-							posicao.x += velocidade.x * tempo;
-							olharEsquerda = false;
-							distancia_x = getOriana()->getPosicao().x - posicao.x;
-							if (distancia_x < 0) {
-								posicao.x = pOriana->getPosicao().x;
-							}
-						}
-						//p/ esquerda
-						else {
-							posicao.x -= velocidade.x * tempo;
-							olharEsquerda = true;
-							distancia_x = getOriana()->getPosicao().x - posicao.x;
-							if (distancia_x > 0) {
-								posicao.x = pOriana->getPosicao().x;
-							}
-						}
-						if (posicao.x != pOriana->getPosicao().x) {
-							ativarAndar(olharEsquerda);
-						}
-						else {
-							desligarAndar();
-						}
-					}
-					else {
+					const bool moveu = perseguirJogadores(tempo);
+					if (!moveu) {
 						movimentoAleatorio(tempo);
 					}
 				}
@@ -121,6 +91,54 @@ namespace Entidade {
 					contAleatorio = 0;
 					aleatorio = rand() % 3;
 				}
+			}
+			const bool Inimigo::perseguirJogadores(const float tempo) {
+				Jogador::Jogador* pJogador = nullptr;
+				if (pOriana == nullptr) {
+					return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);
+				}
+				else {
+					if (fabs(pOriana->getPosicao().x - posicao.x) < fabs(pHideo->getPosicao().x - posicao.x)) {
+						return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);					
+					}
+					else {
+						return perseguirJogador(static_cast<Jogador::Jogador*>(pHideo), tempo);
+					}
+				}
+			}
+			const bool Inimigo::perseguirJogador(Jogador::Jogador* pJogador, const float tempo) {
+				if (pJogador == nullptr) {
+					std::cout << "pJogador nulo! - class Inimigo" << std::endl;
+					exit(1);
+				}
+				Matematica::CoordenadaF posJogador = pJogador->getPosicao().x - posicao.x;
+				if (fabs(posJogador.x) < distanciaJogador.x && fabs(posJogador.x) < distanciaJogador.y) {
+					velocidade.x = getVelocidadeEspecifica();
+					if (posJogador.x > 0){
+						olharEsquerda = false;
+						posicao.x = posicao.x + velocidade.x * tempo;
+						posJogador = pJogador->getPosicao().x - posicao.x;
+						if (posJogador.x < 0) {
+							posicao.x = pJogador->getPosicao().x;
+						}
+					}
+					else if (posJogador.x < 0) {
+						olharEsquerda = true;
+						posicao.x = posicao.x - velocidade.x * tempo;
+						posJogador = pJogador->getPosicao().x - posicao.x;
+						if (posJogador.x > 0) {
+							posicao.x = pJogador->getPosicao().x;
+						}
+					}
+					if (posicao.x != posJogador.x) {
+						ativarAndar(olharEsquerda);
+					}
+					else {
+						desligarAndar();
+					}
+					return true;
+				}
+				return false;
 			}
 		} //namespace Inimigo
 	} //namespace Personagem

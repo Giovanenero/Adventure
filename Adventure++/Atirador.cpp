@@ -20,6 +20,19 @@ namespace Entidade {
 				}
 				ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade*>(pProjetil));
 			}
+			Jogador::Jogador* Atirador::jogadorMaisProximo(Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Matematica::CoordenadaF posInimigo) {
+				if (pOriana == nullptr) {
+					return static_cast<Jogador::Jogador*>(pHideo);
+				}
+				else if (pHideo == nullptr) {
+					return static_cast<Jogador::Jogador*>(pOriana);
+				}
+				else {
+					Matematica::CoordenadaF posOriana = pOriana->getPosicao() - posInimigo;
+					Matematica::CoordenadaF posHideo = pHideo->getPosicao() - posInimigo;
+					return ((fabs(posOriana.x) < fabs(posHideo.x)) ? static_cast<Jogador::Jogador*>(pOriana) : static_cast<Jogador::Jogador*>(pHideo));
+				}
+			}
 		}
 	}
 }
