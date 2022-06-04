@@ -13,8 +13,6 @@ namespace Entidade {
 		namespace Jogador {
 			class Oriana : public Jogador
 			{
-			private:
-				const bool EhJogador1;
 			public:
 				Oriana(Matematica::CoordenadaF posInicio);
 				~Oriana();
