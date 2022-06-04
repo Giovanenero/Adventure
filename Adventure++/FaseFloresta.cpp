@@ -18,9 +18,11 @@ namespace Fase {
 
     void FaseFloresta::init() {
         //teste...
-        pEvento->setOriana(pOriana);
+        Entidade::Personagem::Jogador::Hideo* pHideo = new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 200.0f));
+        pEvento->setJogadores(pOriana, pHideo);
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
+        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
@@ -70,12 +72,6 @@ namespace Fase {
             }
             contAleatorio++;
             if (contAleatorio == 5) {
-                Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(i * 100.f), 100.f), pOriana, ListaEntidadeMovimento);
-                if (pAtiraEsqueleto == nullptr) {
-                    exit(1);
-                }
-                ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
-                
                 aleatorio = rand()%3;
                 contAleatorio = 0;
                 flag = true;
@@ -93,7 +89,7 @@ namespace Fase {
 
         */
 
-
+        /*
         for (int i = 0; i < 2; i++) {
             Entidade::Personagem::Inimigo::AtiraGoblin* pAtiraGoblin = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.f), pOriana, ListaEntidadeMovimento);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraGoblin));
@@ -103,7 +99,7 @@ namespace Fase {
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
         }
 
-        /*
+        
         for (int i = 0; i < 2; i++) {
             Entidade::Personagem::Inimigo::BateGoblin* pBateGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.0f), pOriana);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateGoblin));
@@ -117,6 +113,7 @@ namespace Fase {
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAnimagus));
         }
         */
+        
     }
     void FaseFloresta::executar() {
         while (pGrafico->isWindowOpen()) {

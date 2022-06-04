@@ -7,7 +7,7 @@ namespace Entidade {
             class Animagus: public Chefao
             {
             public:
-                Animagus(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana);
+                Animagus(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo);
                 ~Animagus();
                 void inicializacao();
                 void atualizarImagem(const float tempo);

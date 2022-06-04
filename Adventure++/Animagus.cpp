@@ -5,8 +5,8 @@
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
-            Animagus::Animagus(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana) :
-                Chefao(posInicio, pOriana, Ids::Ids::animagus)
+            Animagus::Animagus(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo) :
+                Chefao(posInicio, pOriana, pHideo, Ids::Ids::animagus)
             {
                 this->inicializacao();
             }

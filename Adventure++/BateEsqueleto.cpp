@@ -3,8 +3,8 @@
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
-			BateEsqueleto::BateEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana):
-				Esqueleto(posInicio, pOriana, Ids::Ids::esqueleto_bate),
+			BateEsqueleto::BateEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo):
+				Esqueleto(posInicio, pOriana, pHideo, Ids::Ids::esqueleto_bate),
 				mudarAtaque(rand()%2)
 			{
 				this->inicializacao();

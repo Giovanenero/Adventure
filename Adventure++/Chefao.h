@@ -9,7 +9,7 @@ namespace Entidade {
             protected:
                 short mudarAtaque;
             public:
-                Chefao(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Ids::Ids id);
+                Chefao(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Ids::Ids id);
                 ~Chefao();
             };
         }

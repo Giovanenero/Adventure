@@ -29,10 +29,10 @@ namespace Entidade {
 	}
 	void Projetil::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 		if (pEntidade != nullptr) {
-			if (pEntidade->getID() == Ids::Ids::oriana) {
+			if (pEntidade->getID() == Ids::Ids::oriana || pEntidade->getID() == Ids::Ids::hideo) {
 				if (!explodir) {
-					Personagem::Personagem* pOriana = static_cast<Personagem::Personagem*>(pEntidade);
-					pOriana->podeTomarDano(dano);
+					Personagem::Personagem* pPerson = static_cast<Personagem::Personagem*>(pEntidade);
+					pPerson->podeTomarDano(dano);
 					explodir = true;
 				}
 			}

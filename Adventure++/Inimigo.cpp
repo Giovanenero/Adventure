@@ -3,9 +3,10 @@
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
-			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Matematica::CoordenadaF distanciaJogador, const int vida, const int dano) :
+			Inimigo::Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Matematica::CoordenadaF distanciaJogador, const int vida, const int dano) :
 				Personagem(pos, tam, id, vida, dano), 
 				pOriana(pOriana),
+				pHideo(pHideo),
 				aleatorio(rand() % 3), 
 				distanciaJogador(distanciaJogador),
 				contAleatorio(0)
@@ -46,6 +47,11 @@ namespace Entidade {
 				else if (pEntidade->getID() == Ids::Ids::oriana) {
 					if (pOriana->podeAtacar()) {
 						podeTomarDano(pOriana->valorDano());
+					}
+				}
+				else if (pEntidade->getID() == Ids::Ids::hideo) {
+					if (pHideo->podeAtacar()) {
+						podeTomarDano(pHideo->valorDano());
 					}
 				}
 			}

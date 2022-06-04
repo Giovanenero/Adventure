@@ -3,8 +3,8 @@
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
-            AtiraEsqueleto::AtiraEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento) :
-                Esqueleto(posInicio, pOriana, Ids::Ids::esqueleto_atira),
+            AtiraEsqueleto::AtiraEsqueleto(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Lista::ListaEntidade* ListaEntidadeMovimento) :
+                Esqueleto(posInicio, pOriana, pHideo, Ids::Ids::esqueleto_atira),
 				Atirador(ListaEntidadeMovimento)
             {
                 this->inicializacao();

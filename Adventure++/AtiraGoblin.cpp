@@ -3,8 +3,8 @@
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
-			AtiraGoblin::AtiraGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Lista::ListaEntidade* ListaEntidadeMovimento) :
-				Goblin(posInicio, pOriana, Ids::Ids::goblin_atira),
+			AtiraGoblin::AtiraGoblin(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Lista::ListaEntidade* ListaEntidadeMovimento) :
+				Goblin(posInicio, pOriana, pHideo, Ids::Ids::goblin_atira),
 				Atirador(ListaEntidadeMovimento)
             {
                 this->inicializacao();

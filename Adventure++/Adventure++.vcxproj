@@ -160,6 +160,7 @@
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Esqueleto.cpp" />
     <ClCompile Include="Goblin.cpp" />
+    <ClCompile Include="Hideo.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="FaseFloresta.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Esqueleto.h" />
     <ClInclude Include="Goblin.h" />
+    <ClInclude Include="Hideo.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseFloresta.h" />
