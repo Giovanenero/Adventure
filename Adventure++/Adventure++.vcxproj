@@ -176,6 +176,7 @@
     <ClCompile Include="LinhaAnimacaoMovimento.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Oriana.cpp" />
+    <ClCompile Include="Pedra.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Principal.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Oriana.h" />
+    <ClInclude Include="Pedra.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Principal.h" />

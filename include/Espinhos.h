@@ -8,7 +8,6 @@ namespace Entidade {
         class Espinhos: public Obstaculo
         {
         private:
-            //teste...
             short contAux = 0;
         public:
             Espinhos(Matematica::CoordenadaF pos);

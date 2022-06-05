@@ -2,6 +2,7 @@
 
 #include "Entidade.h"
 #include "Goblin.h"
+#include "Pedra.h"
 
 namespace Entidade {
 	class Projetil: public Entidade

@@ -33,7 +33,7 @@ namespace Entidade {
 			Jogador::~Jogador() { }
 
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				if (pEntidade->getID() == Ids::Ids::plataforma) {
+				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra) {
 					colisaoPlataforma(intersecao, pEntidade);
 					pular = true;
 					noChao = true;

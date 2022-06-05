@@ -19,44 +19,53 @@ namespace Fase {
     void FaseFloresta::init() {
         //teste...
         Entidade::Personagem::Jogador::Hideo* pHideo = new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 200.0f));
-        pEvento->setJogadores(pOriana);
+        pEvento->setJogadores(pOriana, pHideo);
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
-        //ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
+        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
-        short aleatorio = rand() % 3;
-        short contAleatorio = 0;
-        short mudaPosicao = 0;
-        bool flag = true;
         srand(time(NULL));
-        for (int i = 0; i < 100; i++) {
-            Matematica::CoordenadaF pos(i * 100.f, 500.f + mudaPosicao * 80.f );
-            Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(pos, tam);
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
-            if (aleatorio == 0 && flag) {
-                mudaPosicao++;
-                flag = false;
-            }
-            else if (aleatorio == 1 && flag) {
-                mudaPosicao--;
-                flag = false;
-            }
-            contAleatorio++;
-            if (contAleatorio == 5) {
-                aleatorio = rand()%3;
-                contAleatorio = 0;
-                flag = true;
+        for (int i = 0; i < 10; i++) {
+            if (i != 6 && i != 7) {
+                Matematica::CoordenadaF pos(i * 100.0f, 350.0f);
+                Entidade::Obstaculo::Plataforma* plataforma = new Entidade::Obstaculo::Plataforma(pos, tam);
+                ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
             }
         }
 
-        Matematica::CoordenadaF pos2(200.f, 350.f);
-        Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos2, tam);
+        for (int i = 0; i < 2; i++) {
+            Matematica::CoordenadaF pos3(200.f * (i + 1), 220.f);
+            Entidade::Obstaculo::Plataforma* plataforma3 = new Entidade::Obstaculo::Plataforma(pos3, tam);
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma3));
+        }
+
+        Matematica::CoordenadaF pos3(500.f, 100.f);
+        Entidade::Obstaculo::Plataforma* plataforma4 = new Entidade::Obstaculo::Plataforma(pos3, tam);
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma4));
+
+        Matematica::CoordenadaF pos4(700.f, 100.f);
+        Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos4, tam);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma5));
 
-        Entidade::Obstaculo::Espinhos* pAux = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(200.0f, 330.f));
+
+        for (int i = 0; i < 10; i++) {
+            Matematica::CoordenadaF pos5(100.0f * i, 600.f);
+            Entidade::Obstaculo::Plataforma* plataforma6 = new Entidade::Obstaculo::Plataforma(pos5, tam);
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma6));
+        }
+
+        Matematica::CoordenadaF pos5(-150.f, 480.f);
+        Entidade::Obstaculo::Plataforma* plataforma7 = new Entidade::Obstaculo::Plataforma(pos5, tam);
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma7));
+
+        Entidade::Obstaculo::Espinhos* pAux = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(200.0f, 330.0f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pAux));
+        
+        Entidade::Obstaculo::Pedra* pPedra = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF(100.0f, 600.0f - 50.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pPedra));
+        
         /*
         Matematica::CoordenadaF pos3(1100.f, 250.f);
         Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos3, tam, Ids::Ids::plataforma);
