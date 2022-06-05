@@ -19,10 +19,10 @@ namespace Fase {
     void FaseFloresta::init() {
         //teste...
         Entidade::Personagem::Jogador::Hideo* pHideo = new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 200.0f));
-        pEvento->setJogadores(pOriana, pHideo);
+        pEvento->setJogadores(pOriana);
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
+        //ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
@@ -55,7 +55,7 @@ namespace Fase {
         Entidade::Obstaculo::Plataforma* plataforma5 = new Entidade::Obstaculo::Plataforma(pos2, tam);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma5));
 
-        Entidade::Obstaculo::Espinhos* pAux = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(500.0f, 450.f), Matematica::CoordenadaF(30.0f, 10.0f));
+        Entidade::Obstaculo::Espinhos* pAux = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(200.0f, 330.f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pAux));
         /*
         Matematica::CoordenadaF pos3(1100.f, 250.f);
@@ -70,7 +70,7 @@ namespace Fase {
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraGoblin));
         }
         */
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(rand() % 1000), 100.f), pOriana, pHideo, ListaEntidadeMovimento);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
         }

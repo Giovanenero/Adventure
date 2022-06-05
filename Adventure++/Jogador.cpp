@@ -24,7 +24,8 @@ namespace Entidade {
 				VIDA_JOGADOR,
 				DANO_JOGADOR), 
 				pular(true), 
-				caindo(true) 
+				caindo(true) ,
+				mudarAtaque(0)
 			{ 
 				velocidade = Matematica::CoordenadaF(VELOCIDADE_X_JOGADOR, VELOCIDADE_Y_JOGADOR);
 			}
@@ -47,6 +48,7 @@ namespace Entidade {
 						pPerson->desligarAtacar();
 						podeTomarDano(pPerson->valorDano());
 						std::cout << "a ";
+						mudarAtaque = rand() % 5;
 					}
 				}
 				else if (pEntidade->getID() == Ids::Ids::espinhos) {
