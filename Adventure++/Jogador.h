@@ -11,7 +11,7 @@ namespace Entidade {
 			protected:
 				bool pular;
 				bool caindo;
-
+				short mudarAtaque;
 			public:
 				Jogador(Matematica::CoordenadaF pos, Ids::Ids id);
 				~Jogador();

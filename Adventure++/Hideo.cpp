@@ -4,14 +4,14 @@ namespace Entidade {
     namespace Personagem {
         namespace Jogador {
             Hideo::Hideo(Matematica::CoordenadaF posInicio):
-                Jogador(posInicio, Ids::Ids::hideo),
-				mudarAtaque(rand()%3)
+                Jogador(posInicio, Ids::Ids::hideo)
             {
                 this->inicializacao();
 				carregarAtaque = 0.4f;
 				tempoAtaque = 0.4f;
-				carregarMorrer = 1.5f;
-				carregarTomarDano = 0.6f;
+				carregarMorrer = 0.8f;
+				carregarTomarDano = 0.4f;
+				mudarAtaque = rand() % 3;
             }
             Hideo::~Hideo() {
 
@@ -30,13 +30,17 @@ namespace Entidade {
             void Hideo::atualizarImagem(const float tempo) {
 				if (morrer) {
 					desligarAndar();
-					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::hideo_morre);
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.6f, Ids::Ids::hideo_morre);
 					carregandoMorrendo += tempo;
 					//teste...
 					if (carregandoMorrendo > carregarMorrer) {
 						std::cout << "FIM DE JOGO!" << std::endl;
 						exit(1);
 					}
+				}
+				else if (tomarDano) {
+					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::hideo_tomaDano);
+					carregaTomarDano(tempo);
 				}
 				else if (!noChao) {
 					if (!caindo) {

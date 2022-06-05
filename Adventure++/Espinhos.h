@@ -11,7 +11,7 @@ namespace Entidade {
             //teste...
             short contAux = 0;
         public:
-            Espinhos(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam);
+            Espinhos(Matematica::CoordenadaF pos);
             ~Espinhos();
             void atualizar();
             void inicializacao();

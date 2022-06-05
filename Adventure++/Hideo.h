@@ -6,8 +6,6 @@ namespace Entidade {
         namespace Jogador {
             class Hideo: public Jogador
             {
-            private:
-                short mudarAtaque;
             public:
                 Hideo(Matematica::CoordenadaF posInicio);
                 ~Hideo();
