@@ -40,7 +40,7 @@ namespace Entidade {
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 				//colisaoPlataforma(intersecao, pEntidade);
-				if (pEntidade->getID() == Ids::Ids::plataforma) {
+				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra) {
 					noChao = true;
 					colisaoPlataforma(intersecao, pEntidade);
 				}

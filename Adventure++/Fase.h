@@ -13,6 +13,7 @@
 #include "Animagus.h"
 #include "Plataforma.h"
 #include "Espinhos.h"
+#include "Pedra.h"
 #include "Fundo.h"
 
 #include <time.h>
