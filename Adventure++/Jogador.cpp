@@ -1,8 +1,8 @@
 #include "Jogador.h"
 
 #define VIDA_JOGADOR 100
-#define DANO_JOGADOR 50
-#define TAM_X_JOGADOR 50.f
+#define DANO_JOGADOR 20
+#define TAM_X_JOGADOR 80.f
 #define TAM_Y_JOGADOR 80.f
 #define VELOCIDADE_X_JOGADOR 160.0f
 #define VELOCIDADE_Y_JOGADOR 0.0f
