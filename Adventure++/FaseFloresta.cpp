@@ -63,7 +63,7 @@ namespace Fase {
 
         Entidade::Obstaculo::Espinhos* pAux = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(200.0f, 330.0f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pAux));
-        
+
         Entidade::Obstaculo::Pedra* pPedra = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF(100.0f, 600.0f - 50.0f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pPedra));
 
@@ -106,7 +106,6 @@ namespace Fase {
             Entidade::Personagem::Inimigo::Animagus* pAnimagus = new Entidade::Personagem::Inimigo::Animagus(Matematica::CoordenadaF((float)(rand() % 1000) + 10 * 100.0f, 100.f), pOriana, pHideo);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAnimagus));
         }
-        
     }
     void FaseFloresta::executar() { //TODO metodo nao utilizado no momento... remover?
         //arrumar... ineficiente

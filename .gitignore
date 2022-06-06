@@ -2,3 +2,5 @@
 /.vs/
 /Adventure++/Debug/
 /.idea/
+/bin/Debug/
+/cmake-build-debug/
