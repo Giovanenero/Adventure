@@ -8,6 +8,7 @@ namespace Fase {
         ListaEntidadeEstatica(), 
         ListaEntidadeMovimento(),
         pOriana(new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 0.0f))),
+        pHideo(new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 0.0f))),
         pColisao(),
         fundo(nullptr)
     { }
@@ -32,6 +33,10 @@ namespace Fase {
         if (fundo) {
             delete(fundo);
             fundo = nullptr;
+        }
+        if (pHideo) {
+            delete(pHideo);
+            pHideo = nullptr;
         }
     }
 } //namespace Fase

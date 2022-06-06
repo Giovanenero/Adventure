@@ -47,7 +47,6 @@ namespace Entidade {
 					if (pPerson->podeAtacar()) {
 						pPerson->desligarAtacar();
 						podeTomarDano(pPerson->valorDano());
-						std::cout << "a ";
 						mudarAtaque = rand() % 5;
 					}
 				}

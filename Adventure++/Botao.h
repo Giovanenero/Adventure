@@ -13,19 +13,14 @@ namespace ElementoGrafico {
 
     public:
         Botao(Matematica::CoordenadaF posicao = Matematica::CoordenadaF(0, 0), std::string info = "");
-
         ~Botao();
 
         void selecionar(const bool isSelected);
 
         void renderizar();
 
-        void novaAnimacao() {
-            //????
-        }
-        void atualizar() {
-            //???
-        }
+        void novaAnimacao() { }
+        void atualizar() { }
     };
 
 }

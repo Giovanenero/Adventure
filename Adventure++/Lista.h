@@ -195,7 +195,7 @@ namespace Lista {
 
 			while (pAux1 != nullptr) {
 				pAux3 = pAux1->getTipo();
-				delete(pAux3);
+				//delete(pAux3);
 				pAux3 = nullptr;
 				pAux2 = pAux1->getProximo();
 				delete(pAux1);
