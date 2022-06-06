@@ -1,7 +1,7 @@
 #include "Fase.h"
 
 namespace Fase {
-    FaseGenerica::FaseGenerica() : 
+    Fase::Fase() :
         Ente(Ids::Ids::fase_floresta),
         pEvento(), 
         pGrafico(), 
@@ -12,7 +12,7 @@ namespace Fase {
         fundo(nullptr)
     { }
 
-    FaseGenerica::~FaseGenerica() {
+    Fase::~Fase() {
         if (ListaEntidadeEstatica) {
             delete(ListaEntidadeEstatica);
             ListaEntidadeEstatica = nullptr;

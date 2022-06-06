@@ -16801,7 +16801,7 @@
 											"top": 2895,
 											"width": 241.01416015625,
 											"height": 13,
-											"text": "FaseGenerica"
+											"text": "Fase"
 										},
 										{
 											"_type": "LabelView",
@@ -17021,7 +17021,7 @@
 											"top": 3031,
 											"width": 241.01416015625,
 											"height": 13,
-											"text": "«create»+FaseGenerica()",
+											"text": "«create»+Fase()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17039,7 +17039,7 @@
 											"top": 3046,
 											"width": 241.01416015625,
 											"height": 13,
-											"text": "«virtual destroy»+FaseGenerica()",
+											"text": "«virtual destroy»+Fase()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -24924,7 +24924,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGBFWkVmkZaNQs="
 							},
-							"name": "FaseGenerica",
+							"name": "Fase",
 							"ownedElements": [
 								{
 									"_type": "UMLAssociation",
@@ -25110,7 +25110,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGBFWkuv0kLePg="
 									},
-									"name": "FaseGenerica",
+									"name": "Fase",
 									"stereotype": "create"
 								},
 								{
@@ -25119,7 +25119,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGBFWkuv0kLePg="
 									},
-									"name": "FaseGenerica",
+									"name": "Fase",
 									"stereotype": "virtual destroy"
 								},
 								{

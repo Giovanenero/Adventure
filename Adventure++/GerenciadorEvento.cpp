@@ -2,16 +2,19 @@
 
 //arrumar...teste
 #include "AnimacaoMovimento.h"
+#include "MenuPrincipal.h"
+#include "Principal.h"
 
 namespace Gerenciador {
 
 	GerenciadorEvento* GerenciadorEvento::pEvento = nullptr;
 
 	GerenciadorEvento::GerenciadorEvento():
-		pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
-		window(nullptr), 
-		pOriana(nullptr),
-		pHideo(nullptr)
+            pGrafico(GerenciadorGrafico::getGerenciadorGrafico()),
+            window(nullptr),
+            pOriana(nullptr),
+            pHideo(nullptr),
+            pMenuPrincipal(nullptr)
 	{
 		if (pGrafico != nullptr) {
 			window = pGrafico->getWindow();
@@ -42,6 +45,10 @@ namespace Gerenciador {
 		this->pOriana = pOriana;
 		this->pHideo = pHideo;
 	}
+
+    void GerenciadorEvento::setMenuPrincipal(MenuPrincipal *pMenu) {
+        pMenuPrincipal = pMenu;
+    }
 	void GerenciadorEvento::moverJogadores() {
 		if (pOriana != nullptr) {
 			moverOriana();
@@ -51,14 +58,28 @@ namespace Gerenciador {
 		}
 	}
 
+    void GerenciadorEvento::notificarMenu() {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+            pMenuPrincipal->selecionarCima();
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+            pMenuPrincipal->selecionarBaixo();
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+            pMenuPrincipal->executar();
+        }
+    }
 
-	void GerenciadorEvento::pollEvents() {
+
+	void GerenciadorEvento::pollEvents(Principal *pPrincipal) {
 		sf::Event evento;
 		while (window->pollEvent(evento)) {
 			if (evento.type == sf::Event::Closed) {
 				pGrafico->fecharJanela();
 			}
-			moverJogadores();
+            if (pPrincipal->getIDEstadoAtual() == Estados::IDestado::menuPrincipal) {
+                notificarMenu();
+            }
+            if (pPrincipal->getIDEstadoAtual() == Estados::IDestado::jogandoFloresta)
+			    moverJogadores();
 		}
 	}
 	void GerenciadorEvento::moverOriana() {

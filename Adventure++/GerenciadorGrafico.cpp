@@ -16,6 +16,7 @@ namespace Gerenciador {
 		camera(sf::Vector2f(TELAX / 2, TELAY / 2), 
 		sf::Vector2f(TELAX, TELAY)),
 		Maptexturas(),
+        fonte(),
 		relogio() {}
 
 	GerenciadorGrafico::~GerenciadorGrafico() {
@@ -31,6 +32,10 @@ namespace Gerenciador {
 	void GerenciadorGrafico::renderizacao(sf::RectangleShape* corpo) { 
 		window->draw(*corpo);
 	}
+
+    void GerenciadorGrafico::renderizacao(sf::Text *texto) {
+        window->draw(*texto);
+    }
 	
 	void GerenciadorGrafico::mostrar() {
 		if (window->isOpen()) {
@@ -70,6 +75,18 @@ namespace Gerenciador {
 		return novaTextura;
 
 	}
+
+    sf::Font *GerenciadorGrafico::carregarFonte() {
+        if (!fonte) {
+            fonte = new sf::Font();
+            if (!fonte->loadFromFile(FONT_PATH)) {
+                std::cout << "ERRO: fonte nao carregada!" << std::endl;
+                exit(1);
+            }
+        }
+        return fonte;
+    }
+
 	float GerenciadorGrafico::atualizartempo() {
 		tempo = relogio.getElapsedTime().asSeconds();
 		relogio.restart();
