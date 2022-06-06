@@ -7,7 +7,7 @@ namespace Entidade {
 				Personagem(pos, tam, id, vida, dano), 
 				pOriana(pOriana),
 				pHideo(pHideo),
-				aleatorio(rand() % 3), 
+				aleatorio(rand() % 5), 
 				distanciaJogador(distanciaJogador),
 				contAleatorio(0)
 			{ }
@@ -30,10 +30,6 @@ namespace Entidade {
 				this->pOriana = pOriana;
 			}
 			Jogador::Oriana* Inimigo::getOriana() {
-				if (pOriana == nullptr) {
-					std::cout << "ponteiro pOriana vazio! - classe Inimigo: getOriana()" << std::endl;
-					exit(1);
-				}
 				return pOriana;
 			}
 			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
@@ -93,7 +89,7 @@ namespace Entidade {
 				}
 			}
 			const bool Inimigo::perseguirJogadores(const float tempo) {
-				Jogador::Jogador* pJogador = nullptr;
+				//Jogador::Jogador* pJogador = nullptr;
 				if (pOriana == nullptr) {
 					return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);
 				}

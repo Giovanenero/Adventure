@@ -1,10 +1,47 @@
 #pragma once
 
-#include "Elemento.h"
+#include <iostream>
 
 namespace Lista {
 	template<class TIPO>
 	class Lista {
+	private:
+		template<class TIPO>
+		class Elemento {
+		private:
+			Elemento<TIPO>* proximo;
+			Elemento<TIPO>* anterior;
+			TIPO* tipo;
+		public:
+			Elemento() {
+				proximo = nullptr;
+				anterior = nullptr;
+				tipo = nullptr;
+			}
+			~Elemento() {
+				proximo = nullptr;
+				anterior = nullptr;
+				tipo = nullptr;
+			}
+			void setProximo(Elemento<TIPO>* proximo) {
+				this->proximo = proximo;
+			}
+			void setAnterior(Elemento<TIPO>* anterior) {
+				this->anterior = anterior;
+			}
+			void setTipo(TIPO* tipo) {
+				this->tipo = tipo;
+			}
+			Elemento<TIPO>* getProximo() {
+				return proximo;
+			}
+			Elemento<TIPO>* getAnterior() {
+				return anterior;
+			}
+			TIPO* getTipo() {
+				return tipo;
+			}
+		};
 	private:
 		Elemento<TIPO>* pInicio;
 		Elemento<TIPO>* pUltimo;
@@ -18,8 +55,12 @@ namespace Lista {
 		TIPO* remover(int posicao);
 		TIPO* operator[](int posicao);
 		void limpar();
-		Elemento<TIPO>* getInicio();
-		Elemento<TIPO>* getUltimo();
+		Elemento<TIPO>* getInicio() {
+			return pInicio;
+		}
+		Elemento<TIPO>* getUltimo() {
+			return pUltimo;
+		}
 
 	};
 
@@ -165,11 +206,5 @@ namespace Lista {
 			pAux1 = nullptr;
 		}
 	}
-
-	template<class TIPO>
-	Elemento<TIPO>* Lista<TIPO>::getInicio() { return pInicio; }
-
-	template<class TIPO>
-	Elemento<TIPO>* Lista<TIPO>::getUltimo() { return pUltimo; }
 
 }

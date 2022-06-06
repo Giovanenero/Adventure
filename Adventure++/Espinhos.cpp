@@ -1,13 +1,15 @@
 #include "Espinhos.h"
 
 #define DANO_ESPINHOS 20
+#define TOMA_DANO 800
 #define TAMANHO_ESPINHOS_X 15.0f
 #define TAMANHO_ESPINHOS_Y 10.0f
 
 namespace Entidade {
     namespace Obstaculo {
         Espinhos::Espinhos(Matematica::CoordenadaF pos):
-            Obstaculo(pos, Matematica::CoordenadaF(TAMANHO_ESPINHOS_X, TAMANHO_ESPINHOS_Y), Ids::Ids::espinhos)
+            Obstaculo(pos, Matematica::CoordenadaF(TAMANHO_ESPINHOS_X, TAMANHO_ESPINHOS_Y), Ids::Ids::espinhos),
+            contDano(0)
         {
             this->inicializacao();
         }
@@ -23,6 +25,14 @@ namespace Entidade {
         }
         const int Espinhos::getDano() const {
             return DANO_ESPINHOS;
+        }
+        const bool Espinhos::podeTomarDano() {
+            contDano++;
+            if (contDano >= TOMA_DANO) {
+                contDano = 0;
+                return true;
+            }
+            return false;
         }
     }
 }
