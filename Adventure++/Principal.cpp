@@ -12,7 +12,7 @@ Principal::Principal():
 
     //states = static_cast<Estados::Estado* *>(new Menus::PauseMenuState(this, dynamic_cast<States::Level*>(mapOfStates[stateID::playing])));
     //inserirEstado(states);
-    MenuPrincipal *mp = new MenuPrincipal(this);
+    Estados::MenuPrincipal *mp = new Estados::MenuPrincipal(this);
     states = static_cast<Estados::Estado*>(mp);
     GerenciadorEvento::getGerenciadorEvento()->setMenuPrincipal(mp);
     inserirEstado(states);

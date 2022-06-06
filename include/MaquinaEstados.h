@@ -10,7 +10,7 @@ namespace Estados {
         Estados::IDestado IDatual;
         Estados::IDestado IDultimo;
 
-        std::map<IDestado, Estado *> mapaEstados;
+        std::map<IDestado, Estado*> mapaEstados;
 
     public:
         MaquinaEstados();

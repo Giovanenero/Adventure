@@ -46,7 +46,7 @@ namespace Gerenciador {
 		this->pHideo = pHideo;
 	}
 
-    void GerenciadorEvento::setMenuPrincipal(MenuPrincipal *pMenu) {
+    void GerenciadorEvento::setMenuPrincipal(Estados::MenuPrincipal *pMenu) {
         pMenuPrincipal = pMenu;
     }
 	void GerenciadorEvento::moverJogadores() {
@@ -62,9 +62,9 @@ namespace Gerenciador {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             pMenuPrincipal->selecionarCima();
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-            pMenuPrincipal->selecionarBaixo();
+			pMenuPrincipal->selecionarBaixo();
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-            pMenuPrincipal->executar();
+			pMenuPrincipal->executar();
         }
     }
 

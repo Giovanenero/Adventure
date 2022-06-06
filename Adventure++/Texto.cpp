@@ -4,13 +4,13 @@
 
 namespace ElementoGrafico {
 
-    Gerenciador::GerenciadorGrafico* Texto::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
+    //Gerenciador::GerenciadorGrafico* Texto::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
 
     Texto::Texto(Matematica::CoordenadaF posicao, std::string info) :
             info(info) {
         text.setString(info);
 
-        text.setFont(*pGrafico->carregarFonte());
+        text.setFont(*Gerenciador::GerenciadorGrafico::getGerenciadorGrafico()->carregarFonte());
 
         text.setCharacterSize(TEXT_SIZE);
 
@@ -63,7 +63,8 @@ namespace ElementoGrafico {
     }
 
     void Texto::renderizar() {
-        pGrafico->renderizacao(&text);
+        Gerenciador::GerenciadorGrafico::getGerenciadorGrafico()->renderizacao(&text);
+        //pGrafico->renderizacao(&text);
     }
 
     std::string Texto::getInfo() const {

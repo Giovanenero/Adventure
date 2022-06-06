@@ -13,7 +13,12 @@ namespace Estados {
         std::map<IDestado, Estado*>::iterator it;
 
         for (it = mapaEstados.begin(); it != mapaEstados.end(); ++it) {
-            delete (it->second);
+            //teste...
+            if (it->second) {
+                delete (it->second);
+            }
+            //delete (it->second);
+            //it->second = nullptr;
         }
     }
 

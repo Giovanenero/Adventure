@@ -1,7 +1,5 @@
 #include "Fundo.h"
 
-Gerenciador::GerenciadorGrafico* Fundo::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
-
 Fundo::Fundo(Ids::Ids id, Entidade::Entidade* pJogador1) :
     Ente(id), 
     pJogador(pJogador1),
@@ -16,7 +14,7 @@ Fundo::Fundo(Ids::Ids id, Entidade::Entidade* pJogador1) :
 Fundo::~Fundo() { }
 void Fundo::inicializacao() {
     Matematica::CoordenadaF posicao(pJogador->getPosicao().x, pJogador->getPosicao().y);
-    Matematica::CoordenadaF tamanho(pGrafico->getWindow()->getPosition().x, pGrafico->getWindow()->getPosition().y);
+    Matematica::CoordenadaF tamanho(Gerenciador::GerenciadorGrafico::getGerenciadorGrafico()->getWindow()->getPosition().x, Gerenciador::GerenciadorGrafico::getGerenciadorGrafico()->getWindow()->getPosition().y);
     pAnimacaoEstatica->novaAnimacao("textura/Fundo/fundoFloresta.png", Ids::Ids::fundo_floresta, posicao, tamanho, Matematica::CoordenadaF(0.7f, 0.6f));
 }
 void Fundo::atualizar() {
@@ -25,6 +23,4 @@ void Fundo::atualizar() {
     pAnimacaoEstatica->renderizar();
 }
 
-void Fundo::executar() {
-    //???
-}
+void Fundo::executar() { }

@@ -1,61 +1,63 @@
 #include "MenuPrincipal.h"
 #include "Botao.h"
 
-MenuPrincipal::MenuPrincipal(Principal *principal) : Menu(),
-                                                     Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), pPrincipal(principal),
-                                                     title() {
-    Gerenciador::GerenciadorGrafico *GM = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
-    ElementoGrafico::Botao *bt = nullptr;
+namespace Estados {
 
-    bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200),
-                                       "JOGAR FLORESTA");
-    bt->selecionar(true);
-    vectorBotoes.push_back(bt);
+    MenuPrincipal::MenuPrincipal(Principal* principal) : Menu(),
+        Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), pPrincipal(principal),
+        title() {
+        Gerenciador::GerenciadorGrafico* GM = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
+        ElementoGrafico::Botao* bt = nullptr;
 
-    bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 100),
-                                       "RANQUEAMENTO");
-    vectorBotoes.push_back(bt);
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200),
+            "JOGAR FLORESTA");
+        bt->selecionar(true);
+        vectorBotoes.push_back(bt);
 
-    bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 200),
-                                       "CONFIGURACOES");
-    vectorBotoes.push_back(bt);
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 100),
+            "RANQUEAMENTO");
+        vectorBotoes.push_back(bt);
 
-    bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 300),
-                                       "SAIR DO JOGO");
-    vectorBotoes.push_back(bt);
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 200),
+            "CONFIGURACOES");
+        vectorBotoes.push_back(bt);
 
-    title.setInfo("Adventure");
-    title.setTamanhoFonte(140);
-    title.setCor(77.6, 68.2, 44.3);
-    title.setAlinhamento(ElementoGrafico::AlinhamentoTexto::centro);
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 300),
+            "SAIR DO JOGO");
+        vectorBotoes.push_back(bt);
 
-    title.setPosicao(Matematica::CoordenadaF(600, 100));
+        title.setInfo("Adventure");
+        title.setTamanhoFonte(140);
+        title.setCor(77.6, 68.2, 44.3);
+        title.setAlinhamento(ElementoGrafico::AlinhamentoTexto::centro);
 
-    max = 3;
-}
+        title.setPosicao(Matematica::CoordenadaF(600, 100));
 
-MenuPrincipal::~MenuPrincipal() {
-}
+        max = 3;
+    }
 
-void MenuPrincipal::atualizar(const float dt) {
-    ativo = true;
-    //if (title.getPosicao().y < 200)
-        //title.setPosicao(Matematica::CoordenadaF(title.getPosicao().x, title.getPosicao().y + 1));
-}
+    MenuPrincipal::~MenuPrincipal() {
+    }
 
-/* Menu operation to render all it's objects. */
-void MenuPrincipal::renderizar() {
-    //atualizarVisao();
-    //back.render();
-    for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
-        (*it)->renderizar();
-    title.renderizar();
-}
+    void MenuPrincipal::atualizar(const float dt) {
+        ativo = true;
+        //if (title.getPosicao().y < 200)
+            //title.setPosicao(Matematica::CoordenadaF(title.getPosicao().x, title.getPosicao().y + 1));
+    }
 
-void MenuPrincipal::executar() {
-    if (ativo) {
-        ativo = false;
-        switch (selecionado) {
+    /* Menu operation to render all it's objects. */
+    void MenuPrincipal::renderizar() {
+        //atualizarVisao();
+        //back.render();
+        for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
+            (*it)->renderizar();
+        title.renderizar();
+    }
+
+    void MenuPrincipal::executar() {
+        if (ativo) {
+            ativo = false;
+            switch (selecionado) {
             case 0:
                 mudarEstado(Estados::IDestado::jogandoFloresta);
                 break;
@@ -71,14 +73,15 @@ void MenuPrincipal::executar() {
                 break;
             default:
                 break;
+            }
         }
     }
-}
 
-void MenuPrincipal::resetEstado() {
-    vectorBotoes[selecionado]->selecionar(false);
-    selecionado = 0;
-    vectorBotoes[selecionado]->selecionar(true);
-    title.setPosicao(Matematica::CoordenadaF(title.getPosicao().x, title.getPosicao().y));
+    void MenuPrincipal::resetEstado() {
+        vectorBotoes[selecionado]->selecionar(false);
+        selecionado = 0;
+        vectorBotoes[selecionado]->selecionar(true);
+        title.setPosicao(Matematica::CoordenadaF(title.getPosicao().x, title.getPosicao().y));
+    }
 }
 

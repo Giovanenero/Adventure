@@ -4,21 +4,24 @@
 #include "Botao.h"
 #include <vector>
 
-class Menu : public Ente {
+namespace Estados {
 
-protected:
-    std::vector<ElementoGrafico::Botao*> vectorBotoes;
-    std::vector<ElementoGrafico::Botao*>::iterator it;
-    int selecionado;
-    int min;
-    int max;
-    bool ativo;
+    class Menu : public Ente {
 
-public:
-    Menu();
-    virtual ~Menu();
-    virtual void executar() = 0;
-    void atualizarVisao();
-    void selecionarBaixo();
-    void selecionarCima();
-};
+    protected:
+        std::vector<ElementoGrafico::Botao*> vectorBotoes;
+        std::vector<ElementoGrafico::Botao*>::iterator it;
+        short selecionado;
+        short min;
+        short max;
+        bool ativo;
+
+    public:
+        Menu();
+        virtual ~Menu();
+        virtual void executar() = 0;
+        void atualizarVisao();
+        void selecionarBaixo();
+        void selecionarCima();
+    };
+}

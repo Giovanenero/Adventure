@@ -25,6 +25,7 @@ namespace Fase {
         Gerenciador::GerenciadorGrafico* pGrafico;
         Gerenciador::GerenciadorEvento* pEvento;
         Entidade::Personagem::Jogador::Oriana *pOriana;
+        Entidade::Personagem::Jogador::Hideo* pHideo;
         Lista::ListaEntidade *ListaEntidadeEstatica;
         Lista::ListaEntidade *ListaEntidadeMovimento;
         Gerenciador::GerenciadorColisao* pColisao;

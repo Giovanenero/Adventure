@@ -15,7 +15,7 @@ namespace Entidade {
 		virtual ~Entidade();
 
 		void setPosicao(Matematica::CoordenadaF pos);
-		Matematica::CoordenadaF getPosicao();
+		Matematica::CoordenadaF getPosicao() const;
 
 		void setTamanho(Matematica::CoordenadaF tam);
 		Matematica::CoordenadaF getTamanho() const;

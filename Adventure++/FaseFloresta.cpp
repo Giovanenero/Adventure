@@ -19,7 +19,6 @@ namespace Fase {
 
     void FaseFloresta::init() {
         //teste...
-        Entidade::Personagem::Jogador::Hideo* pHideo = new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 200.0f));
         pEvento->setJogadores(pOriana, pHideo);
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));

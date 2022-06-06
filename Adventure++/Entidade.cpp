@@ -6,7 +6,7 @@ namespace Entidade {
 
 	Entidade::~Entidade() { }
 	void Entidade::setPosicao(Matematica::CoordenadaF pos) { posicao = pos; }
-	Matematica::CoordenadaF Entidade::getPosicao() { return posicao; }
+	Matematica::CoordenadaF Entidade::getPosicao() const { return posicao; }
 	void Entidade::setTamanho(Matematica::CoordenadaF tam) { tamanho = tam; }
 	Matematica::CoordenadaF Entidade::getTamanho() const { return tamanho; }
 	Ids::Ids Entidade::getID() const { return ID; }

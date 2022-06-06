@@ -155,13 +155,18 @@
     <ClCompile Include="AtiraGoblin.cpp" />
     <ClCompile Include="BateEsqueleto.cpp" />
     <ClCompile Include="BateGoblin.cpp" />
+    <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Chefao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinhos.cpp" />
     <ClCompile Include="Esqueleto.cpp" />
+    <ClCompile Include="Estado.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Hideo.cpp" />
+    <ClCompile Include="MaquinaEstados.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="FaseFloresta.cpp" />
@@ -181,6 +186,7 @@
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Principal.cpp" />
     <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="Texto.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacao.h" />
@@ -192,14 +198,19 @@
     <ClInclude Include="AtiraGoblin.h" />
     <ClInclude Include="BateEsqueleto.h" />
     <ClInclude Include="BateGoblin.h" />
+    <ClInclude Include="Botao.h" />
     <ClInclude Include="Chefao.h" />
     <ClInclude Include="Coordenada.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinhos.h" />
     <ClInclude Include="Esqueleto.h" />
+    <ClInclude Include="Estado.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="Hideo.h" />
+    <ClInclude Include="MaquinaEstados.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseFloresta.h" />
@@ -221,6 +232,7 @@
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Principal.h" />
     <ClInclude Include="Projetil.h" />
+    <ClInclude Include="Texto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
