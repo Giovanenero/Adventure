@@ -1,9 +1,10 @@
 #include "FaseFloresta.h"
+#include "Principal.h"
 
 namespace Fase {
 
-    FaseFloresta::FaseFloresta():
-        FaseGenerica()
+    FaseFloresta::FaseFloresta(Principal *principal):
+            Fase(), Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::jogandoFloresta)
     {
         pEvento = Gerenciador::GerenciadorEvento::getGerenciadorEvento();
         pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
@@ -102,39 +103,67 @@ namespace Fase {
         */
         
     }
-    void FaseFloresta::executar() {
-        while (pGrafico->isWindowOpen()) {
-            float tempo = pGrafico->atualizartempo();
-            pEvento->pollEvents();
-            pGrafico->limpar();
-
-            //arrumar... ineficiente
-            fundo->atualizar();
-            for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
-                Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
-                aux->atualizar();
-            }
-
-            int i = 0;
-            int tam = (int)ListaEntidadeMovimento->getTamanho();
-            while (i < tam) {
-                Entidade::Entidade* pEnt = ListaEntidadeMovimento->operator[](i);
-                if (pEnt != nullptr) {
-                    pEnt->atualizar(tempo);
-                    if (pEnt->podeRemover()) {
-                        pEnt = ListaEntidadeMovimento->removerEntidade(pEnt);
-                        //delete(pEnt);
-                        //pEnt = nullptr;
-                        tam = (int)ListaEntidadeMovimento->getTamanho();
-                    }
-                }
-                i++;
-            }
-            
-            pGrafico->centralizarCamera(pOriana->getPosicao());
-
-            pColisao->Colisao();
-            pGrafico->mostrar();
+    void FaseFloresta::executar() { //TODO metodo nao utilizado no momento... remover?
+        //arrumar... ineficiente
+        fundo->atualizar();
+        for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
+            Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
+            aux->atualizar();
         }
+        float tempo = pGrafico->atualizartempo();
+        int i = 0;
+        int tam = (int)ListaEntidadeMovimento->getTamanho();
+        while (i < tam) {
+            Entidade::Entidade* pEnt = ListaEntidadeMovimento->operator[](i);
+            if (pEnt != nullptr) {
+                pEnt->atualizar(tempo);
+                if (pEnt->podeRemover()) {
+                    pEnt = ListaEntidadeMovimento->removerEntidade(pEnt);
+                    //delete(pEnt);
+                    //pEnt = nullptr;
+                    tam = (int)ListaEntidadeMovimento->getTamanho();
+                }
+            }
+            i++;
+        }
+        pGrafico->centralizarCamera(pOriana->getPosicao());
+
+        pColisao->Colisao();
+    }
+
+    void FaseFloresta::atualizar(const float tempo) {
+        fundo->atualizar();
+        for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
+            Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
+            aux->atualizar();
+        }
+        //float tempo = pGrafico->atualizartempo();
+        int i = 0;
+        int tam = (int)ListaEntidadeMovimento->getTamanho();
+        while (i < tam) {
+            Entidade::Entidade* pEnt = ListaEntidadeMovimento->operator[](i);
+            if (pEnt != nullptr) {
+                pEnt->atualizar(tempo);
+                if (pEnt->podeRemover()) {
+                    pEnt = ListaEntidadeMovimento->removerEntidade(pEnt);
+                    //delete(pEnt);
+                    //pEnt = nullptr;
+                    tam = (int)ListaEntidadeMovimento->getTamanho();
+                }
+            }
+            i++;
+        }
+        pGrafico->centralizarCamera(pOriana->getPosicao());
+
+        pColisao->Colisao();
+    }
+
+    void FaseFloresta::renderizar() {
+
+    }
+
+    void FaseFloresta::resetEstado() {
+        //TODO: remover todas as entidades e resetar tudo antes de reiniciar.
+        init();
     }
 } //namespace Fase

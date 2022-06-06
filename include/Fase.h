@@ -19,7 +19,7 @@
 #include <time.h>
 
 namespace Fase {
-    class FaseGenerica: public Ente
+    class Fase: public Ente
     {
     protected:
         Gerenciador::GerenciadorGrafico* pGrafico;
@@ -30,8 +30,8 @@ namespace Fase {
         Gerenciador::GerenciadorColisao* pColisao;
         Fundo* fundo;
     public:
-        FaseGenerica();
-        virtual ~FaseGenerica();
+        Fase();
+        virtual ~Fase();
         virtual void init() = 0;
         virtual void executar() = 0;
         virtual void atualizar(const float tempo) = 0;
