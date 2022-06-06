@@ -12,8 +12,8 @@ namespace Lista {
 		ListaEntidade();
 		~ListaEntidade();
 		void adicionarEntidade(Entidade::Entidade* pEntidade);
-		Entidade::Entidade* removerEntidade(Entidade::Entidade* pEntidade);
-		Entidade::Entidade* removerEntidade(unsigned int posicao);
+		void removerEntidade(Entidade::Entidade* pEntidade);
+		void removerEntidade(unsigned int posicao);
 		unsigned int getTamanho();
 		Entidade::Entidade* operator[](int posicao);
 	};

@@ -5,17 +5,17 @@ namespace Lista {
 		objListaEntidade() { }
 
 	ListaEntidade::~ListaEntidade() { 
-		objListaEntidade.limpar(); 
+
 	}
 
 	void ListaEntidade::adicionarEntidade(Entidade::Entidade* pEntidade) {
 		objListaEntidade.adicionar(pEntidade);
 	}
-	Entidade::Entidade* ListaEntidade::removerEntidade(Entidade::Entidade* pEntidade) {
-		return objListaEntidade.remover(pEntidade);
+	void ListaEntidade::removerEntidade(Entidade::Entidade* pEntidade) {
+		objListaEntidade.remover(pEntidade);
 	}
-	Entidade::Entidade* ListaEntidade::removerEntidade(unsigned int posicao) {
-		return objListaEntidade.remover((int)posicao);
+	void ListaEntidade::removerEntidade(unsigned int posicao) {
+		objListaEntidade.remover((int)posicao);
 	}
 	unsigned int ListaEntidade::getTamanho() {
 		return objListaEntidade.getTamanho();
