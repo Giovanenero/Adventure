@@ -156,6 +156,7 @@
     <ClCompile Include="BateEsqueleto.cpp" />
     <ClCompile Include="BateGoblin.cpp" />
     <ClCompile Include="Botao.cpp" />
+    <ClCompile Include="Caixa.cpp" />
     <ClCompile Include="Chefao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="BateEsqueleto.h" />
     <ClInclude Include="BateGoblin.h" />
     <ClInclude Include="Botao.h" />
+    <ClInclude Include="Caixa.h" />
     <ClInclude Include="Chefao.h" />
     <ClInclude Include="Coordenada.h" />
     <ClInclude Include="Ente.h" />

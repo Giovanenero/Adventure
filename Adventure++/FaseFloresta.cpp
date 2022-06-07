@@ -78,6 +78,13 @@ namespace Fase {
         Entidade::Obstaculo::Pedra* pP2 = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF((8 * 100.f) + 500.0f, 350.0f - 50.0f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pP2));
 
+        Entidade::Obstaculo::Caixa* pCaixa = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(200.0f - 100.0f, 350.0f - 50.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pCaixa));
+        Entidade::Obstaculo::Caixa* pCaixa2 = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(200.0f - 150.0f, 350.0f - 50.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pCaixa2));
+        Entidade::Obstaculo::Caixa* pCaixa3 = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(200.0f - 150.0f, 350.0f - 100.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pCaixa3));
+
         Entidade::Obstaculo::Plataforma* platafor = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF((6 * 100.f) + 500.0f, 250.0f), tam);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(platafor));
 

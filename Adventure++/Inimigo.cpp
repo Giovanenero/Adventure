@@ -35,7 +35,7 @@ namespace Entidade {
 			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra) {
+				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa) {
 					colisaoPlataforma(intersecao, pEntidade);
 					if (velocidade.y == 0.0f) {
 						noChao = true;

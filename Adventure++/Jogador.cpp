@@ -2,7 +2,7 @@
 
 #define VIDA_JOGADOR 100
 #define DANO_JOGADOR 20
-#define TAM_X_JOGADOR 80.f
+#define TAM_X_JOGADOR 50.f
 #define TAM_Y_JOGADOR 80.f
 #define VELOCIDADE_X_JOGADOR 160.0f
 #define VELOCIDADE_Y_JOGADOR 0.0f
@@ -36,7 +36,7 @@ namespace Entidade {
 			Jogador::~Jogador() { }
 
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra) {
+				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa) {
 					colisaoPlataforma(intersecao, pEntidade);
 					if (velocidade.y == 0.0f) {
 						pular = true;

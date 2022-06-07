@@ -15,6 +15,7 @@
 #include "Plataforma.h"
 #include "Espinhos.h"
 #include "Pedra.h"
+#include "Caixa.h"
 #include "Fundo.h"
 
 #include <time.h>
