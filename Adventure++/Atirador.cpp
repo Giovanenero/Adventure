@@ -8,9 +8,8 @@ namespace Entidade {
 				ListaEntidadeMovimento(ListaEntidadeMovimento)
 			{ }
 
-			Atirador::~Atirador() {
+			Atirador::~Atirador() { }
 
-			}
 			void Atirador::criarProjetil(Matematica::CoordenadaF posicao, const bool esquerda, const int dano) {
 				jaAtirou = true;
 				Projetil* pProjetil = new Projetil(posicao, esquerda, dano);

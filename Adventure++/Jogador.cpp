@@ -14,6 +14,7 @@
 #define TEMPO_MORRE_JOGADOR 0.6f
 */
 
+#include "Noturno.h"
 
 namespace Entidade {
 	namespace Personagem {
@@ -45,8 +46,9 @@ namespace Entidade {
 				}
 				else if (pEntidade->getID() == Ids::Ids::goblin_bate ||
 					pEntidade->getID() == Ids::Ids::esqueleto_bate ||
-					pEntidade->getID() == Ids::Ids::animagus) {
-					Personagem* pPerson = dynamic_cast<Personagem*>(pEntidade);
+					pEntidade->getID() == Ids::Ids::animagus ||
+					pEntidade->getID() == Ids::Ids::noturno) {
+					Personagem* pPerson = static_cast<Personagem*>(pEntidade);
 					pPerson->ativarAtacar();
 					if (pPerson->podeAtacar()) {
 						pPerson->desligarAtacar();

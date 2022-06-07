@@ -18,9 +18,8 @@ namespace Entidade {
 				carregarMorrer = 0.35f;
 				carregarTomarDano = 0.6f;
 			}
-			Goblin::~Goblin() {
+			Goblin::~Goblin() { }
 
-			}
 			void Goblin::inicializacao() {
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAndando.png", 8, Ids::Ids::goblin_anda, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinDano.png", 4, Ids::Ids::goblin_tomaDano, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));

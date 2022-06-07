@@ -7,9 +7,8 @@ namespace Entidade {
 		{
 			inicializacao();
 		}
-		Plataforma::~Plataforma() {
+		Plataforma::~Plataforma() { }
 
-		}
 		void Plataforma::inicializacao() {
 			pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/grama.png", Ids::Ids::plataforma, posicao, tamanho, Matematica::CoordenadaF(3.15f, 1.0f));
 		}

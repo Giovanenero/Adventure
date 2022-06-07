@@ -21,6 +21,7 @@ namespace Gerenciador {
 		}
 	}
 	GerenciadorEvento::~GerenciadorEvento() {
+		/*
 		if (pEvento) {
 			delete(pEvento);
 			pEvento = nullptr;
@@ -33,6 +34,7 @@ namespace Gerenciador {
 			delete(pGrafico);
 			pGrafico = nullptr;
 		}
+		*/
 	}
 	GerenciadorEvento* GerenciadorEvento::getGerenciadorEvento() {
 		if (pEvento == nullptr) {

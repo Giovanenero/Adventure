@@ -11,6 +11,7 @@
 #include "BateEsqueleto.h"
 #include "AtiraEsqueleto.h"
 #include "Animagus.h"
+#include "Noturno.h"
 #include "Plataforma.h"
 #include "Espinhos.h"
 #include "Pedra.h"
@@ -29,6 +30,7 @@ namespace Fase {
         Lista::ListaEntidade *ListaEntidadeEstatica;
         Lista::ListaEntidade *ListaEntidadeMovimento;
         Gerenciador::GerenciadorColisao* pColisao;
+        //Entidade::Obstaculo::Plataforma
         Fundo* fundo;
     public:
         Fase();

@@ -13,9 +13,8 @@ namespace Entidade {
         {
             this->inicializacao();
         }
-        Espinhos::~Espinhos() {
-           
-        }
+        Espinhos::~Espinhos() { }
+
         void Espinhos::inicializacao() {
             pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/espinhos.png", Ids::Ids::espinhos, posicao, tamanho, Matematica::CoordenadaF(0.4f, 0.2f));
         }

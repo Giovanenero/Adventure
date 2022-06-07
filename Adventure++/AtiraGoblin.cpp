@@ -13,8 +13,8 @@ namespace Entidade {
 				carregarAtaque = 0.5f;
 				tempoAtaque = 0.5f;
             }
-            AtiraGoblin::~AtiraGoblin() {
-            }
+            AtiraGoblin::~AtiraGoblin() { }
+
             void AtiraGoblin::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando3.png", 12, Ids::Ids::goblin_ataca3, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
             }

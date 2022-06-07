@@ -11,11 +11,10 @@ namespace Estados {
 
     MaquinaEstados::~MaquinaEstados() {
         std::map<IDestado, Estado*>::iterator it;
-
         for (it = mapaEstados.begin(); it != mapaEstados.end(); ++it) {
             if (it->second) {
                 delete (it->second);
-                it->second = nullptr;
+                //it->second = nullptr;
             }
         }
     }

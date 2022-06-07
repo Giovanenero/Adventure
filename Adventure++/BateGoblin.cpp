@@ -13,9 +13,8 @@ namespace Entidade {
 				carregarAtaque = 2.0f;
 				tempoAtaque = 0.6f;
             }
-            BateGoblin::~BateGoblin() {
+            BateGoblin::~BateGoblin() { }
 
-            }
             void BateGoblin::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando1.png", 8, Ids::Ids::goblin_ataca1, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando2.png", 8, Ids::Ids::goblin_ataca2, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));

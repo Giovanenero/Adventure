@@ -35,8 +35,7 @@ namespace Estados {
         max = 3;
     }
 
-    MenuPrincipal::~MenuPrincipal() {
-    }
+    MenuPrincipal::~MenuPrincipal() { }
 
     void MenuPrincipal::atualizar(const float dt) {
         ativo = true;

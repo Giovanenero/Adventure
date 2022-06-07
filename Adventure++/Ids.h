@@ -58,6 +58,12 @@ namespace Ids {
 		animagus_para,
 		animagus_morre,
 		animagus_tomaDano,
+		noturno,
+		noturno_anda,
+		noturno_ataca,
+		noturno_tomaDano,
+		noturno_morre,
+		noturno_para,
 		projetil,
 		goblin_bomba,
 		esqueleto_bomba
