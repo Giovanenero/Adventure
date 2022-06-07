@@ -9,9 +9,10 @@ namespace Estados {
         menuPrincipal = 0,
         novoJogo,
         jogandoFloresta,
+        jogandoCaverna,
         menuPausa,
         configuracoes,
-        ranqueamento,
+        colocacao,
         fimDeJogo
     };
     //Baseado em tutorial de Matheus Burda: https://www.youtube.com/watch?v=2vFLfO-PKcw&list=PLSPev71NbUEBIQlT2QCd-gN6l_mNVw1cJ&index=13

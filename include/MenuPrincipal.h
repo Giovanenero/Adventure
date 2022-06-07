@@ -10,7 +10,7 @@ namespace Estados {
     class MenuPrincipal : public Menu, public Estados::Estado {
     private:
         Principal* pPrincipal;
-        ElementoGrafico::Texto title;
+        ElementoGrafico::Texto titulo;
     public:
         MenuPrincipal(Principal* principal);
         ~MenuPrincipal();
