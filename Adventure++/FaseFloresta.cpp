@@ -18,6 +18,11 @@ namespace Fase {
     FaseFloresta::~FaseFloresta() { }
 
     void FaseFloresta::init() {
+
+        if (iniciou) {
+            return;
+        }
+        iniciou = true;
         //teste...
         pEvento->setJogadores(pOriana, pHideo);
 
@@ -116,32 +121,10 @@ namespace Fase {
 
         Entidade::Personagem::Inimigo::Noturno* noturno = new Entidade::Personagem::Inimigo::Noturno(Matematica::CoordenadaF((float)(rand() % 1000) + 10 * 100.0f, 100.f), pOriana, pHideo);
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(noturno));
-    }
-    void FaseFloresta::executar() { //TODO metodo nao utilizado no momento... remover?
-        //arrumar... ineficiente
-        fundo->atualizar();
-        for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
-            Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
-            aux->atualizar();
-        }
-        float tempo = pGrafico->atualizartempo();
-        int i = 0;
-        int tam = (int)ListaEntidadeMovimento->getTamanho();
-        while (i < tam) {
-            Entidade::Entidade* pEnt = ListaEntidadeMovimento->operator[](i);
-            if (pEnt != nullptr) {
-                pEnt->atualizar(tempo);
-                if (pEnt->podeRemover()) {
-                    ListaEntidadeMovimento->removerEntidade(pEnt);
-                    tam = (int)ListaEntidadeMovimento->getTamanho();
-                }
-            }
-            i++;
-        }
-        pGrafico->centralizarCamera(pOriana->getPosicao());
 
-        pColisao->Colisao();
+        iniciou = true;
     }
+    void FaseFloresta::executar() { }
 
     void FaseFloresta::atualizar(const float tempo) {
         fundo->atualizar();
