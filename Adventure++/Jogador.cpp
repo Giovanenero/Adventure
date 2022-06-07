@@ -14,6 +14,7 @@
 #define TEMPO_MORRE_JOGADOR 0.6f
 */
 
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {
@@ -25,7 +26,8 @@ namespace Entidade {
 				DANO_JOGADOR), 
 				pular(true), 
 				caindo(true) ,
-				mudarAtaque(0)
+				mudarAtaque(0),
+				pontuacao(0)
 			{ 
 				velocidade = Matematica::CoordenadaF(VELOCIDADE_X_JOGADOR, VELOCIDADE_Y_JOGADOR);
 			}
@@ -35,9 +37,11 @@ namespace Entidade {
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra) {
 					colisaoPlataforma(intersecao, pEntidade);
-					pular = true;
-					noChao = true;
-					caindo = false;
+					if (velocidade.y == 0.0f) {
+						pular = true;
+						noChao = true;
+						caindo = false;
+					}
 				}
 				else if (pEntidade->getID() == Ids::Ids::goblin_bate ||
 					pEntidade->getID() == Ids::Ids::esqueleto_bate ||
@@ -92,6 +96,12 @@ namespace Entidade {
 				}
 				*/
 				renderizar();
+			}
+			void Jogador::setPontuacao(int pontuacao) {
+				this->pontuacao += pontuacao;
+			}
+			const int Jogador::getPontuacao() const {
+				return (int)pontuacao;
 			}
 		}
 	}

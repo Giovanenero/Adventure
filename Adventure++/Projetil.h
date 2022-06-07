@@ -13,6 +13,8 @@ namespace Entidade {
 		bool explodir;
 		const bool paraEsquerda;
 		float carregarTempoExplosao;
+		const float posInicio_y;
+		bool caindo = false;
 	public:
 		Projetil(Matematica::CoordenadaF posInicio, const bool paraEsquerda, const int dano);
 		~Projetil();
@@ -22,6 +24,7 @@ namespace Entidade {
 		void atualizar(const float tempo);
 		void atualizarImagem(const float tempo);
 		const bool podeRemover() const;
+		Matematica::CoordenadaF getVelocidadeProjetil();
 	};
 }
 

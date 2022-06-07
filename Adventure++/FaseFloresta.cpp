@@ -80,18 +80,17 @@ namespace Fase {
         Entidade::Obstaculo::Plataforma* platafor = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF((6 * 100.f) + 500.0f, 250.0f), tam);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(platafor));
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             Entidade::Personagem::Inimigo::AtiraGoblin* pAtiraGoblin = new Entidade::Personagem::Inimigo::AtiraGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.f), pOriana, pHideo, ListaEntidadeMovimento);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraGoblin));
         }
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(rand() % 1000), 100.f), pOriana, pHideo, ListaEntidadeMovimento);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
         }
 
-        /*
         for (int i = 0; i < 2; i++) {
             Entidade::Personagem::Inimigo::BateGoblin* pBateGoblin = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF((float)(rand()%1000), 100.0f), pOriana, pHideo);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateGoblin));
@@ -106,7 +105,6 @@ namespace Fase {
             Entidade::Personagem::Inimigo::Animagus* pAnimagus = new Entidade::Personagem::Inimigo::Animagus(Matematica::CoordenadaF((float)(rand() % 1000) + 10 * 100.0f, 100.f), pOriana, pHideo);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAnimagus));
         }
-        */
     }
     void FaseFloresta::executar() { //TODO metodo nao utilizado no momento... remover?
         //arrumar... ineficiente
@@ -124,8 +122,6 @@ namespace Fase {
                 pEnt->atualizar(tempo);
                 if (pEnt->podeRemover()) {
                     ListaEntidadeMovimento->removerEntidade(pEnt);
-                    //delete(pEnt);
-                    //pEnt = nullptr;
                     tam = (int)ListaEntidadeMovimento->getTamanho();
                 }
             }

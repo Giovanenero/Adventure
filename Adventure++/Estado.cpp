@@ -8,7 +8,10 @@ namespace Estados {
             id(id) { }
 
     Estado::~Estado() {
-        pSM = nullptr;
+        if (pSM != nullptr) {
+            delete(pSM);
+            pSM;
+        }
     }
 
     void Estado::setMaquinaEstado(MaquinaEstados* pSM) {

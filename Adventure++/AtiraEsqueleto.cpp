@@ -1,5 +1,7 @@
 #include "AtiraEsqueleto.h"
 
+#define PONTUACAO_ATIRAESQUELETO 200
+
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
@@ -40,7 +42,7 @@ namespace Entidade {
 								jaAtirou = false;
 							}
 						}
-						olharEsquerda = ((distancia.x - posicao.x) > 0) ? false : true;
+						olharEsquerda = ((distancia.x - posicao.x) > 0.0f) ? false : true;
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
@@ -65,8 +67,8 @@ namespace Entidade {
 					if (podeAtacar()) {
 						tempoAtacando = 0.f;
 						criarProjetil(posicao, olharEsquerda, DANO_ESQUELETO_PROJETIL);
+						desligarAtacar();
 					}
-					//desligarAtacar();
 				}
 				else if (andando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_anda);
@@ -75,6 +77,9 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_para);
 				}
             }
+			const short AtiraEsqueleto::getPontuacao() const {
+				return PONTUACAO_ATIRAESQUELETO;
+			}
         }
     }
 }

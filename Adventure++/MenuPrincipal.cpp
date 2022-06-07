@@ -3,27 +3,26 @@
 
 namespace Estados {
 
-    MenuPrincipal::MenuPrincipal(Principal* principal) : Menu(),
-        Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), pPrincipal(principal),
-        title() {
+    MenuPrincipal::MenuPrincipal(Principal* principal) : 
+        Menu(),
+        Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), 
+        pPrincipal(principal),
+        title() 
+    {
         Gerenciador::GerenciadorGrafico* GM = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
         ElementoGrafico::Botao* bt = nullptr;
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200),
-            "JOGAR FLORESTA");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f), "JOGAR FLORESTA");
         bt->selecionar(true);
         vectorBotoes.push_back(bt);
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 100),
-            "RANQUEAMENTO");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 100.f), "RANQUEAMENTO");
         vectorBotoes.push_back(bt);
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 200),
-            "CONFIGURACOES");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f , 200.f + 200.f), "CONFIGURACOES");
         vectorBotoes.push_back(bt);
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 200 + 300),
-            "SAIR DO JOGO");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 300.f), "SAIR DO JOGO");
         vectorBotoes.push_back(bt);
 
         title.setInfo("Adventure");
@@ -31,7 +30,7 @@ namespace Estados {
         title.setCor(77.6, 68.2, 44.3);
         title.setAlinhamento(ElementoGrafico::AlinhamentoTexto::centro);
 
-        title.setPosicao(Matematica::CoordenadaF(600, 100));
+        title.setPosicao(Matematica::CoordenadaF(600.f, 100.f));
 
         max = 3;
     }

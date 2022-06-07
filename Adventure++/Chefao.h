@@ -11,6 +11,7 @@ namespace Entidade {
             public:
                 Chefao(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Ids::Ids id);
                 ~Chefao();
+                virtual const short getPontuacao() const = 0;
             };
         }
     }

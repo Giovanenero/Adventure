@@ -12,6 +12,7 @@ namespace Entidade {
 				bool pular;
 				bool caindo;
 				short mudarAtaque;
+				int pontuacao;
 			public:
 				Jogador(Matematica::CoordenadaF pos, Ids::Ids id);
 				~Jogador();
@@ -21,6 +22,8 @@ namespace Entidade {
 				virtual void atualizarImagem(const float tempo) = 0;
 
 				void podePular();
+				void setPontuacao(int pontuacao);
+				const int getPontuacao() const;
 			};
 		} //namespace Jogador
 	} // namespace Personagem

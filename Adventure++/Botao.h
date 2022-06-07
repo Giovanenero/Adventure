@@ -10,7 +10,6 @@ namespace ElementoGrafico {
         Texto textInfo;
         sf::Texture* defaultTexture;
         sf::Texture* selectedTexture;
-
     public:
         Botao(Matematica::CoordenadaF posicao = Matematica::CoordenadaF(0, 0), std::string info = "");
         ~Botao();

@@ -2,9 +2,11 @@
 
 #define TAMANHO_PROJETIL_X 10.0f
 #define TAMANHO_PROJETIL_Y 10.0f
-#define VELOCIDADE_PROJETIL_X 1.0f
+#define VELOCIDADE_PROJETIL_X 0.5f
 #define TEMPO_EXPLODIR_PROJETIL 10.0f
 #define DISTANCIA_EXPLOSAO 400.f
+#define ALTURA_MAXIMA_PROJETIL 50.0f
+#define FATOR_CORRECAO_VELOCIDADE_Y 0.10f
 
 namespace Entidade {
 	Projetil::Projetil(Matematica::CoordenadaF posInicio, const bool paraEsquerda, const int dano):
@@ -13,7 +15,8 @@ namespace Entidade {
 		dano(dano), 
 		explodir(false), 
 		paraEsquerda(paraEsquerda),
-		carregarTempoExplosao(0.0f)
+		carregarTempoExplosao(0.0f),
+		posInicio_y(posicao.y)
 	{
 		this->inicializacao();
 	}
@@ -42,21 +45,37 @@ namespace Entidade {
 		}
 	}
 	void Projetil::atualizar(const float tempo) {
-		posicao.x += paraEsquerda ? -VELOCIDADE_PROJETIL_X : VELOCIDADE_PROJETIL_X;
-
 		if (carregarTempoExplosao > TEMPO_EXPLODIR_PROJETIL) {
 			explodir = true;
 		}
-		carregarTempoExplosao += tempo;
+		else {
+			Matematica::CoordenadaF velocidade = getVelocidadeProjetil();
+			posicao.x += velocidade.x;
+
+			velocidade.y += GRAVIDADE * tempo;
+			posicao.y += velocidade.y * tempo * FATOR_CORRECAO_VELOCIDADE_Y;
+			carregarTempoExplosao += tempo * tempo;
+		}
 		atualizarImagem(tempo);
 		renderizar();
 	}
+
+	Matematica::CoordenadaF Projetil::getVelocidadeProjetil() {
+		Matematica::CoordenadaF velocidade;
+		velocidade.x = (paraEsquerda) ? -VELOCIDADE_PROJETIL_X : VELOCIDADE_PROJETIL_X;
+		if (posicao.y > posInicio_y - ALTURA_MAXIMA_PROJETIL && !caindo) {
+			velocidade.y = -sqrt(2.0f * GRAVIDADE * ALTURA_MAXIMA_PROJETIL);
+		}
+		else {
+			caindo = true;
+			velocidade.y = sqrt(2.0f * GRAVIDADE * ALTURA_MAXIMA_PROJETIL);
+		}
+		return velocidade;
+	}
+
 	void Projetil::atualizarImagem(const float tempo) {
 		if (!explodir) {
 			pAnimacaoMovimento->atualizar(posicao, paraEsquerda, tempo * 0.2f, Ids::Ids::goblin_bomba);
-		}
-		else {
-			posicao = Matematica::CoordenadaF(-100.0f, -100.0f);
 		}
 	}
 	const bool Projetil::podeRemover() const {

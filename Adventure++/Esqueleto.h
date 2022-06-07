@@ -8,7 +8,7 @@
 #define DANO_ESQUELETO_PROJETIL 20
 #define VELOCIDADE_ESQUELETO_X 80.0f
 #define VELOCIDADE_ESQUELETO_Y 80.0f
-#define DISTANCIA_ESQUELETO_RECONHECER_X 300.0f
+#define DISTANCIA_ESQUELETO_RECONHECER_X 400.0f
 #define DISTANCIA_ESQUELETO_RECONHECER_Y 100.0f
 
 namespace Entidade {
@@ -23,6 +23,7 @@ namespace Entidade {
                 virtual void atualizarImagem(const float tempo) = 0;
 
                 const float getVelocidadeEspecifica() const;
+                virtual const short getPontuacao() const = 0;
             };
         }
     }

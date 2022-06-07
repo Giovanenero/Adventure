@@ -18,7 +18,7 @@ namespace ElementoGrafico {
 
         text.setPosition(sf::Vector2f(posicao.x, posicao.y));
 
-        text.setFillColor(sf::Color::White);
+        text.setFillColor(sf::Color::Yellow);
     }
 
     Texto::~Texto() { }

@@ -13,6 +13,7 @@ namespace Entidade {
                 ~BateGoblin();
                 void inicializacao();
                 void atualizarImagem(const float tempo);
+                const short getPontuacao() const;
             };
         }
     }
