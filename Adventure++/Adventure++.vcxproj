@@ -167,6 +167,7 @@
     <ClCompile Include="MaquinaEstados.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="Noturno.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="FaseFloresta.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="MaquinaEstados.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="Noturno.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseFloresta.h" />

@@ -23,9 +23,7 @@ namespace Entidade {
             {
                 //terminar...
             }
-            Chefao::~Chefao() {
-
-            }
+            Chefao::~Chefao() { }
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Fase {
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
+
         srand(time(NULL));
         for (int i = 0; i < 10; i++) {
             if (i != 6 && i != 7) {
@@ -105,6 +106,9 @@ namespace Fase {
             Entidade::Personagem::Inimigo::Animagus* pAnimagus = new Entidade::Personagem::Inimigo::Animagus(Matematica::CoordenadaF((float)(rand() % 1000) + 10 * 100.0f, 100.f), pOriana, pHideo);
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAnimagus));
         }
+
+        Entidade::Personagem::Inimigo::Noturno* noturno = new Entidade::Personagem::Inimigo::Noturno(Matematica::CoordenadaF((float)(rand() % 1000) + 10 * 100.0f, 100.f), pOriana, pHideo);
+        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(noturno));
     }
     void FaseFloresta::executar() { //TODO metodo nao utilizado no momento... remover?
         //arrumar... ineficiente

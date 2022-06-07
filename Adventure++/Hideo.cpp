@@ -13,9 +13,8 @@ namespace Entidade {
 				carregarTomarDano = 0.4f;
 				mudarAtaque = rand() % 3;
             }
-            Hideo::~Hideo() {
+            Hideo::~Hideo() { }
 
-            }
             void Hideo::inicializacao() {
 				pAnimacaoMovimento->novaAnimacao("textura/Jogador/Hideo/hideoAndando.png", 8, Ids::Ids::hideo_anda, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/Jogador/Hideo/hideoAtacando1.png", 7, Ids::Ids::hideo_ataca1, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
@@ -33,10 +32,12 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.6f, Ids::Ids::hideo_morre);
 					carregandoMorrendo += tempo;
 					//teste...
+					/*
 					if (carregandoMorrendo > carregarMorrer) {
 						std::cout << "FIM DE JOGO!" << std::endl;
 						exit(1);
 					}
+					*/
 				}
 				else if (tomarDano) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::hideo_tomaDano);

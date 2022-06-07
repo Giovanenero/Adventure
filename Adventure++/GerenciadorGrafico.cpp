@@ -31,6 +31,12 @@ namespace Gerenciador {
 
 	void GerenciadorGrafico::renderizacao(sf::RectangleShape* corpo) { 
 		window->draw(*corpo);
+		/*
+		sf::RectangleShape shape(sf::Vector2f(100.0f, 200.0f));
+		shape.setPosition(sf::Vector2f(200.0f, 500.0f - 200.0f));
+		shape.setFillColor(sf::Color::Black);
+		window->draw(shape);
+		*/
 	}
 
     void GerenciadorGrafico::renderizacao(sf::Text *texto) {

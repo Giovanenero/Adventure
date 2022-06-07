@@ -33,13 +33,10 @@ Principal::Principal():
 	Executar();
 }
 Principal::~Principal() {
-    //ver o motivo do erro...
-    /*
     if (fase != nullptr) {
         delete(fase);
         fase = nullptr;
     }
-    */
 }
 
 void Principal::Executar() {

@@ -16,8 +16,8 @@ namespace Entidade {
                 this->inicializacao();
             }
             
-            Esqueleto::~Esqueleto() {
-            }
+            Esqueleto::~Esqueleto() { }
+
             void Esqueleto::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoAndando.png", 4, Ids::Ids::esqueleto_anda, tamanho, Matematica::CoordenadaF(2.5f, 1.2f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoDano.png", 4, Ids::Ids::esqueleto_tomaDano, tamanho, Matematica::CoordenadaF(2.5f, 1.2f));

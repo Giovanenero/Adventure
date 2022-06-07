@@ -7,12 +7,7 @@ namespace Estados {
             pSM(pSM),
             id(id) { }
 
-    Estado::~Estado() {
-        if (pSM != nullptr) {
-            delete(pSM);
-            pSM;
-        }
-    }
+    Estado::~Estado() { pSM = nullptr; }
 
     void Estado::setMaquinaEstado(MaquinaEstados* pSM) {
         this->pSM = pSM;

@@ -15,9 +15,8 @@ namespace Entidade {
 				carregarAtaque = 1.6f;
 				tempoAtaque = 1.6f;
 			}
-			BateEsqueleto::~BateEsqueleto() {
+			BateEsqueleto::~BateEsqueleto() { }
 
-			}
 			void BateEsqueleto::inicializacao() {
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoAtacando1.png", 8, Ids::Ids::esqueleto_ataca1, tamanho, Matematica::CoordenadaF(2.5f, 1.2f));
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoAtacando2.png", 8, Ids::Ids::esqueleto_ataca2, tamanho, Matematica::CoordenadaF(2.5f, 1.2f));
