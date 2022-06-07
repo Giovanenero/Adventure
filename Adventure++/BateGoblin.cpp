@@ -1,5 +1,7 @@
 #include "BateGoblin.h"
 
+#define PONTUACAO_BATEGOBLIN 200
+
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
@@ -44,6 +46,9 @@ namespace Entidade {
 					mudarAtaque = rand() % 2;
 				}
             }
+			const short BateGoblin::getPontuacao() const {
+				return PONTUACAO_BATEGOBLIN;
+			}
         }
     }
 }

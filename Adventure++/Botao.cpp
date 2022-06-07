@@ -2,17 +2,18 @@
 
 #define BUTTON_PATH_DEFAULT "./textura/Botao/naoselecionado.png"
 #define BUTTON_PATH_SELECTED "./textura/Botao/selecionado.png"
-#define BUTTON_HEIGHT 80
-#define BUTTON_WIDTH 300
+#define BUTTON_HEIGHT 80.f
+#define BUTTON_WIDTH 300.f
 #define BUTTON_TEXT_COLOR 77.6, 68.2, 44.3 // R, G, B
-#define FONT_SIZE 30
+#define FONT_SIZE 30.f
 
 namespace ElementoGrafico {
 
     Botao::Botao(Matematica::CoordenadaF posicao, std::string info) :
-            textInfo(posicao, info),
-            defaultTexture(nullptr),
-            selectedTexture(nullptr) {
+        textInfo(posicao, info),
+        defaultTexture(nullptr),
+        selectedTexture(nullptr) 
+    {
         defaultTexture = pGrafico->loadTexture(BUTTON_PATH_DEFAULT);
         selectedTexture = pGrafico->loadTexture(BUTTON_PATH_SELECTED);
 
@@ -44,7 +45,6 @@ namespace ElementoGrafico {
 
     void Botao::renderizar() {
         pGrafico->renderizacao(&corpo);
-
         textInfo.renderizar();
     }
 

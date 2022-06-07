@@ -1,5 +1,7 @@
 #include "AtiraGoblin.h"
 
+#define PONTUACAO_ATIRAGOBLIN 100
+
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {
@@ -41,7 +43,7 @@ namespace Entidade {
 							desligarAtacar();
 
 						}
-						olharEsquerda = (fabs(distancia.x - posicao.x) >= 0.0f) ? false : true;
+						olharEsquerda = ((distancia.x - posicao.x) > 0.0f) ? false : true;
 					}
 				}
 				velocidade.y += GRAVIDADE * tempo;
@@ -75,6 +77,9 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_para);
 				}
             }
+			const short AtiraGoblin::getPontuacao() const {
+				return PONTUACAO_ATIRAGOBLIN;
+			}
         }
     }
 }

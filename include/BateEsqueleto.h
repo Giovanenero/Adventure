@@ -14,6 +14,7 @@ namespace Entidade {
 				~BateEsqueleto();
 				void inicializacao();
 				void atualizarImagem(const float tempo);
+				const short getPontuacao() const;
 			};
 		}
 	}

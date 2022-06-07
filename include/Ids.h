@@ -4,11 +4,13 @@ namespace Ids {
 	enum class Ids {
 		vazio = 0,
 		fase_floresta,
+		fase_caverna,
 		plataforma,
 		espinhos,
 		caixa,
 		pedra,
 		fundo_floresta,
+		fundo_caverna,
 		oriana,
 		oriana_anda,
 		oriana_ataca1,

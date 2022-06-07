@@ -13,13 +13,14 @@ namespace Entidade {
 			{ }
 
 			Inimigo::~Inimigo() {
-				/*
-				if (pOriana) {
+				if (pOriana != nullptr) {
 					//delete(pOriana);
-					std::cout << "a ";
 					pOriana = nullptr;
 				}
-				*/
+				if (pHideo != nullptr) {
+					//delete(pHideo);
+					pHideo = nullptr;
+				}
 			}
 
 			void Inimigo::setOriana(Jogador::Oriana* pOriana) {
@@ -29,25 +30,31 @@ namespace Entidade {
 				}
 				this->pOriana = pOriana;
 			}
-			Jogador::Oriana* Inimigo::getOriana() {
-				return pOriana;
-			}
+			Jogador::Oriana* Inimigo::getOriana() { return pOriana; }
+
 			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				//colisaoPlataforma(intersecao, pEntidade);
 				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra) {
-					noChao = true;
 					colisaoPlataforma(intersecao, pEntidade);
+					if (velocidade.y == 0.0f) {
+						noChao = true;
+					}
 				}
 				else if (pEntidade->getID() == Ids::Ids::oriana) {
 					if (pOriana->podeAtacar()) {
 						podeTomarDano(pOriana->valorDano());
+						if (morrer) {
+							pOriana->setPontuacao(getPontuacao());
+						}
 					}
 				}
 				else if (pEntidade->getID() == Ids::Ids::hideo) {
 					if (pHideo->podeAtacar()) {
 						podeTomarDano(pHideo->valorDano());
+						if (morrer) {
+							pHideo->setPontuacao(getPontuacao());
+						}
 					}
 				}
 			}
@@ -89,7 +96,6 @@ namespace Entidade {
 				}
 			}
 			const bool Inimigo::perseguirJogadores(const float tempo) {
-				//Jogador::Jogador* pJogador = nullptr;
 				if (pOriana == nullptr) {
 					return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);
 				}

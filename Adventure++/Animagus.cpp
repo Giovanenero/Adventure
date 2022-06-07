@@ -1,6 +1,7 @@
 #include "Animagus.h"
 
 #define VELOCIDADE_ANIMAGUS_X 80.0f
+#define PONTUACAO_ANIMAGUS 5000
 
 namespace Entidade {
     namespace Personagem {
@@ -14,12 +15,12 @@ namespace Entidade {
 
             }
             void Animagus::inicializacao() {
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAndando.png", 8, Ids::Ids::animagus_anda, tamanho, Matematica::CoordenadaF(2.8f, 1.5f));
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAtacando1.png", 8, Ids::Ids::animagus_ataca1, tamanho, Matematica::CoordenadaF(2.1f, 3.45f));
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAtacando2.png", 8, Ids::Ids::animagus_ataca2, tamanho, Matematica::CoordenadaF(2.8f, 3.45f));
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusDano.png", 3, Ids::Ids::animagus_tomaDano, tamanho, Matematica::CoordenadaF(3.1f, 1.45f));
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusMorrendo.png", 7, Ids::Ids::animagus_morre, tamanho, Matematica::CoordenadaF(2.6f, 3.75f));
-                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusParado.png", 8, Ids::Ids::animagus_para, tamanho, Matematica::CoordenadaF(2.6f, 3.65f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAndando.png", 8, Ids::Ids::animagus_anda, tamanho, Matematica::CoordenadaF(3.2f, 1.5f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAtacando1.png", 8, Ids::Ids::animagus_ataca1, tamanho, Matematica::CoordenadaF(2.5f, 3.45f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAtacando2.png", 8, Ids::Ids::animagus_ataca2, tamanho, Matematica::CoordenadaF(3.2f, 3.45f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusDano.png", 3, Ids::Ids::animagus_tomaDano, tamanho, Matematica::CoordenadaF(3.4f, 1.45f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusMorrendo.png", 7, Ids::Ids::animagus_morre, tamanho, Matematica::CoordenadaF(3.1f, 3.75f));
+                pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusParado.png", 8, Ids::Ids::animagus_para, tamanho, Matematica::CoordenadaF(3.1f, 3.65f));
 				carregarTomarDano = 0.5f;
 				carregarMorrer = 0.55f;
 				carregarAtaque = 2.5f;
@@ -53,6 +54,9 @@ namespace Entidade {
             }
 			const float Animagus::getVelocidadeEspecifica() const {
 				return VELOCIDADE_ANIMAGUS_X;
+			}
+			const short Animagus::getPontuacao() const {
+				return PONTUACAO_ANIMAGUS;
 			}
         }
     }

@@ -7,7 +7,7 @@
 #define TAMANHO_GOBLIN_Y 70
 #define VELOCIDADE_GOBLIN_X 80.0f
 #define VELOCIDADE_GOBLIN_Y 80.0f
-#define DISTANCIA_GOBLIN_RECONHECER_X 300.0f
+#define DISTANCIA_GOBLIN_RECONHECER_X 400.0f
 #define DISTANCIA_GOBLIN_RECONHECER_Y 100.0f
 
 #include "Inimigo.h"
@@ -27,6 +27,8 @@ namespace Entidade {
                 const float getVelocidadeEspecifica() const {
                     return VELOCIDADE_GOBLIN_X;
                 }
+
+                virtual const short getPontuacao() const = 0;
             };
         }
     }

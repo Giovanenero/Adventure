@@ -32,6 +32,8 @@ namespace Entidade {
 
 				virtual const float getVelocidadeEspecifica() const = 0;
 
+				virtual const short getPontuacao() const = 0;
+
 				void movimentoAleatorio(const float tempo);
 				const bool perseguirJogadores(const float tempo);
 				const bool perseguirJogador(Jogador::Jogador* pJogador, const float tempo);

@@ -3,15 +3,19 @@
 
 namespace Estados {
 
-    Menu::Menu() : Ente(), selecionado(0), min(0), max(2), ativo(false) {
-
-    }
+    Menu::Menu() : 
+        Ente(), 
+        selecionado(0), 
+        min(0), 
+        max(2), 
+        ativo(false) { }
 
     Menu::~Menu() {
         ElementoGrafico::Botao* b = nullptr;
         while (vectorBotoes.size() != 0) {
             b = vectorBotoes.back();
             delete (b);
+            b = nullptr;
             vectorBotoes.pop_back();
         }
         vectorBotoes.clear();
@@ -27,7 +31,7 @@ namespace Estados {
             vectorBotoes[selecionado]->selecionar(false);
             selecionado++;
             if (selecionado > max) {
-                selecionado = max;
+                selecionado = min;
             }
             vectorBotoes[selecionado]->selecionar(true);
         }
@@ -38,7 +42,7 @@ namespace Estados {
             vectorBotoes[selecionado]->selecionar(false);
             selecionado--;
             if (selecionado < min) {
-                selecionado = min;
+                selecionado = max;
             }
             vectorBotoes[selecionado]->selecionar(true);
         }

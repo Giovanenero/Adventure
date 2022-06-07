@@ -1,5 +1,7 @@
 #include "BateEsqueleto.h"
 
+#define PONTUACAO_BATEESQUELETO 500
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
@@ -45,6 +47,9 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::esqueleto_para);
 					mudarAtaque = rand() % 2;
 				}
+			}
+			const short BateEsqueleto::getPontuacao() const {
+				return PONTUACAO_BATEESQUELETO;
 			}
 		}
 	}

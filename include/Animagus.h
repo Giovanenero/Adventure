@@ -12,6 +12,7 @@ namespace Entidade {
                 void inicializacao();
                 void atualizarImagem(const float tempo);
                 const float getVelocidadeEspecifica() const;
+                const short getPontuacao() const;
             };
         }
     }
