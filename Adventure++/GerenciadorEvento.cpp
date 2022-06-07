@@ -2,7 +2,8 @@
 
 //arrumar...teste
 #include "AnimacaoMovimento.h"
-#include "MenuPrincipal.h"
+#include "Menu.h"
+#include "MenuPausa.h"
 #include "Principal.h"
 
 namespace Gerenciador {
@@ -14,7 +15,7 @@ namespace Gerenciador {
             window(nullptr),
             pOriana(nullptr),
             pHideo(nullptr),
-            pMenuPrincipal(nullptr)
+            pMenu(nullptr)
 	{
 		if (pGrafico != nullptr) {
 			window = pGrafico->getWindow();
@@ -48,8 +49,8 @@ namespace Gerenciador {
 		this->pHideo = pHideo;
 	}
 
-    void GerenciadorEvento::setMenuPrincipal(Estados::MenuPrincipal *pMenu) {
-        pMenuPrincipal = pMenu;
+    void GerenciadorEvento::setMenu(Estados::Menu *pMenu) {
+        this->pMenu = pMenu;
     }
 	void GerenciadorEvento::moverJogadores() {
 		if (pOriana != nullptr) {
@@ -62,11 +63,11 @@ namespace Gerenciador {
 
     void GerenciadorEvento::notificarMenu() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            pMenuPrincipal->selecionarCima();
+            pMenu->selecionarCima();
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-			pMenuPrincipal->selecionarBaixo();
+			pMenu->selecionarBaixo();
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-			pMenuPrincipal->executar();
+			pMenu->executar();
         }
     }
 
@@ -77,11 +78,20 @@ namespace Gerenciador {
 			if (evento.type == sf::Event::Closed) {
 				pGrafico->fecharJanela();
 			}
-            if (pPrincipal->getIDEstadoAtual() == Estados::IDestado::menuPrincipal) {
+            Estados::IDestado es = pPrincipal->getIDEstadoAtual();
+            if (es == Estados::IDestado::menuPrincipal || es == Estados::IDestado::colocacao || es == Estados::IDestado::menuPausa) {
                 notificarMenu();
             }
-            if (pPrincipal->getIDEstadoAtual() == Estados::IDestado::jogandoFloresta)
-			    moverJogadores();
+            if (es == Estados::IDestado::jogandoFloresta || es == Estados::IDestado::jogandoCaverna) {
+                moverJogadores();
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                    pPrincipal->mudarEstadoAtual(Estados::IDestado::menuPausa);
+                    Estados::MenuPausa *mp = dynamic_cast<Estados::MenuPausa*>(pMenu);
+                    if (mp) {
+                        mp->setIDFase(es);
+                    }
+                }
+            }
 		}
 	}
 	void GerenciadorEvento::moverOriana() {

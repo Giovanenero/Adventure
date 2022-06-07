@@ -21,9 +21,9 @@ namespace Estados {
         vectorBotoes.clear();
     }
 
-    void Menu::atualizarVisao() {
+    void Menu::atualizarVisao() { //atualmente usado para centralizar de volta a camera nos menus quando pause é invocado.
         Gerenciador::GerenciadorGrafico* pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
-        pGrafico->centralizarCamera(Matematica::CoordenadaF(pGrafico->getWindow()->getSize().x, pGrafico->getWindow()->getSize().y));
+        pGrafico->centralizarCamera(Matematica::CoordenadaF(600, 300));
     }
 
     void Menu::selecionarBaixo() {

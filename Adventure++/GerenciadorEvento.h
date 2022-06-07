@@ -9,7 +9,7 @@
 
 class Principal;
 namespace Estados {
-	class MenuPrincipal;
+	class Menu;
 }
 
 namespace Gerenciador {	
@@ -20,7 +20,7 @@ namespace Gerenciador {
 		Entidade::Personagem::Jogador::Oriana* pOriana;
 		Entidade::Personagem::Jogador::Hideo* pHideo;
 		sf::RenderWindow* window;
-		Estados::MenuPrincipal *pMenuPrincipal;
+		Estados::Menu *pMenu;
 
 		static GerenciadorEvento* pEvento;
 		GerenciadorEvento();
@@ -28,7 +28,7 @@ namespace Gerenciador {
 		~GerenciadorEvento();
 		static GerenciadorEvento* getGerenciadorEvento();
 		void setJogadores(Entidade::Personagem::Jogador::Oriana* pOriana = nullptr, Entidade::Personagem::Jogador::Hideo* pHideo = nullptr);
-        void setMenuPrincipal(Estados::MenuPrincipal *pMenu);
+        void setMenu(Estados::Menu *pMenu);
 		void moverJogadores();
 		void moverOriana();
 		void moverHideo();

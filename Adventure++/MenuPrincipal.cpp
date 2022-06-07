@@ -3,39 +3,41 @@
 
 namespace Estados {
 
-    MenuPrincipal::MenuPrincipal(Principal* principal) : 
-        Menu(),
-        Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), 
-        pPrincipal(principal),
-        title() 
-    {
+    MenuPrincipal::MenuPrincipal(Principal* principal) : Menu(),
+                                                         Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), pPrincipal(principal),
+                                                         titulo() {
         Gerenciador::GerenciadorGrafico* GM = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
         ElementoGrafico::Botao* bt = nullptr;
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f), "JOGAR FLORESTA");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f),
+            "JOGAR FLORESTA");
         bt->selecionar(true);
         vectorBotoes.push_back(bt);
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 100.f), "RANQUEAMENTO");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 100),
+            "JOGAR CAVERNA");
         vectorBotoes.push_back(bt);
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f , 200.f + 200.f), "CONFIGURACOES");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 200),
+            "COLOCACAO");
         vectorBotoes.push_back(bt);
 
-        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 300.f), "SAIR DO JOGO");
+        bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f + 300),
+            "SAIR DO JOGO");
         vectorBotoes.push_back(bt);
 
-        title.setInfo("Adventure");
-        title.setTamanhoFonte(140);
-        title.setCor(77.6, 68.2, 44.3);
-        title.setAlinhamento(ElementoGrafico::AlinhamentoTexto::centro);
+        titulo.setInfo("Adventure");
+        titulo.setTamanhoFonte(140);
+        titulo.setCor(77, 68, 44);
+        titulo.setAlinhamento(ElementoGrafico::AlinhamentoTexto::centro);
 
-        title.setPosicao(Matematica::CoordenadaF(600.f, 100.f));
+        titulo.setPosicao(Matematica::CoordenadaF(600.f, 100.f));
 
         max = 3;
     }
 
-    MenuPrincipal::~MenuPrincipal() { }
+    MenuPrincipal::~MenuPrincipal() {
+    }
 
     void MenuPrincipal::atualizar(const float dt) {
         ativo = true;
@@ -49,7 +51,7 @@ namespace Estados {
         //back.render();
         for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
             (*it)->renderizar();
-        title.renderizar();
+        titulo.renderizar();
     }
 
     void MenuPrincipal::executar() {
@@ -60,10 +62,10 @@ namespace Estados {
                 mudarEstado(Estados::IDestado::jogandoFloresta);
                 break;
             case 1:
-                //mudarEstado(Estados::IDestado::ranqueamento);
+                //mudarEstado(Estados::IDestado::jogandoCaverna);
                 break;
             case 2:
-                //mudarEstado(Estados::IDestado::configuracoes);
+                mudarEstado(Estados::IDestado::colocacao);
                 break;
             case 3:
                 //pGame->endGame();
@@ -79,7 +81,8 @@ namespace Estados {
         vectorBotoes[selecionado]->selecionar(false);
         selecionado = 0;
         vectorBotoes[selecionado]->selecionar(true);
-        title.setPosicao(Matematica::CoordenadaF(title.getPosicao().x, title.getPosicao().y));
+        //titulo.setPosicao(Matematica::CoordenadaF(titulo.getPosicao().x, titulo.getPosicao().y));
+        Gerenciador::GerenciadorEvento::getGerenciadorEvento()->setMenu(this);
     }
 }
 
