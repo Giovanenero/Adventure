@@ -10,7 +10,8 @@ namespace Fase {
         pOriana(new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 0.0f))),
         pHideo(new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 0.0f))),
         pColisao(),
-        fundo(nullptr)
+        fundo(nullptr),
+        iniciou(false)
     { 
         
     }

@@ -32,6 +32,7 @@ namespace Fase {
         Gerenciador::GerenciadorColisao* pColisao;
         //Entidade::Obstaculo::Plataforma
         Fundo* fundo;
+        bool iniciou;
     public:
         Fase();
         virtual ~Fase();
