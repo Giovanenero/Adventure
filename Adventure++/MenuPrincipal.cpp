@@ -1,4 +1,5 @@
 #include "MenuPrincipal.h"
+#include "MenuPausa.h"
 #include "Botao.h"
 
 namespace Estados {
@@ -32,6 +33,9 @@ namespace Estados {
         titulo.setAlinhamento(ElementoGrafico::AlinhamentoTexto::centro);
 
         titulo.setPosicao(Matematica::CoordenadaF(600.f, 100.f));
+
+        pontos = 0;
+        ultimaFase = IDestado::desconhecido;
 
         max = 3;
     }
@@ -81,8 +85,23 @@ namespace Estados {
         vectorBotoes[selecionado]->selecionar(false);
         selecionado = 0;
         vectorBotoes[selecionado]->selecionar(true);
+        if (pSM->getIDUltimoEstado() == IDestado::menuPausa) {
+            MenuPausa* m = dynamic_cast<MenuPausa*>(Gerenciador::GerenciadorEvento::getGerenciadorEvento()->getPMenu());
+            if (m) {
+                pontos = m->getPontos();
+                ultimaFase = m->getIDFase();
+            }
+        }
         //titulo.setPosicao(Matematica::CoordenadaF(titulo.getPosicao().x, titulo.getPosicao().y));
         Gerenciador::GerenciadorEvento::getGerenciadorEvento()->setMenu(this);
+    }
+
+    IDestado MenuPrincipal::getUltimaFase() {
+        return ultimaFase;
+    }
+
+    int MenuPrincipal::getPontos() {
+        return pontos;
     }
 }
 

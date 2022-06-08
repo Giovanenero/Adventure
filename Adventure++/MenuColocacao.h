@@ -11,6 +11,14 @@ namespace Estados {
     private:
         std::vector<ElementoGrafico::Texto *> allPoints;
         std::vector<ElementoGrafico::Texto *>::iterator itr;
+        std::string nome;
+        ElementoGrafico::Texto texNome;
+        int pontos;
+        IDestado fase;
+
+        void criarColocacao();
+
+        void escreverColocacao();
 
     public:
         MenuColocacao(Estados::MaquinaEstados *pSM = nullptr);
@@ -25,7 +33,7 @@ namespace Estados {
 
         void executar();
 
-        void criarColocacao();
+        void aceitarLetra(char letra);
 
     };
 }

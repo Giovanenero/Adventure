@@ -9,6 +9,7 @@ namespace Estados {
     class MenuPausa : public Menu, public Estados::Estado {
     private:
         IDestado idFase;
+        int pontos;
 
     public:
         MenuPausa(Estados::MaquinaEstados* pSM = nullptr, IDestado idFase = IDestado::desconhecido);
@@ -24,6 +25,12 @@ namespace Estados {
         void resetEstado();
 
         void setIDFase(IDestado id);
+
+        IDestado getIDFase();
+
+        void setPontos(int pontos);
+
+        int getPontos();
 
     };
 

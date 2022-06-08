@@ -11,6 +11,8 @@ namespace Estados {
     private:
         Principal* pPrincipal;
         ElementoGrafico::Texto titulo;
+        IDestado ultimaFase;
+        int pontos;
     public:
         MenuPrincipal(Principal* principal);
         ~MenuPrincipal();
@@ -18,5 +20,8 @@ namespace Estados {
         void renderizar();
         void resetEstado();
         virtual void executar();
+
+        IDestado getUltimaFase();
+        int getPontos();
     };
 }

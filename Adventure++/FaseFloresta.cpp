@@ -158,7 +158,7 @@ namespace Fase {
     }
 
     void FaseFloresta::resetEstado() {
-        //TODO: remover todas as entidades e resetar tudo antes de reiniciar.
+        //TODO: remover todas as entidades e resetar tudo antes de possivelmente reinicar a fase.
         init();
     }
 } //namespace Fase
