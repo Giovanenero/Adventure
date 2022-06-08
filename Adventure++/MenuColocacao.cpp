@@ -214,7 +214,7 @@ namespace Estados {
             std::map<int, std::string>::iterator iterador = pontosArquivo.begin();
             for (int i = 0; i < 5; i++) {
                 if (i >= pontosArquivo.size()) break;
-                outFile << iterador->second << " " << iterador->first;
+                outFile << iterador->second << " " << iterador->first << std::endl;
                 std::advance(iterador, 1);
             }
             outFile.close();
