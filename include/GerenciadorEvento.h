@@ -29,6 +29,7 @@ namespace Gerenciador {
 		static GerenciadorEvento* getGerenciadorEvento();
 		void setJogadores(Entidade::Personagem::Jogador::Oriana* pOriana = nullptr, Entidade::Personagem::Jogador::Hideo* pHideo = nullptr);
         void setMenu(Estados::Menu *pMenu);
+        Estados::Menu *getPMenu();
 		void moverJogadores();
 		void moverOriana();
 		void moverHideo();

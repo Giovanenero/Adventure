@@ -4,6 +4,7 @@
 #include "AnimacaoMovimento.h"
 #include "Menu.h"
 #include "MenuPausa.h"
+#include "MenuColocacao.h"
 #include "Principal.h"
 
 namespace Gerenciador {
@@ -52,6 +53,11 @@ namespace Gerenciador {
     void GerenciadorEvento::setMenu(Estados::Menu *pMenu) {
         this->pMenu = pMenu;
     }
+
+    Estados::Menu *GerenciadorEvento::getPMenu() {
+        return this->pMenu;
+    }
+
 	void GerenciadorEvento::moverJogadores() {
 		if (pOriana != nullptr) {
 			moverOriana();
@@ -81,6 +87,13 @@ namespace Gerenciador {
             Estados::IDestado es = pPrincipal->getIDEstadoAtual();
             if (es == Estados::IDestado::menuPrincipal || es == Estados::IDestado::colocacao || es == Estados::IDestado::menuPausa) {
                 notificarMenu();
+                if (es == Estados::IDestado::colocacao && evento.type == sf::Event::TextEntered && evento.text.unicode < 128) {
+                    //Notificar  menu de colocacao que texto foi colocado (<128 para ter certeza que seja uma letra)
+                    Estados::MenuColocacao *mc = dynamic_cast<Estados::MenuColocacao*>(pMenu);
+                    if (mc) {
+                        mc->aceitarLetra(static_cast<char>(evento.text.unicode));
+                    }
+                }
             }
             if (es == Estados::IDestado::jogandoFloresta || es == Estados::IDestado::jogandoCaverna) {
                 moverJogadores();
@@ -88,7 +101,8 @@ namespace Gerenciador {
                     pPrincipal->mudarEstadoAtual(Estados::IDestado::menuPausa);
                     Estados::MenuPausa *mp = dynamic_cast<Estados::MenuPausa*>(pMenu);
                     if (mp) {
-                        mp->setIDFase(es);
+                        mp->setIDFase(es); //notificar menu de pause qual fase pausou, e os pontos
+                        mp->setPontos(pOriana->getPontuacao() + pHideo->getPontuacao());
                     }
                 }
             }

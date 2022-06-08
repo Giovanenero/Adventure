@@ -18,6 +18,7 @@ namespace Estados {
         vectorBotoes.push_back(bt);
 
         selecionado = 0;
+        pontos = 0;
         max = 1;
     }
 
@@ -62,6 +63,18 @@ namespace Estados {
 
     void MenuPausa::setIDFase(IDestado id) {
         this->idFase = id;
+    }
+
+    IDestado MenuPausa::getIDFase() {
+        return this->idFase;
+    }
+
+    void MenuPausa::setPontos(int pontos) {
+        this->pontos = pontos;
+    }
+
+    int MenuPausa::getPontos() {
+        return this->pontos;
     }
 
 }
