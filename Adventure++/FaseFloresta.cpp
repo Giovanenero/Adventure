@@ -129,29 +129,23 @@ namespace Fase {
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plat));
         }
 
-        for (int i = 0; i < 5; i++) {
-            Entidade::Obstaculo::Caixa* caixa = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(500.0f, 600.0f - 50.0f * (i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa));
-            
-            Entidade::Obstaculo::Caixa* caixa2 = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(900.0f, 600.0f - 50.0f * (i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa2));
-            
-            if (i < 4) {
-                Entidade::Obstaculo::Caixa* caixa3 = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(300.0f, 600.0f - 50.0f * (i + 1)));
-                ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa3));
-            }
+        for (int i = 0; i < 4; i++) {
+            Entidade::Obstaculo::Andaime* a = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(500.0f - 300.0f, 600.0f - 50.f*(i + 1)));
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(a));
         
+            Entidade::Obstaculo::Andaime* b = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(500.0f + 300.0f, 600.0f - 50.0f* (i + 1)));
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(b));
         }
 
-        Entidade::Obstaculo::Ponte* ponte = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(500.0f, 600.0f - 50.0f * 6));
+        Entidade::Obstaculo::Ponte* ponte = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(500.0f, 600.0f - 50.0f * 4 - 20.0f), 2);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(ponte));
-
+        /*
         Entidade::Obstaculo::Ponte* ponte2 = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(900.0f, 600.0f - 50.0f * 6));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(ponte2));
 
         Entidade::Obstaculo::Espinhos* esp = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(650.0f, 600.0f - 50 * 5 - 30.0f - 20.0f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(esp));
-
+        */
         iniciou = true;
     }
     void FaseFloresta::executar() { }

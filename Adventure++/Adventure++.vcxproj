@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Adventure++.cpp" />
+    <ClCompile Include="Andaime.cpp" />
     <ClCompile Include="Animacao.cpp" />
     <ClCompile Include="AnimacaoEstatica.cpp" />
     <ClCompile Include="AnimacaoMovimento.cpp" />
@@ -194,6 +195,7 @@
     <ClCompile Include="Texto.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Andaime.h" />
     <ClInclude Include="Animacao.h" />
     <ClInclude Include="AnimacaoEstatica.h" />
     <ClInclude Include="AnimacaoMovimento.h" />
