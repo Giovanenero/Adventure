@@ -6,13 +6,12 @@
 class Fundo : public Ente
 {
 private:
-    Entidade::Entidade* pJogador;
     ElementoGrafico::AnimacaoEstatica* pAnimacaoEstatica;
     //static Gerenciador::GerenciadorGrafico* pGrafico;
 public:
-    Fundo(Ids::Ids id, Entidade::Entidade* pJogador1);
+    Fundo(Ids::Ids id);
     ~Fundo();
     void inicializacao();
-    void atualizar();
+    void atualizar(Matematica::CoordenadaF pos);
     void executar();
 };

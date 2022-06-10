@@ -12,7 +12,7 @@ namespace Fase {
         ListaEntidadeMovimento = new Lista::ListaEntidade();
         pOriana = new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 200.0f));
         pColisao = new Gerenciador::GerenciadorColisao(ListaEntidadeEstatica, ListaEntidadeMovimento);
-        fundo = new Fundo(Ids::Ids::fase_floresta, static_cast<Entidade::Entidade*>(pOriana));
+        fundo = new Fundo(Ids::Ids::fase_floresta);
     }
 
     FaseFloresta::~FaseFloresta() { }
@@ -125,7 +125,7 @@ namespace Fase {
         */
 
         for (int i = 0; i < 15; i++) {
-            Entidade::Obstaculo::Plataforma* plat = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(100.0f * i, 600.0f - 30.0f), tam);
+            Entidade::Obstaculo::Plataforma* plat = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(100.0f * i, 600.0f));
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plat));
         }
 
@@ -141,7 +141,7 @@ namespace Fase {
             Entidade::Obstaculo::Caixa* caixa = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(400.0f, 0.0f));
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa));
         }
-        Entidade::Obstaculo::Pedra* pedra = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF(400.0f, 0.0f));
+        Entidade::Obstaculo::Pedra* pedra = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF(400.0f, -100.0f));
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pedra));
 
         Entidade::Obstaculo::Espinhos* espinho = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(500.0f, -500.0f));
@@ -152,7 +152,16 @@ namespace Fase {
     void FaseFloresta::executar() { }
 
     void FaseFloresta::atualizar(const float tempo) {
-        fundo->atualizar();
+        Matematica::CoordenadaF pos;
+        if (pOriana->getPosicao().y < 300.f) {
+            pos.operator=(Matematica::CoordenadaF(pOriana->getPosicao().x, pOriana->getPosicao().y));
+        }
+        else {
+            pos.operator=(Matematica::CoordenadaF(pOriana->getPosicao().x, 300.0f));
+        }
+        fundo->atualizar(pos);
+        pGrafico->centralizarCamera(pos);
+        
         for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
             Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
             aux->atualizar(tempo);
@@ -173,8 +182,6 @@ namespace Fase {
             }
             i++;
         }
-        pGrafico->centralizarCamera(pOriana->getPosicao());
-
         pColisao->Colisao();
     }
 
