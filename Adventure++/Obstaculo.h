@@ -28,7 +28,6 @@ namespace Entidade {
 					(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::ponte) )
 				{
 					colisaoPlataforma(intersecao, pEntidade);
-					//std::cout << posicao.y << " " << pEntidade->getPosicao().y << std::endl;
 				}
 			}
 
