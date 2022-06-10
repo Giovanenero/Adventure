@@ -13,6 +13,7 @@
 #include "Animagus.h"
 #include "Noturno.h"
 #include "Plataforma.h"
+#include "Ponte.h"
 #include "Espinhos.h"
 #include "Pedra.h"
 #include "Caixa.h"
