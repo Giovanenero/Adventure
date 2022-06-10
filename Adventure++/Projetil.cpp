@@ -39,7 +39,7 @@ namespace Entidade {
 					explodir = true;
 				}
 			}
-			else if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa) {
+			else if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa || pEntidade->getID() == Ids::Ids::espinhos || pEntidade->getID() == Ids::Ids::ponte || pEntidade->getID() == Ids::Ids::andaime) {
 				explodir = true;
 			}
 		}
