@@ -3,13 +3,11 @@
 
 namespace Entidade {
     namespace Obstaculo {
-        class Ponte : public Obstaculo
+        class Andaime :public Obstaculo
         {
-        private:
-            short tipo_ponte;
         public:
-            Ponte(Matematica::CoordenadaF pos, short tipo_ponte);
-            ~Ponte();
+            Andaime(Matematica::CoordenadaF pos);
+            ~Andaime();
             void inicializacao();
             void atualizar();
         };

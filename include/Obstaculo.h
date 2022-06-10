@@ -15,6 +15,9 @@ namespace Entidade {
 
 			void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) { 
 				if (pEntidade->getID() == Ids::Ids::plataforma || 
+					(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::andaime) ||
+					(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::ponte) ||
+					(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::andaime) ||
 					(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::ponte) ||
 					(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::caixa) ||
 					(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::ponte) ||

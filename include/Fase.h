@@ -14,6 +14,7 @@
 #include "Noturno.h"
 #include "Plataforma.h"
 #include "Ponte.h"
+#include "Andaime.h"
 #include "Espinhos.h"
 #include "Pedra.h"
 #include "Caixa.h"
