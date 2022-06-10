@@ -13,7 +13,7 @@ namespace Entidade {
 			pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/grama.png", Ids::Ids::plataforma, posicao, tamanho, Matematica::CoordenadaF(3.15f, 1.0f));
 		}
 		void Plataforma::atualizar() {
-			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma);
+			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma, posicao);
 			pAnimacaoEstatica->renderizar();
 		}
 	} //namespace Obstaculo

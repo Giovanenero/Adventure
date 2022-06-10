@@ -1,6 +1,7 @@
 #include "Fase.h"
 
 namespace Fase {
+
     Fase::Fase() :
         Ente(Ids::Ids::fase_floresta),
         pEvento(), 

@@ -23,6 +23,10 @@ namespace Gerenciador {
 		}
 	}
 	GerenciadorEvento::~GerenciadorEvento() {
+		pOriana = nullptr;
+		pHideo = nullptr;
+		window = nullptr;
+		pGrafico = nullptr;
 		/*
 		if (pEvento) {
 			delete(pEvento);
@@ -96,13 +100,13 @@ namespace Gerenciador {
                 }
             }
             if (es == Estados::IDestado::jogandoFloresta || es == Estados::IDestado::jogandoCaverna) {
-                moverJogadores();
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+				moverJogadores();
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     pPrincipal->mudarEstadoAtual(Estados::IDestado::menuPausa);
                     Estados::MenuPausa *mp = dynamic_cast<Estados::MenuPausa*>(pMenu);
                     if (mp) {
                         mp->setIDFase(es); //notificar menu de pause qual fase pausou, e os pontos
-                        mp->setPontos(pOriana->getPontuacao() + pHideo->getPontuacao());
+						mp->setPontos(pOriana->getPontuacao() + pHideo->getPontuacao());
                     }
                 }
             }

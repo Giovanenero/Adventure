@@ -26,6 +26,9 @@ namespace Entidade {
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinMorrendo.png", 4, Ids::Ids::goblin_morre, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinParado.png", 4, Ids::Ids::goblin_para, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
 			}
+			const float Goblin::getVelocidadeEspecifica() const {
+				return VELOCIDADE_GOBLIN_X;
+			}
 		}
 	}
 }

@@ -14,10 +14,10 @@ namespace Entidade {
 
         }
         void Caixa::inicializacao() {
-            pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/caixa.png", Ids::Ids::caixa, posicao, tamanho, Matematica::CoordenadaF(2.0f, 2.65f));
+            pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/caixa.png", Ids::Ids::caixa, posicao, tamanho, Matematica::CoordenadaF(1.6f, 2.2f));
         }
         void Caixa::atualizar() {
-            pAnimacaoEstatica->atualizar(Ids::Ids::caixa);
+            pAnimacaoEstatica->atualizar(Ids::Ids::caixa, posicao);
             pAnimacaoEstatica->renderizar();
         }
     }

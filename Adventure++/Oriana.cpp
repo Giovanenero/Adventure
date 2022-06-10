@@ -5,14 +5,7 @@ namespace Entidade {
 		namespace Jogador {
 			Oriana::Oriana(Matematica::CoordenadaF posInicio) :
 				Jogador(posInicio, Ids::Ids::oriana)
-			{
-				this->inicializacao();
-				carregarAtaque = 0.4f;
-				tempoAtaque = 0.4f;
-				carregarMorrer = 1.5f;
-				carregarTomarDano = 0.6f;
-				mudarAtaque = rand() % 5;
-			}
+			{ this->inicializacao(); }
 
 			Oriana::~Oriana() { }
 
@@ -29,6 +22,11 @@ namespace Entidade {
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaParada.png", 8, Ids::Ids::oriana_para, tamanho, Matematica::CoordenadaF(2.2f, 0.9f)); //certo
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaPulando.png", 3, Ids::Ids::oriana_pula, tamanho, Matematica::CoordenadaF(2.0f, 1.0f)); //certo
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaSurf.png", 8, Ids::Ids::oriana_surf, tamanho, Matematica::CoordenadaF(1.0f, 1.0f));
+				carregarAtaque = 0.4f;
+				tempoAtaque = 0.4f;
+				carregarMorrer = 1.5f;
+				carregarTomarDano = 0.6f;
+				mudarAtaque = rand() % 4;
 			}
 
 			void Oriana::atualizarImagem(const float tempo) {
@@ -68,10 +66,10 @@ namespace Entidade {
 					else {
 						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_ataca4);
 					}
-					
 				}
 				else if (andando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_anda);
+					mudarAtaque = rand() % 4;
 				}
 				else {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::oriana_para);

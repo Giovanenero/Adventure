@@ -32,6 +32,7 @@ namespace Fase {
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
 
+        /*
         srand(time(NULL));
         for (int i = 0; i < 10; i++) {
             if (i != 6 && i != 7) {
@@ -121,6 +122,30 @@ namespace Fase {
 
         Entidade::Personagem::Inimigo::Noturno* noturno = new Entidade::Personagem::Inimigo::Noturno(Matematica::CoordenadaF((float)(rand() % 1000) + 10 * 100.0f, 100.f), pOriana, pHideo);
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(noturno));
+        */
+
+        for (int i = 0; i < 15; i++) {
+            Entidade::Obstaculo::Plataforma* plat = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(100.0f * i, 600.0f - 30.0f), tam);
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plat));
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Entidade::Obstaculo::Caixa* caixa = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(550.0f, 0.0f));
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa));
+        }
+        for (int i = 0; i < 4; i++) {
+            Entidade::Obstaculo::Caixa* caixa = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(500.0f, 0.0f));
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa));
+        }
+        for (int i = 0; i < 2; i++) {
+            Entidade::Obstaculo::Caixa* caixa = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(400.0f, 0.0f));
+            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(caixa));
+        }
+        Entidade::Obstaculo::Pedra* pedra = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF(400.0f, 0.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pedra));
+
+        Entidade::Obstaculo::Espinhos* espinho = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(500.0f, -500.0f));
+        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(espinho));
 
         iniciou = true;
     }
@@ -130,7 +155,7 @@ namespace Fase {
         fundo->atualizar();
         for (int i = 0; i < (int)ListaEntidadeEstatica->getTamanho(); i++) {
             Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
-            aux->atualizar();
+            aux->atualizar(tempo);
         }
         //float tempo = pGrafico->atualizartempo();
         int i = 0;

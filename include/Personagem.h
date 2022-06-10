@@ -3,14 +3,11 @@
 #include "Entidade.h"
 #include "AnimacaoMovimento.h"
 
-#define GRAVIDADE 998.0f
-
 namespace Entidade {
 	namespace Personagem {
 		class Personagem: public Entidade
 		{
 		protected:
-			Matematica::CoordenadaF velocidade;
 			bool olharEsquerda;
 			bool andando;
 			bool noChao;
@@ -42,28 +39,23 @@ namespace Entidade {
 			void setMorrer(bool morrer);
 			bool getMorrer() const;
 
-			void setVelocidade(Matematica::CoordenadaF velocidade);
-			Matematica::CoordenadaF getVelocidade();
+			//void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
-			void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
-
-			virtual void atualizar(const float tempo) = 0;
 			void atualizarTempoAtaque(const float tempo);
 			void ativarAndar(bool paraEsquerda);
+			void desligarAndar();
 			void ativarAtacar();
 			void desligarAtacar();
-			void desligarAndar();
-			virtual void atualizarImagem(const float tempo) = 0;
-			void renderizar();
 			const bool podeAtacar() const;
 			const bool podeMorrer() const;
 			void podeTomarDano(int dano);
 			const int valorDano() const;
-			//teste...
-			const bool podeRemover() const {
-				return podeMorrer() ? true : false;
-			}
+			const bool podeRemover() const;
 			void carregaTomarDano(const float tempo);
+			void renderizar();
+
+			virtual void atualizar(const float tempo) = 0;
+			virtual void atualizarImagem(const float tempo) = 0;
 		};
 	}
 }

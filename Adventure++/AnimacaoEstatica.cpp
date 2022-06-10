@@ -32,7 +32,7 @@ namespace ElementoGrafico {
 		corpo.setOrigin(sf::Vector2f(tamanhoRect.width, tamanhoRect.height) / 2.0f);
 	}
 
-	void AnimacaoEstatica::atualizar(Ids::Ids id) {
+	void AnimacaoEstatica::atualizar(Ids::Ids id, Matematica::CoordenadaF pos) {
 		if (ID != id) { 
 			ID = id; 
 		}
@@ -40,6 +40,7 @@ namespace ElementoGrafico {
 		//teste...
 		//corpo.setOrigin(sf::Vector2f(mapAnimacaoEstatica[ID]->getTamanho().width, mapAnimacaoEstatica[ID]->getTamanho().height) / 2.0f);
 		corpo.setScale(mapAnimacaoEstatica[ID]->getEscala());
+		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setTextureRect(mapAnimacaoEstatica[ID]->getTamanho());
 		corpo.setTexture(mapAnimacaoEstatica[ID]->getTextura());
 	}

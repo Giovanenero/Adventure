@@ -34,6 +34,7 @@ namespace Fase {
         //Entidade::Obstaculo::Plataforma
         Fundo* fundo;
         bool iniciou;
+        //static int pontuacao;
     public:
         Fase();
         virtual ~Fase();

@@ -19,7 +19,7 @@ namespace Entidade {
             pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/espinhos.png", Ids::Ids::espinhos, posicao, tamanho, Matematica::CoordenadaF(0.4f, 0.2f));
         }
         void Espinhos::atualizar() {
-            pAnimacaoEstatica->atualizar(Ids::Ids::espinhos);
+            pAnimacaoEstatica->atualizar(Ids::Ids::espinhos, posicao);
             pAnimacaoEstatica->renderizar();
         }
         const int Espinhos::getDano() const {

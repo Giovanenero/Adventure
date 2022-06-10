@@ -10,7 +10,7 @@ namespace Entidade {
 				mudarAtaque(rand() % 2)
             {
                 this->inicializacao();
-				carregarAtaque = 2.0f;
+				carregarAtaque = 5.5f;
 				tempoAtaque = 0.6f;
             }
             BateGoblin::~BateGoblin() { }
@@ -30,10 +30,10 @@ namespace Entidade {
 				}
 				else if (atacando) {
 					if (mudarAtaque == 0) {
-						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_ataca1);
+						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca1);
 					}
 					else {
-						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_ataca2);
+						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca2);
 					}
 					desligarAtacar();
 				}
