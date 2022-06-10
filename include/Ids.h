@@ -6,6 +6,7 @@ namespace Ids {
 		fase_floresta,
 		fase_caverna,
 		plataforma,
+		ponte,
 		espinhos,
 		caixa,
 		pedra,

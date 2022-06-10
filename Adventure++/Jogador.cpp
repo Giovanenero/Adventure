@@ -27,7 +27,7 @@ namespace Entidade {
 			Jogador::~Jogador() { }
 
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa) {
+				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa || pEntidade->getID() == Ids::Ids::ponte) {
 					colisaoPlataforma(intersecao, pEntidade);
 					if (velocidade.y == 0.0f) {
 						//std::cout << "a ";

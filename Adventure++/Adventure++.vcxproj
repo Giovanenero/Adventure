@@ -188,6 +188,7 @@
     <ClCompile Include="Pedra.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Ponte.cpp" />
     <ClCompile Include="Principal.cpp" />
     <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="Texto.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="Pedra.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Ponte.h" />
     <ClInclude Include="Principal.h" />
     <ClInclude Include="Projetil.h" />
     <ClInclude Include="Texto.h" />
