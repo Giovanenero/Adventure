@@ -87,7 +87,7 @@ namespace Entidade {
 					std::cout << "pJogador nulo! - class Inimigo" << std::endl;
 					exit(1);
 				}
-				Matematica::CoordenadaF posJogador = pJogador->getPosicao().x - posicao.x;
+				Matematica::CoordenadaF posJogador = pJogador->getPosicao() - posicao;
 				if (fabs(posJogador.x) < distanciaJogador.x && fabs(posJogador.y) < distanciaJogador.y) {
 					if (posJogador.x > 0){
 						olharEsquerda = false;

@@ -147,6 +147,9 @@ namespace Fase {
 
         Entidade::Personagem::Inimigo::BateGoblin* a = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF(500.0f, 500.0f), pOriana, pHideo);
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(a));
+
+        Entidade::Personagem::Inimigo::BateGoblin* b = new Entidade::Personagem::Inimigo::BateGoblin(Matematica::CoordenadaF(600.0f, 000.0f), pOriana, pHideo);
+        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(b));
         
         /*
         Entidade::Obstaculo::Ponte* ponte2 = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(900.0f, 600.0f - 50.0f * 6));
