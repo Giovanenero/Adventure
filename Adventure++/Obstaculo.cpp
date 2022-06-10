@@ -7,11 +7,7 @@ namespace Entidade {
 			pAnimacaoEstatica(new ElementoGrafico::AnimacaoEstatica()) { }
 
 		Obstaculo::~Obstaculo() {
-			/*
-			if (pAnimacaoEstatica) {
-				pAnimacaoEstatica = nullptr;
-			}
-			*/
+			pAnimacaoEstatica = nullptr;
 		}
 
 		void Obstaculo::renderizar() {

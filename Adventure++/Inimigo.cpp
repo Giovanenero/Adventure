@@ -13,47 +13,23 @@ namespace Entidade {
 			{ }
 
 			Inimigo::~Inimigo() {
-				if (pOriana != nullptr) {
-					//delete(pOriana);
-					pOriana = nullptr;
-				}
-				if (pHideo != nullptr) {
-					//delete(pHideo);
-					pHideo = nullptr;
-				}
+				pOriana = nullptr;
+				pHideo = nullptr;
 			}
-
-			void Inimigo::setOriana(Jogador::Oriana* pOriana) {
-				if (pOriana == nullptr) {
-					std::cout << "ponteiro pOriana vazio! - class Inimigo: setOriana" << std::endl;
-					exit(1);
-				}
-				this->pOriana = pOriana;
-			}
-			Jogador::Oriana* Inimigo::getOriana() { return pOriana; }
 
 			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
+				velocidade.x = getVelocidadeEspecifica();
 				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa) {
 					colisaoPlataforma(intersecao, pEntidade);
-					if (velocidade.y == 0.0f) {
-						noChao = true;
-					}
 				}
-				else if (pEntidade->getID() == Ids::Ids::oriana) {
-					if (pOriana->podeAtacar()) {
-						podeTomarDano(pOriana->valorDano());
+				else if (pEntidade->getID() == Ids::Ids::oriana || pEntidade->getID() == Ids::Ids::hideo) {
+					Jogador::Jogador* pJogador = static_cast<Jogador::Jogador*>(pEntidade);
+					if (pJogador->podeAtacar()) {
+						podeTomarDano(pJogador->valorDano());
 						if (morrer) {
-							pOriana->setPontuacao(getPontuacao());
-						}
-					}
-				}
-				else if (pEntidade->getID() == Ids::Ids::hideo) {
-					if (pHideo->podeAtacar()) {
-						podeTomarDano(pHideo->valorDano());
-						if (morrer) {
-							pHideo->setPontuacao(getPontuacao());
+							pJogador->setPontuacao(getPontuacao());
 						}
 					}
 				}
@@ -63,7 +39,6 @@ namespace Entidade {
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
-				velocidade.x = getVelocidadeEspecifica();
 				if (!morrer && !tomarDano && !atacando) {
 					const bool moveu = perseguirJogadores(tempo);
 					if (!moveu) {
@@ -77,7 +52,6 @@ namespace Entidade {
 				renderizar();
 			}
 			void Inimigo::movimentoAleatorio(const float tempo) {
-				velocidade.x = getVelocidadeEspecifica();
 				if (aleatorio == 0) {
 					posicao.x += velocidade.x * tempo;
 					ativarAndar(false);
@@ -114,8 +88,7 @@ namespace Entidade {
 					exit(1);
 				}
 				Matematica::CoordenadaF posJogador = pJogador->getPosicao().x - posicao.x;
-				if (fabs(posJogador.x) < distanciaJogador.x && fabs(posJogador.x) < distanciaJogador.y) {
-					velocidade.x = getVelocidadeEspecifica();
+				if (fabs(posJogador.x) < distanciaJogador.x && fabs(posJogador.y) < distanciaJogador.y) {
 					if (posJogador.x > 0){
 						olharEsquerda = false;
 						posicao.x = posicao.x + velocidade.x * tempo;

@@ -21,7 +21,8 @@ void Fundo::inicializacao() {
 }
 void Fundo::atualizar() {
     pAnimacaoEstatica->setPosicao(Matematica::CoordenadaF(pJogador->getPosicao().x, pJogador->getPosicao().y));
-    pAnimacaoEstatica->atualizar(Ids::Ids::fundo_floresta);
+    //arrumar..
+    pAnimacaoEstatica->atualizar(Ids::Ids::fundo_floresta, pJogador->getPosicao());
     pAnimacaoEstatica->renderizar();
 }
 

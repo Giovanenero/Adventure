@@ -7,14 +7,6 @@
 #define VELOCIDADE_X_JOGADOR 160.0f
 #define VELOCIDADE_Y_JOGADOR 0.0f
 #define TAMANHO_PULO_JOGADOR 140.0f
-//teste...
-/*
-#define TEMPO_ATAQUE_JOGADOR 0.4f
-#define TEMPO_DANO_JOGADOR 0.6f
-#define TEMPO_MORRE_JOGADOR 0.6f
-*/
-
-#include "Noturno.h"
 
 namespace Entidade {
 	namespace Personagem {
@@ -25,7 +17,6 @@ namespace Entidade {
 				id,
 				VIDA_JOGADOR,
 				DANO_JOGADOR), 
-				pular(true), 
 				caindo(true) ,
 				mudarAtaque(0),
 				pontuacao(0)
@@ -39,7 +30,7 @@ namespace Entidade {
 				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa) {
 					colisaoPlataforma(intersecao, pEntidade);
 					if (velocidade.y == 0.0f) {
-						pular = true;
+						//std::cout << "a ";
 						noChao = true;
 						caindo = false;
 					}
@@ -53,7 +44,6 @@ namespace Entidade {
 					if (pPerson->podeAtacar()) {
 						pPerson->desligarAtacar();
 						podeTomarDano(pPerson->valorDano());
-						mudarAtaque = rand() % 5;
 					}
 				}
 				else if (pEntidade->getID() == Ids::Ids::espinhos) {
@@ -64,10 +54,15 @@ namespace Entidade {
 				}
 			}
 			void Jogador::podePular() {
-				if (pular) {
+				/*
+					Cinemática: Movimento Retilínio Uniformemente Variado(MRUV)
+					Equação de Torricelli sendo aplicado na velocidade eixo y por
+					sofrer o efeito da gravidade
+				*/
+				if (noChao) { 
 					velocidade.y = -sqrt(2.0f * GRAVIDADE * TAMANHO_PULO_JOGADOR);
-					pular = false;
 					noChao = false;
+					caindo = false;
 				}
 			}
 			void Jogador::atualizar(const float tempo) {
@@ -79,24 +74,18 @@ namespace Entidade {
 					}
 				}
 				else {
-					velocidade.x *= 0.5;
+					velocidade.x *= 0.5f;
 				}
 				velocidade.y += GRAVIDADE * tempo;
 
 				posicao.x += velocidade.x * tempo;
 				posicao.y += velocidade.y * tempo;
 
-				if (velocidade.y > 0) {
+				if (velocidade.y > 0.0f) {
 					caindo = true;
 				}
-				atualizarImagem(tempo);
-				//carregandoDano += tempo;
 
-				/*if (posicao.y >= 600.0f) {
-					morrer = true;
-					exit(1);
-				}
-				*/
+				atualizarImagem(tempo);
 				renderizar();
 			}
 			void Jogador::setPontuacao(int pontuacao) {

@@ -27,7 +27,7 @@ namespace Entidade {
 				atualizarTempoAtaque(tempo);
 				Matematica::CoordenadaF distancia = jogadorMaisProximo(pOriana, pHideo, posicao)->getPosicao();
 				if (!morrer && !tomarDano && !atacando) {
-					if (fabs(distancia.y - posicao.y) > DISTANCIA_GOBLIN_RECONHECER_X || fabs(distancia.x - posicao.x) > DISTANCIA_GOBLIN_RECONHECER_Y) {
+					if (fabs(distancia.y - posicao.y) > DISTANCIA_GOBLIN_RECONHECER_Y && fabs(distancia.x - posicao.x) > DISTANCIA_GOBLIN_RECONHECER_X) {
 						movimentoAleatorio(tempo);
 					}
 					else {
@@ -41,7 +41,6 @@ namespace Entidade {
 								jaAtirou = false;
 							}
 							desligarAtacar();
-
 						}
 						olharEsquerda = ((distancia.x - posicao.x) > 0.0f) ? false : true;
 					}
@@ -65,7 +64,7 @@ namespace Entidade {
 				else if (atacando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca3);
 					if (podeAtacar()) {
-						tempoAtacando = 0.f;
+						//tempoAtacando = 0.f;
 						criarProjetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
 						desligarAtacar();
 					}

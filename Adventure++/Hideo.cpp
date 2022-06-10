@@ -7,11 +7,6 @@ namespace Entidade {
                 Jogador(posInicio, Ids::Ids::hideo)
             {
                 this->inicializacao();
-				carregarAtaque = 0.4f;
-				tempoAtaque = 0.4f;
-				carregarMorrer = 0.8f;
-				carregarTomarDano = 0.4f;
-				mudarAtaque = rand() % 3;
             }
             Hideo::~Hideo() { }
 
@@ -25,19 +20,17 @@ namespace Entidade {
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoMorrendo.png", 7, Ids::Ids::hideo_morre, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoParado.png", 10, Ids::Ids::hideo_para, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoPulando.png", 3, Ids::Ids::hideo_pula, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
-            }
+				carregarAtaque = 0.4f;
+				tempoAtaque = 0.4f;
+				carregarMorrer = 0.8f;
+				carregarTomarDano = 0.4f;
+				mudarAtaque = rand() % 3;
+			}
             void Hideo::atualizarImagem(const float tempo) {
 				if (morrer) {
 					desligarAndar();
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.6f, Ids::Ids::hideo_morre);
 					carregandoMorrendo += tempo;
-					//teste...
-					/*
-					if (carregandoMorrendo > carregarMorrer) {
-						std::cout << "FIM DE JOGO!" << std::endl;
-						exit(1);
-					}
-					*/
 				}
 				else if (tomarDano) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::hideo_tomaDano);
@@ -62,14 +55,13 @@ namespace Entidade {
 					else {
 						pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo + 0.5 * tempo, Ids::Ids::hideo_ataca3);
 					}
-					
 				}
 				else if (andando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::hideo_anda);
+					mudarAtaque = rand() % 3;
 				}
 				else {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::hideo_para);
-					mudarAtaque = rand() % 3;
 				}
             }
         }
