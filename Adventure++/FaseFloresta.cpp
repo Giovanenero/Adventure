@@ -25,10 +25,19 @@ namespace Fase {
         }
         iniciou = true;
         //teste...
-        pEvento->setJogadores(pOriana, pHideo);
+        if (doisJogadores) {
+            pEvento->setJogadores(pOriana, pHideo);
+        } else {
+            if (pHideo)
+                delete pHideo;
+            pHideo = nullptr;
+            pEvento->setJogadores(pOriana, nullptr);
+        }
 
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
+        if (doisJogadores) {
+            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
+        }
 
         //arrumar ineficiente...
         Matematica::CoordenadaF tam(100.0f, 30.0f);
