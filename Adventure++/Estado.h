@@ -8,6 +8,8 @@ namespace Estados {
         desconhecido = -1,
         menuPrincipal = 0,
         novoJogo,
+        menuJogadorFloresta,
+        menuJogadorCaverna,
         jogandoFloresta,
         jogandoCaverna,
         menuPausa,
