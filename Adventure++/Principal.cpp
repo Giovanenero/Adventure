@@ -54,7 +54,10 @@ void Principal::Executar() {
     GerenciadorEvento *pEvento = GerenciadorEvento::getGerenciadorEvento();
     while (pGrafico->isWindowOpen()) {
 
-        pEvento->pollEvents(this);
+        if (getIDEstadoAtual() == Estados::IDestado::jogandoCaverna)
+            pEvento->pollEvents(this, faseCaverna);
+        else
+            pEvento->pollEvents(this, faseFloresta);
         pGrafico->limpar();
 
         //fase->executar();

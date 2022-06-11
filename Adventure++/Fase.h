@@ -22,6 +22,8 @@
 
 #include <time.h>
 
+#define TEMPO_TROCA_MIN 5
+
 namespace Fase {
     class Fase: public Ente
     {
@@ -37,6 +39,7 @@ namespace Fase {
         Fundo* fundo;
         bool iniciou;
         bool doisJogadores;
+        float tempoTroca;
         //static int pontuacao;
     public:
         Fase();
@@ -46,6 +49,7 @@ namespace Fase {
         virtual void atualizar(const float tempo) = 0;
 
         void setDoisJogadores(bool dJ);
+        void trocarJogadores();
 
         //em teste...
         Lista::ListaEntidade* getListaEntidadeMovimento() {
