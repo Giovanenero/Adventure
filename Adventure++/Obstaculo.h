@@ -3,6 +3,8 @@
 #include "AnimacaoEstatica.h"
 #include "Entidade.h"
 
+//class Caixa;
+
 namespace Entidade {
 	namespace Obstaculo {
 		class Obstaculo : public Entidade
@@ -13,23 +15,7 @@ namespace Entidade {
 			Obstaculo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id);
 			~Obstaculo();
 
-			void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) { 
-				if (pEntidade->getID() == Ids::Ids::plataforma || 
-					(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::andaime) ||
-					(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::ponte) ||
-					(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::andaime) ||
-					(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::ponte) ||
-					(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::caixa) ||
-					(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::ponte) ||
-					(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::pedra) || 
-					(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::caixa) || 
-					(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::caixa) ||
-					(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::caixa) ||
-					(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::ponte) )
-				{
-					colisaoPlataforma(intersecao, pEntidade);
-				}
-			}
+			void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
 			void renderizar();
 			virtual void inicializacao() = 0;
