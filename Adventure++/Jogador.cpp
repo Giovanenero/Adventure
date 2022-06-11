@@ -8,6 +8,8 @@
 #define VELOCIDADE_Y_JOGADOR 0.0f
 #define TAMANHO_PULO_JOGADOR 140.0f
 
+#include "Caixa.h"
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {
@@ -29,26 +31,13 @@ namespace Entidade {
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 				if (pEntidade->getID() == Ids::Ids::caixa) {
 					colisaoPlataforma(intersecao, pEntidade);
-					/*
-					if(velocidade.x == 0.0f) {
+					Obstaculo::Caixa* pCaixa = static_cast<Obstaculo::Caixa*>(pEntidade);
+					if (velocidade.x == 0.0f && !caindo && pCaixa->getEmpurrar() == true) {
 						if (olharEsquerda) {
-							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x - VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
+							pCaixa->setPosicao(Matematica::CoordenadaF(pCaixa->getPosicao().x - VELOCIDADE_X_JOGADOR * 0.004f, pCaixa->getPosicao().y));
 						}
 						else {
-							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x + VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
-						}
-					}
-					else {
-						noChao = true;
-						caindo = false;
-					}
-					*/
-					if (velocidade.x == 0.0f && !caindo) {
-						if (olharEsquerda) {
-							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x - VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
-						}
-						else {
-							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x + VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
+							pCaixa->setPosicao(Matematica::CoordenadaF(pCaixa->getPosicao().x + VELOCIDADE_X_JOGADOR * 0.004f, pCaixa->getPosicao().y));
 						}
 					}
 					else {
@@ -59,7 +48,6 @@ namespace Entidade {
 				else if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::ponte || pEntidade->getID() == Ids::Ids::andaime) {
 					colisaoPlataforma(intersecao, pEntidade);
 					if (velocidade.y == 0.0f) {
-						//std::cout << "a ";
 						noChao = true;
 						caindo = false;
 					}

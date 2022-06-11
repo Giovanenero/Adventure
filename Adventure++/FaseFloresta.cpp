@@ -140,7 +140,7 @@ namespace Fase {
         Entidade::Obstaculo::Ponte* ponte = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(500.0f, 600.0f - 50.0f * 4 - 20.0f), 2);
         ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(ponte));
         
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 3; i++) {
             Entidade::Obstaculo::Caixa* a = new Entidade::Obstaculo::Caixa(Matematica::CoordenadaF(500.0f, 0.0f));
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(a));
         }
