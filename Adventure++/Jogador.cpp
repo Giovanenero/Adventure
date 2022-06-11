@@ -27,7 +27,36 @@ namespace Entidade {
 			Jogador::~Jogador() { }
 
 			void Jogador::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
-				if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::caixa || pEntidade->getID() == Ids::Ids::ponte || pEntidade->getID() == Ids::Ids::andaime) {
+				if (pEntidade->getID() == Ids::Ids::caixa) {
+					colisaoPlataforma(intersecao, pEntidade);
+					/*
+					if(velocidade.x == 0.0f) {
+						if (olharEsquerda) {
+							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x - VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
+						}
+						else {
+							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x + VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
+						}
+					}
+					else {
+						noChao = true;
+						caindo = false;
+					}
+					*/
+					if (velocidade.x == 0.0f && !caindo) {
+						if (olharEsquerda) {
+							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x - VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
+						}
+						else {
+							pEntidade->setPosicao(Matematica::CoordenadaF(pEntidade->getPosicao().x + VELOCIDADE_X_JOGADOR * 0.004f, pEntidade->getPosicao().y));
+						}
+					}
+					else {
+						noChao = true;
+						caindo = false;
+					}
+				}
+				else if (pEntidade->getID() == Ids::Ids::plataforma || pEntidade->getID() == Ids::Ids::pedra || pEntidade->getID() == Ids::Ids::ponte || pEntidade->getID() == Ids::Ids::andaime) {
 					colisaoPlataforma(intersecao, pEntidade);
 					if (velocidade.y == 0.0f) {
 						//std::cout << "a ";
