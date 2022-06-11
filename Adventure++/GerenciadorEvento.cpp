@@ -89,7 +89,9 @@ namespace Gerenciador {
 				pGrafico->fecharJanela();
 			}
             Estados::IDestado es = pPrincipal->getIDEstadoAtual();
-            if (es == Estados::IDestado::menuPrincipal || es == Estados::IDestado::colocacao || es == Estados::IDestado::menuPausa) {
+            if (es == Estados::IDestado::menuPrincipal || es == Estados::IDestado::colocacao
+            || es == Estados::IDestado::menuPausa || es == Estados::IDestado::menuJogadorFloresta
+            || es == Estados::IDestado::menuJogadorCaverna) {
                 notificarMenu();
                 if (es == Estados::IDestado::colocacao && evento.type == sf::Event::TextEntered && evento.text.unicode < 128) {
                     //Notificar  menu de colocacao que texto foi colocado (<128 para ter certeza que seja uma letra)

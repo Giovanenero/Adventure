@@ -5,9 +5,9 @@
 namespace Estados {
 
     MenuPrincipal::MenuPrincipal(Principal* principal) : Menu(),
-                                                         Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal), pPrincipal(principal),
+                                                         Estados::Estado(static_cast<Estados::MaquinaEstados*>(principal), Estados::IDestado::menuPrincipal),
+                                                         iniciouCaverna(false), iniciouFloresta(false),
                                                          titulo() {
-        Gerenciador::GerenciadorGrafico* GM = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
         ElementoGrafico::Botao* bt = nullptr;
 
         bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600.f, 200.f),
@@ -63,10 +63,20 @@ namespace Estados {
             ativo = false;
             switch (selecionado) {
             case 0:
-                mudarEstado(Estados::IDestado::jogandoFloresta);
+                if (iniciouFloresta) {
+                    mudarEstado(Estados::IDestado::jogandoFloresta);
+                } else {
+                    iniciouFloresta = true;
+                    mudarEstado(Estados::IDestado::menuJogadorFloresta);
+                }
                 break;
             case 1:
-                //mudarEstado(Estados::IDestado::jogandoCaverna);
+                if (iniciouCaverna) {
+                    mudarEstado(Estados::IDestado::jogandoCaverna);
+                } else {
+                    iniciouCaverna = true;
+                    mudarEstado(Estados::IDestado::menuJogadorCaverna);
+                }
                 break;
             case 2:
                 mudarEstado(Estados::IDestado::colocacao);

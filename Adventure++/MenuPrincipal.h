@@ -9,10 +9,11 @@ namespace Estados {
 
     class MenuPrincipal : public Menu, public Estados::Estado {
     private:
-        Principal* pPrincipal;
         ElementoGrafico::Texto titulo;
         IDestado ultimaFase;
         int pontos;
+        bool iniciouFloresta;
+        bool iniciouCaverna;
     public:
         MenuPrincipal(Principal* principal);
         ~MenuPrincipal();

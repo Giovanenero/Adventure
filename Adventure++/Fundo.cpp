@@ -16,7 +16,11 @@ void Fundo::inicializacao() {
 }
 void Fundo::atualizar(Matematica::CoordenadaF pos) {
     pAnimacaoEstatica->setPosicao(pos);
-    pAnimacaoEstatica->atualizar(Ids::Ids::fundo_floresta, pos);
+    if (ID == Ids::Ids::fase_caverna) {
+        pAnimacaoEstatica->atualizar(Ids::Ids::fundo_caverna, pos);
+    } else {
+        pAnimacaoEstatica->atualizar(Ids::Ids::fundo_floresta, pos);
+    }
     pAnimacaoEstatica->renderizar();
 }
 
