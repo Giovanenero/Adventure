@@ -147,11 +147,19 @@ namespace Fase {
 
     void FaseCaverna::atualizar(const float tempo) {
         Matematica::CoordenadaF pos;
-        if (pOriana->getPosicao().y < 315.f) {
-            pos.operator=(Matematica::CoordenadaF(pOriana->getPosicao().x, pOriana->getPosicao().y));
+        Entidade::Personagem::Jogador::Jogador *j;
+        tempoTroca += tempo;
+        if (pOriana) {
+            j = pOriana;
+        } else {
+            j = pHideo;
+        }
+
+        if (j->getPosicao().y < 315.f) {
+            pos.operator=(Matematica::CoordenadaF(j->getPosicao().x, j->getPosicao().y));
         }
         else {
-            pos.operator=(Matematica::CoordenadaF(pOriana->getPosicao().x, 315.0f));
+            pos.operator=(Matematica::CoordenadaF(j->getPosicao().x, 315.0f));
         }
         fundo->atualizar(pos);
         pGrafico->centralizarCamera(pos);

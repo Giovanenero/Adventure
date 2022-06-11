@@ -82,7 +82,7 @@ namespace Gerenciador {
     }
 
 
-	void GerenciadorEvento::pollEvents(Principal *pPrincipal) {
+	void GerenciadorEvento::pollEvents(Principal *pPrincipal, Fase::Fase *fase) {
 		sf::Event evento;
 		while (window->pollEvent(evento)) {
 			if (evento.type == sf::Event::Closed) {
@@ -108,11 +108,14 @@ namespace Gerenciador {
                     Estados::MenuPausa *mp = dynamic_cast<Estados::MenuPausa*>(pMenu);
                     if (mp) {
                         mp->setIDFase(es); //notificar menu de pause qual fase pausou, e os pontos
-                        if (pHideo)
-						    mp->setPontos(pOriana->getPontuacao() + pHideo->getPontuacao());
-                        else
-                            mp->setPontos(pOriana->getPontuacao());
+                        int pontuacao = 0;
+                        if (pHideo) pontuacao += pHideo->getPontuacao();
+                        if (pOriana) pontuacao += pOriana->getPontuacao();
+                        mp->setPontos(pontuacao);
                     }
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) { //trocar de jogador
+                    if (fase)
+                        fase->trocarJogadores();
                 }
             }
 		}

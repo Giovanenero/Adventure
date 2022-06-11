@@ -12,7 +12,8 @@ namespace Fase {
         pHideo(),
         pColisao(),
         fundo(nullptr),
-        iniciou(false)
+        iniciou(false),
+        tempoTroca(60)
     { 
         
     }
@@ -60,5 +61,27 @@ namespace Fase {
 
     void Fase::setDoisJogadores(bool dJ) {
         this->doisJogadores = dJ;
+    }
+
+    void Fase::trocarJogadores() {
+        if (doisJogadores) return; //se for dois jogadores, nao trocamos, continua o principal
+        if (tempoTroca < TEMPO_TROCA_MIN) return; //minimo de tempo para poder trocar personagem
+        if (pOriana) {
+            Matematica::CoordenadaF pos;
+            pos = pOriana->getPosicao();
+            ListaEntidadeMovimento->removerEntidade(pOriana);
+            pOriana = nullptr;
+            pHideo = new Entidade::Personagem::Jogador::Hideo(pos);
+            ListaEntidadeMovimento->adicionarEntidade(pHideo);
+        } else {
+            Matematica::CoordenadaF pos;
+            pos = pHideo->getPosicao();
+            ListaEntidadeMovimento->removerEntidade(pHideo);
+            pHideo = nullptr;
+            pOriana = new Entidade::Personagem::Jogador::Oriana(pos);
+            ListaEntidadeMovimento->adicionarEntidade(pOriana);
+        }
+        pEvento->setJogadores(pOriana, pHideo);
+        tempoTroca = 0;
     }
 } //namespace Fase

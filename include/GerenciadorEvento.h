@@ -12,6 +12,11 @@ namespace Estados {
 	class Menu;
 }
 
+namespace Fase {
+    class Fase;
+}
+
+
 namespace Gerenciador {	
 	class GerenciadorEvento
 	{
@@ -33,7 +38,7 @@ namespace Gerenciador {
 		void moverJogadores();
 		void moverOriana();
 		void moverHideo();
-		void pollEvents(Principal *pPrincipal);
+		void pollEvents(Principal *pPrincipal, Fase::Fase *fase);
         void notificarMenu();
 	};
 }
