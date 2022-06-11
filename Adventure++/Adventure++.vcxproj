@@ -164,11 +164,13 @@
     <ClCompile Include="Espinhos.cpp" />
     <ClCompile Include="Esqueleto.cpp" />
     <ClCompile Include="Estado.cpp" />
+    <ClCompile Include="FaseCaverna.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Hideo.cpp" />
     <ClCompile Include="MaquinaEstados.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuColocacao.cpp" />
+    <ClCompile Include="MenuJogadores.cpp" />
     <ClCompile Include="MenuPausa.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="Noturno.cpp" />
@@ -214,11 +216,13 @@
     <ClInclude Include="Espinhos.h" />
     <ClInclude Include="Esqueleto.h" />
     <ClInclude Include="Estado.h" />
+    <ClInclude Include="FaseCaverna.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="Hideo.h" />
     <ClInclude Include="MaquinaEstados.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuColocacao.h" />
+    <ClInclude Include="MenuJogadores.h" />
     <ClInclude Include="MenuPausa.h" />
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="Noturno.h" />
