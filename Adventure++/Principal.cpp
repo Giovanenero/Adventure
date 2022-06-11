@@ -3,13 +3,15 @@
 #include "MenuPrincipal.h"
 #include "MenuColocacao.h"
 #include "MenuPausa.h"
+#include "MenuJogadores.h"
 
 using namespace Gerenciador;
 
-Principal::Principal(): 
-    fase(new Fase::FaseFloresta(this))
+Principal::Principal():
+        faseFloresta(new Fase::FaseFloresta(this)),
+        faseCaverna(new Fase::FaseCaverna(this))
 {
-    Estados::Estado* states = fase;
+    Estados::Estado* states = faseFloresta;
     inserirEstado(states);
 
     Estados::MenuPrincipal *mp = new Estados::MenuPrincipal(this);
@@ -20,22 +22,29 @@ Principal::Principal():
     states = static_cast<Estados::Estado*>(new Estados::MenuPausa(this));
     inserirEstado(states);
 
-    //states = static_cast<Estados::Estado* *>(new Menus::SettingsMenu(this));
-    //inserirEstado(states);
+    states = faseCaverna;
+    inserirEstado(states);
 
     states = static_cast<Estados::Estado*>(new Estados::MenuColocacao(this));
     inserirEstado(states);
 
-    //states = static_cast<Estados::Estado* *>(new Menus::GameOverMenu(this, dynamic_cast<States::Level*>(mapOfStates[stateID::playing])));
-    //inserirEstado(states);
+    states = static_cast<Estados::Estado*>(new Estados::MenuJogadores(this, faseFloresta, Estados::IDestado::menuJogadorFloresta));
+    inserirEstado(states);
+
+    states = static_cast<Estados::Estado*>(new Estados::MenuJogadores(this, faseCaverna, Estados::IDestado::menuJogadorCaverna));
+    inserirEstado(states);
 
     mudarEstadoAtual(Estados::IDestado::menuPrincipal);
 	Executar();
 }
 Principal::~Principal() {
-    if (fase != nullptr) {
-        delete(fase);
-        fase = nullptr;
+    if (faseFloresta != nullptr) {
+        delete(faseFloresta);
+        faseFloresta = nullptr;
+    }
+    if (faseCaverna != nullptr) {
+        delete faseCaverna;
+        faseCaverna = nullptr;
     }
 }
 

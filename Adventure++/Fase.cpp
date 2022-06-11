@@ -57,4 +57,8 @@ namespace Fase {
             pEvento = nullptr;
         }
     }
+
+    void Fase::setDoisJogadores(bool dJ) {
+        this->doisJogadores = dJ;
+    }
 } //namespace Fase

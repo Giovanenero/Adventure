@@ -36,6 +36,7 @@ namespace Fase {
         //Entidade::Obstaculo::Plataforma
         Fundo* fundo;
         bool iniciou;
+        bool doisJogadores;
         //static int pontuacao;
     public:
         Fase();
@@ -43,6 +44,8 @@ namespace Fase {
         virtual void init() = 0;
         virtual void executar() = 0;
         virtual void atualizar(const float tempo) = 0;
+
+        void setDoisJogadores(bool dJ);
 
         //em teste...
         Lista::ListaEntidade* getListaEntidadeMovimento() {
