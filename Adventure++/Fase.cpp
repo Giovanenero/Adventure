@@ -8,8 +8,8 @@ namespace Fase {
         pGrafico(), 
         ListaEntidadeEstatica(), 
         ListaEntidadeMovimento(),
-        pOriana(new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 0.0f))),
-        pHideo(new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 0.0f))),
+        pOriana(new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(000.0f, 0.0f))),
+        pHideo(new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(000.0f, 0.0f))),
         pColisao(),
         fundo(nullptr),
         iniciou(false)

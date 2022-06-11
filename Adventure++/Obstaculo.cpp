@@ -19,19 +19,22 @@ namespace Entidade {
 			if (pEntidade->getID() == Ids::Ids::plataforma ||
 				(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::andaime) ||
 				(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::ponte) ||
+				(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::pedra) ||
 				(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::andaime) ||
-				(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::ponte) ||
+				(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::pedra) ||
 				(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::caixa) ||
 				(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::ponte) ||
-				(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::pedra) ||
 				(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::caixa) ||
+				(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::ponte) ||
 				(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::caixa) ||
+				(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::ponte) ||
 				(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::caixa) ||
 				(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::ponte))
 			{
 				colisaoPlataforma(intersecao, pEntidade);
 			}
-			else if ((getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::caixa)) {
+			else if ((getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::caixa) ||
+				(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::caixa)) {
 				Caixa* pCaixa = static_cast<Caixa*>(pEntidade);
 				pCaixa->setEmpurrar(false);
 			}
