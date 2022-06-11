@@ -12,6 +12,7 @@ namespace Fase {
         ListaEntidadeEstatica = new Lista::ListaEntidade();
         ListaEntidadeMovimento = new Lista::ListaEntidade();
         pOriana = new Entidade::Personagem::Jogador::Oriana(Matematica::CoordenadaF(200.0f, 200.0f));
+        pHideo = new Entidade::Personagem::Jogador::Hideo(Matematica::CoordenadaF(200.0f, 200.0f));
         pColisao = new Gerenciador::GerenciadorColisao(ListaEntidadeEstatica, ListaEntidadeMovimento);
         fundo = new Fundo(Ids::Ids::fase_caverna);
     }
