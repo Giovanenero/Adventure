@@ -70,7 +70,7 @@ namespace Entidade {
 				}
 			}
 			const bool Inimigo::perseguirJogadores(const float tempo) {
-				if (pOriana == nullptr) {
+				if (pHideo == nullptr) {
 					return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);
 				}
 				else {
