@@ -108,7 +108,10 @@ namespace Gerenciador {
                     Estados::MenuPausa *mp = dynamic_cast<Estados::MenuPausa*>(pMenu);
                     if (mp) {
                         mp->setIDFase(es); //notificar menu de pause qual fase pausou, e os pontos
-						mp->setPontos(pOriana->getPontuacao() + pHideo->getPontuacao());
+                        if (pHideo)
+						    mp->setPontos(pOriana->getPontuacao() + pHideo->getPontuacao());
+                        else
+                            mp->setPontos(pOriana->getPontuacao());
                     }
                 }
             }
