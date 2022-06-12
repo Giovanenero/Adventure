@@ -3,8 +3,6 @@
 #include "Goblin.h"
 #include "Atirador.h"
 
-#define DISTANCIA_PROJETIL_GOBLIN 500.f
-
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {

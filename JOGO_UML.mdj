@@ -24411,24 +24411,6 @@
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAGBVNipFA4fFFo=",
-											"_parent": {
-												"$ref": "AAAAAAGBVHrfLwjyhGo="
-											},
-											"model": {
-												"$ref": "AAAAAAGBVNio6w372/k="
-											},
-											"fillColor": "#a3ffa3",
-											"font": "Arial;13;0",
-											"left": 2973,
-											"top": 6628,
-											"width": 353.03125,
-											"height": 13,
-											"text": "+getListaEntidadeMovimento(): ListaEntidade*",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAGBWBGYp+Nnhuw=",
 											"_parent": {
 												"$ref": "AAAAAAGBVHrfLwjyhGo="
@@ -24439,7 +24421,7 @@
 											"fillColor": "#a3ffa3",
 											"font": "Arial;13;0",
 											"left": 2973,
-											"top": 6643,
+											"top": 6628,
 											"width": 353.03125,
 											"height": 13,
 											"text": "+instanciaEntidade(pos: CoordenadaF, tipo: short): Entidade*",
@@ -24451,7 +24433,7 @@
 									"left": 2968,
 									"top": 6518,
 									"width": 363.03125,
-									"height": 143
+									"height": 128
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -45607,25 +45589,6 @@
 												"$ref": "AAAAAAGBVNaRKAG8T2Q="
 											},
 											"type": "void",
-											"direction": "return"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
-									"_id": "AAAAAAGBVNio6w372/k=",
-									"_parent": {
-										"$ref": "AAAAAAGBVHrfLgjpWRk="
-									},
-									"name": "getListaEntidadeMovimento",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAGBVNkBbxA3Pbs=",
-											"_parent": {
-												"$ref": "AAAAAAGBVNio6w372/k="
-											},
-											"type": "ListaEntidade*",
 											"direction": "return"
 										}
 									]

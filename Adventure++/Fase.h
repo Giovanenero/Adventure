@@ -22,8 +22,6 @@
 
 #include <time.h>
 
-#define TEMPO_TROCA_MIN 5
-
 namespace Fase {
     class Fase: public Ente
     {
@@ -48,12 +46,6 @@ namespace Fase {
 
         void setDoisJogadores(bool dJ);
         void trocarJogadores();
-
-        //em teste...
-        Lista::ListaEntidade* getListaEntidadeMovimento() {
-            return ListaEntidadeMovimento;
-        }
-
         Entidade::Entidade* instaciaEntidade(Matematica::CoordenadaF pos, short tipo);
     };
 }

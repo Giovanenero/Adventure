@@ -1,16 +1,10 @@
 #pragma once
 
-#define VIDA_GOBLIN 100
-#define DANO_GOBLIN 5
-#define DANO_GOBLIN_PROJETIL 20
-#define TAMANHO_GOBLIN_X 50
-#define TAMANHO_GOBLIN_Y 70
-#define VELOCIDADE_GOBLIN_X 80.0f
-#define VELOCIDADE_GOBLIN_Y 80.0f
+#include "Inimigo.h"
+
 #define DISTANCIA_GOBLIN_RECONHECER_X 400.0f
 #define DISTANCIA_GOBLIN_RECONHECER_Y 80.0f
-
-#include "Inimigo.h"
+#define DANO_GOBLIN_PROJETIL 10
 
 namespace Entidade {
     namespace Personagem {

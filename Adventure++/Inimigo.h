@@ -3,7 +3,6 @@
 #include "Oriana.h"
 #include "Hideo.h"
 
-
 #include <time.h>
 
 namespace Entidade {

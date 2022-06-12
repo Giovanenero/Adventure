@@ -15,9 +15,7 @@ namespace Lista {
 			Elemento():
 				proximo(nullptr), tipo(nullptr) { }
 			
-			~Elemento() {
-				
-			}
+			~Elemento() { }
 
 			void setProximo(Elemento<TIPO>* proximo) { this->proximo = proximo; }
 			void setTipo(TIPO* tipo) { this->tipo = tipo; }

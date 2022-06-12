@@ -1,5 +1,10 @@
 #include "Oriana.h"
 
+#define TEMPO_ATAQUE_ORIANA 0.4f
+#define CARREGAR_TEMPO_ATAQUE_ORIANA 0.4f
+#define CARREGAR_TEMPO_MORRER_ORIANA 1.5f
+#define TEMPO_DANO_ORIANA 0.6f
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {
@@ -22,10 +27,10 @@ namespace Entidade {
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaParada.png", 8, Ids::Ids::oriana_para, tamanho, Matematica::CoordenadaF(2.2f, 0.9f)); //certo
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaPulando.png", 3, Ids::Ids::oriana_pula, tamanho, Matematica::CoordenadaF(2.0f, 1.0f)); //certo
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaSurf.png", 8, Ids::Ids::oriana_surf, tamanho, Matematica::CoordenadaF(1.0f, 1.0f));
-				carregarAtaque = 0.4f;
-				tempoAtaque = 0.4f;
-				carregarMorrer = 1.5f;
-				carregarTomarDano = 0.6f;
+				carregarAtaque = CARREGAR_TEMPO_ATAQUE_ORIANA;
+				tempoAtaque = TEMPO_ATAQUE_ORIANA;
+				carregarMorrer = CARREGAR_TEMPO_MORRER_ORIANA;
+				carregarTomarDano = TEMPO_DANO_ORIANA;
 				mudarAtaque = rand() % 4;
 			}
 

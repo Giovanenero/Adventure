@@ -3,11 +3,6 @@
 #include "Coordenada.h"
 #include "Jogador.h"
 
-#define TEMPO_ATAQUE_ORIANA 0.4f
-#define TEMPO_DANO_ORIANA 0.6f
-#define TEMPO_MORRE_ORIANA 0.6f
-
-
 namespace Entidade {
 	namespace Personagem {
 		namespace Jogador {

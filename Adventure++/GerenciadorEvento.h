@@ -4,9 +4,6 @@
 #include "Oriana.h"
 #include "Hideo.h"
 
-//teste...
-#include "ListaEntidade.h"
-
 class Principal;
 namespace Estados {
 	class Menu;

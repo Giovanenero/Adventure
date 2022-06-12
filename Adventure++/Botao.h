@@ -15,8 +15,6 @@ namespace ElementoGrafico {
         ~Botao();
         void selecionar(const bool isSelected);
         void renderizar();
-        //void novaAnimacao() { }
-        //void atualizar() { }
     };
 
 }

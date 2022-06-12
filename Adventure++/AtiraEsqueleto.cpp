@@ -1,6 +1,7 @@
 #include "AtiraEsqueleto.h"
 
 #define PONTUACAO_ATIRAESQUELETO 200
+#define DISTANCIA_PROJETIL_ESQUELETO 300.0f
 
 namespace Entidade {
     namespace Personagem {
