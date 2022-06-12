@@ -39,8 +39,6 @@ namespace Entidade {
 			void setMorrer(bool morrer);
 			const bool getMorrer() const;
 
-			//void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
-
 			void atualizarTempoAtaque(const float tempo);
 			void ativarAndar(bool paraEsquerda);
 			void desligarAndar();

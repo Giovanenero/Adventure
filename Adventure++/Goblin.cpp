@@ -1,5 +1,12 @@
 #include "Goblin.h"
 
+#define VIDA_GOBLIN 100
+#define DANO_GOBLIN 5
+#define TAMANHO_GOBLIN_X 50
+#define TAMANHO_GOBLIN_Y 70
+#define VELOCIDADE_GOBLIN_X 80.0f
+#define VELOCIDADE_GOBLIN_Y 80.0f
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {

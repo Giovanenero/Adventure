@@ -1,5 +1,11 @@
 #include "Esqueleto.h"
 
+#define TAMANHO_ESQUELETO_X 60.0f
+#define TAMANHO_ESQUELETO_Y 60.0f
+#define VIDA_ESQUELETO 100
+#define DANO_ESQUELETO 7
+#define VELOCIDADE_ESQUELETO_X 80.0f
+
 namespace Entidade {
     namespace Personagem {
         namespace Inimigo {

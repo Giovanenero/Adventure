@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "Coordenada.h"
 #include "SFML/Graphics.hpp"
 

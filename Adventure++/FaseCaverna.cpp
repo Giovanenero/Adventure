@@ -90,7 +90,7 @@ namespace Fase {
         //cria instancias aleatoriamente
         for (int i = 0; i < 5 + (rand() % 20); i++) {
             short tipo_obstaculo = (rand() % 3) + 9;
-            for (int j = 0; j < rand() % 5; j++) {
+            for (int j = 0; j < rand() % 4; j++) {
                 short tipo_inimigo = rand() % 4;
                 ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(float(rand() % 7000) + 500.0f, -50.f * 12), tipo_inimigo));
             }

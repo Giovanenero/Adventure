@@ -1,5 +1,7 @@
 #include "Fase.h"
 
+#define TEMPO_TROCA_MIN 5
+
 namespace Fase {
 
     Fase::Fase() :
@@ -97,7 +99,6 @@ namespace Fase {
         //Caixa = 9
         //Pedra = 10
         //Espinhos 11
-        Entidade::Entidade* aux = nullptr;
         switch (tipo)
         {
             case 0:
@@ -162,9 +163,8 @@ namespace Fase {
                 return static_cast<Entidade::Entidade*>(a);
             }
             default:
-                return nullptr;
                 break;
             }
-        return aux;
+        return nullptr;
     }
 } //namespace Fase

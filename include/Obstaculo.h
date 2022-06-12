@@ -3,8 +3,6 @@
 #include "AnimacaoEstatica.h"
 #include "Entidade.h"
 
-//class Caixa;
-
 namespace Entidade {
 	namespace Obstaculo {
 		class Obstaculo : public Entidade
@@ -23,13 +21,7 @@ namespace Entidade {
 
 			const bool podeRemover() const { return false; }
 
-			void atualizar(const float tempo) {
-				if (getID() != Ids::Ids::plataforma) {
-					velocidade.y += GRAVIDADE * tempo;
-					posicao.y += velocidade.y * tempo;
-				}
-				atualizar();
-			}
+			void atualizar(const float tempo);
 			void atualizarImagem(const float tempo) { }
 		};
 	} //namespace Obstaculo

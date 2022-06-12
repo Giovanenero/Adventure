@@ -1,6 +1,7 @@
 #include "AtiraGoblin.h"
 
 #define PONTUACAO_ATIRAGOBLIN 200
+#define DISTANCIA_PROJETIL_GOBLIN 500.f
 
 namespace Entidade {
     namespace Personagem {
