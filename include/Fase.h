@@ -35,12 +35,10 @@ namespace Fase {
         Lista::ListaEntidade *ListaEntidadeEstatica;
         Lista::ListaEntidade *ListaEntidadeMovimento;
         Gerenciador::GerenciadorColisao* pColisao;
-        //Entidade::Obstaculo::Plataforma
         Fundo* fundo;
         bool iniciou;
         bool doisJogadores;
         float tempoTroca;
-        //static int pontuacao;
     public:
         Fase();
         virtual ~Fase();
@@ -55,5 +53,7 @@ namespace Fase {
         Lista::ListaEntidade* getListaEntidadeMovimento() {
             return ListaEntidadeMovimento;
         }
+
+        Entidade::Entidade* instaciaEntidade(Matematica::CoordenadaF pos, short tipo);
     };
 }

@@ -34,10 +34,10 @@ namespace Entidade {
 			~Personagem();
 
 			void setVida(int vida);
-			int getVida() const;
+			const int getVida() const;
 
 			void setMorrer(bool morrer);
-			bool getMorrer() const;
+			const bool getMorrer() const;
 
 			//void colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 
@@ -48,7 +48,7 @@ namespace Entidade {
 			void desligarAtacar();
 			const bool podeAtacar() const;
 			const bool podeMorrer() const;
-			void podeTomarDano(int dano);
+			void podeTomarDano(const int dano);
 			const int valorDano() const;
 			const bool podeRemover() const;
 			void carregaTomarDano(const float tempo);

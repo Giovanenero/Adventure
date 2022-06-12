@@ -6,18 +6,14 @@ namespace Entidade {
         class Caixa: public Obstaculo
         {
         private:
-            bool empurrar = true;
+            bool empurrar;
         public:
             Caixa(Matematica::CoordenadaF posInicio);
             ~Caixa();
             void inicializacao();
             void atualizar();
-            void setEmpurrar(bool empurrar) {
-                this->empurrar = empurrar;
-            }
-            const bool getEmpurrar() const {
-                return empurrar;
-            }
+            void setEmpurrar(bool empurrar);
+            const bool getEmpurrar() const;
         };
     }
 }

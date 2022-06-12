@@ -23,7 +23,6 @@ namespace Estados {
     protected:
         MaquinaEstados *pSM;
         IDestado id;
-
     public:
         Estado(MaquinaEstados *pSM = nullptr, Estados::IDestado id = desconhecido);
 

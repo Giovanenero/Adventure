@@ -1,5 +1,5 @@
+GEGE 20000
 plutao 600
 ggizi 0
 gg -572568407
 teste -572600207
-bug -572662107

@@ -22,25 +22,15 @@ namespace ElementoGrafico {
 			exit(1);
 		}
 		mapAnimacaoMovimento.insert(std::pair<Ids::Ids, LinhaAnimacaoMovimento*>(id, temp));
-		//this->escala = sf::Vector2f(escala.x, escala.y);
 		sf::IntRect tamanho = temp->getTamanho();
-
 		corpo.setSize(sf::Vector2f(tamanho.width, tamanho.height));
-		//corpo.setSize(sf::Vector2f(tam.x, tam.y));
-		//teste
-		//corpo.setScale(sf::Vector2f(escala.x, escala.y));
 		corpo.setOrigin(sf::Vector2f(tamanho.width, tamanho.height) / 2.0f);
-		//corpo.setScale(this->escala);
 	}
-	void AnimacaoMovimento::atualizar(Matematica::CoordenadaF pos, bool Esquerda, float tempo, Ids::Ids id) {
+	void AnimacaoMovimento::atualizar(Matematica::CoordenadaF pos, const bool Esquerda, const float tempo, Ids::Ids id) {
 		if (ID != id) {
 			ID = id;
-			//mapAnimacaoMovimento[ID]->resetar();
 		}
 		mapAnimacaoMovimento[ID]->atualizar(Esquerda, tempo);
-
-		//teste...
-		//corpo.setOrigin(sf::Vector2f(tamanho.x, tamanho.y) / 2.0f);
 		corpo.setScale(mapAnimacaoMovimento[ID]->getEscala());
 		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setTextureRect(mapAnimacaoMovimento[ID]->getTamanho());

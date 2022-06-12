@@ -10,7 +10,6 @@ namespace Lista {
 		class Elemento {
 		private:
 			Elemento<TIPO>* proximo;
-			//Elemento<TIPO>* anterior;
 			TIPO* tipo;
 		public:
 			Elemento():
@@ -21,21 +20,9 @@ namespace Lista {
 			}
 
 			void setProximo(Elemento<TIPO>* proximo) { this->proximo = proximo; }
-			/*
-			void setAnterior(Elemento<TIPO>* anterior) {
-				this->anterior = anterior;
-			}
-			*/
 			void setTipo(TIPO* tipo) { this->tipo = tipo; }
 			
 			Elemento<TIPO>* getProximo() { return proximo; }
-			
-			/*
-			Elemento<TIPO>* getAnterior() {
-				return anterior;
-			}
-			*/
-
 			TIPO* getTipo() { return this->tipo; }
 		};
 	private:

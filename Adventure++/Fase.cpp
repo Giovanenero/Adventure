@@ -84,4 +84,87 @@ namespace Fase {
         pEvento->setJogadores(pOriana, pHideo);
         tempoTroca = 0;
     }
+    Entidade::Entidade* Fase::instaciaEntidade(Matematica::CoordenadaF pos, short tipo) {
+        //AtiraGoblin = 0
+        //BateGoblin = 1
+        //AtiraEsqueleto = 2
+        //BateEsqueleto = 3
+        //Animagus = 4
+        //Noturno = 5
+        //Andaime = 6
+        //Ponte 300m = 7
+        //Ponte 600m = 8
+        //Caixa = 9
+        //Pedra = 10
+        //Espinhos 11
+        Entidade::Entidade* aux = nullptr;
+        switch (tipo)
+        {
+            case 0:
+            {
+                Entidade::Personagem::Inimigo::AtiraGoblin* a = new Entidade::Personagem::Inimigo::AtiraGoblin(pos, pOriana, pHideo, ListaEntidadeMovimento);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 1:
+            {
+                Entidade::Personagem::Inimigo::BateGoblin* a = new Entidade::Personagem::Inimigo::BateGoblin(pos, pOriana, pHideo);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 2:
+            {
+                Entidade::Personagem::Inimigo::AtiraEsqueleto* a = new Entidade::Personagem::Inimigo::AtiraEsqueleto(pos, pOriana, pHideo, ListaEntidadeMovimento);
+                return static_cast<Entidade::Entidade*>(a);
+                break;
+            }
+            case 3:
+            {
+                Entidade::Personagem::Inimigo::BateEsqueleto* a = new Entidade::Personagem::Inimigo::BateEsqueleto(pos, pOriana, pHideo);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 4: 
+            {
+                Entidade::Personagem::Inimigo::Animagus* a = new Entidade::Personagem::Inimigo::Animagus(pos, pOriana, pHideo);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 5:
+            {
+                Entidade::Personagem::Inimigo::Noturno* a = new Entidade::Personagem::Inimigo::Noturno(pos, pOriana, pHideo);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 6:
+            {
+                Entidade::Obstaculo::Andaime* a = new Entidade::Obstaculo::Andaime(pos);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 7:
+            {
+                Entidade::Obstaculo::Ponte* a = new Entidade::Obstaculo::Ponte(pos, 1);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 8:
+            {
+                Entidade::Obstaculo::Ponte* a = new Entidade::Obstaculo::Ponte(pos, 2);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 9:
+            {
+                Entidade::Obstaculo::Caixa* a = new Entidade::Obstaculo::Caixa(pos);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 10: 
+            {
+                Entidade::Obstaculo::Pedra* a = new Entidade::Obstaculo::Pedra(pos);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            case 11:
+            {
+                Entidade::Obstaculo::Espinhos* a = new Entidade::Obstaculo::Espinhos(pos);
+                return static_cast<Entidade::Entidade*>(a);
+            }
+            default:
+                return nullptr;
+                break;
+            }
+        return aux;
+    }
 } //namespace Fase

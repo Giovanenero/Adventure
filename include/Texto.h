@@ -17,14 +17,14 @@ namespace ElementoGrafico {
     class Texto {
     private:
         std::string info;
-
+       
         sf::Text text;
-
+        
         //static Gerenciador::GerenciadorGrafico* pGrafico;
 
     public:
         Texto(Matematica::CoordenadaF posicao = Matematica::CoordenadaF(0, 0), std::string info = "");
-
+        
         ~Texto();
 
         void setInfo(std::string info);

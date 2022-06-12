@@ -10,7 +10,6 @@ namespace Estados {
     private:
         IDestado idFase;
         int pontos;
-
     public:
         MenuPausa(Estados::MaquinaEstados* pSM = nullptr, IDestado idFase = IDestado::desconhecido);
 

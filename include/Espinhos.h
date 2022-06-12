@@ -10,8 +10,8 @@ namespace Entidade {
         public:
             Espinhos(Matematica::CoordenadaF pos);
             ~Espinhos();
-            void atualizar();
             void inicializacao();
+            void atualizar();
             const int getDano() const;
             const bool podeTomarDano();
         };

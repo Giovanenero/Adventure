@@ -16,7 +16,6 @@ namespace Fase {
     class Fase;
 }
 
-
 namespace Gerenciador {	
 	class GerenciadorEvento
 	{

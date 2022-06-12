@@ -22,7 +22,7 @@ namespace ElementoGrafico {
 
 	LinhaAnimacaoMovimento::~LinhaAnimacaoMovimento() { }
 
-	void LinhaAnimacaoMovimento::atualizar(bool Esquerda, float tempo) {
+	void LinhaAnimacaoMovimento::atualizar(const bool Esquerda, const float tempo) {
 		tempoTotal += tempo;
 		if (tempoTotal >= trocaImagem) {
 			tempoTotal -= trocaImagem;
@@ -39,10 +39,5 @@ namespace ElementoGrafico {
 			tamanho.left = imagemAtual * tamanho.width;
 			tamanho.width = abs(tamanho.width);
 		}
-	}
-
-	void LinhaAnimacaoMovimento::resetar() {
-		tempoTotal = 0.f;
-		imagemAtual = 0;
 	}
 }

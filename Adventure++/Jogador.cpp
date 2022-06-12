@@ -105,7 +105,7 @@ namespace Entidade {
 				atualizarImagem(tempo);
 				renderizar();
 			}
-			void Jogador::setPontuacao(int pontuacao) {
+			void Jogador::setPontuacao(const int pontuacao) {
 				this->pontuacao += pontuacao;
 			}
 			const int Jogador::getPontuacao() const {

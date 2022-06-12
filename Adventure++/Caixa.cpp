@@ -6,7 +6,8 @@
 namespace Entidade {
     namespace Obstaculo {
         Caixa::Caixa(Matematica::CoordenadaF posInicio):
-            Obstaculo(posInicio, Matematica::CoordenadaF(TAMANHO_CAIXA_X, TAMANHO_CAIXA_Y), Ids::Ids::caixa)
+            Obstaculo(posInicio, Matematica::CoordenadaF(TAMANHO_CAIXA_X, TAMANHO_CAIXA_Y), Ids::Ids::caixa),
+            empurrar(true)
         {
             this->inicializacao();
         }
@@ -20,5 +21,7 @@ namespace Entidade {
             pAnimacaoEstatica->atualizar(Ids::Ids::caixa, posicao);
             pAnimacaoEstatica->renderizar();
         }
+        void Caixa::setEmpurrar(bool empurrar) { this->empurrar = empurrar; }
+        const bool Caixa::getEmpurrar() const { return empurrar; }
     }
 }
