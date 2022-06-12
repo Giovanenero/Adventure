@@ -6,6 +6,8 @@
 #define TAMANHO_GOBLIN_Y 70
 #define VELOCIDADE_GOBLIN_X 80.0f
 #define VELOCIDADE_GOBLIN_Y 80.0f
+#define CARREGAR_MORRER_GOBLIN 0.35f
+#define CARREGAR_TOMAR_DANO_GOBLIN 0.6f
 
 namespace Entidade {
 	namespace Personagem {
@@ -22,8 +24,6 @@ namespace Entidade {
 			{
 				velocidade = Matematica::CoordenadaF(VELOCIDADE_GOBLIN_X, VELOCIDADE_GOBLIN_Y);
 				this->inicializacao();
-				carregarMorrer = 0.35f;
-				carregarTomarDano = 0.6f;
 			}
 			Goblin::~Goblin() { }
 
@@ -32,7 +32,10 @@ namespace Entidade {
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinDano.png", 4, Ids::Ids::goblin_tomaDano, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinMorrendo.png", 4, Ids::Ids::goblin_morre, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
 				pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinParado.png", 4, Ids::Ids::goblin_para, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
+				carregarMorrer = CARREGAR_MORRER_GOBLIN;
+				carregarTomarDano = CARREGAR_TOMAR_DANO_GOBLIN; 
 			}
+
 			const float Goblin::getVelocidadeEspecifica() const {
 				return VELOCIDADE_GOBLIN_X;
 			}

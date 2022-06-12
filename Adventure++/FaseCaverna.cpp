@@ -25,7 +25,6 @@ namespace Fase {
             return;
         }
         iniciou = true;
-        //teste...
         if (doisJogadores) {
             pEvento->setJogadores(pOriana, pHideo);
         } else {
@@ -34,14 +33,12 @@ namespace Fase {
             pHideo = nullptr;
             pEvento->setJogadores(pOriana, nullptr);
         }
-
         ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pOriana));
         if (doisJogadores) {
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade *>(pHideo));
         }
-
         srand(time(NULL));
-        for (int i = 0; i < 15; i++) { //CHAO
+        for (int i = 0; i < 11; i++) { //CHAO
             Matematica::CoordenadaF pos(i * 800.0f, 350.0f);
             Entidade::Obstaculo::Plataforma* plataforma = new Entidade::Obstaculo::Plataforma(pos);
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
@@ -124,7 +121,6 @@ namespace Fase {
             Entidade::Obstaculo::Obstaculo* aux = static_cast<Entidade::Obstaculo::Obstaculo*>(ListaEntidadeEstatica->operator[](i));
             aux->atualizar(tempo);
         }
-        //float tempo = pGrafico->atualizartempo();
         int i = 0;
         int tam = (int)ListaEntidadeMovimento->getTamanho();
         while (i < tam) {
@@ -133,8 +129,6 @@ namespace Fase {
                 pEnt->atualizar(tempo);
                 if (pEnt->podeRemover()) {
                     ListaEntidadeMovimento->removerEntidade(pEnt);
-                    //delete(pEnt);
-                    //pEnt = nullptr;
                     tam = (int)ListaEntidadeMovimento->getTamanho();
                 }
             }
@@ -143,9 +137,7 @@ namespace Fase {
         pColisao->Colisao();
     }
 
-    void FaseCaverna::renderizar() {
-
-    }
+    void FaseCaverna::renderizar() { }
 
     void FaseCaverna::resetEstado() {
         init();

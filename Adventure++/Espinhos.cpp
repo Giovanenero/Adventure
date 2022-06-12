@@ -13,18 +13,22 @@ namespace Entidade {
         {
             this->inicializacao();
         }
+
         Espinhos::~Espinhos() { }
 
         void Espinhos::inicializacao() {
             pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/espinhos.png", Ids::Ids::espinhos, posicao, tamanho, Matematica::CoordenadaF(0.4f, 0.2f));
         }
+
         void Espinhos::atualizar() {
             pAnimacaoEstatica->atualizar(Ids::Ids::espinhos, posicao);
             pAnimacaoEstatica->renderizar();
         }
+
         const int Espinhos::getDano() const {
             return DANO_ESPINHOS;
         }
+
         const bool Espinhos::podeTomarDano() {
             contDano++;
             if (contDano >= TEMPO_TOMA_DANO) {

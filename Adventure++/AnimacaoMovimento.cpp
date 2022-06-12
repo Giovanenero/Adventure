@@ -15,6 +15,7 @@ namespace ElementoGrafico {
 		}
 		mapAnimacaoMovimento.clear();
 	}
+
 	void AnimacaoMovimento::novaAnimacao(const char* caminhoTextura, unsigned int contaImagem, Ids::Ids id, Matematica::CoordenadaF tam, Matematica::CoordenadaF escala) {
 		LinhaAnimacaoMovimento* temp = new LinhaAnimacaoMovimento(caminhoTextura, contaImagem, escala);
 		if (temp == nullptr) {
@@ -35,6 +36,5 @@ namespace ElementoGrafico {
 		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setTextureRect(mapAnimacaoMovimento[ID]->getTamanho());
 		corpo.setTexture(mapAnimacaoMovimento[ID]->getTextura());
-
 	}
 }

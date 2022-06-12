@@ -10,11 +10,13 @@ namespace Entidade {
 		{
 			inicializacao();
 		}
+
 		Plataforma::~Plataforma() { }
 
 		void Plataforma::inicializacao() {
 			pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/grama.png", Ids::Ids::plataforma, posicao, tamanho, Matematica::CoordenadaF(11.5f, 2.3f));
 		}
+
 		void Plataforma::atualizar() {
 			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma, posicao);
 			pAnimacaoEstatica->renderizar();

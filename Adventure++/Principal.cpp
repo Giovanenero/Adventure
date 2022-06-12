@@ -37,6 +37,7 @@ Principal::Principal():
     mudarEstadoAtual(Estados::IDestado::menuPrincipal);
 	Executar();
 }
+
 Principal::~Principal() {
     if (faseFloresta != nullptr) {
         delete(faseFloresta);
@@ -49,21 +50,17 @@ Principal::~Principal() {
 }
 
 void Principal::Executar() {
-    //fase->init();
     GerenciadorGrafico *pGrafico = GerenciadorGrafico::getGerenciadorGrafico();
     GerenciadorEvento *pEvento = GerenciadorEvento::getGerenciadorEvento();
     while (pGrafico->isWindowOpen()) {
-
         if (getIDEstadoAtual() == Estados::IDestado::jogandoCaverna)
             pEvento->pollEvents(this, faseCaverna);
         else
             pEvento->pollEvents(this, faseFloresta);
         pGrafico->limpar();
 
-        //fase->executar();
         atualizarEstadoAtual(pGrafico->atualizartempo()); //dt passado
         renderizarEstadoAtual();
-
         pGrafico->mostrar();
     }
 }

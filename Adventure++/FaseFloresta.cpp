@@ -24,7 +24,6 @@ namespace Fase {
             return;
         }
         iniciou = true;
-        //teste...
         if (doisJogadores) {
             pEvento->setJogadores(pOriana, pHideo);
         } else {
@@ -59,20 +58,17 @@ namespace Fase {
 
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3400.0f, -50.0f * i), 6));
             
-            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(10000.0f, -50.0f * i), 6));
-            
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(10000.0f, -50.0f * i), 6)); 
         }
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(600.0f + 300.0f, -50.0f * 5), 8));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1400.0f + 300.0f, -50.0f * 5), 8));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(2200.0f + 300.0f, -50.0f * 5), 8));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1700.0f + 300.0f, -50.0f * 12), 8));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(2800.0f, -50.0f * 6), 10));
-        
         ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1000.0f, -50.f * 6), 1));
         ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1600.0f, -50.f * 6), 1));
         ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1900.0f, -50.f * 21), 1));
         ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1900.0f, -50.f * 21), 2));
-        //ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1000.0f, -50.f * 6), 1));
 
         for (int i = 0; i < 2; i++) {
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(400.0f, -50.0f * i), 9));
@@ -83,13 +79,11 @@ namespace Fase {
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3200.0f, -50.0f), 10));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3400.0f, -50.0f * 10), 7));
         
-
         for (int i = 0; i < 3; i++) {
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1250.0f + 50.0f * i, 0.0f), 11));
             ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3550.0f + 50.0f * i, 0.0f), 11));
         }
         ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(9700.0f, -200.0f), 4));
-
         srand(time(NULL));
         for (int i = 0; i < 20; i++) {
             short tipo_inimigo = rand() % 4;
@@ -139,9 +133,7 @@ namespace Fase {
         pColisao->Colisao();
     }
 
-    void FaseFloresta::renderizar() {
-
-    }
+    void FaseFloresta::renderizar() { }
 
     void FaseFloresta::resetEstado() {
         //TODO: remover todas as entidades e resetar tudo antes de possivelmente reinicar a fase.

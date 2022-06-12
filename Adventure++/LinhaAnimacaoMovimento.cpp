@@ -17,7 +17,6 @@ namespace ElementoGrafico {
 		}
 		tamanho.width = textura->getSize().x / (float)(contaImagem);
 		tamanho.height = textura->getSize().y;
-
 	}
 
 	LinhaAnimacaoMovimento::~LinhaAnimacaoMovimento() { }

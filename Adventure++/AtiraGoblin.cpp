@@ -2,6 +2,8 @@
 
 #define PONTUACAO_ATIRAGOBLIN 200
 #define DISTANCIA_PROJETIL_GOBLIN 500.f
+#define CARREGAR_ATAQUE_ATIRAGOBLIN 0.5f
+#define TEMPO_ATAQUE_ATIRAGOBLIN 0.5f
 
 namespace Entidade {
     namespace Personagem {
@@ -11,18 +13,17 @@ namespace Entidade {
 				Atirador(ListaEntidadeMovimento)
             {
                 this->inicializacao();
-				carregarAtaque = 0.5f;
-				tempoAtaque = 0.5f;
             }
             AtiraGoblin::~AtiraGoblin() { }
 
             void AtiraGoblin::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinAtacando3.png", 12, Ids::Ids::goblin_ataca3, tamanho, Matematica::CoordenadaF(2.5f, 1.5f));
-            }
+				carregarAtaque = CARREGAR_ATAQUE_ATIRAGOBLIN;
+				tempoAtaque = TEMPO_ATAQUE_ATIRAGOBLIN;
+			}
 
 			void AtiraGoblin::atualizar(const float tempo) {
-				if (posicao.y > 2000.f) {
-					//teste...
+				if (posicao.y > 600.f) {
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
@@ -48,11 +49,11 @@ namespace Entidade {
 				}
 				velocidade.y += GRAVIDADE * tempo;
 				posicao.y += velocidade.y * tempo;
-
 				carregarTempoExplosao += tempo;
 				atualizarImagem(tempo);
 				renderizar();
             }
+
             void AtiraGoblin::atualizarImagem(const float tempo) {
 				if (morrer) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_morre);
@@ -65,7 +66,6 @@ namespace Entidade {
 				else if (atacando) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::goblin_ataca3);
 					if (podeAtacar()) {
-						//tempoAtacando = 0.f;
 						criarProjetil(posicao, olharEsquerda, DANO_GOBLIN_PROJETIL);
 						desligarAtacar();
 					}
@@ -77,6 +77,7 @@ namespace Entidade {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo, Ids::Ids::goblin_para);
 				}
             }
+
 			const short AtiraGoblin::getPontuacao() const {
 				return PONTUACAO_ATIRAGOBLIN;
 			}

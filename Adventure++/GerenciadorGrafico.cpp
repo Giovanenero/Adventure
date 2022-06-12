@@ -15,6 +15,7 @@ namespace Gerenciador {
 		}
 		return pGrafico;
 	}
+
 	GerenciadorGrafico::GerenciadorGrafico():
 		window(new sf::RenderWindow(sf::VideoMode(TELAX, TELAY), "Adventure++")),
 		camera(sf::Vector2f(TELAX / 2, TELAY / 2), 
@@ -35,12 +36,6 @@ namespace Gerenciador {
 
 	void GerenciadorGrafico::renderizacao(sf::RectangleShape* corpo) { 
 		window->draw(*corpo);
-		/*
-		sf::RectangleShape shape(sf::Vector2f(100.0f, 200.0f));
-		shape.setPosition(sf::Vector2f(200.0f, 500.0f - 200.0f));
-		shape.setFillColor(sf::Color::Black);
-		window->draw(shape);
-		*/
 	}
 
     void GerenciadorGrafico::renderizacao(sf::Text *texto) {
@@ -52,21 +47,26 @@ namespace Gerenciador {
 			window->display();
 		}
 	}
+
 	void GerenciadorGrafico::limpar() {
 		if (window->isOpen()) {
 			window->clear();
 		}
 	}
+
 	bool GerenciadorGrafico::isWindowOpen() const {
 		return window->isOpen();
 	}
+
 	void GerenciadorGrafico::fecharJanela() {
 		window->close();
 	}
+
 	void GerenciadorGrafico::centralizarCamera(Matematica::CoordenadaF pos) {
 		camera.setCenter(sf::Vector2f(pos.x, pos.y));
 		window->setView(camera);
 	}
+
 	sf::Texture* GerenciadorGrafico::loadTexture(const char* caminhoTextura, sf::IntRect tamanho) {
 		std::map<const char*, sf::Texture*>::iterator it = Maptexturas.begin();
 		while (it != Maptexturas.end()) {
@@ -83,7 +83,6 @@ namespace Gerenciador {
 		}
 		Maptexturas.insert(std::pair<const char*, sf::Texture*>(caminhoTextura, novaTextura));
 		return novaTextura;
-
 	}
 
     sf::Font *GerenciadorGrafico::carregarFonte() {

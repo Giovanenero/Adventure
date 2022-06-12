@@ -4,8 +4,6 @@
 
 namespace ElementoGrafico {
 
-    //Gerenciador::GerenciadorGrafico* Texto::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
-
     Texto::Texto(Matematica::CoordenadaF posicao, std::string info) :
             info(info) {
         text.setString(info);
@@ -64,7 +62,6 @@ namespace ElementoGrafico {
 
     void Texto::renderizar() {
         Gerenciador::GerenciadorGrafico::getGerenciadorGrafico()->renderizacao(&text);
-        //pGrafico->renderizacao(&text);
     }
 
     std::string Texto::getInfo() const {

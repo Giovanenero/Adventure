@@ -10,11 +10,13 @@ namespace Entidade {
         {
             this->inicializacao();
         }
+
         Pedra::~Pedra() { }
 
         void Pedra::inicializacao() {
             pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/pedra.png", Ids::Ids::pedra, posicao, tamanho, Matematica::CoordenadaF(1.0f, 0.8f));
         }
+
         void Pedra::atualizar() {
             pAnimacaoEstatica->atualizar(Ids::Ids::pedra, posicao);
             pAnimacaoEstatica->renderizar();

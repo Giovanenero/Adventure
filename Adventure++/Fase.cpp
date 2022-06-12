@@ -15,10 +15,7 @@ namespace Fase {
         pColisao(),
         fundo(nullptr),
         iniciou(false),
-        tempoTroca(60)
-    { 
-        
-    }
+        tempoTroca(60) { }
 
     Fase::~Fase() {
         /*
@@ -86,19 +83,8 @@ namespace Fase {
         pEvento->setJogadores(pOriana, pHideo);
         tempoTroca = 0;
     }
+
     Entidade::Entidade* Fase::instaciaEntidade(Matematica::CoordenadaF pos, short tipo) {
-        //AtiraGoblin = 0
-        //BateGoblin = 1
-        //AtiraEsqueleto = 2
-        //BateEsqueleto = 3
-        //Animagus = 4
-        //Noturno = 5
-        //Andaime = 6
-        //Ponte 300m = 7
-        //Ponte 600m = 8
-        //Caixa = 9
-        //Pedra = 10
-        //Espinhos 11
         switch (tipo)
         {
             case 0:

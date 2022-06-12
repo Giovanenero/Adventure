@@ -28,8 +28,6 @@ namespace Estados {
 
     /* Menu operation to render all it's objects. */
     void MenuPausa::renderizar() {
-        //updateView();
-        //back.render();
         for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
             (*it)->renderizar();
     }

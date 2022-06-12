@@ -1,5 +1,10 @@
 #include "Hideo.h"
 
+#define CARREGAR_ATAQUE_HIDEO 0.4f
+#define TEMPO_ATAQUE_HIDEO 0.4f
+#define CARREGAR_MORRER_HIDEO 0.8f
+#define CARREGAR_TOMAR_DANO_HIDEO 0.4f
+
 namespace Entidade {
     namespace Personagem {
         namespace Jogador {
@@ -20,12 +25,13 @@ namespace Entidade {
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoMorrendo.png", 7, Ids::Ids::hideo_morre, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoParado.png", 10, Ids::Ids::hideo_para, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
                 pAnimacaoMovimento->novaAnimacao("textura/jogador/Hideo/hideoPulando.png", 3, Ids::Ids::hideo_pula, tamanho, Matematica::CoordenadaF(2.0f, 2.0f));
-				carregarAtaque = 0.4f;
-				tempoAtaque = 0.4f;
-				carregarMorrer = 0.8f;
-				carregarTomarDano = 0.4f;
+				carregarAtaque = CARREGAR_ATAQUE_HIDEO;
+				tempoAtaque = TEMPO_ATAQUE_HIDEO;
+				carregarMorrer = CARREGAR_MORRER_HIDEO;
+				carregarTomarDano = CARREGAR_TOMAR_DANO_HIDEO;
 				mudarAtaque = rand() % 3;
 			}
+
             void Hideo::atualizarImagem(const float tempo) {
 				if (morrer) {
 					desligarAndar();

@@ -13,7 +13,6 @@ namespace Estados {
     MenuColocacao::MenuColocacao(Estados::MaquinaEstados *pSM) :
             Menu(),
             Estados::Estado(pSM, Estados::IDestado::colocacao) {
-        //Gerenciador::GerenciadorGrafico *GM = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
         ElementoGrafico::Botao *bt = NULL;
 
         bt = new ElementoGrafico::Botao(Matematica::CoordenadaF(600, 300), "MENU PRINCIPAL");
@@ -33,12 +32,9 @@ namespace Estados {
         max = 0;
     }
 
-    MenuColocacao::~MenuColocacao() {
-    }
+    MenuColocacao::~MenuColocacao() { }
 
-    void MenuColocacao::atualizar(float dt) {
-        ativo = true;
-    }
+    void MenuColocacao::atualizar(float dt) { ativo = true; }
 
 /* Menu operation to render all it's objects. */
     void MenuColocacao::renderizar() {
@@ -104,7 +100,6 @@ namespace Estados {
             iss >> word;
             nome = word;
             iss >> word;
-            //points = std::stoi(word);
 
             str = nome + " -- " + word;
             txt = new ElementoGrafico::Texto(Matematica::CoordenadaF(200, 100.f + 40.f * i), str);
@@ -161,7 +156,6 @@ namespace Estados {
 
     void MenuColocacao::escreverColocacao() {
         if (nome.empty()) return;
-        //if (pontos == 0) return;
 
         std::ifstream file;
         std::string caminho;
@@ -202,7 +196,6 @@ namespace Estados {
             } catch (std::invalid_argument const &ex) {
                 pontosArquivo.insert(std::pair<int, std::string>(0,  ""));
             }
-
         }
         pontosArquivo.insert(std::pair<int, std::string>(pontos, nome));
 

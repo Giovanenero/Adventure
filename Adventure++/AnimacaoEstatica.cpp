@@ -22,12 +22,8 @@ namespace ElementoGrafico {
 			exit(1);
 		}
 		mapAnimacaoEstatica.insert(std::pair<Ids::Ids, LinhaAnimacaoEstatica*>(id, temp));
-		//this->escala = sf::Vector2f(escala.x, escala.y);
 		sf::IntRect tamanhoRect = temp->getTamanho();
-
-		//corpo.setScale(this->escala);
 		corpo.setSize(sf::Vector2f(tamanhoRect.width, tamanhoRect.height));
-		//corpo.setSize(sf::Vector2f(tam.x, tam.y));
 		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setOrigin(sf::Vector2f(tamanhoRect.width, tamanhoRect.height) / 2.0f);
 	}
@@ -36,9 +32,6 @@ namespace ElementoGrafico {
 		if (ID != id) { 
 			ID = id; 
 		}
-
-		//teste...
-		//corpo.setOrigin(sf::Vector2f(mapAnimacaoEstatica[ID]->getTamanho().width, mapAnimacaoEstatica[ID]->getTamanho().height) / 2.0f);
 		corpo.setScale(mapAnimacaoEstatica[ID]->getEscala());
 		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 		corpo.setTextureRect(mapAnimacaoEstatica[ID]->getTamanho());

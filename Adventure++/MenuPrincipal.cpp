@@ -40,19 +40,14 @@ namespace Estados {
         max = 3;
     }
 
-    MenuPrincipal::~MenuPrincipal() {
-    }
+    MenuPrincipal::~MenuPrincipal() { }
 
     void MenuPrincipal::atualizar(const float dt) {
         ativo = true;
-        //if (title.getPosicao().y < 200)
-            //title.setPosicao(Matematica::CoordenadaF(title.getPosicao().x, title.getPosicao().y + 1));
     }
 
     /* Menu operation to render all it's objects. */
     void MenuPrincipal::renderizar() {
-        //atualizarVisao();
-        //back.render();
         for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
             (*it)->renderizar();
         titulo.renderizar();

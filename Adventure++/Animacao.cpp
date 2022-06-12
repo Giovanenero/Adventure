@@ -21,6 +21,7 @@ namespace ElementoGrafico {
 	void Animacao::renderizar() {
 		pGrafico->renderizacao(&corpo);
 	}
+
 	void Animacao::setPosicao(Matematica::CoordenadaF pos) {
 		corpo.setPosition(sf::Vector2f(pos.x, pos.y));
 	}
