@@ -1,7 +1,7 @@
 #include "Espinhos.h"
 
 #define DANO_ESPINHOS 20
-#define TOMA_DANO 800
+#define TEMPO_TOMA_DANO 200
 #define TAMANHO_ESPINHOS_X 15.0f
 #define TAMANHO_ESPINHOS_Y 10.0f
 
@@ -27,7 +27,7 @@ namespace Entidade {
         }
         const bool Espinhos::podeTomarDano() {
             contDano++;
-            if (contDano >= TOMA_DANO) {
+            if (contDano >= TEMPO_TOMA_DANO) {
                 contDano = 0;
                 return true;
             }

@@ -1,6 +1,6 @@
 #include "BateGoblin.h"
 
-#define PONTUACAO_BATEGOBLIN 200
+#define PONTUACAO_BATEGOBLIN 500
 
 namespace Entidade {
     namespace Personagem {
