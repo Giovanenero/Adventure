@@ -36,6 +36,7 @@ namespace Entidade {
 					}
 				}
 			}
+
 			void Inimigo::atualizar(const float tempo) {
 				if (posicao.y > 1000.0f) {
 					morrer = true;
@@ -49,10 +50,10 @@ namespace Entidade {
 				}
 				velocidade.y += GRAVIDADE * tempo;
 				posicao.y += velocidade.y * tempo;  
-
 				atualizarImagem(tempo);
 				renderizar();
 			}
+
 			void Inimigo::movimentoAleatorio(const float tempo) {
 				if (aleatorio == 0) {
 					posicao.x += velocidade.x * tempo;
@@ -71,6 +72,7 @@ namespace Entidade {
 					aleatorio = rand() % 3;
 				}
 			}
+
 			const bool Inimigo::perseguirJogadores(const float tempo) {
 				if (pHideo == nullptr) {
 					return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);
@@ -87,6 +89,7 @@ namespace Entidade {
 					}
 				}
 			}
+
 			const bool Inimigo::perseguirJogador(Jogador::Jogador* pJogador, const float tempo) {
 				if (pJogador == nullptr) {
 					std::cout << "pJogador nulo! - class Inimigo" << std::endl;

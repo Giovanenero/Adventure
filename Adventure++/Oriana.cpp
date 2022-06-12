@@ -14,7 +14,6 @@ namespace Entidade {
 
 			Oriana::~Oriana() { }
 
-			//inicializa animacoes
 			void Oriana::inicializacao() {
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaAndando.png", 10, Ids::Ids::oriana_anda, tamanho, Matematica::CoordenadaF(2.2f, 0.9f)); //certo
 				pAnimacaoMovimento->novaAnimacao("textura/jogador/Oriana/orianaAtacando1.png", 7, Ids::Ids::oriana_ataca1, tamanho, Matematica::CoordenadaF(2.0f, 1.15f)); //certo
@@ -39,7 +38,6 @@ namespace Entidade {
 					desligarAndar();
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::oriana_morre);
 					carregandoMorrendo += tempo;
-					//teste...
 					if (carregandoMorrendo > carregarMorrer) {
 						std::cout << "FIM DE JOGO!" << std::endl;
 						exit(1);

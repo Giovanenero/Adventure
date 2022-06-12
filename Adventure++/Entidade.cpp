@@ -5,12 +5,19 @@ namespace Entidade {
 		Ente(id), posicao(pos), tamanho(tam), velocidade(Matematica::CoordenadaF(0.0f, 0.0f)) { }
 
 	Entidade::~Entidade() { }
+
 	void Entidade::setPosicao(Matematica::CoordenadaF pos) { posicao = pos; }
+	
 	Matematica::CoordenadaF Entidade::getPosicao() const { return posicao; }
+	
 	void Entidade::setTamanho(Matematica::CoordenadaF tam) { tamanho = tam; }
+	
 	Matematica::CoordenadaF Entidade::getTamanho() const { return tamanho; }
+	
 	void Entidade::setVelocidade(Matematica::CoordenadaF velocidade) { this->velocidade = velocidade; }
+	
 	Matematica::CoordenadaF Entidade::getVelocidade() const { return velocidade; }
+	
 	Ids::Ids Entidade::getID() const { return ID; }
 
 	void Entidade::colisaoPlataforma(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {

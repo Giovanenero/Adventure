@@ -20,6 +20,7 @@ namespace Entidade {
 				}
 				ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade*>(pProjetil));
 			}
+
 			Jogador::Jogador* Atirador::jogadorMaisProximo(Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Matematica::CoordenadaF posInimigo) {
 				if (pOriana == nullptr) {
 					return static_cast<Jogador::Jogador*>(pHideo);

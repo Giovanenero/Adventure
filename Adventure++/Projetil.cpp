@@ -21,16 +21,20 @@ namespace Entidade {
 	{
 		this->inicializacao();
 	}
+
 	Projetil::~Projetil() {
 		//pAnimacaoMovimento = nullptr;
 	}
+
 	void Projetil::inicializacao() {
 		pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Goblin/goblinBomba.png", 19, Ids::Ids::goblin_bomba, tamanho, Matematica::CoordenadaF(2.5f, 2.5f));
 		//pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Esqueleto/esqueletoBomba.png", 8, Ids::Ids::esqueleto_bomba, tamanho, Matematica::CoordenadaF(1.5f, 1.5f));
 	}
+
 	void Projetil::renderizar() {
 		pAnimacaoMovimento->renderizar();
 	}
+
 	void Projetil::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 		if (pEntidade != nullptr) {
 			if (pEntidade->getID() == Ids::Ids::oriana || pEntidade->getID() == Ids::Ids::hideo) {
@@ -45,6 +49,7 @@ namespace Entidade {
 			}
 		}
 	}
+
 	void Projetil::atualizar(const float tempo) {
 		if (carregarTempoExplosao > TEMPO_EXPLODIR_PROJETIL) {
 			explodir = true;
@@ -79,6 +84,7 @@ namespace Entidade {
 			pAnimacaoMovimento->atualizar(posicao, paraEsquerda, tempo * 0.2f, Ids::Ids::goblin_bomba);
 		}
 	}
+
 	const bool Projetil::podeRemover() const {
 		return explodir;
 	}

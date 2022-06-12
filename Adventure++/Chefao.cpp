@@ -19,10 +19,8 @@ namespace Entidade {
                 Matematica::CoordenadaF(DISTANCIA_CHEFAO_RECONHECER_X, DISTANCIA_CHEFAO_RECONHECER_Y),
                 VIDA_CHEFAO,
                 DANO_CHEFAO),
-                mudarAtaque(rand()%2)
-            {
-                //terminar...
-            }
+                mudarAtaque(rand()%2) { }
+
             Chefao::~Chefao() { }
         }
     }

@@ -12,9 +12,11 @@ namespace Entidade {
         {
             this->inicializacao();
         }
+
         Ponte::~Ponte() {
 
         }
+
         void Ponte::inicializacao() {
             if (tipo_ponte == 1) { //ponte pequena
                 pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/ponte.png", Ids::Ids::ponte, posicao, tamanho, Matematica::CoordenadaF(1.4f, 1.5f));
@@ -27,6 +29,7 @@ namespace Entidade {
                 std::cout << "ERRO: tipo de ponte invalida!" << std::endl;
             }
         }
+
         void Ponte::atualizar() {
             pAnimacaoEstatica->atualizar(Ids::Ids::ponte, posicao);
             pAnimacaoEstatica->renderizar();

@@ -20,17 +20,15 @@ namespace Estados {
         max = 1;
     }
 
-    MenuJogadores::~MenuJogadores() {
+    MenuJogadores::~MenuJogadores() { }
 
-    }
+    void MenuJogadores::atualizar(const float dt) { ativo = true; }
 
-    void MenuJogadores::atualizar(const float dt) {
-        ativo = true;
-    }
     void MenuJogadores::renderizar() {
         for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
             (*it)->renderizar();
     }
+
     void MenuJogadores::resetEstado() {
         for (it = vectorBotoes.begin(); it != vectorBotoes.end(); ++it)
             (*it)->selecionar(false);
@@ -38,6 +36,7 @@ namespace Estados {
         vectorBotoes[selecionado]->selecionar(true);
         Gerenciador::GerenciadorEvento::getGerenciadorEvento()->setMenu(this);
     }
+
     void MenuJogadores::executar() {
         if (ativo) {
             ativo = false;

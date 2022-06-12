@@ -22,9 +22,7 @@ namespace Entidade {
 			carregarMorrer(0.0f),
 			carregarTomarDano(0.0f)
 		{
-			//srand(time(NULL));
 			pAnimacaoMovimento = new ElementoGrafico::AnimacaoMovimento();
-			//arrumar velocidade...
 		}
 
 		Personagem::~Personagem() { 

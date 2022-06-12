@@ -6,6 +6,7 @@ Fundo::Fundo(Ids::Ids id) :
 {
     this->inicializacao();
 }
+
 Fundo::~Fundo() { }
 
 void Fundo::inicializacao() {
@@ -14,6 +15,7 @@ void Fundo::inicializacao() {
     pAnimacaoEstatica->novaAnimacao("textura/Fundo/fundoFloresta.png", Ids::Ids::fundo_floresta, posicao, tamanho, Matematica::CoordenadaF(1.9f, 1.9f));
     pAnimacaoEstatica->novaAnimacao("textura/Fundo/fundoCaverna.jpg", Ids::Ids::fundo_caverna, posicao, tamanho, Matematica::CoordenadaF(2.0f, 1.9f));
 }
+
 void Fundo::atualizar(Matematica::CoordenadaF pos) {
     pAnimacaoEstatica->setPosicao(pos);
     if (ID == Ids::Ids::fase_caverna) {

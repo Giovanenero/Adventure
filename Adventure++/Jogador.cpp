@@ -70,6 +70,7 @@ namespace Entidade {
 					}
 				}
 			}
+
 			void Jogador::podePular() {
 				/*
 					Cinemática: Movimento Retilínio Uniformemente Variado(MRUV)
@@ -82,6 +83,7 @@ namespace Entidade {
 					caindo = false;
 				}
 			}
+
 			void Jogador::atualizar(const float tempo) {
 				atualizarTempoAtaque(tempo);
 				if (andando) {
@@ -94,20 +96,19 @@ namespace Entidade {
 					velocidade.x *= 0.5f;
 				}
 				velocidade.y += GRAVIDADE * tempo;
-
 				posicao.x += velocidade.x * tempo;
 				posicao.y += velocidade.y * tempo;
-
 				if (velocidade.y > 0.0f) {
 					caindo = true;
 				}
-
 				atualizarImagem(tempo);
 				renderizar();
 			}
+
 			void Jogador::setPontuacao(const int pontuacao) {
 				this->pontuacao += pontuacao;
 			}
+
 			const int Jogador::getPontuacao() const {
 				return (int)pontuacao;
 			}

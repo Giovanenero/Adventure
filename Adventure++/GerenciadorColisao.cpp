@@ -15,6 +15,7 @@ namespace Gerenciador {
 			ListaEntidadeMovimento = nullptr;
 		}
 	}
+
 	void GerenciadorColisao::Colisao() {
 		Entidade::Entidade* Entidade1 = nullptr;
 		Entidade::Entidade* Entidade2 = nullptr;
@@ -22,6 +23,10 @@ namespace Gerenciador {
 		Matematica::CoordenadaF distanciaCentro = Matematica::CoordenadaF(0.f, 0.f);
 		int tamLEstatica = (int)ListaEntidadeEstatica->getTamanho();
 		int tamLMovimento = (int)ListaEntidadeMovimento->getTamanho();
+		/*
+			Colisao entre Obstaculos, isto é, obstaculos sofrem o efeito da gravidade
+			também.
+		*/
 		for (int i = 0; i < tamLEstatica; i++) {
 			for (int j = 1; j < tamLEstatica; j++) {
 				Entidade1 = ListaEntidadeEstatica->operator[](i);
@@ -89,9 +94,5 @@ namespace Gerenciador {
 				Entidade2 = nullptr;
 			}
 		}
-		/*
-			Colisao entre Obstaculos, isto é, obstaculos sofrem o efeito da gravidade
-			também.
-		*/
 	}
 }

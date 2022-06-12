@@ -15,6 +15,7 @@ namespace Entidade {
 		void Obstaculo::renderizar() {
 			pAnimacaoEstatica->renderizar();
 		}
+
 		void Obstaculo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 			if (pEntidade->getID() == Ids::Ids::plataforma ||
 				(getID() == Ids::Ids::andaime && pEntidade->getID() == Ids::Ids::andaime) ||
@@ -39,6 +40,7 @@ namespace Entidade {
 				pCaixa->setEmpurrar(false);
 			}
 		}
+
 		void Obstaculo::atualizar(const float tempo) {
 			if (getID() != Ids::Ids::plataforma) {
 				velocidade.y += GRAVIDADE * tempo;

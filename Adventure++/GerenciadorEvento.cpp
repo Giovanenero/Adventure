@@ -22,6 +22,7 @@ namespace Gerenciador {
 			window = pGrafico->getWindow();
 		}
 	}
+
 	GerenciadorEvento::~GerenciadorEvento() {
 		pOriana = nullptr;
 		pHideo = nullptr;
@@ -42,6 +43,7 @@ namespace Gerenciador {
 		}
 		*/
 	}
+
 	GerenciadorEvento* GerenciadorEvento::getGerenciadorEvento() {
 		if (pEvento == nullptr) {
 			pEvento = new GerenciadorEvento();
@@ -81,7 +83,6 @@ namespace Gerenciador {
         }
     }
 
-
 	void GerenciadorEvento::pollEvents(Principal *pPrincipal, Fase::Fase *fase) {
 		sf::Event evento;
 		while (window->pollEvent(evento)) {
@@ -120,6 +121,7 @@ namespace Gerenciador {
             }
 		}
 	}
+
 	void GerenciadorEvento::moverOriana() {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 			pOriana->podePular();
@@ -137,6 +139,7 @@ namespace Gerenciador {
 			pOriana->desligarAndar();
 		}
 	}
+
 	void GerenciadorEvento::moverHideo() {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			pHideo->podePular();

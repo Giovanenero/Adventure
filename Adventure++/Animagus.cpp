@@ -2,6 +2,10 @@
 
 #define VELOCIDADE_ANIMAGUS_X 80.0f
 #define PONTUACAO_ANIMAGUS 5000
+#define CARREGAR_TOMAR_DANO_ANIMAGUS 0.5f
+#define CARREGAR_MORRER_ANIMAGUS 0.55f
+#define CARREGAR_ATAQUE_ANIMAGUS 2.5f
+#define TEMPO_ATAQUE_ANIMAGUS 0.5f
 
 namespace Entidade {
     namespace Personagem {
@@ -11,9 +15,8 @@ namespace Entidade {
             {
                 this->inicializacao();
             }
-            Animagus::~Animagus() {
+            Animagus::~Animagus() { }
 
-            }
             void Animagus::inicializacao() {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAndando.png", 8, Ids::Ids::animagus_anda, tamanho, Matematica::CoordenadaF(3.2f, 1.5f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusAtacando1.png", 8, Ids::Ids::animagus_ataca1, tamanho, Matematica::CoordenadaF(2.5f, 3.45f));
@@ -21,11 +24,12 @@ namespace Entidade {
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusDano.png", 3, Ids::Ids::animagus_tomaDano, tamanho, Matematica::CoordenadaF(3.4f, 1.45f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusMorrendo.png", 7, Ids::Ids::animagus_morre, tamanho, Matematica::CoordenadaF(3.1f, 3.75f));
                 pAnimacaoMovimento->novaAnimacao("textura/Inimigo/Animagus/animagusParado.png", 8, Ids::Ids::animagus_para, tamanho, Matematica::CoordenadaF(3.1f, 3.65f));
-				carregarTomarDano = 0.5f;
-				carregarMorrer = 0.55f;
-				carregarAtaque = 2.5f;
-				tempoAtaque = 0.5f;
+				carregarTomarDano = CARREGAR_TOMAR_DANO_ANIMAGUS;
+				carregarMorrer = CARREGAR_MORRER_ANIMAGUS;
+				carregarAtaque = CARREGAR_ATAQUE_ANIMAGUS;
+				tempoAtaque = TEMPO_ATAQUE_ANIMAGUS;
             }
+
             void Animagus::atualizarImagem(const float tempo) {
 				if (morrer) {
 					pAnimacaoMovimento->atualizar(posicao, olharEsquerda, tempo * 0.8f, Ids::Ids::animagus_morre);
@@ -52,9 +56,11 @@ namespace Entidade {
 					mudarAtaque = rand() % 2;
 				}
             }
+
 			const float Animagus::getVelocidadeEspecifica() const {
 				return VELOCIDADE_ANIMAGUS_X;
 			}
+
 			const short Animagus::getPontuacao() const {
 				return PONTUACAO_ANIMAGUS;
 			}
