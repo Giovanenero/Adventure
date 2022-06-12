@@ -40,98 +40,64 @@ namespace Fase {
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade *>(pHideo));
         }
 
-        //arrumar ineficiente...
-        //Matematica::CoordenadaF tam(100.0f, 30.0f);
-
-
         srand(time(NULL));
-        for (int i = 0; i < 50; i++) { //CHAO
-            Matematica::CoordenadaF pos(i * 100.0f, 350.0f);
+        for (int i = 0; i < 15; i++) { //CHAO
+            Matematica::CoordenadaF pos(i * 800.0f, 350.0f);
             Entidade::Obstaculo::Plataforma* plataforma = new Entidade::Obstaculo::Plataforma(pos);
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
         }
-
-        int pedras = rand() % 15 + 3; // ao menos 3 pedras obstaculos e espinhos
-        for (int i = 0; i < pedras; i++) {
-            Entidade::Obstaculo::Pedra *pe1 = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF(((rand() % 4) * 100.f) + 400.0f + ((rand() % 5) * 400.0f), 250.0f - 50.0f));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade *>(pe1));
-
-            Entidade::Obstaculo::Espinhos* esp = new Entidade::Obstaculo::Espinhos(Matematica::CoordenadaF(650.0f + ((rand() % 4) * 100.f) + ((rand() % 7) * 400.0f), 100.f));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(esp));
-        }
-
-        Entidade::Obstaculo::Pedra* pe2 = new Entidade::Obstaculo::Pedra(Matematica::CoordenadaF((8 * 100.f) + 500.0f, 350.0f - 50.0f));
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(pe2));
-
         for (int i = 0; i < 4; i++) {
-            Entidade::Obstaculo::Andaime *pAndEsq = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(200.0f - 100.0f, 350.0f - 50.0f - i*50.f));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade *>(pAndEsq));
-        }
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(600.0f, -50.0f * i), 6));
 
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1000.0f, -50.0f * i), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1600.0f, -50.0f * i), 6));
+
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1650.0f + (50.0f * i), 0.0f), 11));
+
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(2400.0f, -50.0f * i), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(2850.0f, -50.0f * i), 6));
+
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3600.0f, -50.0f * i), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3350.0f, -50.0f * i), 6));
+
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4000.0f, -50.0f * i), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4000.0f, -50.0f * (i + 5)), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3800.0f, -50.0f * i), 6));
+        
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4600.0f, -50.0f * i), 6));
+            
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f, -50 * i), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f + 1000.0f, -50 * i), 6));
+        }
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f, -50 * 5), 7));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f + 1000.0f, -50 * 5), 7));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1000.0f + 300.0f, -50.0f * 5), 8));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(2400.0f + 300.0f, -50.0f * 5), 8));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3400.0f, -50 * 5), 10));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3250.0f, -50.0f), 10));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3660.0f, -50.0f * 12), 10));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3600.0f, -50 * 7), 7));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4000.0f, -50 * 12), 7));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4600.0f, -50 * 5), 7));
         for (int i = 0; i < 2; i++) {
-            Matematica::CoordenadaF pos(i * 100.0f, 350.0f - 50.0f - 3*50.f);
-            Entidade::Obstaculo::Ponte* plataforma = new Entidade::Obstaculo::Ponte(pos, 1);
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3600.0f, -50 * (i + 5)), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(2600.0f, -50.0f * (i + 6)), 9));
+        
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4400.0f, -50 * i), 6));
+        
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 1900.0f, 0.0f), 6));
         }
-
-        int atiradores = rand() % 6 + 3; //ao menos 3 bate atiradores
-        for (int i = 0; i < atiradores; i++) {
-            Entidade::Personagem::Inimigo::AtiraEsqueleto* pAtiraEsqueleto = new Entidade::Personagem::Inimigo::AtiraEsqueleto(Matematica::CoordenadaF((float)(rand() % 5000), 150.0f), pOriana, pHideo, ListaEntidadeMovimento);
-            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pAtiraEsqueleto));
+        //cria instancias aleatoriamente
+        for (int i = 0; i < 5 + (rand() % 20); i++) {
+            short tipo_obstaculo = (rand() % 3) + 9;
+            for (int j = 0; j < rand() % 5; j++) {
+                short tipo_inimigo = rand() % 4;
+                ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(float(rand() % 7000) + 500.0f, -50.f * 12), tipo_inimigo));
+            }
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(float(rand() % 2000) + 4500.0f, -50.f * i), tipo_obstaculo));
         }
-
-        int esq = rand() % 15 + 3; // ao menos 3 bate esqueletos
-        for (int i = 0; i < esq; i++) {
-            Entidade::Personagem::Inimigo::BateEsqueleto* pBateEsqueleto = new Entidade::Personagem::Inimigo::BateEsqueleto(Matematica::CoordenadaF((float)(rand()%5000), 50.f), pOriana, pHideo);
-            ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pBateEsqueleto));
-        }
-
-        for (int i = 0; i < 4; i++) {
-            Entidade::Obstaculo::Andaime* a = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(1200.0f - 300.0f, 100.0f - 50.f*(i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(a));
-
-            Entidade::Obstaculo::Andaime* b = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(1200.0f + 300.0f, 100.0f - 50.0f* (i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(b));
-        }
-
-        Entidade::Obstaculo::Ponte* ponte = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(1200.0f, 100.0f - 50.0f * 4 - 20.0f), 2);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(ponte));
-
-        //boss
-        Entidade::Personagem::Inimigo::Noturno* noturno = new Entidade::Personagem::Inimigo::Noturno(Matematica::CoordenadaF(4500, 100.f), pOriana, pHideo);
-        ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(noturno));
-
-        //mais plataforma para pular
-        for (int i = 0; i < 4; i++) {
-            Entidade::Obstaculo::Andaime* a = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(3200.0f - 300.0f, 100.0f - 50.f*(i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(a));
-
-            Entidade::Obstaculo::Andaime* b = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(3200.0f + 300.0f, 100.0f - 50.0f* (i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(b));
-        }
-
-        Entidade::Obstaculo::Ponte* ponte2 = new Entidade::Obstaculo::Ponte(Matematica::CoordenadaF(3200.0f, 100.0f - 50.0f * 4 - 20.0f), 2);
-        ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(ponte2));
-
-        for (int i = 0; i < 4; i++) {
-            Entidade::Obstaculo::Andaime* a = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(3300.0f - 300.0f, -110.f - 50.f*(i + 1)));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(a));
-
-        }
-
-
-        //bloqueio final da fase para nao cair
-        for (int i = 0; i < 4; i++) {
-            Entidade::Obstaculo::Andaime *pAndEsq = new Entidade::Obstaculo::Andaime(Matematica::CoordenadaF(4800.f, 350.0f - 50.0f - i*50.f));
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade *>(pAndEsq));
-        }
-
-        for (int i = 0; i < 2; i++) {
-            Matematica::CoordenadaF pos(i * 100.0f + 4800.f, 350.0f - 50.0f - 3*50.f);
-            Entidade::Obstaculo::Ponte* plataforma = new Entidade::Obstaculo::Ponte(pos, 1);
-            ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
-        }
-
+        //boss noturno
+        ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(7000.0f, 0.0f), 5));
     }
     void FaseCaverna::executar() { }
 

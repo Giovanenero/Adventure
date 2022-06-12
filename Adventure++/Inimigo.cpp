@@ -37,7 +37,7 @@ namespace Entidade {
 				}
 			}
 			void Inimigo::atualizar(const float tempo) {
-				if (posicao.y > 2000.0f) {
+				if (posicao.y > 1000.0f) {
 					morrer = true;
 				}
 				atualizarTempoAtaque(tempo);
@@ -74,6 +74,9 @@ namespace Entidade {
 			const bool Inimigo::perseguirJogadores(const float tempo) {
 				if (pHideo == nullptr) {
 					return perseguirJogador(static_cast<Jogador::Jogador*>(pOriana), tempo);
+				}
+				else if (pOriana == nullptr) {
+					return perseguirJogador(static_cast<Jogador::Jogador*>(pHideo), tempo);
 				}
 				else {
 					if (fabs(pOriana->getPosicao().x - posicao.x) < fabs(pHideo->getPosicao().x - posicao.x)) {

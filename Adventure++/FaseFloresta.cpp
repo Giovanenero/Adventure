@@ -59,7 +59,7 @@ namespace Fase {
 
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3400.0f, -50.0f * i), 6));
             
-            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f, -50.0f * i), 6));
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(10000.0f, -50.0f * i), 6));
             
         }
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(600.0f + 300.0f, -50.0f * 5), 8));
@@ -88,10 +88,14 @@ namespace Fase {
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1250.0f + 50.0f * i, 0.0f), 11));
             ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3550.0f + 50.0f * i, 0.0f), 11));
         }
-        ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4200.0f, -200.0f), 5));
+        ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(9700.0f, -200.0f), 4));
 
-        for (int i = 0; i < rand() % 5; i++) {
-            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF((float(rand() % 400) + 3700.0f), 0.0f), 10));
+        srand(time(NULL));
+        for (int i = 0; i < 20; i++) {
+            short tipo_inimigo = rand() % 4;
+            short tipo_obstaculo = 9 + (rand() % 3);
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF((float(rand() % 5300) + 3700.0f), 0.0f), tipo_obstaculo));
+            ListaEntidadeMovimento->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF((float(rand() % 5300) + 3700.0f), 0.0f), tipo_inimigo));
         }
         iniciou = true;
     }

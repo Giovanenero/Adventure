@@ -1,5 +1,3 @@
-GEGE 20000
-plutao 600
-ggizi 0
-gg -572568407
-teste -572600207
+GEGEB 6200
+GEGEA 400
+0 0
