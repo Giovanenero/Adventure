@@ -21,7 +21,7 @@ namespace Entidade {
 				Inimigo(Matematica::CoordenadaF pos, Matematica::CoordenadaF tam, Ids::Ids id, Jogador::Oriana* pOriana, Jogador::Hideo* pHideo, Matematica::CoordenadaF distanciaJogador, const int vida, const int dano);
 				~Inimigo();
 
-				Matematica::CoordenadaF getDistanciaJogador();
+				const Matematica::CoordenadaF getDistanciaJogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 				void movimentoAleatorio(const float tempo);
 				const bool perseguirJogadores(const float tempo);

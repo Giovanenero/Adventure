@@ -8,8 +8,8 @@ namespace Entidade {
 		public:
 			Plataforma(Matematica::CoordenadaF pos);
 			~Plataforma();
-			void atualizar();
 			void inicializacao();
+			void atualizar();
 		};
 	} //namespace Obstaculo
 } //namespace Entidade

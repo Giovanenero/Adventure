@@ -16,8 +16,7 @@ namespace ElementoGrafico {
 	public:
 		LinhaAnimacaoMovimento(const char* caminhoTextura, const unsigned int contaImagem, Matematica::CoordenadaF escala);
 		~LinhaAnimacaoMovimento();
-		void atualizar(bool Esquerda, float tempo);
-		void resetar();
+		void atualizar(const bool Esquerda, const float tempo);
 	};
 }
 

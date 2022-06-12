@@ -39,11 +39,11 @@ namespace Entidade {
 
 		void Personagem::setVida(int vida) { this->vida = vida; }
 
-		int Personagem::getVida() const { return this->vida; }
+		const int Personagem::getVida() const { return this->vida; }
 
 		void Personagem::setMorrer(bool morrer) { this->morrer = morrer; }
 
-		bool Personagem::getMorrer() const { return morrer; }
+		const bool Personagem::getMorrer() const { return morrer; }
 
 		void Personagem::renderizar() { pAnimacaoMovimento->renderizar(); }
 
@@ -76,7 +76,7 @@ namespace Entidade {
 
 		void Personagem::desligarAndar() { andando = false; }
 
-		void Personagem::podeTomarDano(int dano) {
+		void Personagem::podeTomarDano(const int dano) {
 			vida = vida - dano;
 			if (vida <= 0) {
 				morrer = true;

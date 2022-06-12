@@ -26,7 +26,7 @@ namespace Entidade {
 				(getID() == Ids::Ids::ponte && pEntidade->getID() == Ids::Ids::ponte) ||
 				(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::caixa) ||
 				(getID() == Ids::Ids::caixa && pEntidade->getID() == Ids::Ids::ponte) ||
-				(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::caixa) ||
+				//(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::caixa) ||
 				(getID() == Ids::Ids::pedra && pEntidade->getID() == Ids::Ids::ponte) ||
 				(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::caixa) ||
 				(getID() == Ids::Ids::espinhos && pEntidade->getID() == Ids::Ids::ponte))

@@ -1,6 +1,6 @@
 #include "Plataforma.h"
 
-#define TAMANHO_PLATAFORMA_X 100.0f
+#define TAMANHO_PLATAFORMA_X 800.0f
 #define TAMANHO_PLATAFORMA_Y 50.0f
 
 namespace Entidade {
@@ -13,7 +13,7 @@ namespace Entidade {
 		Plataforma::~Plataforma() { }
 
 		void Plataforma::inicializacao() {
-			pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/grama.png", Ids::Ids::plataforma, posicao, tamanho, Matematica::CoordenadaF(2.15f, 2.0f));
+			pAnimacaoEstatica->novaAnimacao("textura/Obstaculos/grama.png", Ids::Ids::plataforma, posicao, tamanho, Matematica::CoordenadaF(11.5f, 2.3f));
 		}
 		void Plataforma::atualizar() {
 			pAnimacaoEstatica->atualizar(Ids::Ids::plataforma, posicao);

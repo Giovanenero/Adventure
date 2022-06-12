@@ -1,5 +1,7 @@
 #include "Inimigo.h"
 
+#define CONT_ALEATORIO 1000
+
 namespace Entidade {
 	namespace Personagem {
 		namespace Inimigo {
@@ -17,7 +19,7 @@ namespace Entidade {
 				pHideo = nullptr;
 			}
 
-			Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
+			const Matematica::CoordenadaF Inimigo::getDistanciaJogador() { return distanciaJogador; }
 
 			void Inimigo::colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade) {
 				velocidade.x = getVelocidadeEspecifica();
@@ -64,7 +66,7 @@ namespace Entidade {
 					desligarAndar();
 				}
 				contAleatorio++;
-				if (contAleatorio == 1000) {
+				if (contAleatorio == CONT_ALEATORIO) {
 					contAleatorio = 0;
 					aleatorio = rand() % 3;
 				}

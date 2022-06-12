@@ -1,5 +1,9 @@
 #include "GerenciadorGrafico.h"
 
+#define TELAX 1200
+#define TELAY 600
+#define FONT_PATH "fonte/pixelart.ttf"
+
 namespace Gerenciador {
 
 	GerenciadorGrafico* GerenciadorGrafico::pGrafico = nullptr;

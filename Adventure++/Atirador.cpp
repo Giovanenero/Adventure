@@ -5,7 +5,8 @@ namespace Entidade {
 		namespace Inimigo {
 			Atirador::Atirador(Lista::ListaEntidade* ListaEntidadeMovimento):
 				jaAtirou(false),
-				ListaEntidadeMovimento(ListaEntidadeMovimento)
+				ListaEntidadeMovimento(ListaEntidadeMovimento),
+				carregarTempoExplosao(0.0f)
 			{ }
 
 			Atirador::~Atirador() { }

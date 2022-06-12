@@ -16,7 +16,6 @@ namespace Fase {
         void atualizar(const float tempo);
         void renderizar();
         void resetEstado();
-
     };
 
 }

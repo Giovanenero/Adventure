@@ -16,7 +16,8 @@ namespace Entidade {
 		explodir(false), 
 		paraEsquerda(paraEsquerda),
 		carregarTempoExplosao(0.0f),
-		posInicio_y(posicao.y)
+		posInicio_y(posicao.y),
+		caindo(false)
 	{
 		this->inicializacao();
 	}
@@ -60,7 +61,7 @@ namespace Entidade {
 		renderizar();
 	}
 
-	Matematica::CoordenadaF Projetil::getVelocidadeProjetil() {
+	const Matematica::CoordenadaF Projetil::getVelocidadeProjetil(){
 		Matematica::CoordenadaF velocidade;
 		velocidade.x = (paraEsquerda) ? -VELOCIDADE_PROJETIL_X : VELOCIDADE_PROJETIL_X;
 		if (posicao.y > posInicio_y - ALTURA_MAXIMA_PROJETIL && !caindo) {

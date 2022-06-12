@@ -13,7 +13,7 @@ namespace Entidade {
 			protected:
 				bool jaAtirou;
 				Lista::ListaEntidade* ListaEntidadeMovimento;
-				float carregarTempoExplosao = 0.f;
+				float carregarTempoExplosao;
 			public:
 				Atirador(Lista::ListaEntidade* ListaEntidadeMovimento);
 				~Atirador();

@@ -6,7 +6,6 @@ namespace Entidade {
         namespace Inimigo {
             class Noturno: public Chefao
             {
-            private:
             public:
                 Noturno(Matematica::CoordenadaF posInicio, Jogador::Oriana* pOriana = nullptr, Jogador::Hideo* pHideo = nullptr);
                 ~Noturno();

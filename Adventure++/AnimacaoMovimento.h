@@ -14,9 +14,8 @@ namespace ElementoGrafico {
 	public:
 		AnimacaoMovimento();
 		~AnimacaoMovimento();
+
 		void novaAnimacao(const char* caminhoTextura, unsigned int contaImagem, Ids::Ids id, Matematica::CoordenadaF tam, Matematica::CoordenadaF escala);
-		void novaAnimacao() { }
-		void atualizar(Matematica::CoordenadaF pos, bool Esquerda, float tempo, Ids::Ids id);
-		void atualizar() { }
+		void atualizar(Matematica::CoordenadaF pos, const bool Esquerda, const float tempo, Ids::Ids id);
 	};
 }

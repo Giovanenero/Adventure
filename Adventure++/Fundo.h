@@ -7,7 +7,6 @@ class Fundo : public Ente
 {
 private:
     ElementoGrafico::AnimacaoEstatica* pAnimacaoEstatica;
-    //static Gerenciador::GerenciadorGrafico* pGrafico;
 public:
     Fundo(Ids::Ids id);
     ~Fundo();

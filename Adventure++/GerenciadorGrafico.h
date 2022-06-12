@@ -7,10 +7,6 @@
 #include <string>
 #include <map>
 
-#define TELAX 1200
-#define TELAY 600
-#define FONT_PATH "fonte/pixelart.ttf"
-
 namespace Gerenciador {
 	class GerenciadorGrafico
 	{
