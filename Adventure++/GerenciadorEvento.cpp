@@ -24,11 +24,6 @@ namespace Gerenciador {
 	}
 
 	GerenciadorEvento::~GerenciadorEvento() {
-		pOriana = nullptr;
-		pHideo = nullptr;
-		window = nullptr;
-		pGrafico = nullptr;
-		/*
 		if (pEvento) {
 			delete(pEvento);
 			pEvento = nullptr;
@@ -40,8 +35,7 @@ namespace Gerenciador {
 		if (pGrafico) {
 			delete(pGrafico);
 			pGrafico = nullptr;
-		}
-		*/
+		}	
 	}
 
 	GerenciadorEvento* GerenciadorEvento::getGerenciadorEvento() {

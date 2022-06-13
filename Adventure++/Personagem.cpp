@@ -26,12 +26,6 @@ namespace Entidade {
 		}
 
 		Personagem::~Personagem() { 
-			/*
-			if (pAnimacaoMovimento) {
-				delete(pAnimacaoMovimento);
-				pAnimacaoMovimento = nullptr;
-			}
-			*/
 			pAnimacaoMovimento = nullptr;
 		}
 

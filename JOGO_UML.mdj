@@ -5719,6 +5719,24 @@
 											"height": 13,
 											"text": "+atualizarImagem(tempo: const float): virtual void",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGBWt9uu/7/SMA=",
+											"_parent": {
+												"$ref": "AAAAAAGBU4cTe24fQak="
+											},
+											"model": {
+												"$ref": "AAAAAAGBWt9uev78EMs="
+											},
+											"fillColor": "#a3ffa3",
+											"font": "Arial;13;0",
+											"left": 6245,
+											"top": 3659,
+											"width": 974.4794921875,
+											"height": 13,
+											"text": "+setJogadores(pOriana: Oriana*, pHideo: Hideo*): void",
+											"horizontalAlignment": 0
 										}
 									],
 									"fillColor": "#a3ffa3",
@@ -5726,7 +5744,7 @@
 									"left": 6240,
 									"top": 3489,
 									"width": 984.4794921875,
-									"height": 173
+									"height": 188
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5772,7 +5790,7 @@
 							"left": 6240,
 							"top": 3368,
 							"width": 984.4794921875,
-							"height": 294,
+							"height": 309,
 							"nameCompartment": {
 								"$ref": "AAAAAAGBU4cTe24Zvqs="
 							},
@@ -10421,7 +10439,7 @@
 							"tail": {
 								"$ref": "AAAAAAGBU5Yz/28KHIs="
 							},
-							"points": "5200:4152;5200:3784;6368:3784;6368:3661",
+							"points": "5200:4152;5200:3784;6368:3784;6368:3676",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBU9v6m8VWaIc="
@@ -10455,7 +10473,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 6689,
-									"top": 3883,
+									"top": 3891,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -10476,7 +10494,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"left": 6674,
-									"top": 3883,
+									"top": 3891,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -10497,7 +10515,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 6719,
-									"top": 3884,
+									"top": 3892,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -10514,7 +10532,7 @@
 							"tail": {
 								"$ref": "AAAAAAGBU7Ji9XIv7yk="
 							},
-							"points": "6704:4120;6704:3661",
+							"points": "6704:4120;6704:3676",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBU9wKzMV/3Ns="
@@ -10607,7 +10625,7 @@
 							"tail": {
 								"$ref": "AAAAAAGBU7xTNXONbXw="
 							},
-							"points": "8264:4176;8264:3792;7096:3792;7096:3661",
+							"points": "8264:4176;8264:3792;7096:3792;7096:3676",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBU9wrbsXbjXE="
@@ -40920,6 +40938,43 @@
 														"$ref": "AAAAAAGBU5QBW27lilw="
 													},
 													"type": "virtual void",
+													"direction": "return"
+												}
+											]
+										},
+										{
+											"_type": "UMLOperation",
+											"_id": "AAAAAAGBWt9uev78EMs=",
+											"_parent": {
+												"$ref": "AAAAAAGBU4cTe24WegU="
+											},
+											"name": "setJogadores",
+											"parameters": [
+												{
+													"_type": "UMLParameter",
+													"_id": "AAAAAAGBWuAJbQLzwJc=",
+													"_parent": {
+														"$ref": "AAAAAAGBWt9uev78EMs="
+													},
+													"name": "pOriana",
+													"type": "Oriana*"
+												},
+												{
+													"_type": "UMLParameter",
+													"_id": "AAAAAAGBWuAJbwL0qlQ=",
+													"_parent": {
+														"$ref": "AAAAAAGBWt9uev78EMs="
+													},
+													"name": "pHideo",
+													"type": "Hideo*"
+												},
+												{
+													"_type": "UMLParameter",
+													"_id": "AAAAAAGBWuAJcAL1evA=",
+													"_parent": {
+														"$ref": "AAAAAAGBWt9uev78EMs="
+													},
+													"type": "void",
 													"direction": "return"
 												}
 											]
