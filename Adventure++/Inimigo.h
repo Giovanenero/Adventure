@@ -23,7 +23,8 @@ namespace Entidade {
 				const Matematica::CoordenadaF getDistanciaJogador();
 				void colisao(Matematica::CoordenadaF intersecao, Entidade* pEntidade);
 				void movimentoAleatorio(const float tempo);
-				const bool perseguirJogadores(const float tempo);
+                void setJogadores(Jogador::Oriana *pOriana, Jogador::Hideo *pHideo);
+                const bool perseguirJogadores(const float tempo);
 				const bool perseguirJogador(Jogador::Jogador* pJogador, const float tempo);
 				virtual void atualizar(const float tempo);
 
