@@ -74,7 +74,7 @@ namespace Fase {
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3400.0f, -50 * 5), 10));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3250.0f, -50.0f), 10));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3660.0f, -50.0f * 12), 10));
-        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3600.0f, -50 * 7), 7));
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3600.0f, -50 * 10), 7));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4000.0f, -50 * 12), 7));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4600.0f, -50 * 5), 7));
         for (int i = 0; i < 2; i++) {
