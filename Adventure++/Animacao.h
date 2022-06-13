@@ -6,6 +6,11 @@
 
 #include <map>
 
+/*
+	Basicamente 70% da namespace ElementoGrafico foi baseado no tutorial:
+	https://www.youtube.com/watch?v=KJJo9QPY8kI&list=PLSPev71NbUEBIQlT2QCd-gN6l_mNVw1cJ&index=7
+*/
+
 namespace ElementoGrafico {
 
 	class Animacao
