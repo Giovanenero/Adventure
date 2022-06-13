@@ -82,6 +82,14 @@ namespace Fase {
         }
         pEvento->setJogadores(pOriana, pHideo);
         tempoTroca = 0;
+        for (int i = 0; i < ListaEntidadeMovimento->getTamanho(); i++) {
+            Entidade::Entidade *e = ListaEntidadeMovimento->operator[](i);
+            Entidade::Personagem::Inimigo::Inimigo *inimigo = dynamic_cast<Entidade::Personagem::Inimigo::Inimigo*>(e);
+            if (inimigo) {
+                inimigo->setJogadores(pOriana, pHideo);
+            }
+        }
+
     }
 
     Entidade::Entidade* Fase::instaciaEntidade(Matematica::CoordenadaF pos, short tipo) {

@@ -123,6 +123,10 @@ namespace Entidade {
 				}
 				return false;
 			}
-		} //namespace Inimigo
+            void Inimigo::setJogadores(Jogador::Oriana *pOriana, Jogador::Hideo *pHideo) {
+                this->pHideo = pHideo;
+                this->pOriana = pOriana;
+            }
+        } //namespace Inimigo
 	} //namespace Personagem
 } //namespace Entidade
