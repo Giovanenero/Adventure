@@ -38,7 +38,7 @@ namespace Fase {
             ListaEntidadeMovimento->adicionarEntidade(static_cast<Entidade::Entidade*>(pHideo));
         }
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 14; i++) {
             Entidade::Obstaculo::Plataforma* plat = new Entidade::Obstaculo::Plataforma(Matematica::CoordenadaF(800.0f * i, 600.0f));
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plat));
         }
@@ -59,6 +59,8 @@ namespace Fase {
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(3400.0f, -50.0f * i), 6));
             
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(10000.0f, -50.0f * i), 6)); 
+        
+            ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(7500.0f, -50.f * i), 6));
         }
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(600.0f + 300.0f, -50.0f * 5), 8));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1400.0f + 300.0f, -50.0f * 5), 8));
@@ -99,7 +101,6 @@ namespace Fase {
         Matematica::CoordenadaF pos;
         Entidade::Personagem::Jogador::Jogador *j = nullptr;
         tempoTroca += tempo;
-
         if (pOriana) {
             j = pOriana;
         } else {

@@ -39,7 +39,7 @@ namespace Fase {
         }
         srand(time(NULL));
         for (int i = 0; i < 11; i++) { //CHAO
-            Matematica::CoordenadaF pos(i * 800.0f, 350.0f);
+            Matematica::CoordenadaF pos(i * 800.0f, 600.0f);
             Entidade::Obstaculo::Plataforma* plataforma = new Entidade::Obstaculo::Plataforma(pos);
             ListaEntidadeEstatica->adicionarEntidade(static_cast<Entidade::Entidade*>(plataforma));
         }
@@ -66,6 +66,7 @@ namespace Fase {
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f, -50 * i), 6));
             ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f + 1000.0f, -50 * i), 6));
         }
+        ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(7500.0f, -50.0f * 6), 7));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f, -50 * 5), 7));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(4500.0f + 2100.0f + 1000.0f, -50 * 5), 7));
         ListaEntidadeEstatica->adicionarEntidade(instaciaEntidade(Matematica::CoordenadaF(1000.0f + 300.0f, -50.0f * 5), 8));
@@ -100,7 +101,7 @@ namespace Fase {
 
     void FaseCaverna::atualizar(const float tempo) {
         Matematica::CoordenadaF pos;
-        Entidade::Personagem::Jogador::Jogador *j;
+        Entidade::Personagem::Jogador::Jogador *j = nullptr;
         tempoTroca += tempo;
         if (pOriana) {
             j = pOriana;
@@ -108,7 +109,7 @@ namespace Fase {
             j = pHideo;
         }
 
-        if (j->getPosicao().y < 315.f) {
+        if (j->getPosicao().y < 315.0f) {
             pos.operator=(Matematica::CoordenadaF(j->getPosicao().x, j->getPosicao().y));
         }
         else {
