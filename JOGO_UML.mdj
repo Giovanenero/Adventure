@@ -35296,6 +35296,103 @@
 							"headQualifiersCompartment": {
 								"$ref": "AAAAAAGBWAsR+4Jok7A="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGBW1wHVCDMiew=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;30;0",
+							"left": 352,
+							"top": 96,
+							"width": 1049,
+							"height": 81,
+							"text": "13/06//2022 // GIOVANE LIMAS SALVI e GUILHERME BIGNELLI.\nTURMA S71 - ENGENHARIA DA COMPUTAÇÃO."
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGBW15Cx0ZGVHE=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;25;0",
+							"left": 3960,
+							"top": 88,
+							"width": 726,
+							"height": 87,
+							"text": "O atributo ID do tipo Ids é um class enum que é utilizado em todo código para identificação de personagens, obstáculos, projéteis e fundo."
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAGBW15/pkdFUnI=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAGBUxDsFLDJ330="
+							},
+							"tail": {
+								"$ref": "AAAAAAGBUxDsFLDJ330="
+							},
+							"points": "6032:16;6032:-4;12078:-4;12078:4472;12048:4472"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAGBW16Y+UyzR0A=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAGBW15Cx0ZGVHE="
+							},
+							"tail": {
+								"$ref": "AAAAAAGBUxGmFLDrNk0="
+							},
+							"points": "4944:216;4322:216;4322:174"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGBW2RxgJUTcJQ=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;30;0",
+							"left": 1560,
+							"top": 88,
+							"width": 745,
+							"height": 121,
+							"text": "A classe Coordenada  é utilizada para operações matemáticas, como soma, subtração, divisão multiplicação."
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGBW2c4AuBwkoE=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 8576,
+							"top": 6808,
+							"width": 153,
+							"height": 129,
+							"text": "O atributo enum IDEstado é utilizado pela máquina de estados, exclusivamente para identificação e mudança entre estados como Menus e Fases."
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAGBW2fFovuP2kU=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAGBW2c4AuBwkoE="
+							},
+							"tail": {
+								"$ref": "AAAAAAGBVIjmhgj5j14="
+							},
+							"points": "8474:7008;8652:7008;8652:6936"
 						}
 					]
 				},
