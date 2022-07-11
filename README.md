@@ -8,6 +8,10 @@ Este jogo foi um projeto da disciplina de Técnicas de Programação implementad
 
 # Anexos
 
+## Fase Floresta
+
 ![Mobile 1](https://github.com/Giovanenero/Projeto-Jogo-Plataforma2D/blob/master/Adventure%2B%2B/textura/Fundo/FaseFloresta.png)
+
+## Fase Caverna
 
 ![Mobile 2](https://github.com/Giovanenero/Projeto-Jogo-Plataforma2D/blob/master/Adventure%2B%2B/textura/Fundo/FaseCaverna.png)
